@@ -1,0 +1,533 @@
+j_offset	s_duration	s_measure	s_notes	s_intervals	s_isOnset	a_measure	a_duration	a_annotationNumber	a_romanNumeral	a_isOnset	a_pitchNames	a_bass	a_root	a_inversion	a_quality	a_pcset	a_localKey	a_tonicizedKey	a_degree1	a_degree2
+0.0	1.0	0	['F#4']	[]	[True]	0.0	1.0	0.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+1.0	2.0	1	['D3', 'A3', 'F#4']	['P5', 'M3']	[True, True, True]	1.0	2.0	1.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+3.0	1.0	1	['D3', 'A#3', 'F#4']	['A5', 'M3']	[False, True, False]	1.0	1.0	2.0	I+	True	('D', 'F#', 'A#')	D	D	0.0	augmented triad	(2, 6, 10)	D	D	1	None
+4.0	1.0	2	['G2', 'G3', 'B3', 'F#4']	['P1', 'M3', 'M7']	[True, True, True, False]	2.0	2.0	3.0	IV	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+5.0	1.0	2	['G2', 'G3', 'B3', 'G4']	['P1', 'M3', 'P1']	[False, False, False, True]	2.0	2.0	3.0	IV	False	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+6.0	1.0	2	['G2', 'G3', 'B3', 'E4']	['P1', 'M3', 'M6']	[False, False, False, True]	2.0	1.0	4.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+7.0	1.0	3	['G2', 'E3', 'A3', 'D4']	['M6', 'M2', 'P5']	[False, True, True, True]	3.0	1.0	5.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+8.0	1.0	3	['G2', 'E3', 'A3', 'C#4']	['M6', 'M2', 'A4']	[True, True, True, True]	3.0	1.0	6.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+9.0	0.5	3	['F#2', 'F#3', 'A3', 'D4']	['P1', 'm3', 'm6']	[True, True, True, True]	3.0	1.0	7.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+9.5	0.5	3	['D2', 'F#3', 'A3', 'D4']	['M3', 'P5', 'P1']	[True, False, False, False]	3.0	1.0	7.0	I	False	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+10.0	1.0	4	['A2', 'A3', 'D4', 'F#4']	['P1', 'P4', 'M6']	[True, True, True, True]	4.0	1.0	8.0	Cad	True	('A', 'D', 'F#')	A	D	2.0	major triad	(2, 6, 9)	D	D	1	None
+11.0	1.0	4	['C#4', 'E4']	['m3']	[True, True]	4.0	2.0	9.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+12.0	1.0	4	['F#4']	[]	[True]	4.0	2.0	9.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+13.0	2.0	5	['D3', 'A3', 'D4', 'F#4']	['P5', 'P1', 'M3']	[True, True, True, True]	5.0	3.0	10.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+15.0	1.0	5	['D3', 'A3', 'D4', 'G4']	['P5', 'P1', 'P4']	[False, False, False, True]	5.0	3.0	10.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+16.0	1.0	6	['B2', 'B3', 'D4', 'G4']	['P1', 'm3', 'm6']	[True, True, False, False]	6.0	1.0	11.0	vi	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+17.0	1.0	6	['B2', 'B3', 'D4', 'F#4']	['P1', 'm3', 'P5']	[False, False, False, True]	6.0	1.0	12.0	vi	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+18.0	1.0	6	['B2', 'B3', 'D4', 'E#4']	['P1', 'm3', 'A4']	[True, True, True, True]	6.0	1.0	13.0	viio7	True	('B', 'D', 'E#', 'G#')	B	E#	2.0	diminished seventh chord	(2, 5, 8, 11)	f#	f#	#7	None
+19.0	1.0	7	['A2', 'A3', 'C#4', 'F#4']	['P1', 'M3', 'M6']	[True, True, True, True]	7.0	1.0	14.0	i	True	('A', 'C#', 'F#')	A	F#	1.0	minor triad	(1, 6, 9)	f#	f#	1	None
+20.0	1.0	7	['F#2', 'A3', 'C#4', 'F#4']	['m3', 'P5', 'P1']	[True, True, True, False]	7.0	1.0	15.0	i	True	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+21.0	0.5	7	['C#2', 'B3', 'E#4', 'A4']	['m7', 'M3', 'm6']	[True, True, True, True]	7.0	0.5	16.0	V7	True	('C#', 'E#', 'G#', 'B')	C#	C#	0.0	dominant seventh chord	(1, 5, 8, 11)	f#	f#	5	None
+21.5	0.5	7	['C#2', 'B3', 'E#4', 'G#4']	['m7', 'M3', 'P5']	[False, False, False, True]	7.0	0.5	17.0	V7	True	('C#', 'E#', 'G#', 'B')	C#	C#	0.0	dominant seventh chord	(1, 5, 8, 11)	f#	f#	5	None
+22.0	1.0	8	['F#2', 'A3', 'F#4']	['m3', 'P1']	[True, True, True]	8.0	2.0	18.0	i	True	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+23.0	1.0	8	['F#2', 'A3', 'F#4']	['m3', 'P1']	[True, True, True]	8.0	2.0	18.0	i	False	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+24.0	1.0	8	['F#4', 'A4']	['m3']	[True, True]	8.0	1.0	19.0	V7/vi	True	('B', 'D#', 'F#', 'A')	B	B	0.0	dominant seventh chord	(3, 6, 9, 11)	G	e	5	6
+25.0	1.0	9	['B3', 'F#4', 'A4']	['P5', 'm7']	[True, False, False]	9.0	1.0	20.0	V7/vi	True	('B', 'D#', 'F#', 'A')	B	B	0.0	dominant seventh chord	(3, 6, 9, 11)	G	e	5	6
+26.0	1.0	9	['B3', 'E4', 'G4']	['P4', 'm6']	[False, True, True]	9.0	1.0	21.0	V/vi	True	('B', 'D#', 'F#')	B	B	0.0	major triad	(3, 6, 11)	G	e	5	6
+27.0	1.0	9	['A3', 'B3', 'D#4', 'F#4']	['M2', 'A4', 'M6']	[True, False, True, True]	9.0	1.0	22.0	V7/vi	True	('A', 'B', 'D#', 'F#')	A	B	3.0	dominant seventh chord	(3, 6, 9, 11)	G	e	5	6
+28.0	1.0	10	['G3', 'B3', 'E4', 'G4']	['M3', 'M6', 'P1']	[True, False, True, True]	10.0	2.0	23.0	vi	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	G	G	6	None
+29.0	1.0	10	['F#3', 'A3', 'F#4', 'A4']	['m3', 'P1', 'm3']	[True, True, True, True]	10.0	2.0	23.0	vi	False	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	G	G	6	None
+30.0	1.0	10	['E3', 'G3', 'G4', 'B4']	['m3', 'm3', 'P5']	[True, True, True, True]	10.0	1.0	24.0	vi	True	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	G	G	6	None
+31.0	1.0	11	['D3', 'F#3', 'A4', 'C5']	['M3', 'P5', 'm7']	[True, True, True, True]	11.0	1.0	25.0	V7	True	('D', 'F#', 'A', 'C')	D	D	0.0	dominant seventh chord	(0, 2, 6, 9)	G	G	5	None
+32.0	1.0	11	['D3', 'B4', 'D5']	['M6', 'P1']	[False, True, True]	11.0	1.0	26.0	V	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	G	G	5	None
+33.0	1.0	11	['D3', 'C4', 'C5', 'E5']	['m7', 'm7', 'M2']	[False, True, True, True]	11.0	1.0	27.0	V9	True	('D', 'F#', 'A', 'C', 'E')	D	D	0.0	dominant-ninth	(0, 2, 4, 6, 9)	G	G	5	None
+34.0	2.0	12	['D3', 'C4', 'F#4', 'A4']	['m7', 'M3', 'P5']	[False, True, True, True]	12.0	3.0	28.0	V7	True	('D', 'F#', 'A', 'C')	D	D	0.0	dominant seventh chord	(0, 2, 6, 9)	G	G	5	None
+36.0	1.0	12	['B4']	[]	[True]	12.0	3.0	28.0	V7	False	('D', 'F#', 'A', 'C')	D	D	0.0	dominant seventh chord	(0, 2, 6, 9)	G	G	5	None
+37.0	2.0	13	['G3', 'D4', 'B4']	['P5', 'M3']	[True, True, True]	13.0	2.0	29.0	I	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	G	G	1	None
+39.0	1.0	13	['G3', 'D#4', 'B4']	['A5', 'M3']	[False, True, False]	13.0	1.0	30.0	I+	True	('G', 'B', 'D#')	G	G	0.0	augmented triad	(3, 7, 11)	G	G	1	None
+40.0	1.0	14	['C3', 'C4', 'E4', 'B4']	['P1', 'M3', 'M7']	[True, True, True, False]	14.0	2.0	31.0	IV	True	('C', 'E', 'G')	C	C	0.0	major triad	(0, 4, 7)	G	G	4	None
+41.0	1.0	14	['C3', 'C4', 'E4', 'C5']	['P1', 'M3', 'P1']	[False, False, False, True]	14.0	2.0	31.0	IV	False	('C', 'E', 'G')	C	C	0.0	major triad	(0, 4, 7)	G	G	4	None
+42.0	1.0	14	['C3', 'C4', 'E4', 'A4']	['P1', 'M3', 'M6']	[False, False, False, True]	14.0	1.0	32.0	ii	True	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	G	G	2	None
+43.0	1.0	15	['C3', 'A3', 'D4', 'G4']	['M6', 'M2', 'P5']	[False, True, True, True]	15.0	1.0	33.0	V7	True	('C', 'D', 'F#', 'A')	C	D	3.0	dominant seventh chord	(0, 2, 6, 9)	G	G	5	None
+44.0	1.0	15	['C3', 'A3', 'D4', 'F#4']	['M6', 'M2', 'A4']	[True, True, True, True]	15.0	1.0	34.0	V7	True	('C', 'D', 'F#', 'A')	C	D	3.0	dominant seventh chord	(0, 2, 6, 9)	G	G	5	None
+45.0	0.5	15	['B2', 'B3', 'D4', 'G4']	['P1', 'm3', 'm6']	[True, True, True, True]	15.0	1.0	35.0	I	True	('B', 'D', 'G')	B	G	1.0	major triad	(2, 7, 11)	G	G	1	None
+45.5	0.5	15	['G2', 'B3', 'D4', 'G4']	['M3', 'P5', 'P1']	[True, False, False, False]	15.0	1.0	35.0	I	False	('B', 'D', 'G')	B	G	1.0	major triad	(2, 7, 11)	G	G	1	None
+46.0	1.0	16	['D3', 'D4', 'G4', 'B4']	['P1', 'P4', 'M6']	[True, True, True, True]	16.0	1.0	36.0	Cad	True	('D', 'G', 'B')	D	G	2.0	major triad	(2, 7, 11)	G	G	1	None
+47.0	1.0	16	['F#4', 'A4']	['m3']	[True, True]	16.0	1.0	37.0	V	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	G	G	5	None
+48.0	1.0	16	['F#3', 'D4', 'A#4']	['m6', 'M3']	[True, True, True]	16.0	1.0	38.0	V+	True	('F#', 'A#', 'D')	F#	D	1.0	augmented triad	(2, 6, 10)	G	G	5	None
+49.0	1.0	17	['G3', 'D4', 'C5']	['P5', 'P4']	[True, True, True]	17.0	2.0	39.0	I	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	G	G	1	None
+50.0	1.0	17	['B4']	[]	[True]	17.0	2.0	39.0	I	False	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	G	G	1	None
+51.0	1.0	17	['E3', 'A3', 'G4', 'C#5']	['P4', 'm3', 'M6']	[True, True, True, True]	17.0	1.0	40.0	V7/V	True	('E', 'G', 'A', 'C#')	E	A	2.0	dominant seventh chord	(1, 4, 7, 9)	G	D	5	5
+52.0	1.0	18	['F#3', 'A3', 'A4', 'E5']	['m3', 'm3', 'm7']	[True, True, True, True]	18.0	1.0	41.0	V	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	G	G	5	None
+53.0	1.0	18	['D5']	[]	[True]	18.0	1.0	42.0	V	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	G	G	5	None
+54.0	1.0	18	['C#3', 'A3', 'E4', 'E5']	['m6', 'm3', 'm3']	[True, True, True, True]	18.0	1.0	43.0	V7	True	('C#', 'E', 'G', 'A')	C#	A	1.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+55.0	1.0	19	['D3', 'A3', 'G4', 'G5']	['P5', 'P4', 'P4']	[True, True, True, True]	19.0	1.0	44.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+56.0	1.0	19	['F#4', 'F#5']	['P1']	[True, True]	19.0	1.0	45.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+57.0	1.0	19	['E3', 'G4', 'D5', 'G5']	['m3', 'm7', 'm3']	[True, True, True, True]	19.0	1.0	46.0	ii7	True	('E', 'G', 'B', 'D')	E	E	0.0	minor seventh chord	(2, 4, 7, 11)	D	D	2	None
+58.0	3.0	20	['E#3', 'D4', 'G#4', 'D5', 'G#5']	['d7', 'm3', 'd7', 'm3']	[True, True, True, True, True]	20.0	3.0	47.0	viio7/iii	True	('E#', 'G#', 'B', 'D')	E#	E#	0.0	diminished seventh chord	(2, 5, 8, 11)	D	f#	#7	3
+61.0	3.0	21	['F#3', 'D4', 'G#4', 'D5', 'G#5']	['m6', 'M2', 'm6', 'M2']	[True, False, False, False, False]	21.0	3.0	48.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+64.0	2.0	22	['F#3', 'D4', 'A4', 'D5', 'A5']	['m6', 'm3', 'm6', 'm3']	[False, False, True, False, True]	22.0	2.0	49.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+66.0	1.0	22	['A#4', 'A#5']	['P1']	[True, True]	22.0	1.0	50.0	I+	True	('F#', 'A#', 'D')	F#	D	1.0	augmented triad	(2, 6, 10)	D	D	1	None
+67.0	3.0	23	['A#4', 'A#5']	['P1']	[True, True]	23.0	3.0	51.0	I+	True	('F#', 'A#', 'D')	F#	D	1.0	augmented triad	(2, 6, 10)	D	D	1	None
+70.0	1.0	24	['B4', 'B5']	['P1']	[True, True]	24.0	3.0	52.0	IV	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+71.0	1.0	24	['G4', 'G5']	['P1']	[True, True]	24.0	3.0	52.0	IV	False	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+72.0	1.0	24	['F#4', 'F#5']	['P1']	[True, True]	24.0	3.0	52.0	IV	False	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+73.0	3.0	25	['G3', 'B3', 'E#4', 'E#5']	['M3', 'A6', 'A6']	[True, True, True, True]	25.0	3.0	53.0	Ger7/vi	True	('G', 'B', 'D', 'E#')	G	E#	1.0	German augmented sixth chord	(2, 5, 7, 11)	D	b	#4	6
+76.0	1.0	26	['F#3', 'A#3', 'F#4', 'F#5']	['M3', 'P1', 'P1']	[True, True, True, True]	26.0	3.0	54.0	V/vi	True	('F#', 'A#', 'C#')	F#	F#	0.0	major triad	(1, 6, 10)	D	b	5	6
+77.0	1.0	26	['F#3', 'A#3', 'F#4', 'F#5']	['M3', 'P1', 'P1']	[True, True, True, True]	26.0	3.0	54.0	V/vi	False	('F#', 'A#', 'C#')	F#	F#	0.0	major triad	(1, 6, 10)	D	b	5	6
+78.0	1.0	26	['A#4', 'A#5']	['P1']	[True, True]	26.0	3.0	54.0	V/vi	False	('F#', 'A#', 'C#')	F#	F#	0.0	major triad	(1, 6, 10)	D	b	5	6
+79.0	3.0	27	['A#4', 'A#5']	['P1']	[True, True]	27.0	3.0	55.0	V/vi	True	('F#', 'A#', 'C#')	F#	F#	0.0	major triad	(1, 6, 10)	D	b	5	6
+82.0	1.0	28	['B4', 'B5']	['P1']	[True, True]	28.0	3.0	56.0	ii	True	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+83.0	1.0	28	['G4', 'G5']	['P1']	[True, True]	28.0	3.0	56.0	ii	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+84.0	1.0	28	['E4', 'E5']	['P1']	[True, True]	28.0	3.0	56.0	ii	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+85.0	3.0	29	['G2', 'A3', 'D4', 'D5']	['M2', 'P5', 'P5']	[True, True, True, True]	29.0	3.0	57.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+88.0	1.0	30	['G2', 'A3', 'C#4', 'C#5']	['M2', 'A4', 'A4']	[False, False, True, True]	30.0	2.0	58.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+89.0	1.0	30	['G2']	[]	[False]	30.0	2.0	58.0	V7	False	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+90.0	1.0	30	['F#2', 'A3', 'D4', 'D5']	['m3', 'm6', 'm6']	[True, True, True, True]	30.0	1.0	59.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+91.0	1.0	31	['G2', 'A#3', 'F#4', 'F#5']	['A2', 'M7', 'M7']	[True, True, True, True]	31.0	2.0	60.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+92.0	1.0	31	['B3', 'F#4', 'F#5']	['P5', 'P5']	[True, False, False]	31.0	2.0	60.0	ii	False	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+93.0	1.0	31	['G3', 'E4', 'E5']	['M6', 'M6']	[True, True, True]	31.0	1.0	61.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+94.0	1.0	32	['A2', 'E3', 'G4', 'G5']	['P5', 'm7', 'm7']	[True, True, True, True]	32.0	3.0	62.0	V7	True	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+95.0	1.0	32	['A3', 'G4', 'G5']	['m7', 'm7']	[True, False, False]	32.0	3.0	62.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+96.0	1.0	32	['G3', 'C#4', 'C#5']	['A4', 'A4']	[True, True, True]	32.0	3.0	62.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+97.0	1.0	33	['D2', 'F#3', 'D4', 'D5']	['M3', 'P1', 'P1']	[True, True, True, True]	33.0	3.0	63.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+98.0	1.0	33	['D2', 'F#3', 'D4', 'D5']	['M3', 'P1', 'P1']	[True, True, True, True]	33.0	3.0	63.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+99.0	1.0	33	['F#3']	[]	[True]	33.0	3.0	63.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+100.0	1.0	34	['F#3']	[]	[True]	34.0	3.0	64.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+101.0	1.0	34	['G3']	[]	[True]	34.0	3.0	64.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+102.0	1.0	34	['E3']	[]	[True]	34.0	3.0	64.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+103.0	1.0	35	['D3']	[]	[True]	35.0	3.0	65.0	V	True	('C#', 'E', 'A')	C#	A	1.0	major triad	(1, 4, 9)	D	D	5	None
+104.0	1.0	35	['C#3']	[]	[True]	35.0	3.0	65.0	V	False	('C#', 'E', 'A')	C#	A	1.0	major triad	(1, 4, 9)	D	D	5	None
+105.0	1.0	35	['C#3', 'A3']	['m6']	[False, True]	35.0	3.0	65.0	V	False	('C#', 'E', 'A')	C#	A	1.0	major triad	(1, 4, 9)	D	D	5	None
+106.0	1.0	36	['C#3', 'A3']	['m6']	[False, True]	36.0	3.0	66.0	V7	True	('C#', 'E', 'G', 'A')	C#	A	1.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+107.0	1.0	36	['C#3', 'B3']	['m7']	[False, True]	36.0	3.0	66.0	V7	False	('C#', 'E', 'G', 'A')	C#	A	1.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+108.0	1.0	36	['C#3', 'G3']	['d5']	[False, True]	36.0	3.0	66.0	V7	False	('C#', 'E', 'G', 'A')	C#	A	1.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+109.0	1.0	37	['D3', 'G3']	['P4']	[True, True]	37.0	1.0	67.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+110.0	1.0	37	['D3', 'F#3']	['M3']	[False, True]	37.0	2.0	68.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+111.0	1.0	37	['D3', 'F#3', 'D5']	['M3', 'P1']	[False, False, True]	37.0	2.0	68.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+112.0	1.0	38	['D3', 'F#3', 'D5']	['M3', 'P1']	[False, False, True]	38.0	2.0	69.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+113.0	1.0	38	['D3', 'F#3', 'E5']	['M3', 'M2']	[False, False, True]	38.0	2.0	69.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+114.0	1.0	38	['D3', 'F#3', 'C5']	['M3', 'm7']	[False, False, True]	38.0	1.0	70.0	V7/IV	True	('D', 'F#', 'A', 'C')	D	D	0.0	dominant seventh chord	(0, 2, 6, 9)	D	G	5	4
+115.0	1.0	39	['D#3', 'F#4', 'C5']	['m3', 'd7']	[True, True, True]	39.0	1.0	71.0	V/ii	True	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+116.0	1.0	39	['D#3', 'F#4', 'B4']	['m3', 'm6']	[False, False, True]	39.0	2.0	72.0	V/ii	True	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+117.0	1.0	39	['D#3', 'F#4', 'B4', 'B5']	['m3', 'm6', 'm6']	[False, False, False, True]	39.0	2.0	72.0	V/ii	False	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+118.0	1.0	40	['D#3', 'F#4', 'B4', 'B5']	['m3', 'm6', 'm6']	[False, False, False, True]	40.0	3.0	73.0	V/ii	True	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+119.0	1.0	40	['D#3', 'F#4', 'B4', 'C6']	['m3', 'm6', 'd7']	[False, False, False, True]	40.0	3.0	73.0	V/ii	False	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+120.0	1.0	40	['D#3', 'F#4', 'B4', 'A5']	['m3', 'm6', 'd5']	[False, False, False, True]	40.0	3.0	73.0	V/ii	False	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+121.0	1.0	41	['E3', 'G4', 'B4', 'G5']	['m3', 'P5', 'm3']	[True, True, False, True]	41.0	2.0	74.0	ii	True	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+122.0	1.0	41	['A5']	[]	[True]	41.0	2.0	74.0	ii	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+123.0	1.0	41	['F#3', 'A4', 'D#5', 'F#5']	['m3', 'M6', 'P1']	[True, True, True, True]	41.0	1.0	75.0	viio7/ii	True	('F#', 'A', 'C', 'D#')	F#	D#	1.0	diminished seventh chord	(0, 3, 6, 9)	D	e	#7	2
+124.0	1.0	42	['G3', 'G4', 'B4', 'E5']	['P1', 'M3', 'M6']	[True, True, True, True]	42.0	2.0	76.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+125.0	1.0	42	['F#5']	[]	[True]	42.0	2.0	76.0	ii	False	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+126.0	1.0	42	['G#3', 'F4', 'B4', 'D5']	['d7', 'm3', 'd5']	[True, True, True, True]	42.0	1.0	77.0	viio7/V	True	('G#', 'B', 'D', 'F')	G#	G#	0.0	diminished seventh chord	(2, 5, 8, 11)	D	A	7	5
+127.0	1.0	43	['A3', 'E4', 'A4', 'C#5']	['P5', 'P1', 'M3']	[True, True, True, True]	43.0	1.0	78.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+128.0	1.0	43	['A3', 'F#4', 'D5']	['M6', 'P4']	[False, True, True]	43.0	2.0	79.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+129.0	1.0	43	['A3', 'D4', 'B4']	['P4', 'M2']	[False, True, True]	43.0	2.0	79.0	I	False	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+130.0	1.0	44	['A3', 'C#4', 'E4', 'A4']	['M3', 'P5', 'P1']	[False, True, True, True]	44.0	1.0	80.0	V	True	('C#', 'E', 'A')	C#	A	1.0	major triad	(1, 4, 9)	D	D	5	None
+131.0	1.0	44	['A3', 'D4', 'F#4', 'B4']	['P4', 'M6', 'M2']	[False, True, True, True]	44.0	1.0	81.0	vi	True	('D', 'F#', 'B')	D	B	1.0	minor triad	(2, 6, 11)	D	D	6	None
+132.0	1.0	44	['A3', 'B3', 'D4', 'G4']	['M2', 'P4', 'm7']	[False, True, True, True]	44.0	1.0	82.0	IV	True	('B', 'D', 'G')	B	G	1.0	major triad	(2, 7, 11)	D	D	4	None
+133.0	1.0	45	['A2', 'A3', 'C#4', 'F#4']	['P1', 'M3', 'M6']	[True, True, True, True]	45.0	1.0	83.0	iii	True	('A', 'C#', 'F#')	A	F#	1.0	minor triad	(1, 6, 9)	D	D	3	None
+134.0	1.0	45	['A2', 'B3', 'D4', 'G4']	['M2', 'P4', 'm7']	[False, True, True, True]	45.0	1.0	84.0	IV	True	('B', 'D', 'G')	B	G	1.0	major triad	(2, 7, 11)	D	D	4	None
+135.0	1.0	45	['A2', 'G3', 'B3', 'E4']	['m7', 'M2', 'P5']	[False, True, True, True]	45.0	1.0	85.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+136.0	1.0	46	['A2', 'F#3', 'A3', 'D4']	['M6', 'P1', 'P4']	[False, True, True, True]	46.0	1.0	86.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+137.0	1.0	46	['A2', 'G3', 'B3', 'E4']	['m7', 'M2', 'P5']	[False, True, True, True]	46.0	1.0	87.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+138.0	1.0	46	['A#2', 'G3', 'C#4']	['d7', 'm3']	[True, True, True]	46.0	1.0	88.0	viio7/vi	True	('A#', 'C#', 'E', 'G')	A#	A#	0.0	diminished seventh chord	(1, 4, 7, 10)	D	b	#7	6
+139.0	1.0	47	['B2', 'F#3', 'D4']	['P5', 'm3']	[True, True, True]	47.0	3.0	89.0	vi	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+140.0	1.0	47	['A#2', 'F#3', 'D4']	['m6', 'd4']	[True, False, False]	47.0	3.0	89.0	vi	False	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+141.0	1.0	47	['B2', 'F#3', 'D4']	['P5', 'm3']	[True, False, False]	47.0	3.0	89.0	vi	False	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+142.0	1.0	48	['G#2', 'B3', 'D4', 'E4']	['m3', 'd5', 'm6']	[True, True, False, True]	48.0	3.0	90.0	V7/V	True	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+143.0	1.0	48	['F#2', 'B3', 'D4', 'E4']	['P4', 'm6', 'm7']	[True, False, False, False]	48.0	3.0	90.0	V7/V	False	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+144.0	1.0	48	['G#2', 'B3', 'D4', 'E4']	['m3', 'd5', 'm6']	[True, False, False, False]	48.0	3.0	90.0	V7/V	False	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+145.0	1.0	49	['A2', 'A3', 'D4', 'F#4']	['P1', 'P4', 'M6']	[True, True, False, True]	49.0	3.0	91.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+146.0	1.0	49	['A2', 'A3', 'G4', 'B4']	['P1', 'm7', 'M2']	[False, False, True, True]	49.0	3.0	91.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+147.0	1.0	49	['A2', 'A3', 'F#4', 'A4']	['P1', 'M6', 'P1']	[False, False, True, True]	49.0	3.0	91.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+148.0	1.0	50	['A2', 'A3', 'E4', 'G4']	['P1', 'P5', 'm7']	[False, False, True, True]	50.0	1.0	92.0	V7	True	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+149.0	1.0	50	['A2', 'A3', 'D4', 'F#4']	['P1', 'P4', 'M6']	[False, False, True, True]	50.0	1.0	93.0	I	True	('A', 'D', 'F#')	A	D	2.0	major triad	(2, 6, 9)	D	D	1	None
+150.0	1.0	50	['A#2', 'A#3', 'C#4', 'E4']	['P1', 'm3', 'd5']	[True, True, True, True]	50.0	1.0	94.0	viio/vi	True	('A#', 'C#', 'E')	A#	A#	0.0	diminished triad	(1, 4, 10)	D	b	#7	6
+151.0	1.0	51	['B2', 'B3', 'D4', 'D5']	['P1', 'm3', 'm3']	[True, True, True, True]	51.0	3.0	95.0	vi	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+152.0	1.0	51	['A#2', 'A#3', 'D4', 'D5']	['P1', 'd4', 'd4']	[True, True, False, False]	51.0	3.0	95.0	vi	False	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+153.0	1.0	51	['B2', 'B3', 'D4', 'D5']	['P1', 'm3', 'm3']	[True, True, False, False]	51.0	3.0	95.0	vi	False	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+154.0	1.0	52	['G#2', 'G#3', 'D4', 'D5', 'E5']	['P1', 'd5', 'd5', 'm6']	[True, True, True, True, True]	52.0	3.0	96.0	V7/V	True	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+155.0	1.0	52	['F#2', 'F#3', 'D4', 'D5', 'E5']	['P1', 'm6', 'm6', 'm7']	[True, True, False, False, False]	52.0	3.0	96.0	V7/V	False	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+156.0	1.0	52	['G#2', 'G#3', 'D4', 'D5', 'E5']	['P1', 'd5', 'd5', 'm6']	[True, True, False, False, False]	52.0	3.0	96.0	V7/V	False	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+157.0	1.0	53	['A2', 'A3', 'D4', 'D5', 'F#5']	['P1', 'P4', 'P4', 'M6']	[True, True, False, False, True]	53.0	3.0	97.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+158.0	1.0	53	['A2', 'A3', 'G5', 'B5']	['P1', 'm7', 'M2']	[False, False, True, True]	53.0	3.0	97.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+159.0	1.0	53	['A2', 'A3', 'F#5', 'A5']	['P1', 'M6', 'P1']	[False, False, True, True]	53.0	3.0	97.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+160.0	1.0	54	['A2', 'A3', 'E5', 'G5']	['P1', 'P5', 'm7']	[False, False, True, True]	54.0	3.0	98.0	V7	True	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+161.0	1.0	54	['A2', 'A3', 'D5', 'F#5']	['P1', 'P4', 'M6']	[False, False, True, True]	54.0	3.0	98.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+162.0	1.0	54	['A2', 'G4', 'C#5', 'E5']	['m7', 'M3', 'P5']	[False, True, True, True]	54.0	3.0	98.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+163.0	1.0	55	['A2', 'F#4', 'D5']	['M6', 'P4']	[False, True, True]	55.0	3.0	99.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+164.0	1.0	55	['A2', 'B4']	['M2']	[False, True]	55.0	3.0	99.0	I	False	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+165.0	1.0	55	['A2', 'A4']	['P1']	[False, True]	55.0	3.0	99.0	I	False	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+166.0	1.0	56	['A2', 'G4']	['m7']	[False, True]	56.0	2.0	100.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+167.0	1.0	56	['A2', 'F#4', 'A4']	['M6', 'P1']	[False, True, True]	56.0	2.0	100.0	V7	False	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+168.0	1.0	56	['G3', 'E4', 'C#5']	['M6', 'A4']	[True, True, True]	56.0	1.0	101.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+169.0	1.0	57	['F#3', 'D4', 'D5']	['m6', 'm6']	[True, True, True]	57.0	1.0	102.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+170.0	1.0	57	['B3', 'G4']	['m6']	[True, True]	57.0	1.0	103.0	IV	True	('B', 'D', 'G')	B	G	1.0	major triad	(2, 7, 11)	D	D	4	None
+171.0	1.0	57	['A3', 'F#4']	['M6']	[True, True]	57.0	1.0	104.0	I	True	('A', 'D', 'F#')	A	D	2.0	major triad	(2, 6, 9)	D	D	1	None
+172.0	1.0	58	['G3', 'E4']	['M6']	[True, True]	58.0	1.0	105.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+173.0	1.0	58	['F#3', 'D4', 'A5']	['m6', 'm3']	[True, True, True]	58.0	1.0	106.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+174.0	1.0	58	['E3', 'G4', 'A4', 'C#6']	['m3', 'P4', 'M6']	[True, True, True, True]	58.0	1.0	107.0	V7	True	('E', 'G', 'A', 'C#')	E	A	2.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+175.0	1.0	59	['D3', 'F#4', 'A4', 'D6']	['M3', 'P5', 'P1']	[True, True, True, True]	59.0	1.0	108.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+176.0	1.0	59	['B2', 'D4', 'D5', 'A5']	['m3', 'm3', 'm7']	[True, True, True, True]	59.0	1.0	109.0	vi7	True	('B', 'D', 'F#', 'A')	B	B	0.0	minor seventh chord	(2, 6, 9, 11)	D	D	6	None
+177.0	1.0	59	['A2', 'D4', 'C#5', 'C#6']	['P4', 'M3', 'M3']	[True, True, True, True]	59.0	1.0	110.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+178.0	1.0	60	['G2', 'D4', 'B4', 'D6']	['P5', 'M3', 'P5']	[True, True, True, True]	60.0	1.0	111.0	IV	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+179.0	1.0	60	['F#2', 'D4', 'A4', 'G6']	['m6', 'm3', 'm2']	[True, True, True, True]	60.0	1.0	112.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+180.0	1.0	60	['E2', 'A3', 'G4', 'C#6']	['P4', 'm3', 'M6']	[True, True, True, True]	60.0	1.0	113.0	V7	True	('E', 'G', 'A', 'C#')	E	A	2.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+181.0	1.0	61	['D2', 'A3', 'C#4', 'G4', 'E6']	['P5', 'M7', 'P4', 'M2']	[True, True, True, True, True]	61.0	3.0	114.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+182.0	1.0	61	['F#2', 'A3', 'C#4', 'G4', 'E6']	['m3', 'P5', 'm2', 'm7']	[True, False, False, False, False]	61.0	3.0	114.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+183.0	1.0	61	['A2', 'A3', 'C#4', 'G4', 'E6']	['P1', 'M3', 'm7', 'P5']	[True, False, False, False, False]	61.0	3.0	114.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+184.0	1.0	62	['D3', 'A3', 'D4', 'F#4', 'D6']	['P5', 'P1', 'M3', 'P1']	[True, True, True, True, True]	62.0	2.0	115.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+185.0	1.0	62	['D3', 'A3', 'D4', 'F#4', 'D6']	['P5', 'P1', 'M3', 'P1']	[True, True, True, True, True]	62.0	2.0	115.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+186.0	1.0	62	['A3']	[]	[True]	62.0	1.0	116.0	i	True	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+187.0	0.5	63	['D3', 'F3', 'A3', 'F4']	['m3', 'P5', 'm3']	[True, True, False, True]	63.0	3.0	117.0	i	True	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+187.5	0.5	63	['D3', 'F3', 'C#4', 'F4']	['m3', 'M7', 'm3']	[False, False, True, False]	63.0	3.0	117.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+188.0	0.5	63	['D3', 'F3', 'D4', 'F4']	['m3', 'P1', 'm3']	[False, False, True, False]	63.0	3.0	117.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+188.5	0.5	63	['D3', 'F3', 'E4', 'F4']	['m3', 'M2', 'm3']	[False, False, True, False]	63.0	3.0	117.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+189.0	0.5	63	['D3', 'F3', 'F4']	['m3', 'm3']	[False, False, False]	63.0	3.0	117.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+189.5	0.5	63	['D3', 'F3', 'F4', 'G4']	['m3', 'm3', 'P4']	[False, False, False, True]	63.0	3.0	117.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+190.0	0.5	64	['C3', 'E3', 'E4', 'A4']	['M3', 'M3', 'M6']	[True, True, True, True]	64.0	3.0	118.0	v	True	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+190.5	0.5	64	['C3', 'E3', 'E4', 'G#4']	['M3', 'M3', 'A5']	[False, False, False, True]	64.0	3.0	118.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+191.0	0.5	64	['C3', 'E3', 'E4', 'A4']	['M3', 'M3', 'M6']	[False, False, False, True]	64.0	3.0	118.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+191.5	0.5	64	['C3', 'E3', 'E4', 'G#4']	['M3', 'M3', 'A5']	[False, False, False, True]	64.0	3.0	118.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+192.0	0.5	64	['C3', 'E3', 'E4', 'A4']	['M3', 'M3', 'M6']	[False, False, False, True]	64.0	3.0	118.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+192.5	0.5	64	['C3', 'E3', 'E4', 'G#4']	['M3', 'M3', 'A5']	[False, False, False, True]	64.0	3.0	118.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+193.0	0.5	65	['B-2', 'D3', 'D4', 'A4']	['M3', 'M3', 'M7']	[True, True, True, True]	65.0	2.0	119.0	iv	True	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+193.5	0.5	65	['B-2', 'D3', 'D4', 'D5']	['M3', 'M3', 'M3']	[False, False, False, True]	65.0	2.0	119.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+194.0	0.5	65	['B-2', 'D3', 'D4', 'C#5']	['M3', 'M3', 'A2']	[False, False, False, True]	65.0	2.0	119.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+194.5	0.5	65	['B-2', 'D3', 'D4', 'B-4']	['M3', 'M3', 'P1']	[False, False, False, True]	65.0	2.0	119.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+195.0	0.5	65	['B-2', 'D3', 'D4', 'A4']	['M3', 'M3', 'M7']	[False, False, False, True]	65.0	1.0	120.0	Ger7	True	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+195.5	0.5	65	['B-2', 'D3', 'D4', 'G#4']	['M3', 'M3', 'A6']	[False, False, False, True]	65.0	1.0	120.0	Ger7	False	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+196.0	1.0	66	['A2', 'C#3', 'C#4', 'A4']	['M3', 'M3', 'P1']	[True, True, True, True]	66.0	3.0	121.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+197.0	1.0	66	['A2', 'C#3']	['M3']	[False, False]	66.0	3.0	121.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+198.0	1.0	66	['A2', 'C#3', 'A4']	['M3', 'P1']	[False, False, True]	66.0	3.0	121.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+199.0	0.5	67	['D3', 'F3', 'F4', 'A4']	['m3', 'm3', 'P5']	[True, True, True, True]	67.0	3.0	122.0	i	True	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+199.5	0.5	67	['D3', 'F3', 'F4', 'C#5']	['m3', 'm3', 'M7']	[False, False, False, True]	67.0	3.0	122.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+200.0	0.5	67	['D3', 'F3', 'F4', 'D5']	['m3', 'm3', 'P1']	[False, False, False, True]	67.0	3.0	122.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+200.5	0.5	67	['D3', 'F3', 'F4', 'E5']	['m3', 'm3', 'M2']	[False, False, False, True]	67.0	3.0	122.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+201.0	0.5	67	['D3', 'F3', 'F4', 'F5']	['m3', 'm3', 'm3']	[False, False, False, True]	67.0	3.0	122.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+201.5	0.5	67	['D3', 'F3', 'F4', 'G5']	['m3', 'm3', 'P4']	[False, False, False, True]	67.0	3.0	122.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+202.0	0.5	68	['C3', 'E3', 'E4', 'A5']	['M3', 'M3', 'M6']	[True, True, True, True]	68.0	3.0	123.0	v	True	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+202.5	0.5	68	['C3', 'E3', 'E4', 'G#5']	['M3', 'M3', 'A5']	[False, False, False, True]	68.0	3.0	123.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+203.0	0.5	68	['C3', 'E3', 'E4', 'A5']	['M3', 'M3', 'M6']	[False, False, False, True]	68.0	3.0	123.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+203.5	0.5	68	['C3', 'E3', 'E4', 'G#5']	['M3', 'M3', 'A5']	[False, False, False, True]	68.0	3.0	123.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+204.0	0.5	68	['C3', 'E3', 'E4', 'A5']	['M3', 'M3', 'M6']	[False, False, False, True]	68.0	3.0	123.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+204.5	0.5	68	['C3', 'E3', 'E4', 'G#5']	['M3', 'M3', 'A5']	[False, False, False, True]	68.0	3.0	123.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+205.0	0.5	69	['B-2', 'D3', 'D4', 'A5']	['M3', 'M3', 'M7']	[True, True, True, True]	69.0	2.0	124.0	iv	True	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+205.5	0.5	69	['B-2', 'D3', 'D4', 'D6']	['M3', 'M3', 'M3']	[False, False, False, True]	69.0	2.0	124.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+206.0	0.5	69	['B-2', 'D3', 'D4', 'C6']	['M3', 'M3', 'M2']	[False, False, False, True]	69.0	2.0	124.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+206.5	0.5	69	['B-2', 'D3', 'D4', 'B-5']	['M3', 'M3', 'P1']	[False, False, False, True]	69.0	2.0	124.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+207.0	0.5	69	['B-2', 'D3', 'D4', 'A5']	['M3', 'M3', 'M7']	[False, False, False, True]	69.0	1.0	125.0	Ger7	True	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+207.5	0.5	69	['B-2', 'D3', 'D4', 'G#5']	['M3', 'M3', 'A6']	[False, False, False, True]	69.0	1.0	125.0	Ger7	False	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+208.0	1.0	70	['A2', 'C#3', 'C#4', 'A5']	['M3', 'M3', 'P1']	[True, True, True, True]	70.0	3.0	126.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+209.0	1.0	70	['A2', 'C#3', 'C#4']	['M3', 'M3']	[False, False, False]	70.0	3.0	126.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+210.0	1.0	70	['A2', 'C#3', 'C#4', 'A5']	['M3', 'M3', 'P1']	[False, False, False, True]	70.0	3.0	126.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+211.0	0.5	71	['D3', 'F3', 'F4', 'A5']	['m3', 'm3', 'P5']	[True, True, True, True]	71.0	3.0	127.0	i	True	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+211.5	0.5	71	['D3', 'F3', 'F4', 'B5']	['m3', 'm3', 'M6']	[False, False, False, True]	71.0	3.0	127.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+212.0	0.5	71	['D3', 'F3', 'F4', 'C6']	['m3', 'm3', 'm7']	[False, False, False, True]	71.0	3.0	127.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+212.5	0.5	71	['D3', 'F3', 'F4', 'B5']	['m3', 'm3', 'M6']	[False, False, False, True]	71.0	3.0	127.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+213.0	0.5	71	['D3', 'F3', 'F4', 'A5']	['m3', 'm3', 'P5']	[False, False, False, True]	71.0	3.0	127.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+213.5	0.5	71	['D3', 'F3', 'F4', 'B5']	['m3', 'm3', 'M6']	[False, False, False, True]	71.0	3.0	127.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+214.0	0.5	72	['D#3', 'A3', 'F#4', 'C6']	['d5', 'm3', 'd7']	[True, True, True, True]	72.0	3.0	128.0	viio7/ii	True	('D#', 'F#', 'A', 'C')	D#	D#	0.0	diminished seventh chord	(0, 3, 6, 9)	d	e	#7	2
+214.5	0.5	72	['D#3', 'A3', 'F#4', 'B5']	['d5', 'm3', 'm6']	[False, False, False, True]	72.0	3.0	128.0	viio7/ii	False	('D#', 'F#', 'A', 'C')	D#	D#	0.0	diminished seventh chord	(0, 3, 6, 9)	d	e	#7	2
+215.0	0.5	72	['D#3', 'A3', 'F#4', 'A5']	['d5', 'm3', 'd5']	[False, False, False, True]	72.0	3.0	128.0	viio7/ii	False	('D#', 'F#', 'A', 'C')	D#	D#	0.0	diminished seventh chord	(0, 3, 6, 9)	d	e	#7	2
+215.5	0.5	72	['D#3', 'A3', 'F#4', 'B5']	['d5', 'm3', 'm6']	[False, False, False, True]	72.0	3.0	128.0	viio7/ii	False	('D#', 'F#', 'A', 'C')	D#	D#	0.0	diminished seventh chord	(0, 3, 6, 9)	d	e	#7	2
+216.0	0.5	72	['D#3', 'A3', 'F#4', 'C6']	['d5', 'm3', 'd7']	[False, False, False, True]	72.0	3.0	128.0	viio7/ii	False	('D#', 'F#', 'A', 'C')	D#	D#	0.0	diminished seventh chord	(0, 3, 6, 9)	d	e	#7	2
+216.5	0.5	72	['D#3', 'A3', 'F#4', 'B5']	['d5', 'm3', 'm6']	[False, False, False, True]	72.0	3.0	128.0	viio7/ii	False	('D#', 'F#', 'A', 'C')	D#	D#	0.0	diminished seventh chord	(0, 3, 6, 9)	d	e	#7	2
+217.0	0.5	73	['E3', 'C4', 'E4', 'A5']	['m6', 'P1', 'P4']	[True, True, True, True]	73.0	2.0	129.0	Cad	True	('E', 'A', 'C')	E	A	2.0	minor triad	(0, 4, 9)	a	a	1	None
+217.5	0.5	73	['E3', 'C4', 'E4', 'C6']	['m6', 'P1', 'm6']	[False, False, False, True]	73.0	2.0	129.0	Cad	False	('E', 'A', 'C')	E	A	2.0	minor triad	(0, 4, 9)	a	a	1	None
+218.0	0.5	73	['E6']	[]	[True]	73.0	2.0	129.0	Cad	False	('E', 'A', 'C')	E	A	2.0	minor triad	(0, 4, 9)	a	a	1	None
+218.5	0.5	73	['C6']	[]	[True]	73.0	2.0	129.0	Cad	False	('E', 'A', 'C')	E	A	2.0	minor triad	(0, 4, 9)	a	a	1	None
+219.0	0.5	73	['E2', 'D4', 'E4', 'B5']	['m7', 'P1', 'P5']	[True, True, True, True]	73.0	1.0	130.0	V7	True	('E', 'G#', 'B', 'D')	E	E	0.0	dominant seventh chord	(2, 4, 8, 11)	a	a	5	None
+219.5	0.5	73	['E2', 'D4', 'E4', 'G#5']	['m7', 'P1', 'M3']	[False, False, False, True]	73.0	1.0	130.0	V7	False	('E', 'G#', 'B', 'D')	E	E	0.0	dominant seventh chord	(2, 4, 8, 11)	a	a	5	None
+220.0	1.0	74	['A2', 'C4', 'E4', 'A5']	['m3', 'P5', 'P1']	[True, True, True, True]	74.0	3.0	131.0	i	True	('A', 'C', 'E')	A	A	0.0	minor triad	(0, 4, 9)	a	a	1	None
+221.0	1.0	74	['A2', 'C4', 'E4', 'A5']	['m3', 'P5', 'P1']	[True, True, True, True]	74.0	3.0	131.0	i	False	('A', 'C', 'E')	A	A	0.0	minor triad	(0, 4, 9)	a	a	1	None
+222.0	1.0	74	['G3']	[]	[True]	74.0	3.0	131.0	i	False	('A', 'C', 'E')	A	A	0.0	minor triad	(0, 4, 9)	a	a	1	None
+223.0	0.5	75	['C3', 'E-3', 'G3', 'E-4']	['m3', 'P5', 'm3']	[True, True, True, True]	75.0	3.0	132.0	vi	True	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	g	g	#6	None
+223.5	0.5	75	['C3', 'E-3', 'B3', 'E-4']	['m3', 'M7', 'm3']	[False, False, True, False]	75.0	3.0	132.0	vi	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	g	g	#6	None
+224.0	0.5	75	['C3', 'E-3', 'C4', 'E-4']	['m3', 'P1', 'm3']	[False, False, True, False]	75.0	3.0	132.0	vi	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	g	g	#6	None
+224.5	0.5	75	['C3', 'E-3', 'D4', 'E-4']	['m3', 'M2', 'm3']	[False, False, True, False]	75.0	3.0	132.0	vi	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	g	g	#6	None
+225.0	0.5	75	['C3', 'E-3', 'E-4', 'E4']	['m3', 'm3', 'M3']	[False, False, False, True]	75.0	3.0	132.0	vi	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	g	g	#6	None
+225.5	0.5	75	['C3', 'E-3', 'E-4', 'F4']	['m3', 'm3', 'P4']	[False, False, False, True]	75.0	3.0	132.0	vi	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	g	g	#6	None
+226.0	0.5	76	['B-2', 'D3', 'D4', 'G4']	['M3', 'M3', 'M6']	[True, True, True, True]	76.0	3.0	133.0	iv	True	('E-', 'G', 'C')	E-	C	1.0	minor triad	(0, 3, 7)	g	g	4	None
+226.5	0.5	76	['B-2', 'D3', 'D4', 'F#4']	['M3', 'M3', 'A5']	[False, False, False, True]	76.0	3.0	133.0	iv	False	('E-', 'G', 'C')	E-	C	1.0	minor triad	(0, 3, 7)	g	g	4	None
+227.0	0.5	76	['B-2', 'D3', 'D4', 'G4']	['M3', 'M3', 'M6']	[False, False, False, True]	76.0	3.0	133.0	iv	False	('E-', 'G', 'C')	E-	C	1.0	minor triad	(0, 3, 7)	g	g	4	None
+227.5	0.5	76	['B-2', 'D3', 'D4', 'F#4']	['M3', 'M3', 'A5']	[False, False, False, True]	76.0	3.0	133.0	iv	False	('E-', 'G', 'C')	E-	C	1.0	minor triad	(0, 3, 7)	g	g	4	None
+228.0	0.5	76	['B-2', 'D3', 'D4', 'G4']	['M3', 'M3', 'M6']	[False, False, False, True]	76.0	3.0	133.0	iv	False	('E-', 'G', 'C')	E-	C	1.0	minor triad	(0, 3, 7)	g	g	4	None
+228.5	0.5	76	['B-2', 'D3', 'D4', 'F#4']	['M3', 'M3', 'A5']	[False, False, False, True]	76.0	3.0	133.0	iv	False	('E-', 'G', 'C')	E-	C	1.0	minor triad	(0, 3, 7)	g	g	4	None
+229.0	0.5	77	['A2', 'C3', 'C4', 'G4']	['m3', 'm3', 'm7']	[True, True, True, True]	77.0	2.5	134.0	viio	True	('A', 'C', 'F#')	A	F#	1.0	diminished triad	(0, 6, 9)	g	g	#7	None
+229.5	0.5	77	['A2', 'C3', 'C4', 'C5']	['m3', 'm3', 'm3']	[False, False, False, True]	77.0	2.5	134.0	viio	False	('A', 'C', 'F#')	A	F#	1.0	diminished triad	(0, 6, 9)	g	g	#7	None
+230.0	0.5	77	['A2', 'C3', 'C4', 'B-4']	['m3', 'm3', 'm2']	[False, False, False, True]	77.0	2.5	134.0	viio	False	('A', 'C', 'F#')	A	F#	1.0	diminished triad	(0, 6, 9)	g	g	#7	None
+230.5	0.5	77	['A2', 'C3', 'C4', 'A4']	['m3', 'm3', 'P1']	[False, False, False, True]	77.0	2.5	134.0	viio	False	('A', 'C', 'F#')	A	F#	1.0	diminished triad	(0, 6, 9)	g	g	#7	None
+231.0	0.5	77	['A2', 'C3', 'C4', 'G4']	['m3', 'm3', 'm7']	[False, False, False, True]	77.0	2.5	134.0	viio	False	('A', 'C', 'F#')	A	F#	1.0	diminished triad	(0, 6, 9)	g	g	#7	None
+231.5	0.5	77	['A2', 'C3', 'C4', 'F#4']	['m3', 'm3', 'M6']	[False, False, False, True]	77.0	0.5	135.0	viio	True	('A', 'C', 'F#')	A	F#	1.0	diminished triad	(0, 6, 9)	g	g	#7	None
+232.0	1.0	78	['G2', 'D3', 'B-3', 'G4']	['P5', 'm3', 'P1']	[True, True, True, True]	78.0	3.0	136.0	i	True	('G', 'B-', 'D')	G	G	0.0	minor triad	(2, 7, 10)	g	g	1	None
+233.0	1.0	78	['G2', 'D3']	['P5']	[False, False]	78.0	3.0	136.0	i	False	('G', 'B-', 'D')	G	G	0.0	minor triad	(2, 7, 10)	g	g	1	None
+234.0	1.0	78	['G2', 'D3', 'D4']	['P5', 'P5']	[False, False, True]	78.0	3.0	136.0	i	False	('G', 'B-', 'D')	G	G	0.0	minor triad	(2, 7, 10)	g	g	1	None
+235.0	0.5	79	['G3', 'B-3', 'D4', 'B-4']	['m3', 'P5', 'm3']	[True, True, True, True]	79.0	3.0	137.0	i	True	('G', 'B-', 'D')	G	G	0.0	minor triad	(2, 7, 10)	g	g	1	None
+235.5	0.5	79	['G3', 'B-3', 'F#4', 'B-4']	['m3', 'M7', 'm3']	[False, False, True, False]	79.0	3.0	137.0	i	False	('G', 'B-', 'D')	G	G	0.0	minor triad	(2, 7, 10)	g	g	1	None
+236.0	0.5	79	['G3', 'B-3', 'G4', 'B-4']	['m3', 'P1', 'm3']	[False, False, True, False]	79.0	3.0	137.0	i	False	('G', 'B-', 'D')	G	G	0.0	minor triad	(2, 7, 10)	g	g	1	None
+236.5	0.5	79	['G3', 'B-3', 'A4', 'B-4']	['m3', 'M2', 'm3']	[False, False, True, False]	79.0	3.0	137.0	i	False	('G', 'B-', 'D')	G	G	0.0	minor triad	(2, 7, 10)	g	g	1	None
+237.0	0.5	79	['G3', 'B-3', 'B-4']	['m3', 'm3']	[False, False, False]	79.0	3.0	137.0	i	False	('G', 'B-', 'D')	G	G	0.0	minor triad	(2, 7, 10)	g	g	1	None
+237.5	0.5	79	['G3', 'B-3', 'B-4', 'C5']	['m3', 'm3', 'P4']	[False, False, False, True]	79.0	3.0	137.0	i	False	('G', 'B-', 'D')	G	G	0.0	minor triad	(2, 7, 10)	g	g	1	None
+238.0	0.5	80	['F3', 'A3', 'A4', 'D5']	['M3', 'M3', 'M6']	[True, True, True, True]	80.0	3.0	138.0	i	True	('F', 'A', 'D')	F	D	1.0	minor triad	(2, 5, 9)	d	d	1	None
+238.5	0.5	80	['F3', 'A3', 'A4', 'C#5']	['M3', 'M3', 'A5']	[False, False, False, True]	80.0	3.0	138.0	i	False	('F', 'A', 'D')	F	D	1.0	minor triad	(2, 5, 9)	d	d	1	None
+239.0	0.5	80	['F3', 'A3', 'A4', 'D5']	['M3', 'M3', 'M6']	[False, False, False, True]	80.0	3.0	138.0	i	False	('F', 'A', 'D')	F	D	1.0	minor triad	(2, 5, 9)	d	d	1	None
+239.5	0.5	80	['F3', 'A3', 'A4', 'C#5']	['M3', 'M3', 'A5']	[False, False, False, True]	80.0	3.0	138.0	i	False	('F', 'A', 'D')	F	D	1.0	minor triad	(2, 5, 9)	d	d	1	None
+240.0	0.5	80	['F3', 'A3', 'A4', 'D5']	['M3', 'M3', 'M6']	[False, False, False, True]	80.0	3.0	138.0	i	False	('F', 'A', 'D')	F	D	1.0	minor triad	(2, 5, 9)	d	d	1	None
+240.5	0.5	80	['F3', 'A3', 'A4', 'C#5']	['M3', 'M3', 'A5']	[False, False, False, True]	80.0	3.0	138.0	i	False	('F', 'A', 'D')	F	D	1.0	minor triad	(2, 5, 9)	d	d	1	None
+241.0	0.5	81	['E3', 'G3', 'G4', 'D5']	['m3', 'm3', 'm7']	[True, True, True, True]	81.0	2.5	139.0	viio	True	('E', 'G', 'C#')	E	C#	1.0	diminished triad	(1, 4, 7)	d	d	#7	None
+241.5	0.5	81	['E3', 'G3', 'G4', 'G5']	['m3', 'm3', 'm3']	[False, False, False, True]	81.0	2.5	139.0	viio	False	('E', 'G', 'C#')	E	C#	1.0	diminished triad	(1, 4, 7)	d	d	#7	None
+242.0	0.5	81	['E3', 'G3', 'G4', 'F5']	['m3', 'm3', 'm2']	[False, False, False, True]	81.0	2.5	139.0	viio	False	('E', 'G', 'C#')	E	C#	1.0	diminished triad	(1, 4, 7)	d	d	#7	None
+242.5	0.5	81	['E3', 'G3', 'G4', 'E5']	['m3', 'm3', 'P1']	[False, False, False, True]	81.0	2.5	139.0	viio	False	('E', 'G', 'C#')	E	C#	1.0	diminished triad	(1, 4, 7)	d	d	#7	None
+243.0	0.5	81	['E3', 'G3', 'G4', 'D5']	['m3', 'm3', 'm7']	[False, False, False, True]	81.0	2.5	139.0	viio	False	('E', 'G', 'C#')	E	C#	1.0	diminished triad	(1, 4, 7)	d	d	#7	None
+243.5	0.5	81	['E3', 'G3', 'G4', 'C#5']	['m3', 'm3', 'M6']	[False, False, False, True]	81.0	0.5	140.0	viio	True	('E', 'G', 'C#')	E	C#	1.0	diminished triad	(1, 4, 7)	d	d	#7	None
+244.0	1.0	82	['D3', 'F3', 'F4', 'D5']	['m3', 'm3', 'P1']	[True, True, True, True]	82.0	3.0	141.0	i	True	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+245.0	1.0	82	['D3', 'F3', 'F4']	['m3', 'm3']	[False, False, False]	82.0	3.0	141.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+246.0	1.0	82	['D3', 'F3', 'F4', 'A4']	['m3', 'm3', 'P5']	[False, False, False, True]	82.0	3.0	141.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+247.0	0.5	83	['D3', 'F4', 'A4', 'F5']	['m3', 'P5', 'm3']	[True, True, True, True]	83.0	3.0	142.0	i	True	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+247.5	0.5	83	['D3', 'F4', 'C#5', 'F5']	['m3', 'M7', 'm3']	[False, False, True, False]	83.0	3.0	142.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+248.0	0.5	83	['D3', 'F4', 'D5', 'F5']	['m3', 'P1', 'm3']	[False, False, True, False]	83.0	3.0	142.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+248.5	0.5	83	['D3', 'F4', 'E5', 'F5']	['m3', 'M2', 'm3']	[False, False, True, False]	83.0	3.0	142.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+249.0	0.5	83	['D3', 'F4', 'F5']	['m3', 'm3']	[False, False, False]	83.0	3.0	142.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+249.5	0.5	83	['D3', 'F4', 'F5', 'G5']	['m3', 'm3', 'P4']	[False, False, False, True]	83.0	3.0	142.0	i	False	('D', 'F', 'A')	D	D	0.0	minor triad	(2, 5, 9)	d	d	1	None
+250.0	0.5	84	['C3', 'E4', 'E5', 'A5']	['M3', 'M3', 'M6']	[True, True, True, True]	84.0	3.0	143.0	v	True	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+250.5	0.5	84	['C3', 'E4', 'E5', 'G#5']	['M3', 'M3', 'A5']	[False, False, False, True]	84.0	3.0	143.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+251.0	0.5	84	['C3', 'E4', 'E5', 'A5']	['M3', 'M3', 'M6']	[False, False, False, True]	84.0	3.0	143.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+251.5	0.5	84	['C3', 'E4', 'E5', 'G#5']	['M3', 'M3', 'A5']	[False, False, False, True]	84.0	3.0	143.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+252.0	0.5	84	['C3', 'E4', 'E5', 'A5']	['M3', 'M3', 'M6']	[False, False, False, True]	84.0	3.0	143.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+252.5	0.5	84	['C3', 'E4', 'E5', 'G#5']	['M3', 'M3', 'A5']	[False, False, False, True]	84.0	3.0	143.0	v	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	d	d	5	None
+253.0	0.5	85	['B-2', 'D4', 'D5', 'A5']	['M3', 'M3', 'M7']	[True, True, True, True]	85.0	2.5	144.0	iv	True	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+253.5	0.5	85	['B-2', 'D4', 'D5', 'D6']	['M3', 'M3', 'M3']	[False, False, False, True]	85.0	2.5	144.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+254.0	0.5	85	['B-2', 'D4', 'D5', 'C6']	['M3', 'M3', 'M2']	[False, False, False, True]	85.0	2.5	144.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+254.5	0.5	85	['B-2', 'D4', 'D5', 'B-5']	['M3', 'M3', 'P1']	[False, False, False, True]	85.0	2.5	144.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+255.0	0.5	85	['B-2', 'D4', 'D5', 'A5']	['M3', 'M3', 'M7']	[False, False, False, True]	85.0	2.5	144.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+255.5	0.5	85	['B-2', 'D4', 'D5', 'G#5']	['M3', 'M3', 'A6']	[False, False, False, True]	85.0	0.5	145.0	Ger7	True	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+256.0	1.0	86	['A2', 'C#4', 'C#5', 'A5']	['M3', 'M3', 'P1']	[True, True, True, True]	86.0	3.0	146.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+257.0	1.0	86	['A2', 'C#4', 'C#5']	['M3', 'M3']	[False, False, False]	86.0	3.0	146.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+258.0	1.0	86	['A2', 'C#4', 'C#5', 'A5']	['M3', 'M3', 'P1']	[False, False, False, True]	86.0	3.0	146.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+259.0	0.5	87	['B-2', 'D4', 'D5', 'A5']	['M3', 'M3', 'M7']	[True, True, True, True]	87.0	2.5	147.0	iv	True	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+259.5	0.5	87	['B-2', 'D4', 'D5', 'D6']	['M3', 'M3', 'M3']	[False, False, False, True]	87.0	2.5	147.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+260.0	0.5	87	['B-2', 'D4', 'D5', 'C6']	['M3', 'M3', 'M2']	[False, False, False, True]	87.0	2.5	147.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+260.5	0.5	87	['B-2', 'D4', 'D5', 'B-5']	['M3', 'M3', 'P1']	[False, False, False, True]	87.0	2.5	147.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+261.0	0.5	87	['B-2', 'D4', 'D5', 'A5']	['M3', 'M3', 'M7']	[False, False, False, True]	87.0	2.5	147.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+261.5	0.5	87	['B-2', 'D4', 'D5', 'G#5']	['M3', 'M3', 'A6']	[False, False, False, True]	87.0	0.5	148.0	Ger7	True	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+262.0	1.0	88	['A2', 'C#4', 'C#5', 'A5']	['M3', 'M3', 'P1']	[True, True, True, True]	88.0	3.0	149.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+263.0	1.0	88	['A2', 'C#4', 'C#5']	['M3', 'M3']	[False, False, False]	88.0	3.0	149.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+264.0	1.0	88	['A2', 'C#4', 'C#5', 'A5']	['M3', 'M3', 'P1']	[False, False, False, True]	88.0	3.0	149.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+265.0	0.5	89	['B-2', 'D4', 'D5', 'A5']	['M3', 'M3', 'M7']	[True, True, True, True]	89.0	2.5	150.0	iv	True	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+265.5	0.5	89	['B-2', 'D4', 'D5', 'D6']	['M3', 'M3', 'M3']	[False, False, False, True]	89.0	2.5	150.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+266.0	0.5	89	['B-2', 'D4', 'D5', 'C6']	['M3', 'M3', 'M2']	[False, False, False, True]	89.0	2.5	150.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+266.5	0.5	89	['B-2', 'D4', 'D5', 'B-5']	['M3', 'M3', 'P1']	[False, False, False, True]	89.0	2.5	150.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+267.0	0.5	89	['B-2', 'D4', 'D5', 'A5']	['M3', 'M3', 'M7']	[False, False, False, True]	89.0	2.5	150.0	iv	False	('B-', 'D', 'G')	B-	G	1.0	minor triad	(2, 7, 10)	d	d	4	None
+267.5	0.5	89	['B-2', 'D4', 'D5', 'G#5']	['M3', 'M3', 'A6']	[False, False, False, True]	89.0	0.5	151.0	Ger7	True	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+268.0	0.5	90	['B-2', 'D3', 'D4', 'A5']	['M3', 'M3', 'M7']	[False, True, True, True]	90.0	3.0	152.0	Ger7	True	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+268.5	0.5	90	['B-2', 'D3', 'D4', 'G#5']	['M3', 'M3', 'A6']	[False, False, False, True]	90.0	3.0	152.0	Ger7	False	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+269.0	0.5	90	['B-2', 'D3', 'D4', 'A5']	['M3', 'M3', 'M7']	[False, False, False, True]	90.0	3.0	152.0	Ger7	False	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+269.5	0.5	90	['B-2', 'D3', 'D4', 'G#5']	['M3', 'M3', 'A6']	[False, False, False, True]	90.0	3.0	152.0	Ger7	False	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+270.0	0.5	90	['B-2', 'D3', 'D4', 'A5']	['M3', 'M3', 'M7']	[False, False, False, True]	90.0	3.0	152.0	Ger7	False	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+270.5	0.5	90	['B-2', 'D3', 'D4', 'G#5']	['M3', 'M3', 'A6']	[False, False, False, True]	90.0	3.0	152.0	Ger7	False	('B-', 'D', 'F', 'G#')	B-	G#	1.0	German augmented sixth chord	(2, 5, 8, 10)	d	d	#4	None
+271.0	1.0	91	['A2', 'E3', 'C#4', 'A5']	['P5', 'M3', 'P1']	[True, True, True, True]	91.0	3.0	153.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+272.0	2.0	91	['A2', 'E3', 'C#4', 'A5']	['P5', 'M3', 'P1']	[True, True, True, True]	91.0	3.0	153.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+274.0	1.0	92	['C#6']	[]	[True]	92.0	3.0	154.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+275.0	2.0	92	['C#6']	[]	[True]	92.0	3.0	154.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+277.0	1.0	93	['E6']	[]	[True]	93.0	3.0	155.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+278.0	2.0	93	['E6']	[]	[True]	93.0	3.0	155.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+280.0	1.0	94	['F#6']	[]	[True]	94.0	3.0	156.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+281.0	2.0	94	['F#6']	[]	[True]	94.0	3.0	156.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	d	d	5	None
+283.0	1.0	95	['G3', 'G4', 'G6']	['P1', 'P1']	[True, True, True]	95.0	3.0	157.0	V7	True	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	d	d	5	None
+284.0	2.0	95	['G3', 'G4', 'G6']	['P1', 'P1']	[True, True, True]	95.0	3.0	157.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	d	d	5	None
+286.0	1.0	96	['E3', 'E4']	['P1']	[True, True]	96.0	3.0	158.0	V7	True	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	d	d	5	None
+287.0	2.0	96	['E3', 'E4']	['P1']	[True, True]	96.0	3.0	158.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	d	d	5	None
+289.0	1.0	97	['C#3', 'C#4']	['P1']	[True, True]	97.0	3.0	159.0	V7	True	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	d	d	5	None
+290.0	2.0	97	['C#3', 'C#4']	['P1']	[True, True]	97.0	3.0	159.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	d	d	5	None
+292.0	1.0	98	['A2', 'A3']	['P1']	[True, True]	98.0	1.0	160.0	V7	True	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	d	d	5	None
+293.0	1.0	98	['A2', 'A3']	['P1']	[True, True]	98.0	2.0	161.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+294.0	1.0	98	['F#4']	[]	[True]	98.0	2.0	161.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+295.0	2.0	99	['D3', 'A3', 'D4', 'F#4']	['P5', 'P1', 'M3']	[True, True, True, True]	99.0	2.0	162.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+297.0	1.0	99	['D3', 'A#3', 'D4', 'F#4']	['A5', 'P1', 'M3']	[False, True, False, False]	99.0	1.0	163.0	I+	True	('D', 'F#', 'A#')	D	D	0.0	augmented triad	(2, 6, 10)	D	D	1	None
+298.0	1.0	100	['G2', 'G3', 'B3', 'F#4']	['P1', 'M3', 'M7']	[True, True, True, False]	100.0	2.0	164.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+299.0	1.0	100	['G2', 'G3', 'B3', 'G4']	['P1', 'M3', 'P1']	[False, False, False, True]	100.0	2.0	164.0	ii	False	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+300.0	1.0	100	['G2', 'G3', 'B3', 'E4']	['P1', 'M3', 'M6']	[False, False, False, True]	100.0	1.0	165.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+301.0	1.0	101	['G2', 'E3', 'A3', 'D4']	['M6', 'M2', 'P5']	[False, True, True, True]	101.0	1.0	166.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+302.0	1.0	101	['G2', 'E3', 'A3', 'C#4']	['M6', 'M2', 'A4']	[True, True, True, True]	101.0	1.0	167.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+303.0	0.5	101	['F#2', 'F#3', 'A3', 'D4']	['P1', 'm3', 'm6']	[True, True, True, True]	101.0	1.0	168.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+303.5	0.5	101	['D2', 'F#3', 'A3', 'D4']	['M3', 'P5', 'P1']	[True, False, False, False]	101.0	1.0	168.0	I	False	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+304.0	1.0	102	['A2', 'A3', 'D4', 'F#4']	['P1', 'P4', 'M6']	[True, True, True, True]	102.0	1.0	169.0	Cad	True	('A', 'D', 'F#')	A	D	2.0	major triad	(2, 6, 9)	D	D	1	None
+305.0	1.0	102	['C#4', 'E4']	['m3']	[True, True]	102.0	2.0	170.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+306.0	1.0	102	['F#4']	[]	[True]	102.0	2.0	170.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+307.0	2.0	103	['D3', 'A3', 'D4', 'F#4']	['P5', 'P1', 'M3']	[True, True, True, True]	103.0	3.0	171.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+309.0	1.0	103	['D3', 'A3', 'D4', 'G4']	['P5', 'P1', 'P4']	[False, False, False, True]	103.0	3.0	171.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+310.0	1.0	104	['B2', 'B3', 'D4', 'G4']	['P1', 'm3', 'm6']	[True, True, True, False]	104.0	1.0	172.0	vi	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+311.0	1.0	104	['B2', 'B3', 'D4', 'F#4']	['P1', 'm3', 'P5']	[False, False, False, True]	104.0	1.0	173.0	vi	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+312.0	1.0	104	['B2', 'B3', 'D4', 'E#4']	['P1', 'm3', 'A4']	[True, True, True, True]	104.0	1.0	174.0	viio7	True	('B', 'D', 'E#', 'G#')	B	E#	2.0	diminished seventh chord	(2, 5, 8, 11)	f#	f#	#7	None
+313.0	1.0	105	['A2', 'A3', 'C#4', 'F#4']	['P1', 'M3', 'M6']	[True, True, True, True]	105.0	1.0	175.0	i	True	('A', 'C#', 'F#')	A	F#	1.0	minor triad	(1, 6, 9)	f#	f#	1	None
+314.0	1.0	105	['F#2', 'A3', 'C#4', 'F#4']	['m3', 'P5', 'P1']	[True, True, True, False]	105.0	1.0	176.0	i	True	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+315.0	0.5	105	['C#3', 'B3', 'E#4', 'A4']	['m7', 'M3', 'm6']	[True, True, True, True]	105.0	0.5	177.0	V7	True	('C#', 'E#', 'G#', 'B')	C#	C#	0.0	dominant seventh chord	(1, 5, 8, 11)	f#	f#	5	None
+315.5	0.5	105	['C#3', 'B3', 'E#4', 'G#4']	['m7', 'M3', 'P5']	[False, False, False, True]	105.0	0.5	178.0	V7	True	('C#', 'E#', 'G#', 'B')	C#	C#	0.0	dominant seventh chord	(1, 5, 8, 11)	f#	f#	5	None
+316.0	1.0	106	['F#2', 'A3', 'F#4']	['m3', 'P1']	[True, True, True]	106.0	3.0	179.0	i	True	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+317.0	1.0	106	['F#2', 'A3', 'F#4']	['m3', 'P1']	[True, True, True]	106.0	3.0	179.0	i	False	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+318.0	1.0	106	['F#4', 'F#5']	['P1']	[True, True]	106.0	3.0	179.0	i	False	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+319.0	2.0	107	['D3', 'A3', 'F#4', 'F#5']	['P5', 'M3', 'M3']	[True, True, True, True]	107.0	2.0	180.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+321.0	1.0	107	['D3', 'A#3', 'F#4', 'F#5']	['A5', 'M3', 'M3']	[False, True, False, False]	107.0	1.0	181.0	I+	True	('D', 'F#', 'A#')	D	D	0.0	augmented triad	(2, 6, 10)	D	D	1	None
+322.0	1.0	108	['G2', 'B3', 'F#4', 'F#5']	['M3', 'M7', 'M7']	[True, True, False, False]	108.0	2.0	182.0	IV	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+323.0	1.0	108	['G2', 'B3', 'G4', 'G5']	['M3', 'P1', 'P1']	[False, False, True, True]	108.0	2.0	182.0	IV	False	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+324.0	1.0	108	['G3', 'B3', 'E4', 'E5']	['M3', 'M6', 'M6']	[True, True, True, True]	108.0	1.0	183.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+325.0	1.0	109	['G3', 'A3', 'D4', 'D5']	['M2', 'P5', 'P5']	[False, True, True, True]	109.0	1.0	184.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+326.0	1.0	109	['G3', 'A3', 'C#4', 'C#5']	['M2', 'A4', 'A4']	[True, True, True, True]	109.0	1.0	185.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+327.0	0.5	109	['F#3', 'A3', 'D4', 'D5']	['m3', 'm6', 'm6']	[True, True, True, True]	109.0	1.0	186.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+327.5	0.5	109	['D3', 'A3', 'D4', 'D5']	['P5', 'P1', 'P1']	[True, False, False, False]	109.0	1.0	186.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+328.0	1.0	110	['A3', 'D4', 'F#4', 'F#5']	['P4', 'M6', 'M6']	[True, True, True, True]	110.0	1.0	187.0	Cad	True	('A', 'D', 'F#')	A	D	2.0	major triad	(2, 6, 9)	D	D	1	None
+329.0	1.0	110	['C#4', 'E4', 'E5']	['m3', 'm3']	[True, True, True]	110.0	2.0	188.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+330.0	1.0	110	['F#4', 'F#5']	['P1']	[True, True]	110.0	2.0	188.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+331.0	2.0	111	['D3', 'A3', 'F#4', 'F#5']	['P5', 'M3', 'M3']	[True, True, True, True]	111.0	3.0	189.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+333.0	1.0	111	['D3', 'A3', 'G4', 'G5']	['P5', 'P4', 'P4']	[False, False, True, True]	111.0	3.0	189.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+334.0	1.0	112	['B2', 'D4', 'G4', 'G5']	['m3', 'm6', 'm6']	[True, True, False, False]	112.0	1.0	190.0	iv	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	f#	f#	4	None
+335.0	1.0	112	['B2', 'D4', 'F#4', 'F#5']	['m3', 'P5', 'P5']	[False, False, True, True]	112.0	1.0	191.0	iv	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	f#	f#	4	None
+336.0	1.0	112	['B2', 'D4', 'E#4', 'E#5']	['m3', 'A4', 'A4']	[False, False, True, True]	112.0	1.0	192.0	iv	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	f#	f#	4	None
+337.0	1.0	113	['A2', 'C#4', 'F#4', 'F#5']	['M3', 'M6', 'M6']	[True, True, True, True]	113.0	2.0	193.0	i	True	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+338.0	1.0	113	['F#2', 'C#4', 'F#4', 'F#5']	['P5', 'P1', 'P1']	[True, True, False, False]	113.0	2.0	193.0	i	False	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+339.0	0.5	113	['C#3', 'E#4', 'A4', 'A5']	['M3', 'm6', 'm6']	[True, True, True, True]	113.0	0.5	194.0	V	True	('C#', 'E#', 'G#')	C#	C#	0.0	major triad	(1, 5, 8)	f#	f#	5	None
+339.5	0.5	113	['C#3', 'E#4', 'G#4', 'G#5']	['M3', 'P5', 'P5']	[False, False, True, True]	113.0	0.5	195.0	V	True	('C#', 'E#', 'G#')	C#	C#	0.0	major triad	(1, 5, 8)	f#	f#	5	None
+340.0	1.0	114	['F#2', 'F#4', 'F#5']	['P1', 'P1']	[True, True, True]	114.0	3.0	196.0	i	True	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+341.0	1.0	114	['F#2', 'F#4', 'F#5']	['P1', 'P1']	[True, True, True]	114.0	3.0	196.0	i	False	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+342.0	1.0	114	['F#4', 'A4', 'A5']	['m3', 'm3']	[True, True, True]	114.0	3.0	196.0	i	False	('F#', 'A', 'C#')	F#	F#	0.0	minor triad	(1, 6, 9)	f#	f#	1	None
+343.0	1.0	115	['B3', 'F#4', 'A4', 'A5']	['P5', 'm7', 'm7']	[True, False, False, False]	115.0	1.0	197.0	V7/ii	True	('B', 'D#', 'F#', 'A')	B	B	0.0	dominant seventh chord	(3, 6, 9, 11)	D	e	5	2
+344.0	1.0	115	['B3', 'E4', 'G4', 'G5']	['P4', 'm6', 'm6']	[False, True, True, True]	115.0	1.0	198.0	V/ii	True	('B', 'D#', 'F#')	B	B	0.0	major triad	(3, 6, 11)	D	e	5	2
+345.0	1.0	115	['A3', 'D#4', 'F#4', 'F#5']	['A4', 'M6', 'M6']	[True, True, True, True]	115.0	1.0	199.0	viio/ii	True	('A', 'D#', 'F#')	A	D#	2.0	diminished triad	(3, 6, 9)	D	e	#7	2
+346.0	1.0	116	['G3', 'E4', 'G4', 'G5']	['M6', 'P1', 'P1']	[True, True, True, True]	116.0	2.0	200.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+347.0	1.0	116	['F#3', 'F#4', 'A4', 'A5']	['P1', 'm3', 'm3']	[True, True, True, True]	116.0	2.0	200.0	ii	False	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+348.0	1.0	116	['E3', 'G4', 'B4', 'B5']	['m3', 'P5', 'P5']	[True, True, True, True]	116.0	1.0	201.0	ii	True	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+349.0	1.0	117	['D3', 'A4', 'C5', 'C6']	['P5', 'm7', 'm7']	[True, True, True, True]	117.0	2.0	202.0	V7/IV	True	('D', 'F#', 'A', 'C')	D	D	0.0	dominant seventh chord	(0, 2, 6, 9)	D	G	5	4
+350.0	1.0	117	['D3', 'B4', 'D5', 'D6']	['M6', 'P1', 'P1']	[False, True, True, True]	117.0	2.0	202.0	V7/IV	False	('D', 'F#', 'A', 'C')	D	D	0.0	dominant seventh chord	(0, 2, 6, 9)	D	G	5	4
+351.0	1.0	117	['D3', 'C5', 'E5', 'E6']	['m7', 'M2', 'M2']	[False, True, True, True]	117.0	1.0	203.0	V9/IV	True	('D', 'F#', 'A', 'C', 'E')	D	D	0.0	dominant-ninth	(0, 2, 4, 6, 9)	D	G	5	4
+352.0	2.0	118	['D3', 'F#4', 'A4', 'A5']	['M3', 'P5', 'P5']	[False, True, True, True]	118.0	2.0	204.0	V7/IV	True	('D', 'F#', 'A', 'C')	D	D	0.0	dominant seventh chord	(0, 2, 6, 9)	D	G	5	4
+354.0	1.0	118	['B4', 'B5']	['P1']	[True, True]	118.0	1.0	205.0	I	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	G	G	1	None
+355.0	2.0	119	['G3', 'D4', 'B4', 'B5']	['P5', 'M3', 'M3']	[True, True, True, True]	119.0	2.0	206.0	I	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	G	G	1	None
+357.0	1.0	119	['G3', 'D#4', 'B4', 'B5']	['A5', 'M3', 'M3']	[False, True, False, False]	119.0	1.0	207.0	I+	True	('G', 'B', 'D#')	G	G	0.0	augmented triad	(3, 7, 11)	G	G	1	None
+358.0	1.0	120	['C3', 'E4', 'B4', 'B5']	['M3', 'M7', 'M7']	[True, True, False, False]	120.0	2.0	208.0	ii	True	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	G	G	2	None
+359.0	1.0	120	['C3', 'E4', 'C5', 'C6']	['M3', 'P1', 'P1']	[False, False, True, True]	120.0	2.0	208.0	ii	False	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	G	G	2	None
+360.0	1.0	120	['C3', 'E4', 'A4', 'A5']	['M3', 'M6', 'M6']	[False, False, True, True]	120.0	1.0	209.0	ii	True	('C', 'E', 'A')	C	A	1.0	minor triad	(0, 4, 9)	G	G	2	None
+361.0	1.0	121	['C3', 'A3', 'G4', 'G5']	['M6', 'P5', 'P5']	[False, True, True, True]	121.0	1.0	210.0	V7	True	('C', 'D', 'F#', 'A')	C	D	3.0	dominant seventh chord	(0, 2, 6, 9)	G	G	5	None
+362.0	1.0	121	['C3', 'D4', 'F#4', 'F#5']	['M2', 'A4', 'A4']	[True, True, True, True]	121.0	1.0	211.0	V7	True	('C', 'D', 'F#', 'A')	C	D	3.0	dominant seventh chord	(0, 2, 6, 9)	G	G	5	None
+363.0	0.5	121	['B2', 'D4', 'G4', 'G5']	['m3', 'm6', 'm6']	[True, True, True, True]	121.0	1.0	212.0	I	True	('B', 'D', 'G')	B	G	1.0	major triad	(2, 7, 11)	G	G	1	None
+363.5	0.5	121	['G2', 'D4', 'G4', 'G5']	['P5', 'P1', 'P1']	[True, False, False, False]	121.0	1.0	212.0	I	False	('B', 'D', 'G')	B	G	1.0	major triad	(2, 7, 11)	G	G	1	None
+364.0	1.0	122	['D3', 'G4', 'B4', 'B5']	['P4', 'M6', 'M6']	[True, True, True, True]	122.0	1.0	213.0	Cad	True	('D', 'G', 'B')	D	G	2.0	major triad	(2, 7, 11)	G	G	1	None
+365.0	1.0	122	['F#4', 'A4', 'A5']	['m3', 'm3']	[True, True, True]	122.0	1.0	214.0	V	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	G	G	5	None
+366.0	1.0	122	['F#3', 'D4', 'A#4', 'A#5']	['m6', 'M3', 'M3']	[True, True, True, True]	122.0	1.0	215.0	V+	True	('F#', 'A#', 'D')	F#	D	1.0	augmented triad	(2, 6, 10)	G	G	5	None
+367.0	1.0	123	['G3', 'D4', 'C5', 'C6']	['P5', 'P4', 'P4']	[True, True, True, True]	123.0	1.0	216.0	I	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	G	G	1	None
+368.0	1.0	123	['B4', 'B5']	['P1']	[True, True]	123.0	1.0	217.0	I	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	G	G	1	None
+369.0	1.0	123	['E3', 'G4', 'C#5', 'C#6']	['m3', 'M6', 'M6']	[True, True, True, True]	123.0	1.0	218.0	viio	True	('E', 'G', 'C#')	E	C#	1.0	diminished triad	(1, 4, 7)	D	D	7	None
+370.0	1.0	124	['F#3', 'A4', 'E5', 'E6']	['m3', 'm7', 'm7']	[True, True, True, True]	124.0	1.0	219.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+371.0	1.0	124	['D5', 'D6']	['P1']	[True, True]	124.0	1.0	220.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+372.0	1.0	124	['C#3', 'A4', 'E5', 'E6']	['m6', 'm3', 'm3']	[True, True, True, True]	124.0	1.0	221.0	V	True	('C#', 'E', 'A')	C#	A	1.0	major triad	(1, 4, 9)	D	D	5	None
+373.0	1.0	125	['D3', 'A4', 'G5', 'G6']	['P5', 'P4', 'P4']	[True, True, True, True]	125.0	1.0	222.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+374.0	1.0	125	['F#5', 'F#6']	['P1']	[True, True]	125.0	1.0	223.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+375.0	1.0	125	['E3', 'D4', 'D5', 'G5', 'G6']	['m7', 'm7', 'm3', 'm3']	[True, True, True, True, True]	125.0	1.0	224.0	ii7	True	('E', 'G', 'B', 'D')	E	E	0.0	minor seventh chord	(2, 4, 7, 11)	D	D	2	None
+376.0	3.0	126	['E#3', 'D4', 'D5', 'G#5', 'G#6']	['d7', 'd7', 'm3', 'm3']	[True, True, True, True, True]	126.0	3.0	225.0	viio7	True	('C#', 'E', 'G', 'B-')	C#	C#	0.0	diminished seventh chord	(1, 4, 7, 10)	D	D	7	None
+379.0	3.0	127	['F#3', 'D4', 'D5', 'G#5', 'G#6']	['m6', 'm6', 'M2', 'M2']	[True, False, False, False, False]	127.0	3.0	226.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+382.0	2.0	128	['F#3', 'D4', 'D5', 'A5', 'A6']	['m6', 'm6', 'm3', 'm3']	[False, False, False, True, True]	128.0	2.0	227.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+384.0	1.0	128	['A#4', 'A#5']	['P1']	[True, True]	128.0	1.0	228.0	I+	True	('F#', 'A#', 'D')	F#	D	1.0	augmented triad	(2, 6, 10)	D	D	1	None
+385.0	3.0	129	['A#4', 'A#5']	['P1']	[True, True]	129.0	3.0	229.0	I+	True	('F#', 'A#', 'D')	F#	D	1.0	augmented triad	(2, 6, 10)	D	D	1	None
+388.0	1.0	130	['B4', 'B5']	['P1']	[True, True]	130.0	3.0	230.0	IV	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+389.0	1.0	130	['G4', 'G5']	['P1']	[True, True]	130.0	3.0	230.0	IV	False	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+390.0	1.0	130	['F#4', 'F#5']	['P1']	[True, True]	130.0	3.0	230.0	IV	False	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+391.0	3.0	131	['G3', 'B3', 'E#4', 'E#5']	['M3', 'A6', 'A6']	[True, True, True, True]	131.0	3.0	231.0	Ger/vi	True	('E#', 'G', 'B')	E#	E#	0.0	incomplete dominant-seventh chord	(5, 7, 11)	D	b	#4	6
+394.0	1.0	132	['F#3', 'A#3', 'F#4', 'F#5']	['M3', 'P1', 'P1']	[True, True, True, True]	132.0	3.0	232.0	V/vi	True	('F#', 'A#', 'C#')	F#	F#	0.0	major triad	(1, 6, 10)	D	b	5	6
+395.0	1.0	132	['F#3', 'A#3', 'F#4', 'F#5']	['M3', 'P1', 'P1']	[True, True, True, True]	132.0	3.0	232.0	V/vi	False	('F#', 'A#', 'C#')	F#	F#	0.0	major triad	(1, 6, 10)	D	b	5	6
+396.0	1.0	132	['A#4', 'A#5']	['P1']	[True, True]	132.0	3.0	232.0	V/vi	False	('F#', 'A#', 'C#')	F#	F#	0.0	major triad	(1, 6, 10)	D	b	5	6
+397.0	3.0	133	['A#4', 'A#5']	['P1']	[True, True]	133.0	3.0	233.0	V/vi	True	('F#', 'A#', 'C#')	F#	F#	0.0	major triad	(1, 6, 10)	D	b	5	6
+400.0	1.0	134	['B4', 'B5']	['P1']	[True, True]	134.0	3.0	234.0	ii	True	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+401.0	1.0	134	['G4', 'G5']	['P1']	[True, True]	134.0	3.0	234.0	ii	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+402.0	1.0	134	['E4', 'E5']	['P1']	[True, True]	134.0	3.0	234.0	ii	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+403.0	3.0	135	['G2', 'A3', 'D4', 'D5']	['M2', 'P5', 'P5']	[True, True, True, True]	135.0	3.0	235.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+406.0	1.0	136	['G2', 'A3', 'C#4', 'C#5']	['M2', 'A4', 'A4']	[False, False, True, True]	136.0	2.0	236.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+407.0	1.0	136	['G2']	[]	[False]	136.0	2.0	236.0	V7	False	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+408.0	1.0	136	['F#2', 'A3', 'D4', 'D5']	['m3', 'm6', 'm6']	[True, True, True, True]	136.0	1.0	237.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+409.0	1.0	137	['G2', 'A#3', 'F#4', 'F#5']	['A2', 'M7', 'M7']	[True, True, True, True]	137.0	2.0	238.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+410.0	1.0	137	['B3', 'F#4', 'F#5']	['P5', 'P5']	[True, False, False]	137.0	2.0	238.0	ii	False	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+411.0	1.0	137	['G3', 'E4', 'E5']	['M6', 'M6']	[True, True, True]	137.0	1.0	239.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+412.0	1.0	138	['A2', 'E3', 'G4', 'G5']	['P5', 'm7', 'm7']	[True, True, True, True]	138.0	3.0	240.0	V7	True	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+413.0	1.0	138	['A3', 'G4', 'G5']	['m7', 'm7']	[True, False, False]	138.0	3.0	240.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+414.0	1.0	138	['G3', 'C#4', 'C#5']	['A4', 'A4']	[True, True, True]	138.0	3.0	240.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+415.0	1.0	139	['D3', 'F#3', 'D4', 'D5']	['M3', 'P1', 'P1']	[True, True, True, True]	139.0	3.0	241.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+416.0	1.0	139	['D3', 'F#3', 'D4', 'D5']	['M3', 'P1', 'P1']	[True, True, True, True]	139.0	3.0	241.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+417.0	1.0	139	['F#3']	[]	[True]	139.0	3.0	241.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+418.0	1.0	140	['F#3']	[]	[True]	140.0	3.0	242.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+419.0	1.0	140	['G3']	[]	[True]	140.0	3.0	242.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+420.0	1.0	140	['E3']	[]	[True]	140.0	3.0	242.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+421.0	1.0	141	['D3']	[]	[True]	141.0	3.0	243.0	V	True	('C#', 'E', 'A')	C#	A	1.0	major triad	(1, 4, 9)	D	D	5	None
+422.0	1.0	141	['C#3']	[]	[True]	141.0	3.0	243.0	V	False	('C#', 'E', 'A')	C#	A	1.0	major triad	(1, 4, 9)	D	D	5	None
+423.0	1.0	141	['C#3', 'A3']	['m6']	[False, True]	141.0	3.0	243.0	V	False	('C#', 'E', 'A')	C#	A	1.0	major triad	(1, 4, 9)	D	D	5	None
+424.0	1.0	142	['C#3', 'A3']	['m6']	[False, True]	142.0	3.0	244.0	V7	True	('C#', 'E', 'G', 'A')	C#	A	1.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+425.0	1.0	142	['C#3', 'B3']	['m7']	[False, True]	142.0	3.0	244.0	V7	False	('C#', 'E', 'G', 'A')	C#	A	1.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+426.0	1.0	142	['C#3', 'G3']	['d5']	[False, True]	142.0	3.0	244.0	V7	False	('C#', 'E', 'G', 'A')	C#	A	1.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+427.0	1.0	143	['D3', 'G3']	['P4']	[True, True]	143.0	1.0	245.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+428.0	1.0	143	['D3', 'F#3']	['M3']	[False, True]	143.0	2.0	246.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+429.0	1.0	143	['D3', 'F#3', 'D5']	['M3', 'P1']	[False, False, True]	143.0	2.0	246.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+430.0	1.0	144	['D3', 'F#3', 'D5']	['M3', 'P1']	[False, False, True]	144.0	2.0	247.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+431.0	1.0	144	['D3', 'F#3', 'E5']	['M3', 'M2']	[False, False, True]	144.0	2.0	247.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+432.0	1.0	144	['D3', 'F#3', 'C5']	['M3', 'm7']	[False, False, True]	144.0	1.0	248.0	V7/IV	True	('D', 'F#', 'A', 'C')	D	D	0.0	dominant seventh chord	(0, 2, 6, 9)	D	G	5	4
+433.0	1.0	145	['D#3', 'F#4', 'C5']	['m3', 'd7']	[True, True, True]	145.0	1.0	249.0	V/ii	True	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+434.0	1.0	145	['D#3', 'F#4', 'B4']	['m3', 'm6']	[False, False, True]	145.0	2.0	250.0	V/ii	True	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+435.0	1.0	145	['D#3', 'F#4', 'B4', 'B5']	['m3', 'm6', 'm6']	[False, False, False, True]	145.0	2.0	250.0	V/ii	False	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+436.0	1.0	146	['D#3', 'F#4', 'B4', 'B5']	['m3', 'm6', 'm6']	[False, False, False, True]	146.0	3.0	251.0	V/ii	True	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+437.0	1.0	146	['D#3', 'F#4', 'B4', 'C6']	['m3', 'm6', 'd7']	[False, False, False, True]	146.0	3.0	251.0	V/ii	False	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+438.0	1.0	146	['D#3', 'F#4', 'B4', 'A5']	['m3', 'm6', 'd5']	[False, False, False, True]	146.0	3.0	251.0	V/ii	False	('D#', 'F#', 'B')	D#	B	1.0	major triad	(3, 6, 11)	D	e	5	2
+439.0	1.0	147	['E3', 'G4', 'B4', 'G5']	['m3', 'P5', 'm3']	[True, True, False, True]	147.0	2.0	252.0	ii	True	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+440.0	1.0	147	['A5']	[]	[True]	147.0	2.0	252.0	ii	False	('E', 'G', 'B')	E	E	0.0	minor triad	(4, 7, 11)	D	D	2	None
+441.0	1.0	147	['F#3', 'A4', 'D#5', 'F#5']	['m3', 'M6', 'P1']	[True, True, True, True]	147.0	1.0	253.0	viio7/ii	True	('F#', 'A', 'C', 'D#')	F#	D#	1.0	diminished seventh chord	(0, 3, 6, 9)	D	e	#7	2
+442.0	1.0	148	['G3', 'G4', 'B4', 'E5']	['P1', 'M3', 'M6']	[True, True, True, True]	148.0	2.0	254.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+443.0	1.0	148	['F#5']	[]	[True]	148.0	2.0	254.0	ii	False	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+444.0	1.0	148	['G#3', 'F4', 'B4', 'D5']	['d7', 'm3', 'd5']	[True, True, True, True]	148.0	1.0	255.0	viio7/V	True	('G#', 'B', 'D', 'F')	G#	G#	0.0	diminished seventh chord	(2, 5, 8, 11)	D	A	7	5
+445.0	1.0	149	['A3', 'E4', 'A4', 'C#5']	['P5', 'P1', 'M3']	[True, True, True, True]	149.0	1.0	256.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+446.0	1.0	149	['A3', 'F#4', 'D5']	['M6', 'P4']	[False, True, True]	149.0	2.0	257.0	I	True	('A', 'D', 'F#')	A	D	2.0	major triad	(2, 6, 9)	D	D	1	None
+447.0	1.0	149	['A3', 'D4', 'B4']	['P4', 'M2']	[False, True, True]	149.0	2.0	257.0	I	False	('A', 'D', 'F#')	A	D	2.0	major triad	(2, 6, 9)	D	D	1	None
+448.0	1.0	150	['A3', 'C#4', 'E4', 'A4']	['M3', 'P5', 'P1']	[False, True, True, True]	150.0	1.0	258.0	V	True	('C#', 'E', 'A')	C#	A	1.0	major triad	(1, 4, 9)	D	D	5	None
+449.0	1.0	150	['A3', 'D4', 'F#4', 'B4']	['P4', 'M6', 'M2']	[False, True, True, True]	150.0	1.0	259.0	vi	True	('D', 'F#', 'B')	D	B	1.0	minor triad	(2, 6, 11)	D	D	6	None
+450.0	1.0	150	['A3', 'B3', 'D4', 'G4']	['M2', 'P4', 'm7']	[False, True, True, True]	150.0	1.0	260.0	IV	True	('B', 'D', 'G')	B	G	1.0	major triad	(2, 7, 11)	D	D	4	None
+451.0	1.0	151	['A2', 'A3', 'C#4', 'F#4']	['P1', 'M3', 'M6']	[True, True, True, True]	151.0	1.0	261.0	iii	True	('A', 'C#', 'F#')	A	F#	1.0	minor triad	(1, 6, 9)	D	D	3	None
+452.0	1.0	151	['A2', 'B3', 'D4', 'G4']	['M2', 'P4', 'm7']	[False, True, True, True]	151.0	1.0	262.0	IV	True	('B', 'D', 'G')	B	G	1.0	major triad	(2, 7, 11)	D	D	4	None
+453.0	1.0	151	['A2', 'G3', 'B3', 'E4']	['m7', 'M2', 'P5']	[False, True, True, True]	151.0	1.0	263.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+454.0	1.0	152	['A2', 'F#3', 'A3', 'D4']	['M6', 'P1', 'P4']	[False, True, True, True]	152.0	1.0	264.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+455.0	1.0	152	['A2', 'G3', 'B3', 'E4']	['m7', 'M2', 'P5']	[False, True, True, True]	152.0	1.0	265.0	ii	True	('G', 'B', 'E')	G	E	1.0	minor triad	(4, 7, 11)	D	D	2	None
+456.0	1.0	152	['A#2', 'G3', 'C#4']	['d7', 'm3']	[True, True, True]	152.0	1.0	266.0	viio/vi	True	('A#', 'C#', 'E')	A#	A#	0.0	diminished triad	(1, 4, 10)	D	b	#7	6
+457.0	1.0	153	['B2', 'F#3', 'D4']	['P5', 'm3']	[True, True, True]	153.0	3.0	267.0	vi	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+458.0	1.0	153	['A#2', 'F#3', 'D4']	['m6', 'd4']	[True, False, False]	153.0	3.0	267.0	vi	False	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+459.0	1.0	153	['B2', 'F#3', 'D4']	['P5', 'm3']	[True, False, False]	153.0	3.0	267.0	vi	False	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+460.0	1.0	154	['G#2', 'B3', 'D4', 'E4']	['m3', 'd5', 'm6']	[True, True, False, True]	154.0	3.0	268.0	V7/V	True	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+461.0	1.0	154	['F#2', 'B3', 'D4', 'E4']	['P4', 'm6', 'm7']	[True, False, False, False]	154.0	3.0	268.0	V7/V	False	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+462.0	1.0	154	['G#2', 'B3', 'D4', 'E4']	['m3', 'd5', 'm6']	[True, False, False, False]	154.0	3.0	268.0	V7/V	False	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+463.0	1.0	155	['A2', 'A3', 'D4', 'F#4']	['P1', 'P4', 'M6']	[True, True, False, True]	155.0	3.0	269.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+464.0	1.0	155	['A2', 'A3', 'G4', 'B4']	['P1', 'm7', 'M2']	[False, False, True, True]	155.0	3.0	269.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+465.0	1.0	155	['A2', 'A3', 'F#4', 'A4']	['P1', 'M6', 'P1']	[False, False, True, True]	155.0	3.0	269.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+466.0	1.0	156	['A2', 'A3', 'E4', 'G4']	['P1', 'P5', 'm7']	[False, False, True, True]	156.0	2.0	270.0	V7	True	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+467.0	1.0	156	['A2', 'A3', 'D4', 'F#4']	['P1', 'P4', 'M6']	[False, False, True, True]	156.0	2.0	270.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+468.0	1.0	156	['A#2', 'A#3', 'C#4', 'E4']	['P1', 'm3', 'd5']	[True, True, True, True]	156.0	1.0	271.0	viio/vi	True	('A#', 'C#', 'E')	A#	A#	0.0	diminished triad	(1, 4, 10)	D	b	#7	6
+469.0	1.0	157	['B2', 'B3', 'D4', 'D5']	['P1', 'm3', 'm3']	[True, True, True, True]	157.0	3.0	272.0	vi	True	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+470.0	1.0	157	['A#2', 'A#3', 'D4', 'D5']	['P1', 'd4', 'd4']	[True, True, False, False]	157.0	3.0	272.0	vi	False	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+471.0	1.0	157	['B2', 'B3', 'D4', 'D5']	['P1', 'm3', 'm3']	[True, True, False, False]	157.0	3.0	272.0	vi	False	('B', 'D', 'F#')	B	B	0.0	minor triad	(2, 6, 11)	D	D	6	None
+472.0	1.0	158	['G#2', 'G#3', 'D4', 'D5', 'E5']	['P1', 'd5', 'd5', 'm6']	[True, True, True, True, True]	158.0	3.0	273.0	V7/V	True	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+473.0	1.0	158	['F#2', 'F#3', 'D4', 'D5', 'E5']	['P1', 'm6', 'm6', 'm7']	[True, True, False, False, False]	158.0	3.0	273.0	V7/V	False	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+474.0	1.0	158	['G#2', 'G#3', 'D4', 'D5', 'E5']	['P1', 'd5', 'd5', 'm6']	[True, True, False, False, False]	158.0	3.0	273.0	V7/V	False	('G#', 'B', 'D', 'E')	G#	E	1.0	dominant seventh chord	(2, 4, 8, 11)	D	A	5	5
+475.0	1.0	159	['A2', 'A3', 'D4', 'D5', 'F#5']	['P1', 'P4', 'P4', 'M6']	[True, True, False, False, True]	159.0	3.0	274.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+476.0	1.0	159	['A2', 'A3', 'G5', 'B5']	['P1', 'm7', 'M2']	[False, False, True, True]	159.0	3.0	274.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+477.0	1.0	159	['A2', 'A3', 'F#5', 'A5']	['P1', 'M6', 'P1']	[False, False, True, True]	159.0	3.0	274.0	V	False	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+478.0	1.0	160	['A2', 'A3', 'E5', 'G5']	['P1', 'P5', 'm7']	[False, False, True, True]	160.0	3.0	275.0	V7	True	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+479.0	1.0	160	['A2', 'A3', 'D5', 'F#5']	['P1', 'P4', 'M6']	[False, False, True, True]	160.0	3.0	275.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+480.0	1.0	160	['A2', 'G4', 'C#5', 'E5']	['m7', 'M3', 'P5']	[False, True, True, True]	160.0	3.0	275.0	V7	False	('A', 'C#', 'E', 'G')	A	A	0.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+481.0	1.0	161	['A2', 'F#4', 'D5']	['M6', 'P4']	[False, True, True]	161.0	3.0	276.0	I	True	('A', 'D', 'F#')	A	D	2.0	major triad	(2, 6, 9)	D	D	1	None
+482.0	1.0	161	['A2', 'B4']	['M2']	[False, True]	161.0	3.0	276.0	I	False	('A', 'D', 'F#')	A	D	2.0	major triad	(2, 6, 9)	D	D	1	None
+483.0	1.0	161	['A2', 'A4']	['P1']	[False, True]	161.0	3.0	276.0	I	False	('A', 'D', 'F#')	A	D	2.0	major triad	(2, 6, 9)	D	D	1	None
+484.0	1.0	162	['A2', 'G4']	['m7']	[False, True]	162.0	1.0	277.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+485.0	1.0	162	['A2', 'F#4', 'A4']	['M6', 'P1']	[False, True, True]	162.0	1.0	278.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+486.0	1.0	162	['G3', 'E4', 'C#5']	['M6', 'A4']	[True, True, True]	162.0	1.0	279.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+487.0	1.0	163	['F#3', 'D4', 'D5']	['m6', 'm6']	[True, True, True]	163.0	3.0	280.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+488.0	1.0	163	['B3', 'G4']	['m6']	[True, True]	163.0	3.0	280.0	I	False	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+489.0	1.0	163	['A3', 'F#4']	['M6']	[True, True]	163.0	3.0	280.0	I	False	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+490.0	1.0	164	['G3', 'E4']	['M6']	[True, True]	164.0	1.0	281.0	V7	True	('G', 'A', 'C#', 'E')	G	A	3.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+491.0	1.0	164	['F#3', 'D4', 'A5']	['m6', 'm3']	[True, True, True]	164.0	1.0	282.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+492.0	1.0	164	['E3', 'G4', 'A4', 'C#6']	['m3', 'P4', 'M6']	[True, True, True, True]	164.0	1.0	283.0	V7	True	('E', 'G', 'A', 'C#')	E	A	2.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+493.0	1.0	165	['D3', 'F#4', 'A4', 'D6']	['M3', 'P5', 'P1']	[True, True, True, True]	165.0	1.0	284.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+494.0	1.0	165	['B2', 'D4', 'D5', 'A5']	['m3', 'm3', 'm7']	[True, True, True, True]	165.0	1.0	285.0	vi7	True	('B', 'D', 'F#', 'A')	B	B	0.0	minor seventh chord	(2, 6, 9, 11)	D	D	6	None
+495.0	1.0	165	['A2', 'D4', 'C#5', 'C#6']	['P4', 'M3', 'M3']	[True, True, True, True]	165.0	1.0	286.0	V	True	('A', 'C#', 'E')	A	A	0.0	major triad	(1, 4, 9)	D	D	5	None
+496.0	1.0	166	['G2', 'D4', 'B4', 'D6']	['P5', 'M3', 'P5']	[True, True, True, True]	166.0	1.0	287.0	IV	True	('G', 'B', 'D')	G	G	0.0	major triad	(2, 7, 11)	D	D	4	None
+497.0	1.0	166	['F#2', 'D4', 'A4', 'G6']	['m6', 'm3', 'm2']	[True, True, True, True]	166.0	1.0	288.0	I	True	('F#', 'A', 'D')	F#	D	1.0	major triad	(2, 6, 9)	D	D	1	None
+498.0	1.0	166	['E2', 'A3', 'G4', 'C#6']	['P4', 'm3', 'M6']	[True, True, True, True]	166.0	1.0	289.0	V7	True	('E', 'G', 'A', 'C#')	E	A	2.0	dominant seventh chord	(1, 4, 7, 9)	D	D	5	None
+499.0	1.0	167	['D2', 'A3', 'C#4', 'G4', 'E6']	['P5', 'M7', 'P4', 'M2']	[True, True, True, True, True]	167.0	3.0	290.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+500.0	1.0	167	['F#2', 'A3', 'C#4', 'G4', 'E6']	['m3', 'P5', 'm2', 'm7']	[True, False, False, False, False]	167.0	3.0	290.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+501.0	1.0	167	['A2', 'A3', 'C#4', 'G4', 'E6']	['P1', 'M3', 'm7', 'P5']	[True, False, False, False, False]	167.0	3.0	290.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+502.0	1.0	168	['D3', 'A3', 'D4', 'F#4', 'D6']	['P5', 'P1', 'M3', 'P1']	[True, False, True, True, True]	168.0	3.0	291.0	I	True	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
+503.0	2.0	168	['D3', 'A3', 'D4', 'F#4', 'D6']	['P5', 'P1', 'M3', 'P1']	[True, False, True, True, True]	168.0	3.0	291.0	I	False	('D', 'F#', 'A')	D	D	0.0	major triad	(2, 6, 9)	D	D	1	None
