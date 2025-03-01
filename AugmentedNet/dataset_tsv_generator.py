@@ -1,6 +1,8 @@
 """Combine all available (score, annotation) pairs into tsv files."""
 
 import os
+import shutil
+
 import pandas as pd
 from pathlib import Path
 
@@ -12,7 +14,7 @@ from .common import (
 )
 from .joint_parser import (
     parseAnnotationAndScore,
-    parseAnnotationAndAnnotation,
+    parseAnnotationAndAnnotation, parseAnnotationAndScoreEvents,
 )
 
 
@@ -58,9 +60,51 @@ def generateDataset(synthesize=False, texturize=False, tsvDir="dataset", eventBa
             df.to_csv(os.path.join(datasetDir, DATASETSUMMARYFILE), sep="\t")
     return df
 
+def generateEventsDataset(tsvDir="events"):
+    statsdict = {
+        "file": [],
+        "annotation": [],
+        "score": [],
+        "collection": [],
+        "split": [],
+        # "misalignmentMean": [],
+        # "qualityMean": [],
+        # "incongruentBassMean": [],
+    }
+    datasetDir = tsvDir
+    Path(datasetDir).mkdir(exist_ok=True)
+    for split, files in DATASPLITS.items():
+        Path(os.path.join(datasetDir, split)).mkdir(exist_ok=True)
+        for nickname in files:
+            print(nickname)
+            annotation, score = ANNOTATIONSCOREDUPLES[nickname]
+            adf, sdf, jointdf = parseAnnotationAndScoreEvents(annotation, score)
+            for df, suffix in [(adf, "labels"), (sdf, "slices"), (jointdf, "joint")]:
+                outpath = os.path.join(datasetDir, split, f"{nickname}_{suffix}.tsv")
+                df.to_csv(outpath, sep="\t")
+            # copy and rename original score
+            _, score_ext = os.path.splitext(score)
+            new_score_path = os.path.join(datasetDir, split, f"{nickname}{score_ext}")
+            shutil.copy(score, new_score_path)
+            collection = nickname.split("-")[0]
+            statsdict["file"].append(nickname)
+            statsdict["annotation"].append(annotation)
+            statsdict["score"].append(score)
+            statsdict["collection"].append(collection)
+            statsdict["split"].append(split)
+            # misalignment = jointdf.measureMisalignment.mean().round(2)
+            # statsdict["misalignmentMean"].append(misalignment)
+            # qualitySquaredSum = jointdf.qualitySquaredSum.mean().round(2)
+            # statsdict["qualityMean"].append(qualitySquaredSum)
+            # incongruentBass = jointdf.incongruentBass.mean().round(2)
+            # statsdict["incongruentBassMean"].append(incongruentBass)
+            jointdf = pd.DataFrame(statsdict)
+            jointdf.to_csv(os.path.join(datasetDir, DATASETSUMMARYFILE), sep="\t")
+    return jointdf
 
 if __name__ == "__main__":
     parser = cli.tsv()
     args = parser.parse_args()
     kwargs = vars(args)
-    generateDataset(**kwargs)
+    #generateDataset(**kwargs)
+    generateEventsDataset()

@@ -119,6 +119,32 @@ def parseAnnotationAndScore(
         jointdf = _inversionMetric(jointdf)
     return jointdf
 
+def parseAnnotationAndScoreEvents(
+        a, s#, qualityAssessment=True, fixedOffset=FIXEDOFFSET, eventBased=False
+):
+    """Process a RomanText and score files simultaneously.
+
+    a is a RomanText file
+    s is a .mxl|.krn|.musicxml file
+
+    Create the dataframes of both. Generate a new, joint, one.
+    """
+    # Parse each file
+    adf = annotation_parser.parseAnnotation(a, eventBased=True)
+    sdf = score_parser.parseScore(s, eventBased=True)
+    # Create the joint dataframe
+    jointdf = pd.concat([sdf, adf], axis=1)
+    jointdf.index.name = "j_offset"
+    # Sometimes, scores are longer than annotations (trailing empty measures)
+    # In that case, ffill the annotation portion of the new dataframe
+    jointdf["a_isOnset"].fillna(False, inplace=True)
+    jointdf.fillna(method="ffill", inplace=True)
+    # if qualityAssessment:
+    #     jointdf = _measureAlignmentScore(jointdf)
+    #     jointdf = _qualityMetric(jointdf)
+    #     jointdf = _inversionMetric(jointdf)
+    return adf, sdf, jointdf
+
 
 def parseAnnotationAndAnnotation(
     a, qualityAssessment=True, fixedOffset=FIXEDOFFSET, texturize=True
