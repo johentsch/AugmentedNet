@@ -94,7 +94,7 @@ def _inversionMetric(df):
 
 
 def parseAnnotationAndScore(
-    a, s, qualityAssessment=True, fixedOffset=FIXEDOFFSET
+    a, s, qualityAssessment=True, fixedOffset=FIXEDOFFSET, eventBased=False
 ):
     """Process a RomanText and score files simultaneously.
 
@@ -104,8 +104,8 @@ def parseAnnotationAndScore(
     Create the dataframes of both. Generate a new, joint, one.
     """
     # Parse each file
-    adf = annotation_parser.parseAnnotation(a, fixedOffset=fixedOffset)
-    sdf = score_parser.parseScore(s, fixedOffset=fixedOffset)
+    adf = annotation_parser.parseAnnotation(a, fixedOffset=fixedOffset, eventBased=eventBased)
+    sdf = score_parser.parseScore(s, fixedOffset=fixedOffset, eventBased=eventBased)
     # Create the joint dataframe
     jointdf = pd.concat([sdf, adf], axis=1)
     jointdf.index.name = "j_offset"

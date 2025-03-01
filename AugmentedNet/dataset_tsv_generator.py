@@ -16,7 +16,7 @@ from .joint_parser import (
 )
 
 
-def generateDataset(synthesize=False, texturize=False, tsvDir="dataset"):
+def generateDataset(synthesize=False, texturize=False, tsvDir="dataset", eventBased=False):
     statsdict = {
         "file": [],
         "annotation": [],
@@ -35,7 +35,7 @@ def generateDataset(synthesize=False, texturize=False, tsvDir="dataset"):
             print(nickname)
             annotation, score = ANNOTATIONSCOREDUPLES[nickname]
             if not synthesize:
-                df = parseAnnotationAndScore(annotation, score)
+                df = parseAnnotationAndScore(annotation, score, eventBased=eventBased)
             else:
                 df = parseAnnotationAndAnnotation(
                     annotation, annotation, texturize=texturize
