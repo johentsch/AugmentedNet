@@ -119,6 +119,11 @@ def parseAnnotationAndScore(
         jointdf = _inversionMetric(jointdf)
     return jointdf
 
+def m21_metadata2dict(metadata, key_prefix=None):
+    if not key_prefix:
+        return dict(metadata.all())
+    return {f"{key_prefix}{k}": v for k, v in metadata.all()}
+
 def parseAnnotationAndScoreEvents(
         a, s#, qualityAssessment=True, fixedOffset=FIXEDOFFSET, eventBased=False
 ):
@@ -132,6 +137,10 @@ def parseAnnotationAndScoreEvents(
     # Parse each file
     adf = annotation_parser.parseAnnotation(a, eventBased=True)
     sdf = score_parser.parseScore(s, eventBased=True)
+    metadata = dict(
+        m21_metadata2dict(adf.metadata, "a_"),
+        **m21_metadata2dict(sdf.metadata, "s_")
+    )
     # Create the joint dataframe
     jointdf = pd.concat([sdf, adf], axis=1)
     jointdf.index.name = "j_offset"
@@ -143,7 +152,7 @@ def parseAnnotationAndScoreEvents(
     #     jointdf = _measureAlignmentScore(jointdf)
     #     jointdf = _qualityMetric(jointdf)
     #     jointdf = _inversionMetric(jointdf)
-    return adf, sdf, jointdf
+    return adf, sdf, jointdf, metadata
 
 
 def parseAnnotationAndAnnotation(

@@ -60,17 +60,8 @@ def generateDataset(synthesize=False, texturize=False, tsvDir="dataset", eventBa
             df.to_csv(os.path.join(datasetDir, DATASETSUMMARYFILE), sep="\t")
     return df
 
-def generateEventsDataset(tsvDir="events"):
-    statsdict = {
-        "file": [],
-        "annotation": [],
-        "score": [],
-        "collection": [],
-        "split": [],
-        # "misalignmentMean": [],
-        # "qualityMean": [],
-        # "incongruentBassMean": [],
-    }
+def generateEventsDataset(tsvDir="events", include_metadata=True):
+    statsrecords = []
     datasetDir = tsvDir
     Path(datasetDir).mkdir(exist_ok=True)
     for split, files in DATASPLITS.items():
@@ -78,7 +69,7 @@ def generateEventsDataset(tsvDir="events"):
         for nickname in files:
             print(nickname)
             annotation, score = ANNOTATIONSCOREDUPLES[nickname]
-            adf, sdf, jointdf = parseAnnotationAndScoreEvents(annotation, score)
+            adf, sdf, jointdf, metadata = parseAnnotationAndScoreEvents(annotation, score)
             for df, suffix in [(adf, "labels"), (sdf, "slices"), (jointdf, "joint")]:
                 outpath = os.path.join(datasetDir, split, f"{nickname}_{suffix}.tsv")
                 df.to_csv(outpath, sep="\t")
@@ -87,18 +78,23 @@ def generateEventsDataset(tsvDir="events"):
             new_score_path = os.path.join(datasetDir, split, f"{nickname}{score_ext}")
             shutil.copy(score, new_score_path)
             collection = nickname.split("-")[0]
-            statsdict["file"].append(nickname)
-            statsdict["annotation"].append(annotation)
-            statsdict["score"].append(score)
-            statsdict["collection"].append(collection)
-            statsdict["split"].append(split)
+            stats = dict(
+                file = nickname,
+                annotation = annotation,
+                score = score,
+                collection = collection,
+                split = split
+            )
+            if include_metadata:
+                stats.update(metadata)
+            statsrecords.append(stats)
             # misalignment = jointdf.measureMisalignment.mean().round(2)
             # statsdict["misalignmentMean"].append(misalignment)
             # qualitySquaredSum = jointdf.qualitySquaredSum.mean().round(2)
             # statsdict["qualityMean"].append(qualitySquaredSum)
             # incongruentBass = jointdf.incongruentBass.mean().round(2)
             # statsdict["incongruentBassMean"].append(incongruentBass)
-            jointdf = pd.DataFrame(statsdict)
+            jointdf = pd.DataFrame.from_records(statsrecords)
             jointdf.to_csv(os.path.join(datasetDir, DATASETSUMMARYFILE), sep="\t")
     return jointdf
 

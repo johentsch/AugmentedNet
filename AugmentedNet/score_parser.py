@@ -183,6 +183,7 @@ def parseScore(f, fmt=None, fixedOffset=FIXEDOFFSET, eventBased=False):
     # Step 2: Turn salami-slice into fixed-duration steps
     if not eventBased:
         df = _reindexDataFrame(df, fixedOffset=fixedOffset)
+    df.metadata = s.metadata
     return df
 
 
