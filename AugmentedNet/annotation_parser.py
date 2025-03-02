@@ -118,6 +118,57 @@ def _initialDataFrame(s):
     df.set_index("a_offset", inplace=True)
     return df
 
+def extendedDataFrame(s):
+    """Parses an annotation RomanText file and produces a pandas dataframe.
+
+    Unpacking a roman numeral is slightly more complicated here than in
+    previous approaches/papers, the reason is that I include more features
+    than usual (e.g., inversion). It may be easier to predict which features
+    lead to a better Roman numeral reconstruction this way.
+    """
+    dfdict = {col: [] for col in A_COLUMNS}
+    for idx, rn in enumerate(s.flat.getElementsByClass("RomanNumeral")):
+        dfdict["a_offset"].append(round(float(rn.offset), FLOATSCALE))
+        dfdict["a_measure"].append(rn.measureNumber)
+        dfdict["a_duration"].append(round(float(rn.quarterLength), FLOATSCALE))
+        dfdict["a_annotationNumber"].append(idx)
+        dfdict["a_romanNumeral"].append(_preprocessRomanNumeral(rn.figure))
+        dfdict["a_isOnset"].append(True)
+        dfdict["a_pitchNames"].append(tuple(rn.pitchNames))
+        dfdict["a_bass"].append(rn.pitchNames[0])
+        dfdict["a_root"].append(rn.root().name)
+        dfdict["a_inversion"].append(rn.inversion())
+        dfdict["a_quality"].append(rn.commonName)
+        dfdict["a_pcset"].append(tuple(sorted(set(rn.pitchClasses))))
+        localKey = rn.key.tonicPitchNameWithCase
+        dfdict["a_localKey"].append(localKey)
+        secondaryKey = rn.secondaryRomanNumeralKey
+        if secondaryKey:
+            tonicizedKey = secondaryKey.tonicPitchNameWithCase
+            dfdict["a_tonicizedKey"].append(tonicizedKey)
+        else:
+            # if there is no tonicization, encode the local key
+            dfdict["a_tonicizedKey"].append(localKey)
+        scaleDegree, alteration = rn.scaleDegreeWithAlteration
+        if alteration:
+            scaleDegree = f"{alteration.modifier}{scaleDegree}"
+        else:
+            scaleDegree = f"{scaleDegree}"
+        dfdict["a_degree1"].append(str(scaleDegree))
+        secondaryDegree = rn.secondaryRomanNumeral
+        if secondaryDegree:
+            scaleDegree, alteration = secondaryDegree.scaleDegreeWithAlteration
+            if alteration:
+                scaleDegree = f"{alteration.modifier}{scaleDegree}"
+            else:
+                scaleDegree = f"{scaleDegree}"
+            dfdict["a_degree2"].append(scaleDegree)
+        else:
+            dfdict["a_degree2"].append("None")
+    df = pd.DataFrame(dfdict)
+    df.set_index("a_offset", inplace=True)
+    return df
+
 
 def _reindexDataFrame(df, fixedOffset=FIXEDOFFSET):
     """Reindexes a dataframe according to a fixed note-value.
@@ -160,5 +211,20 @@ def parseAnnotation(f, fixedOffset=FIXEDOFFSET, eventBased=False):
     # Step 2: Turn salami-slice into fixed-duration steps
     if not eventBased:
         df = _reindexDataFrame(df, fixedOffset=fixedOffset)
+    df.metadata = s.metadata
+    return df
+
+def parseAnnotationEvents(f):
+    """Generates the DataFrame from a RomanText file.
+
+    Parses the file using music21. Creates an initial DataFrame
+    with every onset event of the music21 stream. Finally,
+    does the sampling at symbolically regular durations fixedOffset.
+    """
+    # Step 0: Use music21 to parse the score
+    s = _m21Parse(f)
+    # Step 1: Parse and produce a salami-sliced dataset
+    df = extendedDataFrame(s)
+    # Step 2: Turn salami-slice into fixed-duration steps
     df.metadata = s.metadata
     return df
