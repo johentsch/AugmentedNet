@@ -60,7 +60,7 @@ def generateDataset(synthesize=False, texturize=False, tsvDir="dataset", eventBa
             df.to_csv(os.path.join(datasetDir, DATASETSUMMARYFILE), sep="\t")
     return df
 
-def generateEventsDataset(tsvDir="events", include_metadata=True):
+def generateEventsDataset(tsvDir="events", assembled_dir="assembled", include_metadata=True):
     statsrecords = []
     datasetDir = tsvDir
     Path(datasetDir).mkdir(exist_ok=True)
@@ -69,10 +69,12 @@ def generateEventsDataset(tsvDir="events", include_metadata=True):
         for nickname in files:
             print(nickname)
             annotation, score = ANNOTATIONSCOREDUPLES[nickname]
-            adf, sdf, jointdf, metadata = parseAnnotationAndScoreEvents(annotation, score)
-            for df, suffix in [(adf, "labels"), (sdf, "slices"), (jointdf, "joint")]:
+            extended_adf, sdf, jointdf, metadata = parseAnnotationAndScoreEvents(annotation, score)
+            for df, suffix in [(sdf, "slices"), (jointdf, "joint")]:
                 outpath = os.path.join(datasetDir, split, f"{nickname}_{suffix}.tsv")
                 df.to_csv(outpath, sep="\t")
+            outpath = os.path.join(assembled_dir, "labels", f"{nickname}.tsv")
+            extended_adf.to_csv(outpath, sep="\t", index=False)
             # copy and rename original score
             _, score_ext = os.path.splitext(score)
             new_score_path = os.path.join(datasetDir, split, f"{nickname}{score_ext}")

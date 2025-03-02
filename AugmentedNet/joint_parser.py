@@ -135,13 +135,15 @@ def parseAnnotationAndScoreEvents(
     Create the dataframes of both. Generate a new, joint, one.
     """
     # Parse each file
-    adf = annotation_parser.parseAnnotation(a, eventBased=True)
+    extended_adf = annotation_parser.parseAnnotationEvents(a)
     sdf = score_parser.parseScore(s, eventBased=True)
     metadata = dict(
-        m21_metadata2dict(adf.metadata, "a_"),
+        m21_metadata2dict(extended_adf.metadata, "a_"),
         **m21_metadata2dict(sdf.metadata, "s_")
     )
     # Create the joint dataframe
+    original_columns = [col for col in extended_adf.columns if col[:2] in ("a_", "s_")]
+    adf = extended_adf[original_columns].copy()
     jointdf = pd.concat([sdf, adf], axis=1)
     jointdf.index.name = "j_offset"
     # Sometimes, scores are longer than annotations (trailing empty measures)
@@ -152,7 +154,12 @@ def parseAnnotationAndScoreEvents(
     #     jointdf = _measureAlignmentScore(jointdf)
     #     jointdf = _qualityMetric(jointdf)
     #     jointdf = _inversionMetric(jointdf)
-    return adf, sdf, jointdf, metadata
+
+    extended_adf = extended_adf.reset_index().rename(columns=dict(
+        a_offset = "quarterbeats",
+        a_measure = "mn",
+    ))
+    return extended_adf, sdf, jointdf, metadata
 
 
 def parseAnnotationAndAnnotation(
