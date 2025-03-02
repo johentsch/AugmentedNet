@@ -333,15 +333,19 @@ mei-gs:
 # various programs/systems.  Output is stored in a directory called "musicxml".
 #
 
+SPLIT = test training validation
+
 musicxml:
-	mkdir -p musicxml
-	for file in kern/*.krn;						\
-	do								\
-	   echo Processing $$file;					\
-	   autostem $$file | hum2xml   					\
-		> musicxml/`basename $$file .krn`.xml;			\
+	@for split in $(SPLIT);								\
+    do 													\
+		for file in $$split/*.krn;						\
+		do												\
+		   echo Processing $$file;						\
+		   autostem $$file | hum2xml   					\
+			> $$split/`basename $$file .krn`.musicxml;	\
+		done 											\
 	done
-	@echo "Created musicxml directory for converted data"
+	@echo "Converted *.krn files to *.musicxml"
 
 #
 # Grand-Staff layout of parts:
