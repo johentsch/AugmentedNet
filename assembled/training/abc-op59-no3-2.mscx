@@ -408,13 +408,13 @@
           <style>Composer</style>
           <align>right,top</align>
           <offset x="0" y="14.1022"/>
-          <text><font size="12"/>L. van Beethoven</text>
+          <text><font size="12"></font>L. van Beethoven</text>
           </Text>
         <Text>
           <style>Title</style>
           <offset x="0" y="-0.0596633"/>
-          <text><font size="18"/><b>DREI QUARTETTE
-</b><font size="14"/>fur 2 Violinen, Bratsche und Violoncell
+          <text><font size="18"></font><b>DREI QUARTETTE
+</b><font size="14"></font>fur 2 Violinen, Bratsche und Violoncell
 Op.59 No.3, 2nd movement</text>
           </Text>
         </VBox>
@@ -432,11 +432,8 @@ Op.59 No.3, 2nd movement</text>
           <Tempo>
             <tempo>1.43333</tempo>
             <followText>1</followText>
-            <text><font size="11"/><b>Andante con moto quasi Allegretto.</b></text>
+            <text><font size="11"></font><b>Andante con moto quasi Allegretto.</b></text>
             </Tempo>
-          <Harmony>
-            <name>.a.i64</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -487,9 +484,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -520,9 +514,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>22</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -554,9 +545,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -584,9 +572,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -610,9 +595,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -639,9 +621,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -689,9 +668,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>i\\</name>
-            </Harmony>
           <Spanner type="Volta">
             <Volta>
               <endHookType>1</endHookType>
@@ -734,9 +710,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i\\</name>
-            </Harmony>
           <Spanner type="Volta">
             <prev>
               <location>
@@ -795,9 +768,6 @@ Op.59 No.3, 2nd movement</text>
       <Measure>
         <startRepeat/>
         <voice>
-          <Harmony>
-            <name>III</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -813,9 +783,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/VI</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -850,9 +817,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>VI(94)</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -867,9 +831,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -886,9 +847,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/iv</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -955,12 +913,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>iv(974)</name>
-            </Harmony>
-          <Harmony>
-            <name>iv</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -977,15 +929,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <location>
-            <fractions>-1/8</fractions>
-            </location>
-          <Harmony>
-            <name>iv</name>
-            </Harmony>
-          <location>
-            <fractions>1/8</fractions>
-            </location>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -995,9 +938,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv</name>
-            </Harmony>
           <Dynamic>
             <subtype>fp</subtype>
             <velocity>96</velocity>
@@ -1063,9 +1003,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V/iv</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -1096,9 +1033,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>21</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/iv</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -1136,7 +1070,7 @@ Op.59 No.3, 2nd movement</text>
         <Text>
           <align>center,top</align>
           <offset x="0" y="-0.09997"/>
-          <text><font size="8"/> </text>
+          <text><font size="8"></font> </text>
           </Text>
         <LayoutBreak>
           <subtype>page</subtype>
@@ -1144,9 +1078,6 @@ Op.59 No.3, 2nd movement</text>
         </VBox>
       <Measure>
         <voice>
-          <Harmony>
-            <name>iv</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -1174,9 +1105,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -1193,9 +1121,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -1213,9 +1138,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Dynamic>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
@@ -1243,9 +1165,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -1262,9 +1181,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -1295,9 +1211,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7(+9)</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -1314,9 +1227,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>i\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -1338,9 +1248,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -1360,9 +1267,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -1375,9 +1279,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -1412,9 +1313,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -1434,9 +1332,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -1449,9 +1344,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -1486,9 +1378,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>#viio2</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -1508,9 +1397,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -1527,9 +1413,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -1538,9 +1421,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -1550,9 +1430,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv7</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -1561,9 +1438,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -1581,9 +1455,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>#viio2</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -1620,9 +1491,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -1642,9 +1510,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>f</subtype>
             <velocity>88</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -1664,9 +1529,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -1675,9 +1537,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv7</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -1686,9 +1545,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -1707,9 +1563,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i\\</name>
-            </Harmony>
           <Spanner type="Volta">
             <Volta>
               <endHookType>1</endHookType>
@@ -1747,9 +1600,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i[i64</name>
-            </Harmony>
           <Spanner type="Volta">
             <prev>
               <location>
@@ -1776,9 +1626,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -1788,9 +1635,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -1802,9 +1646,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -1813,9 +1654,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -1849,9 +1687,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -1861,9 +1696,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -1919,9 +1751,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -1930,9 +1759,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -1942,9 +1768,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -1980,9 +1803,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -2003,9 +1823,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -2015,9 +1832,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -2073,9 +1887,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -2134,9 +1945,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i]\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -2148,9 +1956,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>vi.V9</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -2164,12 +1969,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>3/4</duration>
@@ -2178,9 +1977,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V9</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -2194,9 +1990,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>V9(4)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -2223,9 +2016,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V9</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -2242,9 +2032,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>9</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -2264,9 +2051,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>V9(4)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -2296,9 +2080,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V9</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -2334,9 +2115,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>V9(4)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -2382,9 +2160,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>9</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -2413,9 +2188,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2454,9 +2226,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -2475,9 +2244,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -2485,9 +2251,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -2511,9 +2274,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>#viio7/V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -2539,9 +2299,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -2552,9 +2309,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -2584,9 +2338,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>page</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>#viio7/V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -2612,18 +2363,12 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -2654,9 +2399,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>iii.#viio7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2676,9 +2418,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>10</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -2687,9 +2426,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio2</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -2707,9 +2443,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2748,9 +2481,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>ivo64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2762,9 +2492,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -2776,9 +2503,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii%43</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -2787,9 +2511,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>.Ger6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2801,9 +2522,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -2812,9 +2530,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#vii/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -2834,9 +2549,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>V[V64</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -2858,9 +2570,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -2887,9 +2596,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2939,9 +2645,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio2</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2971,9 +2674,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>20</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -2986,9 +2686,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -3010,9 +2707,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -3026,9 +2720,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3070,9 +2761,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3102,9 +2790,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>20</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -3121,9 +2806,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>dim.</i></text>
             </StaffText>
-          <Harmony>
-            <name>V64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3165,9 +2847,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -3183,9 +2862,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V]</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -3214,9 +2890,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>III.V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -3250,9 +2923,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>dol.</i></text>
             </StaffText>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3305,9 +2975,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV(4#2)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3319,9 +2986,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -3345,9 +3009,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -3366,9 +3027,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -3409,9 +3067,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -3438,9 +3093,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3493,9 +3145,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV(4#2)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3507,9 +3156,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -3536,9 +3182,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -3557,9 +3200,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -3582,12 +3222,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>3/4</duration>
@@ -3596,9 +3230,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -3649,9 +3280,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -3665,12 +3293,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>3/4</duration>
@@ -3682,9 +3304,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -3739,9 +3358,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3819,9 +3435,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -3839,9 +3452,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vi.V[i</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3864,9 +3474,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -3882,9 +3489,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>page</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -3902,9 +3506,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3927,9 +3528,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -3942,9 +3540,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -3962,9 +3557,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -3987,9 +3579,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -4002,9 +3591,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -4022,9 +3608,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio2/V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -4042,9 +3625,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -4066,9 +3646,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio2/V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -4086,9 +3663,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -4110,9 +3684,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio2/V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -4137,9 +3708,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>dim.</i></text>
             </StaffText>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -4152,9 +3720,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4168,9 +3733,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -4183,9 +3745,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4203,9 +3762,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -4218,9 +3774,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4234,9 +3787,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -4249,9 +3799,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4273,9 +3820,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>pp</subtype>
             <velocity>36</velocity>
             </Dynamic>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -4309,9 +3853,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V]\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -4323,9 +3864,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -4336,12 +3874,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
-          <Harmony>
-            <name>VI6</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>3/4</duration>
@@ -4350,21 +3882,12 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>#viio7</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>iv</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -4375,30 +3898,18 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>#viio7</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
-          <Rest>
-            <durationType>eighth</durationType>
-            </Rest>
-          <Harmony>
-            <name>.bII</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>iv64</name>
-            </Harmony>
+          <Rest>
+            <durationType>eighth</durationType>
+            </Rest>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -4406,21 +3917,12 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>#viio7</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
-          <Harmony>
-            <name>iv6</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -4434,9 +3936,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>page</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>3/4</duration>
@@ -4445,18 +3944,12 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -4467,9 +3960,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>.bv.V9(4)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4496,9 +3986,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V9</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4515,9 +4002,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>7</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4540,9 +4024,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>V9(4)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4572,9 +4053,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V9</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4591,9 +4069,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>7</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4612,9 +4087,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V9(4)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4641,9 +4113,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V9</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -4663,9 +4132,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>7</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -4738,9 +4204,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4818,9 +4281,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -4901,9 +4361,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -4982,9 +4439,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -5015,9 +4469,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -5102,9 +4553,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>.bii.V2</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5132,9 +4580,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5154,9 +4599,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -5179,9 +4621,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -5215,9 +4654,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5262,9 +4698,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5342,9 +4775,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5387,9 +4817,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -5420,9 +4847,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -5453,9 +4877,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -5493,9 +4914,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5543,9 +4961,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>vi.V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5573,9 +4988,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5614,9 +5026,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>f</subtype>
             <velocity>88</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -5683,9 +5092,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>.Ger6</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -5712,9 +5118,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>10</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#iv%7</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -5730,9 +5133,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>10</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/v</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -5749,9 +5149,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>page</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>iii.i</name>
-            </Harmony>
           <Dynamic>
             <subtype>f</subtype>
             <velocity>88</velocity>
@@ -5806,9 +5203,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -5860,9 +5254,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>.Ger6</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -5910,9 +5301,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio7/V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -5939,9 +5327,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -5963,9 +5348,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>vii.i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -5985,9 +5367,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -6032,9 +5411,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -6050,9 +5426,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -6072,9 +5445,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -6121,9 +5491,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>20</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -6136,9 +5503,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -6178,9 +5542,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -6214,12 +5575,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -6250,9 +5605,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Dynamic>
             <subtype>f</subtype>
             <velocity>88</velocity>
@@ -6298,9 +5650,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv.bII6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -6330,9 +5679,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -6349,9 +5695,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>#viio43</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -6363,9 +5706,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>21</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio65</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -6387,9 +5727,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -6410,9 +5747,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>f</subtype>
             <velocity>88</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -6425,9 +5759,6 @@ Op.59 No.3, 2nd movement</text>
             <offset x="0" y="1"/>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>VI6</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -6478,9 +5809,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i.#viio7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -6533,9 +5861,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -6603,9 +5928,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -6632,9 +5954,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -6650,9 +5969,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>.It6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -6673,12 +5989,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -6705,9 +6015,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -6745,9 +6052,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>22</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -6756,9 +6060,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>.It6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -6779,12 +6080,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -6814,9 +6109,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -6854,9 +6146,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>22</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -6865,9 +6154,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>.It6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -6884,9 +6170,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -6905,9 +6188,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -6923,9 +6203,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>.It6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -6945,9 +6222,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -6966,9 +6240,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -6984,9 +6255,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>.It6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -7007,9 +6275,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>dim.</i></text>
             </StaffText>
-          <Harmony>
-            <name>V\\</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -7022,9 +6287,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -7106,9 +6368,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>22</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -7135,9 +6394,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I.I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -7193,9 +6449,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -7239,9 +6492,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -7260,9 +6510,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -7346,9 +6593,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -7404,9 +6648,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -7447,9 +6688,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -7468,9 +6706,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -7496,12 +6731,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>page</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>3/4</duration>
@@ -7510,9 +6739,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -7566,9 +6792,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -7591,12 +6814,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>3/4</duration>
@@ -7612,9 +6829,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -7699,9 +6913,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>21</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -7760,9 +6971,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>I[I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -7780,9 +6988,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -7818,9 +7023,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -7841,9 +7043,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -7863,9 +7062,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -7885,9 +7081,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>I64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -7899,9 +7092,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>21</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -7911,9 +7101,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -7933,9 +7120,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -7952,9 +7136,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>dim.</i></text>
             </StaffText>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -7963,9 +7144,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -7975,9 +7153,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -7986,9 +7161,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -8002,9 +7174,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -8013,9 +7182,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -8025,9 +7191,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -8036,9 +7199,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -8056,9 +7216,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>pp</subtype>
             <velocity>36</velocity>
             </Dynamic>
-          <Harmony>
-            <name>iv64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -8073,9 +7230,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>iv64]</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -8099,9 +7253,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>.bII</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -8120,9 +7271,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>.bV.V</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -8149,9 +7297,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8429,9 +7574,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8487,9 +7629,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV(4#2)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8501,9 +7640,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -8527,9 +7663,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -8551,9 +7684,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8623,9 +7753,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8681,9 +7808,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV(4#2)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8695,9 +7819,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -8727,9 +7848,6 @@ Op.59 No.3, 2nd movement</text>
           <StaffText>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -8751,9 +7869,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8799,9 +7914,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>10</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -8822,9 +7934,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I[I6</name>
-            </Harmony>
           <Dynamic>
             <subtype>p</subtype>
             <velocity>49</velocity>
@@ -8886,9 +7995,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>10</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8947,9 +8053,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9007,9 +8110,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9075,9 +8175,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9099,9 +8196,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9131,9 +8225,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>10</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -9170,9 +8261,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9195,9 +8283,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I6]</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -9236,9 +8321,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>10</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9274,9 +8356,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -9301,9 +8380,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>fp</subtype>
             <velocity>96</velocity>
             </Dynamic>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9316,9 +8392,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I64</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9346,9 +8419,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>dim.</i></text>
             </StaffText>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9366,9 +8436,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9398,9 +8465,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>I64</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9418,9 +8482,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9444,12 +8505,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i.#viio7/iv</name>
-            </Harmony>
-          <Harmony>
-            <name>V65/iv</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -9484,9 +8539,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>sempre dim.</i></text>
             </StaffText>
-          <Harmony>
-            <name>iv(94)</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9503,9 +8555,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9576,9 +8625,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>page</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V7(+9)</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9596,9 +8642,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9622,12 +8665,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V[i</name>
-            </Harmony>
-          <Harmony>
-            <name>#vi7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -9658,9 +8695,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -9701,9 +8735,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>fp</subtype>
             <velocity>96</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -9726,9 +8757,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -9761,9 +8789,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9780,9 +8805,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9814,9 +8836,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -9836,9 +8855,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -9847,23 +8863,11 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
-          <Harmony>
-            <name>#viio6]</name>
-            </Harmony>
           <Rest>
             <offset x="0" y="3"/>
             <dots>1</dots>
             <durationType>quarter</durationType>
             </Rest>
-          <location>
-            <fractions>-1/8</fractions>
-            </location>
-          <Harmony>
-            <name>#viio6]</name>
-            </Harmony>
           </voice>
         <voice>
           <location>
@@ -9898,9 +8902,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -9937,9 +8938,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V[V</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -9955,9 +8953,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9977,9 +8972,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -9992,9 +8984,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10056,9 +9045,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10086,9 +9072,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10112,9 +9095,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10141,9 +9121,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10173,9 +9150,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>20</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio64]</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -10191,9 +9165,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -10227,9 +9198,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
-          <Harmony>
-            <name>III.viio6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -10243,9 +9211,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10264,9 +9229,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/IV</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -10298,9 +9260,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>IV(974)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10312,9 +9271,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -10331,9 +9287,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/ii</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -10353,9 +9306,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>ii(9#74)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10370,9 +9320,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>21</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -10403,9 +9350,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>fp</subtype>
             <velocity>96</velocity>
             </Dynamic>
-          <Harmony>
-            <name>ii</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10436,9 +9380,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7/ii</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -10469,9 +9410,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>ii</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10509,9 +9447,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i.V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -10543,9 +9478,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -10577,9 +9509,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10606,9 +9535,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>page</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10625,9 +9551,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -10667,9 +9590,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i\\</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -10701,9 +9621,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10727,9 +9644,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10750,9 +9664,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10779,9 +9690,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10802,9 +9710,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10822,9 +9727,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -10834,9 +9736,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -10854,9 +9753,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10883,9 +9779,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -10905,9 +9798,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>#viio2</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -10922,15 +9812,9 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>#viio43</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
-          <Harmony>
-            <name>#viio65</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -10951,9 +9835,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>f</subtype>
             <velocity>88</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -10963,9 +9844,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -10983,9 +9861,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11012,9 +9887,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11034,9 +9906,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -11051,9 +9920,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
-          <Harmony>
-            <name>III.viio6</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -11064,9 +9930,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -11082,9 +9945,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2/IV</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11100,9 +9960,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11111,9 +9968,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65/IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11129,9 +9983,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V65/IV</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11146,9 +9997,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11168,9 +10016,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -11189,9 +10034,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11219,9 +10061,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11267,9 +10106,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -11283,9 +10119,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>fp</subtype>
             <velocity>96</velocity>
             </Dynamic>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11305,9 +10138,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11323,9 +10153,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>page</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V65/ii</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11378,9 +10205,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio6/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11393,9 +10217,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i.iv</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11415,9 +10236,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11426,9 +10244,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -11445,9 +10260,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -11456,9 +10268,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -11481,9 +10290,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11514,9 +10320,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11533,9 +10336,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11566,9 +10366,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -11582,9 +10379,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -11631,9 +10425,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11660,9 +10451,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11678,9 +10466,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11715,9 +10500,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sfp</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11737,9 +10519,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio43/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11752,9 +10531,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11789,9 +10565,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>#viio2</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11803,9 +10576,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11814,9 +10584,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio64</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11833,9 +10600,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -11844,9 +10608,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -11856,9 +10617,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv7</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -11867,9 +10625,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -11889,9 +10644,6 @@ Op.59 No.3, 2nd movement</text>
           <StaffText>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>#viio2</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -11900,9 +10652,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -11912,9 +10661,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11926,9 +10672,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11937,9 +10680,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio65</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11956,9 +10696,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>f</subtype>
             <velocity>88</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11978,9 +10715,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11992,9 +10726,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv7</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -12003,9 +10734,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12023,9 +10751,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i[i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -12043,9 +10768,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12057,9 +10779,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12068,9 +10787,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12103,9 +10819,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12161,9 +10874,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -12181,9 +10891,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12219,9 +10926,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12254,9 +10958,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12312,9 +11013,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -12376,9 +11074,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>i64]\\</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12391,9 +11086,6 @@ Op.59 No.3, 2nd movement</text>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>@none</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -12404,9 +11096,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sf</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>vi.VI6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12433,9 +11122,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V65(2)</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -12452,9 +11138,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>9</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12474,9 +11157,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sf</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>VI6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12503,9 +11183,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V65(2)</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -12522,9 +11199,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>9</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12566,9 +11240,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i.#viio65/iv</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -12585,9 +11256,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>21</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12601,9 +11269,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio/iv</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12615,9 +11280,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12626,9 +11288,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12651,9 +11310,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -12667,9 +11323,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -12678,9 +11331,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vi.#viio</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12711,9 +11361,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -12742,9 +11389,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vo</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12768,9 +11412,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sf</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12783,9 +11424,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7(2)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12805,9 +11443,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12845,9 +11480,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>sf</subtype>
             <velocity>112</velocity>
             </Dynamic>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12860,9 +11492,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7(2)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12886,9 +11515,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12923,9 +11549,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>f</subtype>
             <velocity>88</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i.#viio7/iv</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12993,9 +11616,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65/iv</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -13012,9 +11632,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>p</subtype>
             <velocity>49</velocity>
             </Dynamic>
-          <Harmony>
-            <name>iv</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13038,9 +11655,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -13052,9 +11666,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -13063,9 +11674,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -13083,9 +11691,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -13103,9 +11708,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i[#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13125,9 +11727,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -13151,9 +11750,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -13163,9 +11759,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13224,9 +11817,6 @@ Op.59 No.3, 2nd movement</text>
           <subtype>line</subtype>
           </LayoutBreak>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -13235,9 +11825,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -13247,9 +11834,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13297,9 +11881,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -13308,9 +11889,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -13320,9 +11898,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13382,9 +11957,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>dim.</i></text>
             </StaffText>
-          <Harmony>
-            <name>i]</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -13412,9 +11984,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -13511,12 +12080,6 @@ Op.59 No.3, 2nd movement</text>
             <subtype>pp</subtype>
             <velocity>36</velocity>
             </Dynamic>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -13539,12 +12102,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -13578,12 +12135,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>half</durationType>
@@ -13613,9 +12164,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i64(2)</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -13632,9 +12180,6 @@ Op.59 No.3, 2nd movement</text>
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -13679,9 +12224,6 @@ Op.59 No.3, 2nd movement</text>
             <placement>below</placement>
             <text><i>dim.</i></text>
             </StaffText>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -13752,9 +12294,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -13776,7 +12315,7 @@ Op.59 No.3, 2nd movement</text>
             </Rest>
           <StaffText>
             <placement>below</placement>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -13793,9 +12332,6 @@ Op.59 No.3, 2nd movement</text>
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -24223,7 +22759,7 @@ Op.59 No.3, 2nd movement</text>
             </Rest>
           <StaffText>
             <placement>below</placement>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -35653,7 +34189,7 @@ Op.59 No.3, 2nd movement</text>
             </Rest>
           <StaffText>
             <placement>below</placement>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -35705,7 +34241,7 @@ Op.59 No.3, 2nd movement</text>
             <sigD>8</sigD>
             </TimeSig>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Dynamic>
             <subtype>f</subtype>
@@ -36245,7 +34781,7 @@ Op.59 No.3, 2nd movement</text>
               </Note>
             </Chord>
           <StaffText>
-            <text><font size="11"/>arco</text>
+            <text><font size="11"></font>arco</text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -36538,7 +35074,7 @@ Op.59 No.3, 2nd movement</text>
             <durationType>quarter</durationType>
             </Rest>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -37013,7 +35549,7 @@ Op.59 No.3, 2nd movement</text>
             <text><i>cresc.</i></text>
             </StaffText>
           <StaffText>
-            <text><font size="11"/>arco</text>
+            <text><font size="11"></font>arco</text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -37399,7 +35935,7 @@ Op.59 No.3, 2nd movement</text>
             <velocity>49</velocity>
             </Dynamic>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -37692,7 +36228,7 @@ Op.59 No.3, 2nd movement</text>
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="11"/>arco</text>
+            <text><font size="11"></font>arco</text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -37904,7 +36440,7 @@ Op.59 No.3, 2nd movement</text>
               </Note>
             </Chord>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -38153,7 +36689,7 @@ Op.59 No.3, 2nd movement</text>
             <durationType>eighth</durationType>
             </Rest>
           <StaffText>
-            <text><font size="11"/>arco</text>
+            <text><font size="11"></font>arco</text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -38509,7 +37045,7 @@ Op.59 No.3, 2nd movement</text>
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Rest>
             <durationType>quarter</durationType>
@@ -38669,7 +37205,7 @@ Op.59 No.3, 2nd movement</text>
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="11"/>arco</text>
+            <text><font size="11"></font>arco</text>
             </StaffText>
           <Chord>
             <dots>1</dots>
@@ -39909,7 +38445,7 @@ Op.59 No.3, 2nd movement</text>
               </Note>
             </Chord>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -39960,7 +38496,7 @@ Op.59 No.3, 2nd movement</text>
             <velocity>88</velocity>
             </Dynamic>
           <StaffText>
-            <text><font size="11"/>arco</text>
+            <text><font size="11"></font>arco</text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -40123,7 +38659,7 @@ Op.59 No.3, 2nd movement</text>
             <velocity>49</velocity>
             </Dynamic>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Rest>
             <durationType>quarter</durationType>
@@ -40543,7 +39079,7 @@ Op.59 No.3, 2nd movement</text>
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="11"/>arco</text>
+            <text><font size="11"></font>arco</text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -40802,7 +39338,7 @@ Op.59 No.3, 2nd movement</text>
             <durationType>eighth</durationType>
             </Rest>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -40955,7 +39491,7 @@ Op.59 No.3, 2nd movement</text>
             <durationType>eighth</durationType>
             </Rest>
           <StaffText>
-            <text><font size="11"/>arco</text>
+            <text><font size="11"></font>arco</text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -41302,7 +39838,7 @@ Op.59 No.3, 2nd movement</text>
             <durationType>eighth</durationType>
             </Rest>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -42626,7 +41162,7 @@ Op.59 No.3, 2nd movement</text>
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="11"/>arco</text>
+            <text><font size="11"></font>arco</text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -42969,7 +41505,7 @@ Op.59 No.3, 2nd movement</text>
               </Note>
             </Chord>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -44025,7 +42561,7 @@ Op.59 No.3, 2nd movement</text>
             <velocity>88</velocity>
             </Dynamic>
           <StaffText>
-            <text><font size="11"/>arco</text>
+            <text><font size="11"></font>arco</text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -44631,7 +43167,7 @@ Op.59 No.3, 2nd movement</text>
             <durationType>eighth</durationType>
             </Rest>
           <StaffText>
-            <text><font size="11"/>pizz.</text>
+            <text><font size="11"></font>pizz.</text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>

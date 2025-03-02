@@ -407,7 +407,7 @@
         <Text>
           <style>Title</style>
           <offset x="0" y="-0.180744"/>
-          <text><font size="8"/>&amp;lt;font size=&amp;quot;12&amp;quot;/&amp;gt;&amp;lt;b&amp;gt;&amp;lt;i&amp;gt;p&amp;lt;/i&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;font size=&amp;quot;12&amp;quot;/&amp;gt;&amp;lt;b&amp;gt;&amp;lt;i&amp;gt;cresc.&amp;lt;/i&amp;gt;&amp;lt;/b&amp;gt;</text>
+          <text><font size="8"></font>&amp;lt;font size=&amp;quot;12&amp;quot;/&amp;gt;&amp;lt;b&amp;gt;&amp;lt;i&amp;gt;p&amp;lt;/i&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;font size=&amp;quot;12&amp;quot;/&amp;gt;&amp;lt;b&amp;gt;&amp;lt;i&amp;gt;cresc.&amp;lt;/i&amp;gt;&amp;lt;/b&amp;gt;</text>
           </Text>
         </VBox>
       <Measure>
@@ -432,10 +432,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <root>13</root>
-            <name>.iv</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -447,11 +443,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>pp</i></b></text>
+            <text><font size="12"></font><b><i>pp</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
@@ -493,12 +486,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7-iv</name>
-            </Harmony>
-          <Harmony>
-            <name>iv6</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>1/2</duration>
@@ -508,11 +495,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>sf</i></b></text>
+            <text><font size="12"></font><b><i>sf</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
@@ -547,9 +531,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -557,21 +538,12 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Rest>
             <dots>1</dots>
             <durationType>16th</durationType>
@@ -587,9 +559,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -611,11 +580,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -653,11 +619,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
@@ -688,9 +651,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(4)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -700,9 +660,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -710,9 +667,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -751,9 +705,6 @@
             <BeamMode>mid</BeamMode>
             <durationType>32nd</durationType>
             </Rest>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>32nd</durationType>
@@ -782,9 +733,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I-V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -808,9 +756,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -827,9 +772,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(4)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -856,9 +798,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -880,11 +819,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -897,9 +833,6 @@
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -912,9 +845,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>@none</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -955,9 +885,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>viio</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -978,9 +905,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -1002,11 +926,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V7/V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -1274,11 +1195,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -1340,12 +1258,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
-          <Harmony>
-            <name>#viio7/ii</name>
-            </Harmony>
           <Chord>
             <durationType>half</durationType>
             <StemDirection>down</StemDirection>
@@ -1415,9 +1327,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -1444,9 +1353,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>viio6</name>
-            </Harmony>
           <Chord>
             <durationType>half</durationType>
             <StemDirection>down</StemDirection>
@@ -1468,9 +1374,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -1489,9 +1392,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I(9)</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <dots>1</dots>
@@ -1509,9 +1409,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -1552,9 +1449,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio/vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <dots>1</dots>
@@ -1572,9 +1466,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -1606,14 +1497,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V/vi</name>
-            </Harmony>
-          <Harmony>
-            <name>#viio2/V</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>1/2</duration>
@@ -1622,15 +1507,9 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>#viio7/V</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -1643,9 +1522,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -1663,9 +1539,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -1792,9 +1665,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -1822,9 +1692,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V.V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -1977,9 +1844,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2067,9 +1931,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V(4)/V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -2078,9 +1939,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -2096,9 +1954,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V(4)</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -2137,9 +1992,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -2162,9 +2014,6 @@
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -2192,9 +2041,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I(4)</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -2203,9 +2049,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -2229,7 +2072,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -2277,9 +2120,6 @@
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#VII+/vi</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -2326,9 +2166,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>#viio43/ii</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2352,9 +2189,6 @@
               <tpc>21</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>II6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2374,9 +2208,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii6(6)</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -2388,9 +2219,6 @@
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -2410,9 +2238,6 @@
             <placement>below</placement>
             <text><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I6(4)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2436,9 +2261,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -2455,9 +2277,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2480,9 +2299,6 @@
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -2504,11 +2320,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Chord>
             <durationType>half</durationType>
             <StemDirection>down</StemDirection>
@@ -2530,9 +2343,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <durationType>half</durationType>
             <StemDirection>down</StemDirection>
@@ -2554,7 +2364,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -2614,11 +2424,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>sf</i></b></text>
+            <text><font size="12"></font><b><i>sf</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -2659,21 +2466,12 @@
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>I64</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -2715,9 +2513,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -2798,9 +2593,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -2838,9 +2630,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -2885,9 +2674,6 @@
           <StaffText>
             <text><b><i>pp</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -2928,9 +2714,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -2968,9 +2751,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>IVM7</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3008,9 +2788,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>IV/IV</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3056,11 +2833,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V43/vi</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3104,9 +2878,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3144,9 +2915,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7/V</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3187,9 +2955,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3234,9 +2999,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3264,9 +3026,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio7/iii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -3286,9 +3045,6 @@
             <placement>below</placement>
             <text><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>iii</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -3298,9 +3054,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3329,11 +3082,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3345,9 +3095,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -3356,9 +3103,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3373,9 +3117,6 @@
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -3391,9 +3132,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6/vi</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3405,9 +3143,6 @@
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -3416,9 +3151,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3445,9 +3177,6 @@
           <StaffText>
             <text><b><i>pp</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V7/vi</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3492,9 +3221,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3543,9 +3269,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3587,9 +3310,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vi(+6)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -3604,9 +3324,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio6/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -3644,9 +3361,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7/vi</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3730,9 +3444,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>#viio2/vi</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3793,9 +3504,6 @@
               <tpc>22</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -3825,11 +3533,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3867,9 +3572,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3910,9 +3612,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3950,9 +3649,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -3999,11 +3695,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4012,9 +3705,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -4096,9 +3786,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -4113,9 +3800,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -4127,9 +3811,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -4141,9 +3822,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -4153,11 +3831,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -4227,9 +3902,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -4311,9 +3983,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -4328,9 +3997,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -4342,9 +4008,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -4356,9 +4019,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -4378,11 +4038,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V43/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4416,9 +4073,6 @@
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -4442,9 +4096,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4460,9 +4111,6 @@
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4476,9 +4124,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4506,9 +4151,6 @@
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -4532,9 +4174,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4550,9 +4189,6 @@
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4599,9 +4235,6 @@
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>@none</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -4625,12 +4258,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6/V</name>
-            </Harmony>
-          <Harmony>
-            <name>V2/V</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>1/2</duration>
@@ -4639,9 +4266,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -4657,9 +4281,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -4668,9 +4289,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4683,9 +4301,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4694,9 +4309,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4709,9 +4321,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4723,9 +4332,6 @@
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4738,9 +4344,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>v.i</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4752,9 +4355,6 @@
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i6</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -4762,12 +4362,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>.bII6</name>
-            </Harmony>
-          <Harmony>
-            <name>IV64</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>1/2</duration>
@@ -4776,9 +4370,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>.bIII.viio6</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -4859,9 +4450,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7(9)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -4897,9 +4485,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4911,9 +4496,6 @@
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -4938,9 +4520,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -4952,9 +4531,6 @@
               <tpc>10</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V64</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -4962,12 +4538,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>1/2</duration>
@@ -4976,9 +4546,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>viio7</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -5059,9 +4626,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V6/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -5075,9 +4639,6 @@
             <dots>1</dots>
             <durationType>16th</durationType>
             </Rest>
-          <Harmony>
-            <name>ii</name>
-            </Harmony>
           <Rest>
             <durationType>32nd</durationType>
             </Rest>
@@ -5085,9 +4646,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -5099,9 +4657,6 @@
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65(+4+2)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <dots>1</dots>
@@ -5123,9 +4678,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>32nd</durationType>
@@ -5142,11 +4694,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -5158,9 +4707,6 @@
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iv6/ii</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5218,9 +4764,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7/ii</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -5229,9 +4772,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I.I[viio64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5248,9 +4788,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I]</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>32nd</durationType>
@@ -5271,9 +4808,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -5344,25 +4878,16 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Rest>
             <dots>1</dots>
             <durationType>16th</durationType>
             </Rest>
-          <Harmony>
-            <name>V7/IV</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5397,9 +4922,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5458,9 +4980,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -5525,9 +5044,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -5548,9 +5064,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -5574,9 +5087,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -5593,9 +5103,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -5608,9 +5115,6 @@
           <Rest>
             <durationType>32nd</durationType>
             </Rest>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -5642,9 +5146,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -5681,7 +5182,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>poco</i></b></text>
+            <text><font size="12"></font><b><i>poco</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -5772,9 +5273,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>iii64</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -5788,10 +5286,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>a tempo</i></b></text>
+            <text><font size="12"></font><b><i>a tempo</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -5830,9 +5328,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>iii</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -5870,9 +5365,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7/iii</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -5954,9 +5446,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>iii</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -5997,9 +5486,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V/iii</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6040,9 +5526,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7/vi</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6126,14 +5609,11 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>sempre</i></b></text>
+            <text><font size="10"></font><b><i>sempre</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -6148,9 +5628,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vi6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -6162,9 +5639,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43/vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -6195,11 +5669,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>dan -</i></b></text>
+            <text><font size="12"></font><b><i>dan -</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>vi6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -6214,9 +5685,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43/vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -6228,9 +5696,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -6257,9 +5722,6 @@
             <accidental>1</accidental>
             <mode>major</mode>
             </KeySig>
-          <Harmony>
-            <name>II.I64</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
@@ -6290,9 +5752,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -6305,9 +5764,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
@@ -6330,9 +5786,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -6349,9 +5802,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
@@ -6374,9 +5824,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -6389,9 +5836,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
@@ -6467,9 +5911,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6507,9 +5948,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6588,9 +6026,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6628,9 +6063,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6668,9 +6100,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6749,9 +6178,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V.I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6789,9 +6215,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7(b9)</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6832,9 +6255,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6913,9 +6333,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I[I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6956,9 +6373,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -6996,9 +6410,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -7036,9 +6447,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -7082,11 +6490,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I]</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -7124,9 +6529,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7(b9)</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -7164,9 +6566,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -7285,9 +6684,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7(b9)</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -7325,9 +6721,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -7365,9 +6758,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>i.iv6</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -7417,11 +6807,11 @@
             <mode>major</mode>
             </KeySig>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>sf</i></b></text>
+            <text><font size="12"></font><b><i>sf</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -7493,9 +6883,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -7519,9 +6906,6 @@
             <dots>1</dots>
             <durationType>16th</durationType>
             </Rest>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -7554,11 +6938,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I.I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -7585,9 +6966,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -7604,9 +6982,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -7633,9 +7008,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -7657,11 +7029,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -7730,9 +7099,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -7753,9 +7119,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I-V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -7768,9 +7131,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -7798,9 +7158,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(4)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -7824,9 +7181,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -7848,11 +7202,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -7873,9 +7224,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -7884,9 +7232,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -7895,18 +7240,12 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I-V</name>
-            </Harmony>
           <Rest>
             <dots>1</dots>
             <durationType>16th</durationType>
             </Rest>
-          <Harmony>
-            <name>ii</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -7934,9 +7273,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -7952,9 +7288,6 @@
           <Rest>
             <durationType>32nd</durationType>
             </Rest>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -7986,9 +7319,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -8001,9 +7331,6 @@
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V/V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8018,9 +7345,6 @@
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -8033,9 +7357,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>@none</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -8192,21 +7513,12 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>ii.#viio7</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
-          <Harmony>
-            <name>i64</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -8214,15 +7526,9 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -8240,9 +7546,6 @@
               <tpc>20</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -8255,9 +7558,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>VII</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8280,9 +7580,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43/III</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -8310,9 +7607,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>III(b4)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8327,9 +7621,6 @@
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>III</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -8338,9 +7629,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>@none</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8366,7 +7654,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -8410,9 +7698,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8424,9 +7709,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>VI</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -8491,9 +7773,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7/III</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -8692,14 +7971,11 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I.viio6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8731,9 +8007,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V[viio</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8786,7 +8059,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -8823,9 +8096,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -8840,9 +8110,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>i</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -8861,9 +8128,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V2/V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -8872,9 +8136,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio]</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -8887,9 +8148,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -9033,9 +8291,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -9089,7 +8344,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <durationType>quarter</durationType>
@@ -9097,9 +8352,6 @@
           <Rest>
             <durationType>16th</durationType>
             </Rest>
-          <Harmony>
-            <name>V43/V</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -9131,9 +8383,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -9221,9 +8470,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V(4)/V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -9232,9 +8478,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/V</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -9250,9 +8493,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V(4)</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
@@ -9286,9 +8526,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -9335,9 +8572,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I(4)</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -9346,9 +8580,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>up</StemDirection>
@@ -9373,7 +8604,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -9418,9 +8649,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V+/vi</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9467,9 +8695,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>#viio43/ii</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -9487,9 +8712,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6/V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9516,9 +8738,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -9540,7 +8759,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -9561,9 +8780,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -9580,9 +8796,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii65</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9602,9 +8815,6 @@
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -9627,14 +8837,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <durationType>half</durationType>
             <StemDirection>down</StemDirection>
@@ -9656,9 +8860,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9691,9 +8892,6 @@
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9725,11 +8923,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9744,9 +8939,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio64</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -9758,9 +8950,6 @@
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9775,9 +8964,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -9793,9 +8979,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -9821,9 +9004,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/IV</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -9847,14 +9027,11 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>sfp</i></b></text>
+            <text><font size="12"></font><b><i>sfp</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -9914,11 +9091,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>sfp</i></b></text>
+            <text><font size="12"></font><b><i>sfp</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V7/IV</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -10017,7 +9191,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -10073,9 +9247,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>IV64</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10090,9 +9261,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -10127,11 +9295,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>sf</i></b></text>
+            <text><font size="12"></font><b><i>sf</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -10293,7 +9458,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>pp</i></b></text>
+            <text><font size="12"></font><b><i>pp</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -10332,9 +9497,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -10372,9 +9534,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I(64)</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -10412,9 +9571,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>.VII</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -10459,9 +9615,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V43/vi</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -10502,9 +9655,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -10542,9 +9692,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V7/V</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -10585,9 +9732,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -10632,9 +9776,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>#viio/iii</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10677,12 +9818,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>iii</name>
-            </Harmony>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <dots>1</dots>
             <durationType>quarter</durationType>
@@ -10692,9 +9827,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10719,11 +9851,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10735,9 +9864,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43/vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -10754,9 +9880,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -10772,9 +9895,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6/vi</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10786,9 +9906,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7/vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -10797,9 +9914,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -10808,9 +9922,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>#viio7/iii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -10823,9 +9934,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7/vi</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10870,9 +9978,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -10921,9 +10026,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -10935,9 +10037,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -10957,9 +10056,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I(64)</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -10985,9 +10081,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I[viio6/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -11013,9 +10106,6 @@
               <tpc>19</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I]</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -11031,9 +10121,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V+/vi</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11074,9 +10161,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>vi64</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11114,9 +10198,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11202,11 +10283,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11244,9 +10322,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I64</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11287,9 +10362,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>IV6</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11327,9 +10399,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11375,11 +10444,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -11388,9 +10454,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11470,11 +10533,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11489,9 +10549,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11503,9 +10560,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11525,11 +10579,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11562,9 +10613,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11602,9 +10650,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -11683,9 +10728,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11700,9 +10742,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii65</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11714,9 +10753,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11728,9 +10764,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -11752,11 +10785,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>#viio6/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -11797,9 +10827,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -11820,9 +10847,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -11838,9 +10862,6 @@
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -11848,9 +10869,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -11871,9 +10889,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -11897,9 +10912,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -11918,9 +10930,6 @@
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
@@ -11958,9 +10967,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -11973,9 +10979,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -11996,9 +10999,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <dots>1</dots>
@@ -12027,9 +11027,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V/V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12052,12 +11049,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>1/2</duration>
@@ -12066,15 +11057,9 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12101,9 +11086,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -12126,9 +11108,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12140,9 +11119,6 @@
               <tpc>18</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -12159,9 +11135,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V6/V</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12181,9 +11154,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>vi</name>
-            </Harmony>
           <Rest>
             <dots>1</dots>
             <durationType>eighth</durationType>
@@ -12211,9 +11181,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V65</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -12222,9 +11189,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(4)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12246,9 +11210,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -12294,9 +11255,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -12359,11 +11317,8 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>V7(#2)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12382,9 +11337,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -12401,9 +11353,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V65(4)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12473,9 +11422,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -12508,9 +11454,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12553,9 +11496,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -12614,9 +11554,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>viio64</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -12757,9 +11694,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>up</StemDirection>
             </Beam>
@@ -12829,12 +11763,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Rest>
             <durationType>measure</durationType>
             <duration>1/2</duration>
@@ -12843,21 +11771,12 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -12894,9 +11813,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>IV6</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -12925,9 +11841,6 @@
               <tpc>17</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>viio</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -12943,11 +11856,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -13022,9 +11932,6 @@
               </Note>
             </Chord>
           <endTuplet/>
-          <Harmony>
-            <name>V43</name>
-            </Harmony>
           <Tuplet>
             <normalNotes>2</normalNotes>
             <actualNotes>3</actualNotes>
@@ -13103,9 +12010,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13120,9 +12024,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -13134,9 +12035,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -13152,9 +12050,6 @@
             <placement>below</placement>
             <text><b><i>f</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>v6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -13225,9 +12120,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>#viio2/ii</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -13277,9 +12169,6 @@
             <placement>below</placement>
             <text><b><i>f</i></b></text>
             </StaffText>
-          <Harmony>
-            <name>.bVII</name>
-            </Harmony>
           <Chord>
             <durationType>quarter</durationType>
             <StemDirection>down</StemDirection>
@@ -13315,9 +12204,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>viio/IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -13365,9 +12251,6 @@
               <tpc>11</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2/IV</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
@@ -13375,15 +12258,9 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>IV6</name>
-            </Harmony>
           <Rest>
             <durationType>quarter</durationType>
             </Rest>
-          <Harmony>
-            <name>V65/IV</name>
-            </Harmony>
           <Rest>
             <dots>1</dots>
             <durationType>16th</durationType>
@@ -13426,9 +12303,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13500,9 +12374,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -13526,9 +12397,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -13544,15 +12412,9 @@
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V6</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -13566,15 +12428,9 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13595,9 +12451,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13612,9 +12465,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -13630,33 +12480,18 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I-V</name>
-            </Harmony>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
-          <Harmony>
-            <name>ii</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
-          <Harmony>
-            <name>V(64)</name>
-            </Harmony>
           <Rest>
             <durationType>16th</durationType>
             </Rest>
-          <Harmony>
-            <name>V7</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13668,9 +12503,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V2</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -13693,11 +12525,8 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Beam>
             <StemDirection>down</StemDirection>
             </Beam>
@@ -13718,9 +12547,6 @@
               <tpc>12</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>eighth</durationType>
@@ -13738,9 +12564,6 @@
               <tpc>14</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>I6</name>
-            </Harmony>
           <Fermata>
             <subtype>fermataAbove</subtype>
             </Fermata>
@@ -13776,9 +12599,6 @@
               <tpc>13</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>IV</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -13799,9 +12619,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -13828,9 +12645,6 @@
               <tpc>16</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>ii6</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -13847,9 +12661,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V(4)</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>16th</durationType>
@@ -13876,9 +12687,6 @@
               <tpc>15</tpc>
               </Note>
             </Chord>
-          <Harmony>
-            <name>V</name>
-            </Harmony>
           <Chord>
             <BeamMode>mid</BeamMode>
             <durationType>16th</durationType>
@@ -13899,9 +12707,6 @@
         </Measure>
       <Measure>
         <voice>
-          <Harmony>
-            <name>I\\</name>
-            </Harmony>
           <Chord>
             <BeamMode>no</BeamMode>
             <durationType>eighth</durationType>
@@ -14179,7 +12984,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>poco cresc.</i></b></text>
+            <text><font size="12"></font><b><i>poco cresc.</i></b></text>
             </StaffText>
           <Rest>
             <dots>1</dots>
@@ -14343,7 +13148,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>half</durationType>
@@ -14443,7 +13248,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -15679,10 +14484,10 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>p cresc.</i></b></text>
+            <text><font size="12"></font><b><i>p cresc.</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -15897,7 +14702,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -16439,7 +15244,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -16844,7 +15649,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -17002,7 +15807,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -17025,7 +15830,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -17143,7 +15948,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -17287,7 +16092,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -17335,10 +16140,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -18064,7 +16869,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -18137,7 +16942,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <dots>1</dots>
@@ -18194,13 +16999,13 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -18272,13 +17077,13 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -18362,7 +17167,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>poco</i></b></text>
+            <text><font size="12"></font><b><i>poco</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -18533,10 +17338,10 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>sempre</i></b></text>
+            <text><font size="10"></font><b><i>sempre</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -19954,7 +18759,7 @@
             <mode>major</mode>
             </KeySig>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -20201,7 +19006,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -20251,7 +19056,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -21576,7 +20381,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -21998,7 +20803,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -22244,7 +21049,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -22338,7 +21143,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>sf</i></b></text>
+            <text><font size="12"></font><b><i>sf</i></b></text>
             </StaffText>
           <Rest>
             <durationType>quarter</durationType>
@@ -22510,7 +21315,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>pp</i></b></text>
+            <text><font size="12"></font><b><i>pp</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -22919,7 +21724,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -23015,11 +21820,11 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>pp</i></b></text>
+            <text><font size="12"></font><b><i>pp</i></b></text>
             </StaffText>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>pp</i></b></text>
+            <text><font size="12"></font><b><i>pp</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -23546,7 +22351,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>half</durationType>
@@ -23570,7 +22375,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -23841,7 +22646,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -23898,7 +22703,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -24229,7 +23034,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <durationType>quarter</durationType>
@@ -24625,10 +23430,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -25098,7 +23903,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -25600,7 +24405,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -25986,10 +24791,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>sf</i></b></text>
+            <text><font size="12"></font><b><i>sf</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -26039,7 +24844,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -26347,7 +25152,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -26454,13 +25259,13 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>half</durationType>
@@ -26554,7 +25359,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -26600,7 +25405,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -27329,7 +26134,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>half</durationType>
@@ -27533,10 +26338,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -27750,7 +26555,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -27813,7 +26618,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -28391,7 +27196,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -28804,7 +27609,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="8.5"/><i>cresc.</i></text>
+            <text><font size="8.5"></font><i>cresc.</i></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -28962,7 +27767,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="8.5"/><i>cresc.</i></text>
+            <text><font size="8.5"></font><i>cresc.</i></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -28985,7 +27790,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -29033,7 +27838,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -29214,7 +28019,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -29485,7 +28290,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <durationType>quarter</durationType>
@@ -29910,7 +28715,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -30048,10 +28853,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -30235,7 +29040,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -30260,10 +29065,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -30344,7 +29149,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>poco</i></b></text>
+            <text><font size="12"></font><b><i>poco</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -30401,13 +29206,13 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>do</i></b></text>
+            <text><font size="12"></font><b><i>do</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>do</i></b></text>
+            <text><font size="12"></font><b><i>do</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -31530,11 +30335,11 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -31857,10 +30662,10 @@
             <mode>major</mode>
             </KeySig>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>sf</i></b></text>
+            <text><font size="12"></font><b><i>sf</i></b></text>
             </StaffText>
           <Chord>
             <durationType>16th</durationType>
@@ -32005,10 +30810,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -32099,7 +30904,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -32272,7 +31077,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -32362,7 +31167,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -32769,7 +31574,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -32913,10 +31718,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -32953,7 +31758,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -33428,7 +32233,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Chord>
             <durationType>half</durationType>
@@ -33481,10 +32286,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <durationType>16th</durationType>
@@ -33569,11 +32374,11 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <dots>1</dots>
@@ -33872,7 +32677,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -34726,7 +33531,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -34817,7 +33622,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>pp</i></b></text>
+            <text><font size="12"></font><b><i>pp</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -35132,14 +33937,14 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -35306,7 +34111,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -35387,10 +34192,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -35655,7 +34460,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -35693,10 +34498,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -36030,7 +34835,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -36732,7 +35537,7 @@
             <durationType>16th</durationType>
             </Rest>
           <StaffText>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -37330,7 +36135,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -37560,7 +36365,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <durationType>quarter</durationType>
@@ -37770,7 +36575,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>poco cresc.</i></b></text>
+            <text><font size="12"></font><b><i>poco cresc.</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -37807,7 +36612,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -37917,7 +36722,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>half</durationType>
@@ -37999,7 +36804,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -38021,11 +36826,11 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -38670,7 +37475,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -39047,7 +37852,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -39469,7 +38274,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -39809,7 +38614,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -39964,7 +38769,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Chord>
             <durationType>half</durationType>
@@ -39988,7 +38793,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -40108,7 +38913,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -40182,11 +38987,11 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -40231,7 +39036,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -40455,7 +39260,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -40901,10 +39706,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -41032,7 +39837,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -41101,13 +39906,13 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="10"/><b><i>pizz</i></b></text>
+            <text><font size="10"></font><b><i>pizz</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -41145,7 +39950,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>cresc.</i></b></text>
+            <text><font size="12"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -41198,10 +40003,10 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="10"/><b><i>pizz.</i></b></text>
+            <text><font size="10"></font><b><i>pizz.</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -41274,7 +40079,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>arco</i></b></text>
+            <text><font size="12"></font><b><i>arco</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -41293,7 +40098,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>poco</i></b></text>
+            <text><font size="12"></font><b><i>poco</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -41362,13 +40167,13 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>do</i></b></text>
+            <text><font size="12"></font><b><i>do</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -41458,10 +40263,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>sempre</i></b></text>
+            <text><font size="10"></font><b><i>sempre</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <durationType>measure</durationType>
@@ -41524,7 +40329,7 @@
             </KeySig>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>p</i></b></text>
+            <text><font size="10"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -41987,7 +40792,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -42220,7 +41025,7 @@
             <mode>major</mode>
             </KeySig>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -42665,13 +41470,13 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
             </Rest>
           <StaffText>
-            <text><font size="7.8"/>arco</text>
+            <text><font size="7.8"></font>arco</text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -42705,7 +41510,7 @@
               </Note>
             </Chord>
           <StaffText>
-            <text><font size="8.5"/>pizz.</text>
+            <text><font size="8.5"></font>pizz.</text>
             </StaffText>
           <Chord>
             <BeamMode>mid</BeamMode>
@@ -42724,17 +41529,17 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Rest>
             <dots>1</dots>
             <durationType>16th</durationType>
             </Rest>
           <StaffText>
-            <text><font size="8.5"/>arco</text>
+            <text><font size="8.5"></font>arco</text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -43110,7 +41915,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -43251,7 +42056,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -43288,7 +42093,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <durationType>half</durationType>
@@ -43622,7 +42427,7 @@
             </Chord>
           <StaffText>
             <placement>below</placement>
-            <text><font size="8.5"/><i>cresc.</i></text>
+            <text><font size="8.5"></font><i>cresc.</i></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -43695,7 +42500,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -43762,7 +42567,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -43853,7 +42658,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Rest>
             <durationType>quarter</durationType>
@@ -44005,7 +42810,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -44059,7 +42864,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>sf</i></b></text>
+            <text><font size="12"></font><b><i>sf</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -44194,7 +42999,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>pp</i></b></text>
+            <text><font size="12"></font><b><i>pp</i></b></text>
             </StaffText>
           <Tuplet>
             <normalNotes>2</normalNotes>
@@ -44593,7 +43398,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
@@ -44638,7 +43443,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -44689,7 +43494,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>pp</i></b></text>
+            <text><font size="12"></font><b><i>pp</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -44862,7 +43667,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -44990,7 +43795,7 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -45013,10 +43818,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Beam>
             <StemDirection>down</StemDirection>
@@ -45123,7 +43928,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Chord>
             <durationType>quarter</durationType>
@@ -45198,10 +44003,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="12"/><b><i>f</i></b></text>
+            <text><font size="12"></font><b><i>f</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -45246,7 +44051,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="12"/><b><i>p</i></b></text>
+            <text><font size="12"></font><b><i>p</i></b></text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -45583,10 +44388,10 @@
       <Measure>
         <voice>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <StaffText>
-            <text><font size="10"/><b><i>cresc.</i></b></text>
+            <text><font size="10"></font><b><i>cresc.</i></b></text>
             </StaffText>
           <Rest>
             <durationType>eighth</durationType>
@@ -46721,7 +45526,7 @@
               </Note>
             </Chord>
           <StaffText>
-            <text><font size="8.5"/>pizz.</text>
+            <text><font size="8.5"></font>pizz.</text>
             </StaffText>
           <Chord>
             <BeamMode>no</BeamMode>
@@ -46792,7 +45597,7 @@
         <voice>
           <StaffText>
             <placement>below</placement>
-            <text><font size="7.8"/><i>cresc.</i></text>
+            <text><font size="7.8"></font><i>cresc.</i></text>
             </StaffText>
           <Beam>
             <StemDirection>up</StemDirection>
