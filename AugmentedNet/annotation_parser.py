@@ -126,35 +126,37 @@ def extendedDataFrame(s):
     than usual (e.g., inversion). It may be easier to predict which features
     lead to a better Roman numeral reconstruction this way.
     """
-    dfdict = {col: [] for col in A_COLUMNS}
+    df_records = []
     for idx, rn in enumerate(s.flat.getElementsByClass("RomanNumeral")):
-        dfdict["a_offset"].append(round(float(rn.offset), FLOATSCALE))
-        dfdict["a_measure"].append(rn.measureNumber)
-        dfdict["a_duration"].append(round(float(rn.quarterLength), FLOATSCALE))
-        dfdict["a_annotationNumber"].append(idx)
-        dfdict["a_romanNumeral"].append(_preprocessRomanNumeral(rn.figure))
-        dfdict["a_isOnset"].append(True)
-        dfdict["a_pitchNames"].append(tuple(rn.pitchNames))
-        dfdict["a_bass"].append(rn.pitchNames[0])
-        dfdict["a_root"].append(rn.root().name)
-        dfdict["a_inversion"].append(rn.inversion())
-        dfdict["a_quality"].append(rn.commonName)
-        dfdict["a_pcset"].append(tuple(sorted(set(rn.pitchClasses))))
+        dfdict = dict(
+            a_offset=round(float(rn.offset), FLOATSCALE),
+            a_measure=rn.measureNumber,
+            a_duration=round(float(rn.quarterLength), FLOATSCALE),
+            a_annotationNumber=idx,
+            a_romanNumeral=_preprocessRomanNumeral(rn.figure),
+            a_isOnset=True,
+            a_pitchNames=tuple(rn.pitchNames),
+            a_bass=rn.pitchNames[0],
+            a_root=rn.root().name,
+            a_inversion=rn.inversion(),
+            a_quality=rn.commonName,
+            a_pcset=tuple(sorted(set(rn.pitchClasses)))
+        )
         localKey = rn.key.tonicPitchNameWithCase
-        dfdict["a_localKey"].append(localKey)
+        dfdict["a_localKey"] = localKey
         secondaryKey = rn.secondaryRomanNumeralKey
         if secondaryKey:
             tonicizedKey = secondaryKey.tonicPitchNameWithCase
-            dfdict["a_tonicizedKey"].append(tonicizedKey)
+            dfdict["a_tonicizedKey"] = tonicizedKey
         else:
             # if there is no tonicization, encode the local key
-            dfdict["a_tonicizedKey"].append(localKey)
+            dfdict["a_tonicizedKey"] = localKey
         scaleDegree, alteration = rn.scaleDegreeWithAlteration
         if alteration:
             scaleDegree = f"{alteration.modifier}{scaleDegree}"
         else:
             scaleDegree = f"{scaleDegree}"
-        dfdict["a_degree1"].append(str(scaleDegree))
+        dfdict["a_degree1"] = str(scaleDegree)
         secondaryDegree = rn.secondaryRomanNumeral
         if secondaryDegree:
             scaleDegree, alteration = secondaryDegree.scaleDegreeWithAlteration
@@ -162,10 +164,11 @@ def extendedDataFrame(s):
                 scaleDegree = f"{alteration.modifier}{scaleDegree}"
             else:
                 scaleDegree = f"{scaleDegree}"
-            dfdict["a_degree2"].append(scaleDegree)
+            dfdict["a_degree2"] = scaleDegree
         else:
-            dfdict["a_degree2"].append("None")
-    df = pd.DataFrame(dfdict)
+            dfdict["a_degree2"] = "None"
+        df_records.append(dfdict)
+    df = pd.DataFrame.from_records(df_records)
     df.set_index("a_offset", inplace=True)
     return df
 
