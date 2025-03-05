@@ -18,7 +18,8 @@ import itertools
 import os
 from fractions import Fraction
 from functools import cache
-from typing import Iterable, Dict, Optional, overload
+from typing import Tuple, Iterable, Dict, Optional, overload
+import warnings
 
 import ms3
 import numpy as np
@@ -29,61 +30,6 @@ DLC_PATH = ms3.resolve_dir("~/distant_listening_corpus")
 
 
 # %%
-def filter_corpus(corpus):
-    corpus.view.include("facets", "scores")#, "expanded")
-    #corpus.disambiguate_facet("expanded")
-    corpus.disambiguate_facet("scores")
-    corpus.view.pieces_with_incomplete_facets = False
-    
-def get_ms3_corpus(corpus_path):
-    corpus = ms3.Corpus(corpus_path)
-    filter_corpus(corpus)
-    return corpus
-
-for subcorpus_dir in os.listdir(DLC_PATH):
-    subcorpus_path = os.path.join(DLC_PATH, subcorpus_dir)
-    if os.path.isfile(subcorpus_path): continue
-    corpus = get_ms3_corpus(subcorpus_path)
-    break
-    
-corpus
-
-# %%
-corpus = get_ms3_corpus("~/distant_listening_corpus/beethoven_piano_sonatas")
-
-for _, piece in corpus.iter_pieces():
-    break
-    
-for fileinfo, facets in piece.iter_extracted_facets(
-        ("notes", "expanded"),
-        force=True,
-        unfold=True,
-        interval_index=False
-):
-    break
-    
-notes, labels = facets["notes"], facets["expanded"]
-notes["is_onset"] = (notes.tied.fillna(1) == 1)
-labels["is_onset"] = True
-display(notes.head(3))
-labels.head(3)
-
-# %%
-merged = pd.merge(
-    left = notes, 
-    right = labels, 
-    on = "quarterbeats_playthrough",
-    how = "outer",
-    suffixes = ("", "_label"),
-    indicator=True
-)
-merged.head()
-
-# %%
-import warnings
-from typing import Tuple
-
-
 class DivMaker():
     """This is a convenient object for turning sequences of fractions into commensurate divs.
     It is equivalent to concatenating all sequences, passing them to the function shown below, and splitting them again.
@@ -215,6 +161,9 @@ class DivMaker():
             self,
             names: Optional[str | int | Iterable[str | int]] = None
     ) -> NDArray:
+        """Concatenate the requested arrays in order to compute their LCM. All arrays have shape (2, n) and so does 
+        their concatenation ("horizontal stacking").
+        """
         if names:
             names = self._names_to_tuple(names)
             arrays = tuple(self.dict_of_frac_arrays[name] for name in names)
@@ -222,14 +171,17 @@ class DivMaker():
             if len(self.dict_of_frac_arrays) == 0:
                 raise ValueError(
                     f"No data has been added to this object. "
-                    f"Use the method .add_iterable_of_fractions() first"
+                    f"Use the method .add_iterable_or_array() first"
                     )
             arrays = tuple(self.dict_of_frac_arrays.values())
         if len(arrays) == 1:
             return arrays[0]
         return np.hstack(arrays)
     
-    def get_divs(self, name: str | int) -> NDArray[int]:
+    def get_divs(
+            self, 
+            name: str | int
+    ) -> NDArray[int]:
         """Retrieve one of the previous inputs as divs, based on the LCM computed for all inputs together.
         Name can be a number for retrieving nameless inputs based on their input order.
         """
@@ -251,13 +203,14 @@ class DivMaker():
             self,
             names: Optional[str | int | Iterable[str | int]] = None
     ) -> int:
-        """By default, the LCM is computed based on all sequences of fractions that his object holds. 
+        """By default, the LCM is computed based on all sequences of fractions that this object holds. 
         When you retrieve divs, they are always commensurate between all sequences."""
         names = self._names_to_tuple(names)
         return self._least_common_multiple(names)
 
     @property
     def lcm(self):
+        """For convenience."""
         return self.least_common_multiple()
 
     def _names_to_tuple(
@@ -304,24 +257,110 @@ class DivMaker():
 
 
 # %%
+def filter_corpus(corpus):
+    corpus.view.include("facets", "scores")#, "expanded")
+    #corpus.disambiguate_facet("expanded")
+    corpus.disambiguate_facet("scores")
+    corpus.view.pieces_with_incomplete_facets = False
+    
+def get_ms3_corpus(corpus_path):
+    corpus = ms3.Corpus(corpus_path)
+    filter_corpus(corpus)
+    return corpus
 
-def make_pitch_array(merged: pd.DataFrame) -> pd.DataFrame:
-    keep_original_columns = ["mc", "mn", "mc_playthrough", "mn_playthrough", "quarterbeats_playthrough", "duration"]
-    result = merged[keep_original_columns]
+for subcorpus_dir in os.listdir(DLC_PATH):
+    subcorpus_path = os.path.join(DLC_PATH, subcorpus_dir)
+    if os.path.isfile(subcorpus_path): continue
+    corpus = get_ms3_corpus(subcorpus_path)
+    break
+    
+corpus
+
+# %%
+corpus = get_ms3_corpus("~/distant_listening_corpus/beethoven_piano_sonatas")
+
+for _, piece in corpus.iter_pieces():
+    break
+    
+for fileinfo, facets in piece.iter_extracted_facets(
+        ("notes", "expanded"),
+        force=True,
+        unfold=True,
+        interval_index=False
+):
+    break
+    
+notes, labels = facets["notes"], facets["expanded"]
+notes["is_onset"] = (notes.tied.fillna(1) == 1)
+labels["is_onset"] = True
+display(notes.head(3))
+labels.head(3)
+
+# %%
+merged = pd.merge(
+    left = notes, 
+    right = labels, 
+    on = "quarterbeats_playthrough",
+    how = "outer",
+    suffixes = ("", "_label"),
+    indicator=True
+)
+merged
+
+# %%
+KEEP_ORIGINAL_COLUMNS = ["mc", "mn", "mc_playthrough", "mn_playthrough", "quarterbeats_playthrough", "duration", "staff", "voice"]
+RENAME_ORIGINAL_COLUMNS = dict(
+        midi = "pitch",
+    )
+COLUMN_ORDER = ["onset_div", "duration_div", "pitch", "step", "alter", "ts_beats", "ts_beat_type", "staff", "voice"]
+
+def make_pitch_array(notes: pd.DataFrame) -> pd.DataFrame:
+    
     div_maker = DivMaker(
-        onsets = merged.quarterbeats_playthrough, 
-        durations = merged.duration * 4
+        onsets = notes.quarterbeats_playthrough, 
+        durations =notes.duration * 4 # normally duration_qb but due to a bug these are currently floats
     )
     onset_div, duration_div = div_maker[("onsets", "durations")]
-    result = pd.concat([
-        pd.DataFrame(dict(
-            onset_div = onset_div,
-            duration_div = duration_div
-        )),
-        result
-    ], axis=1)
-    return result
+    
+    keep_original_columns = [col for col in KEEP_ORIGINAL_COLUMNS if col in notes.columns]
+    original_columns = notes[keep_original_columns]
+    
+    rename_original_columns = {k: v for k, v in RENAME_ORIGINAL_COLUMNS.items() if k in notes.columns}
+    renamed_columns = notes[list(rename_original_columns.keys())].rename(columns=rename_original_columns)
+    
+    new_dataframes = []  # will be added as-is
+    new_columns = dict() # will be renamed based on the keys
+    
+    # specific pitch
+    specific_pitch = notes.name.str.extract(r"^(?P<step>[A-G])(?P<accidentals>b*|#*)(?P<octave>\d)$")
+    new_dataframes.append(specific_pitch[["step", "octave"]])
+    new_columns["alter"] = specific_pitch.accidentals.str.count("#") - specific_pitch.accidentals.str.count("b")
+    
+    # time signatures
+    new_dataframes.append(
+        notes.timesig.str.extract(r"^(?P<ts_beats>\d+)/(?P<ts_beat_type>\d+)$")
+    )
 
-make_pitch_array(merged)
+    result = pd.concat(
+        [
+            pd.DataFrame(
+                dict(
+                    onset_div=onset_div,
+                    duration_div=duration_div
+                )
+            ),
+            pd.concat(new_columns, axis=1),
+            renamed_columns,
+            original_columns
+        ] + new_dataframes,
+        axis=1
+    )
+    column_order = [col for col in COLUMN_ORDER if col in result.columns]
+    column_order += [col for col in result.columns if col not in column_order]
+    return result[column_order]
+
+pitch_array = make_pitch_array(merged)
+pitch_array.to_csv("beethoven1.tsv", sep="\t", index=False)
+pitch_array
 
 # %%
