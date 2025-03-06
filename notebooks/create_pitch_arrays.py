@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.7
+#       jupytext_version: 1.15.2
 #   kernelspec:
 #     display_name: dimcat
 #     language: python
@@ -73,10 +73,10 @@ def make_section_start_column(
 ) -> pd.Series:
     """Returns a column of nullable "boolean" dtype."""
     section_start = (measures.repeats == "firstMeasure").fillna(False).rename("section_start").astype("boolean")
-    section_start |= (measures.repeats == "start")
-    section_start |= (measures.repeats.shift() == "end")
-    section_start |= (measures.breaks.shift().str.contains("section"))
-    section_start |= (measures.barline.shift() == "double")
+    section_start |= (measures.repeats == "start").fillna(False)
+    section_start |= (measures.repeats.shift() == "end").fillna(False)
+    section_start |= measures.breaks.shift().str.contains("section").fillna(False)
+    section_start |= (measures.barline.shift() == "double").fillna(False)
     return section_start
 
 def prepare_measures(
@@ -89,6 +89,8 @@ def prepare_measures(
     ], axis=1)
     measures.keysig = measures.keysig.astype("Int64") 
     return measures
+
+# make_section_start_column(measures)
 
 
 # %%
