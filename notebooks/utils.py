@@ -7,6 +7,7 @@ from typing import Iterable, Dict, Optional, Tuple, overload, Literal
 import ms3
 import numpy as np
 import pandas as pd
+from dimcat.data.resources.facets import extend_keys_feature, extend_harmony_feature, extend_cadence_feature
 from numpy._typing import NDArray
 
 # region DivMaker
@@ -450,3 +451,145 @@ def make_pitch_array(
     return result[column_order].astype(PITCH_ARRAY_DTYPES)
 
 # endregion make_pitch_array
+#region make_labeled_pitch_array
+
+def convert_roman_numerals_to_fifths(labels: pd.DataFrame) -> pd.DataFrame:
+    concatenate_this = [
+        labels,
+        (
+            globalkey_tpc := ms3.transform(
+                labels.globalkey,
+                ms3.name2fifths,
+            )
+        ).rename("globalkey_tpc"),
+        (
+                ms3.transform(
+                    labels[["localkey", "globalkey_is_minor"]], ms3.roman_numeral2fifths
+                ) + globalkey_tpc
+        ).rename("localkey_tpc"),
+        (
+                ms3.transform(
+                    labels[["effective_localkey_resolved", "globalkey_is_minor"]], ms3.roman_numeral2fifths
+                ) + globalkey_tpc
+        ).rename("tonicized_tpc"),
+    ]
+    labels = pd.concat(concatenate_this, axis=1)
+    return labels
+
+
+INT_COLUMNS = ['unfolded_harmony_index', 'root', 'bass_note', 'globalkey_tpc', 'localkey_tpc', 'tonicized_tpc', ]
+BOOL_COLUMNS = ['globalkey_is_minor', 'localkey_is_minor', 'is_harmony_onset', 'is_phrase_ending' ]
+STRING_COLUMNS = ['section_start', 'label', 'alt_label', 'globalkey', 'localkey', 'pedal', 'chord', 'special', 'numeral', 'form', 'figbass', 'changes', 'relativeroot', 'cadence', 'phraseend', 'chord_type', 'globalkey_mode', 'localkey_mode', 'localkey_resolved', 'localkey_and_mode', 'root_roman', 'relativeroot_resolved', 'effective_localkey', 'effective_localkey_resolved', 'effective_localkey_is_minor', 'chord_reduced', 'chord_reduced_and_mode', 'pedal_resolved', 'chord_and_mode', 'applied_to_numeral', 'numeral_or_applied_to_numeral', 'cadence_type', '_merge']
+OBJECT_COLUMNS = ['chord_tones', 'added_tones', ] # unused, leave them as they are
+
+
+def convert_column_types(labels: pd.DataFrame) -> pd.DataFrame:
+    conversion_dict = {col: "Int64" for col in INT_COLUMNS if col in labels.columns}
+    conversion_dict.update(
+        {col: "boolean" for col in BOOL_COLUMNS if col in labels.columns}
+    )
+    conversion_dict.update(
+        {col: "string" for col in STRING_COLUMNS if col in labels.columns}
+    )
+    return labels.astype(conversion_dict)
+
+
+def add_boolean_phrase_ending_column(labels: pd.DataFrame) -> pd.DataFrame:
+    phraseend_column = labels.phraseend.fillna("")
+    is_phrase_end = (phraseend_column == r"\\").fillna(False).astype("boolean").rename("is_phrase_ending")
+    is_phrase_end |= phraseend_column.str.contains("}")
+    return pd.concat([labels, is_phrase_end], axis=1)
+
+
+NON_FORWARD_FILLING_COLUMNS = [
+    "is_harmony_onset", "cadence", "cadence_type", "cadence_subtype", "phraseend", "section_start", "is_phrase_ending"
+] # these are not propagated over the whole duration of their harmony label and are therefore moved to the left
+
+
+def prepare_labels(labels: pd.DataFrame) -> pd.DataFrame:
+    labels = labels.copy()
+    labels["is_harmony_onset"] = True
+    labels.is_harmony_onset = labels.is_harmony_onset.where(
+        labels.chord.notna() & (labels.chord != labels.chord.shift(-1)),
+        False, # set False where the label does not define a harmony or merely the same harmony as the preceding one
+    )
+    labels.index.rename("unfolded_harmony_index", inplace=True)
+    labels.reset_index(drop=False, inplace=True)
+    labels = extend_keys_feature(labels)
+    labels = extend_harmony_feature(labels)
+    labels = convert_roman_numerals_to_fifths(labels)
+    labels = extend_cadence_feature(labels)
+    labels = add_boolean_phrase_ending_column(labels)
+    labels = convert_column_types(labels)
+    column_order = [col for col in NON_FORWARD_FILLING_COLUMNS if col in labels.columns]
+    column_order += [col for col in labels.columns if col not in column_order]
+    return labels[column_order]
+
+
+def compute_interval_classes_to_keys(merged: pd.DataFrame) -> pd.DataFrame:
+    concatenate_this = [
+        merged,
+        (merged.tpc - merged.globalkey_tpc).rename("sic_with_global"),
+        (merged.tpc - merged.localkey_tpc).rename("sic_with_local"),
+        (merged.tpc - merged.tonicized_tpc).rename("sic_with_tonicized"),
+    ]
+    return pd.concat(concatenate_this, axis=1)
+
+
+def add_boolean_label_columns(merged: pd.DataFrame) -> pd.DataFrame:
+
+    def is_in_chord_tones(sic: int, chord_tones: Tuple[int]) -> bool:
+        """Used for element-wise containment check"""
+        return sic in chord_tones
+
+    concatenate_this = [
+        merged,
+        ms3.transform(
+            merged,
+            is_in_chord_tones,
+            ["sic_with_local", "chord_tones"]
+        ).astype("boolean").rename("tpc_is_in_label"),
+        (merged.sic_with_local == merged.root).rename("tpc_is_root"),
+        (merged.sic_with_local == merged.bass_note).rename("tpc_is_bass")
+    ]
+    return pd.concat(concatenate_this, axis=1)
+
+
+def make_labeled_pitch_array(
+        notes: pd.DataFrame,
+        labels: pd.DataFrame,
+        measures: Optional[pd.DataFrame] = None
+):
+    pitch_array = make_pitch_array(notes, measures, label_notes=True)
+    prepared_labels = prepare_labels(labels)
+
+    merged = pd.merge(
+        left = pitch_array,
+        right = prepared_labels.drop(columns=[
+            "mc", "mn", "mc_playthrough", "mn_playthrough", "quarterbeats_all_endings", "duration_qb", "mc_onset",
+            "mn_onset", "timesig", "staff", "voice"
+        ]),
+        on = "quarterbeats_playthrough",
+        how = "outer",
+        suffixes = ("", "_label"),
+        indicator=False
+    )
+    merged.is_harmony_onset = merged.is_harmony_onset.fillna(False)
+    merged.is_phrase_ending = merged.is_phrase_ending.fillna(False)
+
+    harmony_index_col = merged.columns.get_loc("unfolded_harmony_index")
+    pitch_side = merged.iloc[:, :harmony_index_col]
+    harmony_side = merged.iloc[:, harmony_index_col:]
+
+    harmony_grouper = (harmony_side.unfolded_harmony_index.
+                       where(harmony_side.chord.notna()).   # takes only index positions for which a harmony is defined
+                       ffill())                             # and forward-fills gaps with indices of the harmonies
+    merged = pd.concat([
+        pitch_side,
+        harmony_side.groupby(harmony_grouper).ffill()
+    ], axis=1)
+    merged = compute_interval_classes_to_keys(merged)
+    merged = add_boolean_label_columns(merged)
+    return merged
+
+#endregion make_labeled_pitch_array
