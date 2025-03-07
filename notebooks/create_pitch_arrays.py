@@ -254,7 +254,7 @@ specs = labeled_pitch_array.dtypes.rename("dtype")
 specs_df = pd.concat([
     specs,
     pd.DataFrame.from_dict(spec_specs, orient="index")
-], axis=1)
+], axis=1)[["dtype", "used_for", "description"]]
 specs_df.to_csv("labeld_pitch_array_specs.csv", index=True)
 specs_df
 

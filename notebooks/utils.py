@@ -265,6 +265,19 @@ def prepare_measures(
 
 # endregion prepare_measures
 # region make_pitch_array
+KEEP_ORIGINAL_COLUMNS = ["mc", "mn", "mc_playthrough", "mn_playthrough", "quarterbeats_playthrough", "duration",
+                         "staff", "voice", "is_note_onset", "tpc"] # columns to keep from the original notes table
+RENAME_ORIGINAL_COLUMNS = dict( # columns to keep under a different name
+    midi="pitch",
+    keysig="ks_fifths"
+)
+COLUMN_ORDER = ["onset_div", "duration_div", "pitch", "tpc", "step", "alter", "ts_beats", "ts_beat_type", "staff", "voice"]
+PITCH_ARRAY_DTYPES = dict(                  # dtype dict passed to pd.DataFrame.astype()
+    mn_playthrough = "string",
+)
+MERGE_MEASURE_COLUMNS = ["keysig"]          # columns to merge into notes from measures table
+MERGE_LABEL_COLUMNS = ["section_start"]     # columns to merge additionally when label_notes = True
+
 
 
 def _ts_beat_size(numerator: int, denominator: int) -> Fraction:
@@ -326,9 +339,6 @@ def onset2beat(
     result = beat + 1 + subbeat
     return result if round_to is None else round(float(result), round_to)
 
-MERGE_MEASURE_COLUMNS = ["keysig"]
-MERGE_LABEL_COLUMNS = ["section_start"]
-
 
 def prepare_notes_with_measure_information(
         notes: pd.DataFrame,
@@ -363,19 +373,6 @@ def prepare_notes_with_measure_information(
     return merged
 
 
-KEEP_ORIGINAL_COLUMNS = ["mc", "mn", "mc_playthrough", "mn_playthrough", "quarterbeats_playthrough", "duration",
-                         "staff", "voice", "is_note_onset", "tpc"]
-KEEP_ORIGINAL_LABEL_COLUMNS = ["section_start"]
-RENAME_ORIGINAL_COLUMNS = dict(
-    midi="pitch",
-    keysig="ks_fifths"
-)
-COLUMN_ORDER = ["onset_div", "duration_div", "pitch", "tpc", "step", "alter", "ts_beats", "ts_beat_type", "staff", "voice"]
-PITCH_ARRAY_DTYPES = dict(
-    mn_playthrough = "string",
-)
-
-
 def make_pitch_array(
         notes: pd.DataFrame,
         measures: Optional[pd.DataFrame] = None,
@@ -408,7 +405,7 @@ def make_pitch_array(
 
     potential_columns = list(KEEP_ORIGINAL_COLUMNS)
     if label_notes:
-        potential_columns += KEEP_ORIGINAL_LABEL_COLUMNS
+        potential_columns += MERGE_LABEL_COLUMNS
     keep_original_columns = [col for col in potential_columns if col in prepared_notes.columns]
     original_columns = prepared_notes[keep_original_columns]
 
@@ -452,6 +449,15 @@ def make_pitch_array(
 
 # endregion make_pitch_array
 #region make_labeled_pitch_array
+# columns are converted based on the dtypes assigned in the following
+INT_COLUMNS = ['unfolded_harmony_index', 'root', 'bass_note', 'globalkey_tpc', 'localkey_tpc', 'tonicized_tpc', ]
+BOOL_COLUMNS = ['globalkey_is_minor', 'localkey_is_minor', 'is_harmony_onset', 'is_phrase_ending' ]
+STRING_COLUMNS = ['section_start', 'label', 'alt_label', 'globalkey', 'localkey', 'pedal', 'chord', 'special', 'numeral', 'form', 'figbass', 'changes', 'relativeroot', 'cadence', 'phraseend', 'chord_type', 'globalkey_mode', 'localkey_mode', 'localkey_resolved', 'localkey_and_mode', 'root_roman', 'relativeroot_resolved', 'effective_localkey', 'effective_localkey_resolved', 'effective_localkey_is_minor', 'chord_reduced', 'chord_reduced_and_mode', 'pedal_resolved', 'chord_and_mode', 'applied_to_numeral', 'numeral_or_applied_to_numeral', 'cadence_type', '_merge']
+OBJECT_COLUMNS = ['chord_tones', 'added_tones', ] # unused, leave them as they are
+NON_FORWARD_FILLING_COLUMNS = [
+    "is_harmony_onset", "cadence", "cadence_type", "cadence_subtype", "phraseend", "section_start", "is_phrase_ending"
+] # these are not propagated over the whole duration of their harmony label and are therefore moved to the left
+
 
 def convert_roman_numerals_to_fifths(labels: pd.DataFrame) -> pd.DataFrame:
     concatenate_this = [
@@ -477,12 +483,6 @@ def convert_roman_numerals_to_fifths(labels: pd.DataFrame) -> pd.DataFrame:
     return labels
 
 
-INT_COLUMNS = ['unfolded_harmony_index', 'root', 'bass_note', 'globalkey_tpc', 'localkey_tpc', 'tonicized_tpc', ]
-BOOL_COLUMNS = ['globalkey_is_minor', 'localkey_is_minor', 'is_harmony_onset', 'is_phrase_ending' ]
-STRING_COLUMNS = ['section_start', 'label', 'alt_label', 'globalkey', 'localkey', 'pedal', 'chord', 'special', 'numeral', 'form', 'figbass', 'changes', 'relativeroot', 'cadence', 'phraseend', 'chord_type', 'globalkey_mode', 'localkey_mode', 'localkey_resolved', 'localkey_and_mode', 'root_roman', 'relativeroot_resolved', 'effective_localkey', 'effective_localkey_resolved', 'effective_localkey_is_minor', 'chord_reduced', 'chord_reduced_and_mode', 'pedal_resolved', 'chord_and_mode', 'applied_to_numeral', 'numeral_or_applied_to_numeral', 'cadence_type', '_merge']
-OBJECT_COLUMNS = ['chord_tones', 'added_tones', ] # unused, leave them as they are
-
-
 def convert_column_types(labels: pd.DataFrame) -> pd.DataFrame:
     conversion_dict = {col: "Int64" for col in INT_COLUMNS if col in labels.columns}
     conversion_dict.update(
@@ -499,11 +499,6 @@ def add_boolean_phrase_ending_column(labels: pd.DataFrame) -> pd.DataFrame:
     is_phrase_end = (phraseend_column == r"\\").fillna(False).astype("boolean").rename("is_phrase_ending")
     is_phrase_end |= phraseend_column.str.contains("}")
     return pd.concat([labels, is_phrase_end], axis=1)
-
-
-NON_FORWARD_FILLING_COLUMNS = [
-    "is_harmony_onset", "cadence", "cadence_type", "cadence_subtype", "phraseend", "section_start", "is_phrase_ending"
-] # these are not propagated over the whole duration of their harmony label and are therefore moved to the left
 
 
 def prepare_labels(labels: pd.DataFrame) -> pd.DataFrame:
