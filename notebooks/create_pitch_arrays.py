@@ -16,6 +16,7 @@
 # %%
 
 import os
+from enum import Enum
 from typing import Optional, Tuple
 
 import ms3
@@ -139,7 +140,9 @@ RENAME_ORIGINAL_COLUMNS = dict(
     keysig="ks_fifths"
 )
 COLUMN_ORDER = ["onset_div", "duration_div", "pitch", "tpc", "step", "alter", "ts_beats", "ts_beat_type", "staff", "voice"]
-
+PITCH_ARRAY_DTYPES = dict(
+    mn_playthrough = "string",
+)
 
 def make_pitch_array(
         notes: pd.DataFrame,
@@ -213,7 +216,7 @@ def make_pitch_array(
     )
     column_order = [col for col in COLUMN_ORDER if col in result.columns]
     column_order += [col for col in result.columns if col not in column_order]
-    return result[column_order]
+    return result[column_order].astype(PITCH_ARRAY_DTYPES)
 
 
 pitch_array = make_pitch_array(notes, measures, label_notes=False)
@@ -246,7 +249,7 @@ def convert_roman_numerals_to_fifths(labels: pd.DataFrame) -> pd.DataFrame:
     return labels
 
 INT_COLUMNS = ['unfolded_harmony_index', 'root', 'bass_note', 'globalkey_tpc', 'localkey_tpc', 'tonicized_tpc', ]
-BOOL_COLUMNS = ['globalkey_is_minor', 'localkey_is_minor', 'is_harmony_onset', ]
+BOOL_COLUMNS = ['globalkey_is_minor', 'localkey_is_minor', 'is_harmony_onset', 'is_phrase_ending' ]
 STRING_COLUMNS = ['section_start', 'label', 'alt_label', 'globalkey', 'localkey', 'pedal', 'chord', 'special', 'numeral', 'form', 'figbass', 'changes', 'relativeroot', 'cadence', 'phraseend', 'chord_type', 'globalkey_mode', 'localkey_mode', 'localkey_resolved', 'localkey_and_mode', 'root_roman', 'relativeroot_resolved', 'effective_localkey', 'effective_localkey_resolved', 'effective_localkey_is_minor', 'chord_reduced', 'chord_reduced_and_mode', 'pedal_resolved', 'chord_and_mode', 'applied_to_numeral', 'numeral_or_applied_to_numeral', 'cadence_type', '_merge']
 OBJECT_COLUMNS = ['chord_tones', 'added_tones', ] # unused, leave them as they are
 
@@ -260,9 +263,14 @@ def convert_column_types(labels: pd.DataFrame) -> pd.DataFrame:
     )
     return labels.astype(conversion_dict)
 
+def add_boolean_phrase_ending_column(labels: pd.DataFrame) -> pd.DataFrame:
+    phraseend_column = labels.phraseend.fillna("")
+    is_phrase_end = (phraseend_column == r"\\").fillna(False).astype("boolean").rename("is_phrase_ending")
+    is_phrase_end |= phraseend_column.str.contains("}")
+    return pd.concat([labels, is_phrase_end], axis=1)
 
 NON_FORWARD_FILLING_COLUMNS = [
-    "is_harmony_onset", "cadence", "cadence_type", "cadence_subtype", "phraseend", "section_start"
+    "is_harmony_onset", "cadence", "cadence_type", "cadence_subtype", "phraseend", "section_start", "is_phrase_ending"
 ] # these are not propagated over the whole duration of their harmony label and are therefore moved to the left
 
 def prepare_labels(labels: pd.DataFrame) -> pd.DataFrame:
@@ -278,6 +286,7 @@ def prepare_labels(labels: pd.DataFrame) -> pd.DataFrame:
     labels = extend_harmony_feature(labels)
     labels = convert_roman_numerals_to_fifths(labels)
     labels = extend_cadence_feature(labels)
+    labels = add_boolean_phrase_ending_column(labels)
     labels = convert_column_types(labels)
     column_order = [col for col in NON_FORWARD_FILLING_COLUMNS if col in labels.columns]
     column_order += [col for col in labels.columns if col not in column_order]
@@ -301,10 +310,10 @@ def add_boolean_label_columns(merged: pd.DataFrame) -> pd.DataFrame:
     concatenate_this = [
         merged,
         ms3.transform(
-            labeled_pitch_array, 
+            merged, 
             is_in_chord_tones, 
             ["sic_with_local", "chord_tones"]
-        ).rename("tpc_is_in_label"),
+        ).astype("boolean").rename("tpc_is_in_label"),
         (merged.sic_with_local == merged.root).rename("tpc_is_root"),
         (merged.sic_with_local == merged.bass_note).rename("tpc_is_bass")
     ]
@@ -330,6 +339,7 @@ def make_labeled_pitch_array(
         indicator=False
     )
     merged.is_harmony_onset = merged.is_harmony_onset.fillna(False)
+    merged.is_phrase_ending = merged.is_phrase_ending.fillna(False)
     
     harmony_index_col = merged.columns.get_loc("unfolded_harmony_index")
     pitch_side = merged.iloc[:, :harmony_index_col]
@@ -361,15 +371,177 @@ tmp_labeled_pitch_array = prepare_labels(facets["expanded"])
 labeled_pitch_array.to_csv("beethoven1_labeled.tsv", sep="\t", index=False)
 labeled_pitch_array
 
+
 # %%
-# concatenate_this = [
-#     # adds columns to harmony labels before joining on the notes
-#     feature_df,
-#     
-#     (feature_df.root + localkey_tpc).rename("root_per_globalkey"),
-#     (feature_df.root - relativeroot_tpc).rename("root_per_tonicization"),
-#     ms3.transform(
-#             feature_df[["relativeroot_resolved", "localkey_is_minor"]],
-#             ms3.roman_numeral2fifths,
-#         ).fillna(0).rename("relativeroot_tpc"),
-# ]
+class Purpose(str, Enum):
+    """Vocabulary defining what individual fields (columns) are used for.
+    Description strings X fit gramatically as in "used for X"."""
+    auxiliary = "computing fields"
+    input = "input graph creation"
+    metadata = "input graph metadata and informational purposes"
+    beat_inference = "training beat inference task"
+    cadence_induction = "training cadence induction task"
+    harmony_inference = "training harmony inference task"
+    phrase_inference = "training phrase inference task"
+    section_inference = "training section inference task"
+    # none = unused columns should not be included in the specs
+
+
+tpc_description = "Tonal Pitch Class (0=C, -1=F, 1=G, etc., aka specific pitch, aka fifths)"
+spec_specs = dict(
+    onset_div = dict(
+        description = "Proportional integer position",
+        used_for = Purpose.input,
+        ),
+    duration_div = dict(
+        description = "Proportional integer duration",
+        used_for = Purpose.input,
+        ),
+    pitch = dict(
+        description = "MIDI value",
+        used_for = Purpose.input,
+        ),
+    tpc = dict(
+        description = tpc_description,
+        used_for = Purpose.auxiliary,
+        ),
+    step = dict(
+        description = "Note name without accidental (A-G)",
+        used_for = Purpose.input,
+        ),
+    alter = dict(
+        description = "Note accidental: [-3, 3]",
+        used_for = Purpose.input,
+        ),
+    ts_beats = dict(
+        description = "Numerator of the time signature",
+        used_for = Purpose.input,
+        ),
+    ts_beat_type = dict(
+        description = "Denominator of the time signature",
+        used_for = Purpose.input,
+        ),
+    staff = dict(
+        description = "Number of the staff containing the note, 1 being the upper staff",
+        used_for = Purpose.input,
+        ),
+    voice = dict(
+        description = "Notational layer containing the note: [1, 4]",
+        used_for = Purpose.input,
+        ),
+    is_note_onset = dict(
+        description = "False when a note is tied to a previous one",
+        used_for = Purpose.input,
+        ),
+    beat = dict(
+        description = "Values >= 1. Natural numbers represent beat positions according to the time signature. "
+                      "The number of beats in a measure is defined by ts_beats but divided by 3 if it's a multiple of 3.",
+        used_for = Purpose.beat_inference,
+        ),
+    ks_fifths = dict(
+        description = "Key signature: [-7, 7]",
+        used_for = Purpose.input,
+        ),
+    mc = dict(
+        description = "Measure count, ID of the measure-like object (non-unique in unfolded score)",
+        used_for = Purpose.metadata,
+        ),
+    mn = dict(
+        description = "Measure number as per conventions. One MN can be composed of several MC.",
+        used_for = Purpose.metadata,
+        ),
+    mc_playthrough = dict(
+        description = "Measure count, unique in unfolded score",
+        used_for = Purpose.metadata,
+        ),
+    mn_playthrough = dict(
+        description = "Conventional measure numbers but for unfolded score (means of identifying complete measures)",
+        used_for = Purpose.input,
+        ),
+    quarterbeats_playthrough = dict(
+        description = "Continuous offset (\"qstamp\") in unfolded score",
+        used_for = Purpose.input,
+        ),
+    duration = dict(
+        description = "Note duration expressed as fraction of a whole note",
+        used_for = Purpose.auxiliary,
+        ),
+    section_start = dict(
+        description = "True for notes on the first position following a double/repeat bar line or section break. "
+                      "True values always correspond to the beginning of an MC, so a section beginning with a rest "
+                      "will not be taken into account.",
+        used_for = Purpose.section_inference,
+    ),
+    octave = dict(
+        description = "Octave of the note with 4 = middle octave. Does not always correspond to pitch // 12 - 1.",
+        used_for = Purpose.metadata,
+    ),
+    is_harmony_onset = dict(
+        description = "True for notes coinciding with a change in harmony.",
+        used_for = Purpose.harmony_inference,
+    ),
+    cadence = dict(
+        description = "Original cadence label (my include cadence subtypes)",
+        used_for = Purpose.auxiliary,
+    ),
+    cadence_type = dict(
+        description = "Cadence label ∈ (PAC, IAC, HC, EC, DC, PC)",
+        used_for = Purpose.cadence_induction,
+    ),
+    phraseend = dict(
+        description = "Original phrase labels.",
+        used_for = Purpose.auxiliary,
+    ),
+    is_phrase_ending = dict(
+        description = "True for notes that coincide with the structural ending of a phrase (i.e., the phrase can have "
+                      "a codetta after this position before the next one begins).",
+        used_for = Purpose.phrase_inference,
+    ),
+    unfolded_harmony_index = dict(
+        description = "Index of the labels in the original unfolded table (before merging it with the notes)",
+        used_for = Purpose.auxiliary,
+    ),
+    label = dict(
+        description = "Original annotation labels",
+        used_for = Purpose.auxiliary,
+    ),
+    globalkey_tpc = dict(
+        description = f"Root of the global key expressed as {tpc_description}",
+        used_for = Purpose.auxiliary,
+    ),
+    localkey_tpc = dict(
+        description = f"Root of the local key expressed as {tpc_description}",
+        used_for = Purpose.auxiliary,
+    ),
+    tonicized_tpc = dict(
+        description = f"Root of the tonicized key expressed as {tpc_description}",
+        used_for = Purpose.auxiliary,
+    ),
+    sic_with_local = dict(
+        description = "Relative position of the note's tonal pitch class in the local key, expressed as "
+                      "Specific Interval Class (0=unison, -1=+P4/-P5, 3=+M6/-m3, etc.)",
+        used_for = Purpose.auxiliary,
+    ),
+    tpc_is_in_label = dict(
+        description = "True if a note's pitch class is part of the harmony label",
+        used_for = Purpose.harmony_inference,
+    ),
+    tpc_is_root = dict(
+        description = "True if a note's tonal pitch class is the harmony label's root",
+        used_for = Purpose.harmony_inference,
+    ),
+    tpc_is_bass = dict(
+        description = "True if a note's tonal pitch class is the harmony label's bass",
+        used_for = Purpose.harmony_inference,
+    ),
+)
+
+specs = labeled_pitch_array.dtypes.rename("dtype")
+specs_df = pd.concat([
+    specs,
+    pd.DataFrame.from_dict(spec_specs, orient="index")
+], axis=1)
+specs_df.to_csv("labeld_pitch_array_specs.csv", index=True)
+specs_df
+
+# %%
