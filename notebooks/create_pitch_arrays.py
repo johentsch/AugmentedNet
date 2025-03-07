@@ -16,7 +16,7 @@
 # %%
 
 import os
-from typing import Optional
+from typing import Optional, Tuple
 
 import ms3
 from dimcat.data.resources.facets import extend_harmony_feature, extend_keys_feature, extend_cadence_feature
@@ -132,13 +132,13 @@ def prepare_notes_with_measure_information(
 
 # %%
 KEEP_ORIGINAL_COLUMNS = ["mc", "mn", "mc_playthrough", "mn_playthrough", "quarterbeats_playthrough", "duration",
-                         "staff", "voice", "is_note_onset"]
+                         "staff", "voice", "is_note_onset", "tpc"]
 KEEP_ORIGINAL_LABEL_COLUMNS = ["section_start"]
 RENAME_ORIGINAL_COLUMNS = dict(
     midi="pitch",
     keysig="ks_fifths"
 )
-COLUMN_ORDER = ["onset_div", "duration_div", "pitch", "step", "alter", "ts_beats", "ts_beat_type", "staff", "voice"]
+COLUMN_ORDER = ["onset_div", "duration_div", "pitch", "tpc", "step", "alter", "ts_beats", "ts_beat_type", "staff", "voice"]
 
 
 def make_pitch_array(
@@ -222,7 +222,7 @@ pitch_array
 
 
 # %%
-def convert_roman_numerals_to_fifths(labels):
+def convert_roman_numerals_to_fifths(labels: pd.DataFrame) -> pd.DataFrame:
     concatenate_this = [
         labels,
         (
@@ -247,7 +247,8 @@ def convert_roman_numerals_to_fifths(labels):
 
 INT_COLUMNS = ['unfolded_harmony_index', 'root', 'bass_note', 'globalkey_tpc', 'localkey_tpc', 'tonicized_tpc', ]
 BOOL_COLUMNS = ['globalkey_is_minor', 'localkey_is_minor', 'is_harmony_onset', ]
-STRING_COLUMNS = ['section_start', 'label', 'alt_label', 'globalkey', 'localkey', 'pedal', 'chord', 'special', 'numeral', 'form', 'figbass', 'changes', 'relativeroot', 'cadence', 'phraseend', 'chord_type', 'chord_tones', 'added_tones', 'globalkey_mode', 'localkey_mode', 'localkey_resolved', 'localkey_and_mode', 'root_roman', 'relativeroot_resolved', 'effective_localkey', 'effective_localkey_resolved', 'effective_localkey_is_minor', 'chord_reduced', 'chord_reduced_and_mode', 'pedal_resolved', 'chord_and_mode', 'applied_to_numeral', 'numeral_or_applied_to_numeral', 'cadence_type', '_merge']
+STRING_COLUMNS = ['section_start', 'label', 'alt_label', 'globalkey', 'localkey', 'pedal', 'chord', 'special', 'numeral', 'form', 'figbass', 'changes', 'relativeroot', 'cadence', 'phraseend', 'chord_type', 'globalkey_mode', 'localkey_mode', 'localkey_resolved', 'localkey_and_mode', 'root_roman', 'relativeroot_resolved', 'effective_localkey', 'effective_localkey_resolved', 'effective_localkey_is_minor', 'chord_reduced', 'chord_reduced_and_mode', 'pedal_resolved', 'chord_and_mode', 'applied_to_numeral', 'numeral_or_applied_to_numeral', 'cadence_type', '_merge']
+OBJECT_COLUMNS = ['chord_tones', 'added_tones', ] # unused, leave them as they are
 
 def convert_column_types(labels: pd.DataFrame) -> pd.DataFrame:
     conversion_dict = {col: "Int64" for col in INT_COLUMNS if col in labels.columns}
@@ -258,6 +259,7 @@ def convert_column_types(labels: pd.DataFrame) -> pd.DataFrame:
         {col: "string" for col in STRING_COLUMNS if col in labels.columns}
     )
     return labels.astype(conversion_dict)
+
 
 NON_FORWARD_FILLING_COLUMNS = [
     "is_harmony_onset", "cadence", "cadence_type", "cadence_subtype", "phraseend", "section_start"
@@ -280,7 +282,33 @@ def prepare_labels(labels: pd.DataFrame) -> pd.DataFrame:
     column_order = [col for col in NON_FORWARD_FILLING_COLUMNS if col in labels.columns]
     column_order += [col for col in labels.columns if col not in column_order]
     return labels[column_order]
+
+def compute_interval_classes_to_keys(merged: pd.DataFrame) -> pd.DataFrame:
+    concatenate_this = [
+        merged,
+        (merged.tpc - merged.globalkey_tpc).rename("sic_with_global"),
+        (merged.tpc - merged.localkey_tpc).rename("sic_with_local"),
+        (merged.tpc - merged.tonicized_tpc).rename("sic_with_tonicized"),
+    ]
+    return pd.concat(concatenate_this, axis=1)
+
+def add_boolean_label_columns(merged: pd.DataFrame) -> pd.DataFrame:
     
+    def is_in_chord_tones(sic: int, chord_tones: Tuple[int]) -> bool:
+        """Used for element-wise containment check"""
+        return sic in chord_tones
+    
+    concatenate_this = [
+        merged,
+        ms3.transform(
+            labeled_pitch_array, 
+            is_in_chord_tones, 
+            ["sic_with_local", "chord_tones"]
+        ).rename("tpc_is_in_label"),
+        (merged.sic_with_local == merged.root).rename("tpc_is_root"),
+        (merged.sic_with_local == merged.bass_note).rename("tpc_is_bass")
+    ]
+    return pd.concat(concatenate_this, axis=1)
 
 def make_labeled_pitch_array(
         notes: pd.DataFrame,
@@ -288,8 +316,8 @@ def make_labeled_pitch_array(
         measures: Optional[pd.DataFrame] = None
 ):
     pitch_array = make_pitch_array(notes, measures, label_notes=True)
-
     prepared_labels = prepare_labels(labels)
+    
     merged = pd.merge(
         left = pitch_array, 
         right = prepared_labels.drop(columns=[
@@ -303,17 +331,19 @@ def make_labeled_pitch_array(
     )
     merged.is_harmony_onset = merged.is_harmony_onset.fillna(False)
     
-    #first_column_right = len(pitch_array.columns)
     harmony_index_col = merged.columns.get_loc("unfolded_harmony_index")
+    pitch_side = merged.iloc[:, :harmony_index_col]
     harmony_side = merged.iloc[:, harmony_index_col:]
 
     harmony_grouper = (harmony_side.unfolded_harmony_index.
                        where(harmony_side.chord.notna()).   # takes only index positions for which a harmony is defined
                        ffill())                             # and forward-fills gaps with indices of the harmonies
     merged = pd.concat([
-        merged.iloc[:, :harmony_index_col],
+        pitch_side,
         harmony_side.groupby(harmony_grouper).ffill()
     ], axis=1)
+    merged = compute_interval_classes_to_keys(merged)
+    merged = add_boolean_label_columns(merged)
     return merged
     
     
@@ -323,11 +353,11 @@ labeled_pitch_array = make_labeled_pitch_array(
     measures=measures
 )
 
-# tmp_labeled_pitch_array = labeled_pitch_array[[
-#     col for col 
-#     in labeled_pitch_array.columns 
-#     if col not in pitch_array.columns]]
-# tmp_labeled_pitch_array = prepare_labels(facets["expanded"])
+tmp_labeled_pitch_array = labeled_pitch_array[[
+    col for col 
+    in labeled_pitch_array.columns 
+    if col not in pitch_array.columns]]
+tmp_labeled_pitch_array = prepare_labels(facets["expanded"])
 labeled_pitch_array.to_csv("beethoven1_labeled.tsv", sep="\t", index=False)
 labeled_pitch_array
 
