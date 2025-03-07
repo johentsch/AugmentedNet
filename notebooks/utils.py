@@ -5,6 +5,7 @@ from functools import cache
 from typing import Iterable, Dict, Optional, Tuple, overload, Literal
 
 import numpy as np
+import pandas as pd
 from numpy._typing import NDArray
 
 
@@ -292,3 +293,27 @@ def onset2beat(
     subbeat = remainder / size
     result = beat + 1 + subbeat
     return result if round_to is None else round(float(result), round_to)
+
+
+def make_section_start_column(
+        measures: pd.DataFrame,
+) -> pd.Series:
+    """Returns a column of nullable "boolean" dtype."""
+    section_start = (measures.repeats == "firstMeasure").fillna(False).rename("section_start").astype("boolean")
+    section_start |= (measures.repeats == "start").fillna(False)
+    section_start |= (measures.repeats.shift() == "end").fillna(False)
+    section_start |= measures.breaks.shift().str.contains("section").fillna(False)
+    section_start |= (measures.barline.shift() == "double").fillna(False)
+    return section_start
+
+
+def prepare_measures(
+        measures:pd.DataFrame,
+) -> pd.DataFrame:
+    section_start_column = make_section_start_column(measures)
+    measures = pd.concat([
+        measures.rename(columns=dict(quarterbeats="quarterbeats_playthrough")),
+        section_start_column
+    ], axis=1)
+    measures.keysig = measures.keysig.astype("Int64")
+    return measures

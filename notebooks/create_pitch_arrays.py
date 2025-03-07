@@ -23,7 +23,7 @@ import ms3
 from dimcat.data.resources.facets import extend_harmony_feature, extend_keys_feature, extend_cadence_feature
 import pandas as pd
 
-from notebooks.utils import DivMaker, onset2beat
+from notebooks.utils import DivMaker, onset2beat, prepare_measures
 
 DLC_PATH = ms3.resolve_dir("~/distant_listening_corpus")
 
@@ -66,33 +66,6 @@ measures = facets["measures"]
 display(measures.head(3))
 notes = facets["notes"]
 notes.head(3)
-
-
-# %%
-def make_section_start_column(
-        measures: pd.DataFrame,
-) -> pd.Series:
-    """Returns a column of nullable "boolean" dtype."""
-    section_start = (measures.repeats == "firstMeasure").fillna(False).rename("section_start").astype("boolean")
-    section_start |= (measures.repeats == "start").fillna(False)
-    section_start |= (measures.repeats.shift() == "end").fillna(False)
-    section_start |= measures.breaks.shift().str.contains("section").fillna(False)
-    section_start |= (measures.barline.shift() == "double").fillna(False)
-    return section_start
-
-def prepare_measures(
-        measures:pd.DataFrame,
-) -> pd.DataFrame:
-    section_start_column = make_section_start_column(measures)
-    measures = pd.concat([
-        measures.rename(columns=dict(quarterbeats="quarterbeats_playthrough")), 
-        section_start_column
-    ], axis=1)
-    measures.keysig = measures.keysig.astype("Int64") 
-    return measures
-
-# make_section_start_column(measures)
-
 
 # %%
 MERGE_MEASURE_COLUMNS = ["keysig"]
