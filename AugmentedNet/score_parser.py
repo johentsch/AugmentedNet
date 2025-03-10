@@ -99,24 +99,32 @@ def extendedDataFrame(s, fmt=None):
     measure number, and their ties (in case something fancy needs to be done,
     with the tie information).
     """
-    dfdict = {col: [] for col in S_COLUMNS}
+    df_records = []
     measureNumberShift = _measureNumberShift(s)
     for c in s.chordify().flat.notesAndRests:
-        dfdict["s_offset"].append(round(float(c.offset), FLOATSCALE))
-        dfdict["s_duration"].append(round(float(c.quarterLength), FLOATSCALE))
-        dfdict["s_measure"].append(c.measureNumber + measureNumberShift)
+        dfdict = dict(
+            s_offset = round(float(c.offset), FLOATSCALE),
+            s_duration = round(float(c.quarterLength), FLOATSCALE),
+            s_measure = c.measureNumber + measureNumberShift,
+        )
         if isinstance(c, Rest):
             # We need dummy entries for rests at the beginning of a measure
-            dfdict["s_notes"].append(np.nan)
-            dfdict["s_intervals"].append(np.nan)
-            dfdict["s_isOnset"].append(np.nan)
+            dfdict.update(
+                s_notes = np.nan,
+                s_intervals = np.nan,
+                s_isOnset = np.nan
+            )
+            df_records.append(dfdict)
             continue
-        dfdict["s_notes"].append([n.pitch.nameWithOctave for n in c])
         intvs = [Interval(c[0].pitch, p).simpleName for p in c.pitches[1:]]
-        dfdict["s_intervals"].append(intvs)
         onsets = [(not n.tie or n.tie.type == "start") for n in c]
-        dfdict["s_isOnset"].append(onsets)
-    df = pd.DataFrame(dfdict)
+        dfdict.update(
+            s_notes = [n.pitch.nameWithOctave for n in c],
+            s_intervals = intvs,
+            s_isOnset = onsets
+        )
+        df_records.append(dfdict)
+    df = pd.DataFrame.from_records(df_records)
     currentLastOffset = float(df.tail(1).s_offset) + float(
         df.tail(1).s_duration
     )
