@@ -125,7 +125,7 @@ def m21_metadata2dict(metadata, key_prefix=None):
     return {f"{key_prefix}{k}": v for k, v in metadata.all()}
 
 def parseAnnotationAndScoreEvents(
-        a, s#, qualityAssessment=True, fixedOffset=FIXEDOFFSET, eventBased=False
+        a, s#, qualityAssessment=True
 ):
     """Process a RomanText and score files simultaneously.
 
@@ -136,7 +136,7 @@ def parseAnnotationAndScoreEvents(
     """
     # Parse each file
     extended_adf = annotation_parser.parseAnnotationEvents(a)
-    sdf = score_parser.parseScore(s, eventBased=True)
+    sdf = score_parser.parseScoreEvents(s)
     metadata = dict(
         m21_metadata2dict(extended_adf.metadata, "a_"),
         **m21_metadata2dict(sdf.metadata, "s_")

@@ -92,6 +92,40 @@ def _initialDataFrame(s, fmt=None):
     df = df[~df.index.duplicated()]
     return df
 
+def extendedDataFrame(s, fmt=None):
+    """Parses a score and produces a pandas dataframe.
+
+    The features obtained are the note names, their position in the score,
+    measure number, and their ties (in case something fancy needs to be done,
+    with the tie information).
+    """
+    dfdict = {col: [] for col in S_COLUMNS}
+    measureNumberShift = _measureNumberShift(s)
+    for c in s.chordify().flat.notesAndRests:
+        dfdict["s_offset"].append(round(float(c.offset), FLOATSCALE))
+        dfdict["s_duration"].append(round(float(c.quarterLength), FLOATSCALE))
+        dfdict["s_measure"].append(c.measureNumber + measureNumberShift)
+        if isinstance(c, Rest):
+            # We need dummy entries for rests at the beginning of a measure
+            dfdict["s_notes"].append(np.nan)
+            dfdict["s_intervals"].append(np.nan)
+            dfdict["s_isOnset"].append(np.nan)
+            continue
+        dfdict["s_notes"].append([n.pitch.nameWithOctave for n in c])
+        intvs = [Interval(c[0].pitch, p).simpleName for p in c.pitches[1:]]
+        dfdict["s_intervals"].append(intvs)
+        onsets = [(not n.tie or n.tie.type == "start") for n in c]
+        dfdict["s_isOnset"].append(onsets)
+    df = pd.DataFrame(dfdict)
+    currentLastOffset = float(df.tail(1).s_offset) + float(
+        df.tail(1).s_duration
+    )
+    deltaDuration = _lastOffset(s) - currentLastOffset
+    df.loc[len(df) - 1, "s_duration"] += deltaDuration
+    df.set_index("s_offset", inplace=True)
+    df = df[~df.index.duplicated()]
+    return df
+
 
 def _reindexDataFrame(df, fixedOffset=FIXEDOFFSET):
     """Reindexes a dataframe according to a fixed note-value.
@@ -183,6 +217,13 @@ def parseScore(f, fmt=None, fixedOffset=FIXEDOFFSET, eventBased=False):
     # Step 2: Turn salami-slice into fixed-duration steps
     if not eventBased:
         df = _reindexDataFrame(df, fixedOffset=fixedOffset)
+    df.metadata = s.metadata
+    return df
+
+def parseScoreEvents(f, fmt=None):
+    # Step 0: Use music21 to parse the score
+    s = _m21Parse(f, fmt)
+    df = extendedDataFrame(s, fmt)
     df.metadata = s.metadata
     return df
 

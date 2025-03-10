@@ -233,8 +233,6 @@ def parseAnnotationEvents(f):
     """
     # Step 0: Use music21 to parse the score
     s = _m21Parse(f)
-    # Step 1: Parse and produce a salami-sliced dataset
     df = extendedDataFrame(s)
-    # Step 2: Turn salami-slice into fixed-duration steps
     df.metadata = s.metadata
     return df
