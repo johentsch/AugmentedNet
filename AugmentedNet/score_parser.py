@@ -4,8 +4,10 @@ import io
 import warnings
 from itertools import combinations
 from fractions import Fraction
+from typing import Optional
 
 import music21
+from music21.stream import Part, Voice
 from music21.interval import Interval
 from music21.pitch import Pitch
 from music21.chord import Chord
@@ -103,22 +105,35 @@ def extendedDataFrame(s, fmt=None):
     df_records = []
     measureNumberShift = _measureNumberShift(s)
 
-    def add_note(note):
+    def add_note(
+            note,
+            part_id: Optional[str] = None,
+            voice_id: Optional[str] = None
+    ) -> None:
         """Updates the row's dfdict with the note information and adds it to the records."""
         nonlocal dfdict
-        is_onset = (not note.tie or note.tie.type == "start")
+        if not part_id and (part := note.getContextByClass(Part)):
+            part_id = part.id
+        if not voice_id and (voice := note.getContextByClass(Voice)):
+            voice_id = voice.id
+        else:
+            voice_id = "1"
         note_record = dict(
             dfdict,
-            s_note=note.pitch.nameWithOctave,
-            s_midi=note.pitch.midi,
-            s_isOnset=is_onset
+            s_note = note.pitch.nameWithOctave,
+            s_midi = note.pitch.midi,
+            s_isOnset = (not note.tie or note.tie.type == "start"),
+            s_part_id = part_id,
+            s_voice_id = voice_id
         )
         df_records.append(note_record)
 
     for note_or_rest in s.flat.notesAndRests:
         dfdict = dict(
             s_offset = round(float(note_or_rest.offset), FLOATSCALE),
+            s_offset_frac = Fraction(note_or_rest.offset),
             s_duration = round(float(note_or_rest.quarterLength), FLOATSCALE),
+            s_duration_frac = Fraction(note_or_rest.quarterLength),
             s_measure = note_or_rest.measureNumber + measureNumberShift,
         )
         if isinstance(note_or_rest, Rest):
@@ -135,8 +150,10 @@ def extendedDataFrame(s, fmt=None):
         if isinstance(note_or_rest, Note):
             add_note(note_or_rest)
         elif isinstance(note_or_rest, Chord):
+            part_id = part.id if (part := note_or_rest.getContextByClass(Part)) else None
+            voice_id = voice.id if (voice := note_or_rest.getContextByClass(Voice)) else None
             for note in note_or_rest:
-                add_note(note)
+                add_note(note, part_id=part_id, voice_id=voice_id)
         else:
             warnings.warn(f"Encountered unexpected music21 object: {type(note_or_rest)!r}")
             continue
