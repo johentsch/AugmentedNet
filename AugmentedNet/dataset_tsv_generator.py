@@ -70,7 +70,7 @@ def generateEventsDataset(tsvDir="events", assembled_dir="assembled", include_me
             print(nickname)
             annotation, score = ANNOTATIONSCOREDUPLES[nickname]
             extended_adf, sdf, jointdf, metadata = parseAnnotationAndScoreEvents(annotation, score)
-            for df, suffix in [(sdf, "slices"), (jointdf, "joint")]:
+            for df, suffix in [(jointdf, "joint")]: #, (sdf, "slices")]:
                 outpath = os.path.join(datasetDir, split, f"{nickname}_{suffix}.tsv")
                 df.to_csv(outpath, sep="\t")
             outpath = os.path.join(assembled_dir, "labels", f"{nickname}.tsv")

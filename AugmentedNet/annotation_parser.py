@@ -176,7 +176,6 @@ def extendedDataFrame(s):
             dfdict["a_degree2"] = "None"
         df_records.append(dfdict)
     df = pd.DataFrame.from_records(df_records)
-    df.set_index("a_offset", inplace=True)
     return df
 
 

@@ -1,6 +1,7 @@
 """Turns a MusicXML file into a pandas DataFrame."""
 
 import io
+import warnings
 from itertools import combinations
 from fractions import Fraction
 
@@ -8,7 +9,7 @@ import music21
 from music21.interval import Interval
 from music21.pitch import Pitch
 from music21.chord import Chord
-from music21.note import Rest
+from music21.note import Rest, Note
 import numpy as np
 import pandas as pd
 
@@ -101,37 +102,50 @@ def extendedDataFrame(s, fmt=None):
     """
     df_records = []
     measureNumberShift = _measureNumberShift(s)
-    for c in s.chordify().flat.notesAndRests:
+
+    def add_note(note):
+        """Updates the row's dfdict with the note information and adds it to the records."""
+        nonlocal dfdict
+        is_onset = (not note.tie or note.tie.type == "start")
+        note_record = dict(
+            dfdict,
+            s_note=note.pitch.nameWithOctave,
+            s_midi=note.pitch.midi,
+            s_isOnset=is_onset
+        )
+        df_records.append(note_record)
+
+    for note_or_rest in s.flat.notesAndRests:
         dfdict = dict(
-            s_offset = round(float(c.offset), FLOATSCALE),
-            s_duration = round(float(c.quarterLength), FLOATSCALE),
-            s_measure = c.measureNumber + measureNumberShift,
+            s_offset = round(float(note_or_rest.offset), FLOATSCALE),
+            s_duration = round(float(note_or_rest.quarterLength), FLOATSCALE),
+            s_measure = note_or_rest.measureNumber + measureNumberShift,
         )
-        if isinstance(c, Rest):
-            # We need dummy entries for rests at the beginning of a measure
-            dfdict.update(
-                s_notes = np.nan,
-                s_intervals = np.nan,
-                s_isOnset = np.nan
-            )
-            df_records.append(dfdict)
+        if isinstance(note_or_rest, Rest):
+            # Different from AugmentedNet, we don't need dummy entries for rests at the beginning of a measure
+            # The code was left here (rather than iterating through s.notes in the first place) in case someone
+            # needs the rests
+            # dfdict.update(
+            #     s_notes = np.nan,
+            #     s_isOnset = np.nan
+            # )
+            # df_records.append(dfdict)
             continue
-        intvs = [Interval(c[0].pitch, p).simpleName for p in c.pitches[1:]]
-        onsets = [(not n.tie or n.tie.type == "start") for n in c]
-        dfdict.update(
-            s_notes = [n.pitch.nameWithOctave for n in c],
-            s_intervals = intvs,
-            s_isOnset = onsets
-        )
-        df_records.append(dfdict)
+
+        if isinstance(note_or_rest, Note):
+            add_note(note_or_rest)
+        elif isinstance(note_or_rest, Chord):
+            for note in note_or_rest:
+                add_note(note)
+        else:
+            warnings.warn(f"Encountered unexpected music21 object: {type(note_or_rest)!r}")
+            continue
     df = pd.DataFrame.from_records(df_records)
     currentLastOffset = float(df.tail(1).s_offset) + float(
         df.tail(1).s_duration
     )
     deltaDuration = _lastOffset(s) - currentLastOffset
     df.loc[len(df) - 1, "s_duration"] += deltaDuration
-    df.set_index("s_offset", inplace=True)
-    df = df[~df.index.duplicated()]
     return df
 
 

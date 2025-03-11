@@ -144,18 +144,34 @@ def parseAnnotationAndScoreEvents(
     # Create the joint dataframe
     original_columns = [col for col in extended_adf.columns if col[:2] in ("a_", "s_")]
     adf = extended_adf[original_columns].copy()
-    jointdf = pd.concat([sdf, adf], axis=1)
-    jointdf.index.name = "j_offset"
+    jointdf = pd.merge(
+        left = sdf,
+        right = adf,
+        left_on = "s_offset",
+        right_on = "a_offset",
+        how = "outer"
+    )
     # Sometimes, scores are longer than annotations (trailing empty measures)
     # In that case, ffill the annotation portion of the new dataframe
     jointdf["a_isOnset"].fillna(False, inplace=True)
-    jointdf.fillna(method="ffill", inplace=True)
+    j_offset = jointdf.s_offset.rename("j_offset")
+    labels_not_coinciding_with_any_note_mask = jointdf.s_offset.isna()
+    if labels_not_coinciding_with_any_note_mask.any():
+        # these are typically labels coinciding only with rests
+        # there is, however, a residue risk that they are symptom of a score-annotation misalignment
+        j_offset = j_offset.fillna(jointdf.a_offset)
+        print(f"Score has {labels_not_coinciding_with_any_note_mask.sum()} labels not coinciding with any note.")
+    jointdf.index = j_offset
+    jointdf = jointdf.sort_index()
+    # forward-fill annotation label features only, do not fill note features for label onsets
+    jointdf.loc[:, adf.columns] = jointdf.loc[:, adf.columns].ffill()
+    jointdf = jointdf.drop(columns=["s_offset", "a_offset"])
     # if qualityAssessment:
     #     jointdf = _measureAlignmentScore(jointdf)
     #     jointdf = _qualityMetric(jointdf)
     #     jointdf = _inversionMetric(jointdf)
 
-    extended_adf = extended_adf.reset_index().rename(columns=dict(
+    extended_adf = extended_adf.rename(columns=dict(
         a_offset = "quarterbeats",
         a_measure = "mn",
     ))
