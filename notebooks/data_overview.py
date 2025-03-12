@@ -84,7 +84,7 @@ REPO_URLS = {
 }
 
 # %%
-EXCLUDED_EXTENSIONS = (".h5", ".jl", ".md", ".pdf", ".py", ".sh", ".swp")
+EXCLUDED_EXTENSIONS = (".h5", ".jl", "krn~", ".md", ".pdf", ".py", ".sh", ".swp")
 # (".cfg", ".css", ".csv", ".h5", ".html", ".in", ".ipynb", ".jl", ".js", ".md", ".pdf", ".png", ".py", ".rst", ".sh", ".tsv", ".yml")
 EXCLUDED_NAME_COMPONENTS = ("feedback", "license", "slices", "template", "requirements")
 PRINT_SYMBOLS = dict(validation="/", training="|", test="\\")
@@ -94,6 +94,15 @@ PATH_FILTERS = {
     os.path.join("rawdata", "music21_corpus"): ["music21"],
     os.path.join("rawdata", "music21_corpus", "music21"): ["corpus"],
     os.path.join("rawdata", "music21_corpus", "music21", "corpus"): ["bach", "monteverdi"],
+}
+SUBCORPUS_POSITION = {
+ 'AugmentedNet': 2, # rawdata/corrections/ABC
+ 'TAVERN': 0, # TAVERN/Beethoven
+ 'ABC': None,
+ 'haydn_op20_harm': None,
+ 'When-in-Rome': 1, # When-in-Rome/Corpus/Early_Choral
+ 'music21_corpus': 2, # music21/corpus/bach
+ 'functional-harmony-micchi': 1 # data/19th_Century_Songs
 }
 
 def get_commit_where_file_last_changed(repo: git.Repo, paths=str):
@@ -121,6 +130,7 @@ def create_data_overview(
         current_repo = SUBMODULE_REPOS.get(data_dir, augmentednet_repo)
         current_repo_version = SUBMODULE_VERSIONS.get(data_dir, augmentednet_version)
         current_repo_url = REPO_URLS.get(current_repo_name).strip("/")
+        subcorpus_position = SUBCORPUS_POSITION.get(current_repo_name)
         for path, subdirs, files in os.walk(data_dir_path):
             rel_path = os.path.relpath(path, REPO_PATH)
             if rel_path in PATH_FILTERS:
@@ -138,6 +148,13 @@ def create_data_overview(
                 filepath = os.path.join(rel_path, file)
                 folder_name = os.path.basename(rel_path)
                 git_filepath = os.path.relpath(os.path.join(path, file), git_path_base)
+                subcorpus = None
+                if subcorpus_position is not None:
+                    split_git_path = git_filepath.split(os.sep)
+                    try:
+                        subcorpus = split_git_path[subcorpus_position]
+                    except Exception:
+                        pass
                 file_last_changed_commit = get_commit_where_file_last_changed(current_repo, paths=git_filepath)
                 file_last_changed_commit_sha = file_last_changed_commit.hexsha
                 file_last_changed_commit_version = current_repo.git.describe(file_last_changed_commit_sha, tags=True, always=True)
@@ -145,19 +162,11 @@ def create_data_overview(
                 aug_ver = augnet_version.replace(".", "")
                 info_dict = dict( 
                     dataset = data_dir,
-                    repository = current_repo_name,
-                    repo_version = current_repo_version,
-                    directory = rel_path,
-                    folder = folder_name,
-                    filepath=filepath,
+                    subcorpus = subcorpus,
                     file=file,
                     fname = fname,
-                    extension=fext[1:]
+                    extension=fext[1:],
                 )
-                info_dict.update({
-                    f"last_modified_{aug_ver}": file_last_changed_commit_version,
-                    f"file_change_commit_url_{aug_ver}": file_change_commit_url
-                })
                 print_symbol = ":"
                 if filepath in path2name_and_split:
                     nickname, split = path2name_and_split[filepath]
@@ -165,6 +174,17 @@ def create_data_overview(
                     info_dict[f"split_{aug_ver}"] = split
                     which_set = split if isinstance(split, str) else split[0]
                     print_symbol = PRINT_SYMBOLS.get(which_set)
+                info_dict.update({
+                    f"last_modified_{aug_ver}": file_last_changed_commit_version,
+                    f"file_change_commit_url_{aug_ver}": file_change_commit_url
+                })
+                info_dict.update(dict(
+                    repository = current_repo_name,
+                    repo_version = current_repo_version,
+                    folder = folder_name,
+                    folderpath = rel_path,
+                    filepath = filepath,
+                ))
                 data.append(info_dict)
                 print(print_symbol, end="")
     return pd.DataFrame.from_records(data).sort_values("filepath")
