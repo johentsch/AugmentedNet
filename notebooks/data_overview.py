@@ -84,9 +84,17 @@ REPO_URLS = {
 }
 
 # %%
-EXCLUDED_EXTENSIONS = (".md", ".csv", ".tsv", ".py", ".sh", ".pdf", ".jl", ".h5")
-EXCLUDED_NAME_COMPONENTS = ("feedback", "template", "requirements")
+EXCLUDED_EXTENSIONS = (".h5", ".jl", ".md", ".pdf", ".py", ".sh", ".swp")
+# (".cfg", ".css", ".csv", ".h5", ".html", ".in", ".ipynb", ".jl", ".js", ".md", ".pdf", ".png", ".py", ".rst", ".sh", ".tsv", ".yml")
+EXCLUDED_NAME_COMPONENTS = ("feedback", "license", "slices", "template", "requirements")
 PRINT_SYMBOLS = dict(validation="/", training="|", test="\\")
+PATH_FILTERS = {
+    # for rel_paths matching a key, go only through the subdirectories in the corresponding list
+    os.path.join("rawdata", "When-in-Rome"): ["Corpus"],
+    os.path.join("rawdata", "music21_corpus"): ["music21"],
+    os.path.join("rawdata", "music21_corpus", "music21"): ["corpus"],
+    os.path.join("rawdata", "music21_corpus", "music21", "corpus"): ["bach", "monteverdi"],
+}
 
 def get_commit_where_file_last_changed(repo: git.Repo, paths=str):
     try:
@@ -115,8 +123,8 @@ def create_data_overview(
         current_repo_url = REPO_URLS.get(current_repo_name).strip("/")
         for path, subdirs, files in os.walk(data_dir_path):
             rel_path = os.path.relpath(path, REPO_PATH)
-            if rel_path == os.path.join("rawdata", "When-in-Rome"):
-                subdirs[:] = ["Corpus"]
+            if rel_path in PATH_FILTERS:
+                subdirs[:] = PATH_FILTERS[rel_path]
                 continue
             for file in files:
                 fname, fext = os.path.splitext(file)
