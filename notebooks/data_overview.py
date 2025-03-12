@@ -96,7 +96,7 @@ for data_dir in os.listdir(SUBMODULES):
             data.append(info_dict)
             
 df = pd.DataFrame.from_records(data)      
-df.to_csv("data_overview.tsv", sep="\t", index=False)
+df.to_csv("augnet_rawdata_overview.tsv", sep="\t", index=False)
 df.head()
 
 # %%
