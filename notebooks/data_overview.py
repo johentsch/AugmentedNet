@@ -84,6 +84,7 @@ repo_urls = {
 # %%
 EXCLUDED_EXTENSIONS = (".md", ".csv", ".tsv", ".py", ".sh", ".pdf", ".jl", ".h5")
 EXCLUDED_NAME_COMPONENTS = ("feedback", "template", "requirements")
+PRINT_SYMBOLS = dict(validation="/", training="|", test="\\")
 
 def get_commit_where_file_last_changed(repo: git.Repo, paths=str):
     try:
@@ -95,7 +96,7 @@ data = []
 rawdata_path = os.path.join(REPO_PATH, "rawdata")
 
 for data_dir in os.listdir(rawdata_path):
-    print(data_dir)
+    print(f"\n{data_dir}")
     data_dir_path = os.path.join(rawdata_path, data_dir)
     if data_dir in submodule_versions:
         current_repo_name = data_dir
@@ -114,9 +115,11 @@ for data_dir in os.listdir(rawdata_path):
         for file in files:
             fname, fext = os.path.splitext(file)
             if not fext or fext in EXCLUDED_EXTENSIONS:
+                print(".", end="")
                 continue
             fname_lower = fname.lower()
             if any(comp in fname_lower for comp in EXCLUDED_NAME_COMPONENTS):
+                print(".", end="")
                 continue
             filepath = os.path.join(rel_path, file)
             folder_name = os.path.basename(rel_path)
@@ -132,19 +135,23 @@ for data_dir in os.listdir(rawdata_path):
                 directory = rel_path,
                 folder = folder_name,
                 filepath=filepath,
+                file=file,
                 fname = fname,
                 extension=fext[1:],
                 last_modified=file_last_changed_commit_version,
                 file_change_commit_url=file_change_commit_url
             )
+            print_symbol = ":"
             if filepath in v100_ids:
                 nickname, split = v100_ids[filepath]
                 info_dict["v1.0.0_id"] = nickname
                 info_dict["v1.0.0_split"] = split
+                which_set = split if isinstance(split, str) else split[0]
+                print_symbol = PRINT_SYMBOLS.get(which_set)
             data.append(info_dict)
-            print(".", end="")
+            print(print_symbol, end="")
             
-df = pd.DataFrame.from_records(data)      
+df = pd.DataFrame.from_records(data).sort_values("filepath") 
 df.to_csv("../augnet_rawdata_overview.tsv", sep="\t", index=False)
 df.head()
 
