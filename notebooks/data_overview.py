@@ -14,6 +14,8 @@
 # ---
 
 # %%
+# DO NOT TRY TO RUN THIS ON WINDOWS
+
 import os
 
 import pandas as pd
@@ -69,7 +71,18 @@ submodule_versions = {
 submodule_versions
 
 # %%
-EXCLUDED_EXTENSIONS = (".md", ".csv", ".tsv", ".py", ".sh", ".pdf", ".jl")
+repo_urls = {
+ 'AugmentedNet': 'https://github.com/napulen/AugmentedNet',
+ 'TAVERN': 'https://github.com/jcdevaney/TAVERN',
+ 'ABC': 'https://github.com/DCMLab/ABC',
+ 'haydn_op20_harm': 'https://github.com/napulen/haydn_op20_harm',
+ 'When-in-Rome': 'https://github.com/MarkGotham/When-in-Rome',
+ 'music21_corpus': 'https://github.com/cuthbertLab/music21',
+ 'functional-harmony-micchi': 'https://github.com/napulen/functional-harmony-micchi'
+}
+
+# %%
+EXCLUDED_EXTENSIONS = (".md", ".csv", ".tsv", ".py", ".sh", ".pdf", ".jl", ".h5")
 EXCLUDED_NAME_COMPONENTS = ("feedback", "template", "requirements")
 
 def get_commit_where_file_last_changed(repo: git.Repo, paths=str):
@@ -82,6 +95,7 @@ data = []
 rawdata_path = os.path.join(REPO_PATH, "rawdata")
 
 for data_dir in os.listdir(rawdata_path):
+    print(data_dir)
     data_dir_path = os.path.join(rawdata_path, data_dir)
     if data_dir in submodule_versions:
         current_repo_name = data_dir
@@ -91,6 +105,7 @@ for data_dir in os.listdir(rawdata_path):
         git_path_base = REPO_PATH
     current_repo = submodule_repos.get(data_dir, augmentednet_repo)
     current_repo_version = submodule_versions.get(data_dir, augmentednet_version)
+    current_repo_url = repo_urls.get(current_repo_name).strip("/")
     for path, subdirs, files in os.walk(data_dir_path):
         rel_path = os.path.relpath(path, REPO_PATH)
         if rel_path == os.path.join("rawdata", "When-in-Rome"):
@@ -105,10 +120,11 @@ for data_dir in os.listdir(rawdata_path):
                 continue
             filepath = os.path.join(rel_path, file)
             folder_name = os.path.basename(rel_path)
-            # git_filepath = os.path.relpath(os.path.join(path, file), git_path_base)
-            # file_last_changed_commit = get_commit_where_file_last_changed(current_repo, paths=git_filepath)
-            # file_last_changed_commit_sha = file_last_changed_commit.hexsha
-            # file_last_changed_commit_version = current_repo.git.describe(file_last_changed_commit_sha, tags=True, always=True)
+            git_filepath = os.path.relpath(os.path.join(path, file), git_path_base)
+            file_last_changed_commit = get_commit_where_file_last_changed(current_repo, paths=git_filepath)
+            file_last_changed_commit_sha = file_last_changed_commit.hexsha
+            file_last_changed_commit_version = current_repo.git.describe(file_last_changed_commit_sha, tags=True, always=True)
+            file_change_commit_url = f"{current_repo_url}/blob/{file_last_changed_commit_version}/{git_filepath}"
             info_dict = dict( 
                 dataset = data_dir,
                 repository = current_repo_name,
@@ -118,13 +134,15 @@ for data_dir in os.listdir(rawdata_path):
                 filepath=filepath,
                 fname = fname,
                 extension=fext[1:],
-                #last_modified=file_last_changed_commit_version
+                last_modified=file_last_changed_commit_version,
+                file_change_commit_url=file_change_commit_url
             )
             if filepath in v100_ids:
                 nickname, split = v100_ids[filepath]
                 info_dict["v1.0.0_id"] = nickname
                 info_dict["v1.0.0_split"] = split
             data.append(info_dict)
+            print(".", end="")
             
 df = pd.DataFrame.from_records(data)      
 df.to_csv("../augnet_rawdata_overview.tsv", sep="\t", index=False)
