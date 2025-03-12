@@ -36,7 +36,7 @@ def resolve_dir(d):
 REPO_PATH = resolve_dir("..")
 DATASET = "events"
 augmentednet_repo = git.Repo(REPO_PATH)
-augmentednet_version = "v1.0.0" 
+augmentednet_version = "v1.9.1"
 print(REPO_PATH)
 
 
@@ -72,8 +72,9 @@ print(f"{n_files} uses of {len(path2name_and_split)} files overall (some scores 
 #assert len(path2name_and_split) == i * 2, f"dict length {len(path2name_and_split)} != {i * 2} ({i} * 2)"
 
 # %%
+def remove_rawdata(name): return name[8:] if name.startswith("rawdata/") else name
 SUBMODULE_REPOS: Dict[str, git.Repo] = {
-    sm.name: sm.module()
+    remove_rawdata(sm.name): sm.module()
     for sm in augmentednet_repo.submodules
 }
 SUBMODULE_VERSIONS = {
@@ -84,13 +85,15 @@ SUBMODULE_VERSIONS
 
 # %%
 REPO_URLS = {
- 'AugmentedNet': 'https://github.com/napulen/AugmentedNet',
- 'TAVERN': 'https://github.com/jcdevaney/TAVERN',
  'ABC': 'https://github.com/DCMLab/ABC',
+ 'AugmentedNet': 'https://github.com/napulen/AugmentedNet',
+ 'functional-harmony-micchi': 'https://github.com/napulen/functional-harmony-micchi',
  'haydn_op20_harm': 'https://github.com/napulen/haydn_op20_harm',
- 'When-in-Rome': 'https://github.com/MarkGotham/When-in-Rome',
+ 'key_modulation_dataset': 'https://github.com/napulen/key_modulation_dataset',
+ 'mozart_piano_sonatas': 'https://github.com/napulen/mozart_piano_sonatas',
  'music21_corpus': 'https://github.com/cuthbertLab/music21',
- 'functional-harmony-micchi': 'https://github.com/napulen/functional-harmony-micchi'
+ 'TAVERN': 'https://github.com/jcdevaney/TAVERN',
+ 'When-in-Rome': 'https://github.com/MarkGotham/When-in-Rome',
 }
 
 # %%
@@ -202,8 +205,12 @@ def create_data_overview(
 
 rawdata_path = os.path.join(REPO_PATH, "rawdata")
 df = create_data_overview(rawdata_path, path2name_and_split=path2name_and_split, augnet_version = augmentednet_version)
-df.to_csv("../augnet_rawdata_v100.tsv", sep="\t", index=False)
+#df.to_csv("../augnet_rawdata_v100.tsv", sep="\t", index=False)
 df.head()
+
+# %%
+previous_df = pd.read_csv("../augnet_rawdata_overview.tsv", sep="\t", dtype="string")
+print(f"before: {len(previous_df)}, after: {len(df)}")
 
 # %%
 attributed_filepaths = df[f"split_{augmentednet_version.replace('.', '')}"].notna().sum()
