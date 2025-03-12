@@ -129,6 +129,7 @@ def create_data_overview(
 ):
     data = []
     for data_dir in os.listdir(rawdata_path):
+        if data_dir == "TAVERN": continue # the original files are not actually used and there are many, many, many
         print(f"\n{data_dir}")
         data_dir_path = os.path.join(rawdata_path, data_dir)
         if data_dir in SUBMODULE_VERSIONS:
