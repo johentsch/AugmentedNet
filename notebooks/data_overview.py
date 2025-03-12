@@ -41,24 +41,34 @@ print(REPO_PATH)
 
 
 # %%
+def add_safely(dictionary, key, pair):
+    if key in dictionary:
+        left, right = pair
+        existing_left, existing_right = dictionary[key]
+        if isinstance(existing_left, str):
+            new_pair = ((existing_left, left), (existing_right, right))
+        else:
+            new_pair = (existing_left + (left,), existing_right + (right,))
+        dictionary[key] = new_pair
+    else:
+        dictionary[key] = pair
+
 def assemble_ids_and_splits(datasplits, annotationscoreduples):
     path2name_and_split = {}
     
-    i = 0
+    n = 0
     for split, files in datasplits.items():
         for nickname in files:
             annotations_path, score_path = annotationscoreduples[nickname]
             file_info = (nickname, split)
-            path2name_and_split[annotations_path] = file_info
-            if score_path in path2name_and_split:
-                existing_nn, existing_split = path2name_and_split[score_path]
-                file_info = ((existing_nn, nickname), (existing_split, split))
-            path2name_and_split[score_path] = file_info
-            i += 1
-    return path2name_and_split
+            add_safely(path2name_and_split, annotations_path, file_info)
+            n += 1
+            add_safely(path2name_and_split, score_path, file_info)
+            n += 1
+    return path2name_and_split, n
 
-path2name_and_split = assemble_ids_and_splits(DATASPLITS, ANNOTATIONSCOREDUPLES)
-    
+path2name_and_split, n_files = assemble_ids_and_splits(DATASPLITS, ANNOTATIONSCOREDUPLES)
+print(f"{n_files} uses of {len(path2name_and_split)} files overall (some scores are used multiple times).")
 #assert len(path2name_and_split) == i * 2, f"dict length {len(path2name_and_split)} != {i * 2} ({i} * 2)"
 
 # %%
@@ -167,24 +177,24 @@ def create_data_overview(
                     fname = fname,
                     extension=fext[1:],
                 )
-                print_symbol = ":"
                 if filepath in path2name_and_split:
                     nickname, split = path2name_and_split[filepath]
-                    info_dict[f"id_{aug_ver}"] = nickname
-                    info_dict[f"split_{aug_ver}"] = split
                     which_set = split if isinstance(split, str) else split[0]
                     print_symbol = PRINT_SYMBOLS.get(which_set)
+                else:
+                    print_symbol = ":"
+                    nickname, split = None, None
                 info_dict.update({
+                    f"id_{aug_ver}": nickname,
+                    f"split_{aug_ver}": split,
                     f"last_modified_{aug_ver}": file_last_changed_commit_version,
-                    f"file_change_commit_url_{aug_ver}": file_change_commit_url
+                    f"file_change_commit_url_{aug_ver}": file_change_commit_url,
+                    "repository": current_repo_name,
+                    f"repo_version_{aug_ver}": current_repo_version,
+                    "folder": folder_name,
+                    "folderpath": rel_path,
+                    "filepath": filepath
                 })
-                info_dict.update(dict(
-                    repository = current_repo_name,
-                    repo_version = current_repo_version,
-                    folder = folder_name,
-                    folderpath = rel_path,
-                    filepath = filepath,
-                ))
                 data.append(info_dict)
                 print(print_symbol, end="")
     return pd.DataFrame.from_records(data).sort_values(["dataset", "subcorpus", "file", "filepath"])
@@ -195,4 +205,5 @@ df.to_csv("../augnet_rawdata_overview.tsv", sep="\t", index=False)
 df.head()
 
 # %%
-len(path2name_and_split)
+attributed_filepaths = df[f"split_{augmentednet_version.replace('.', '')}"].notna().sum()
+assert attributed_filepaths == len(path2name_and_split), f"Not all of the {len(path2name_and_split)} used files have been attributed in the Dataframe, probably due to exclusion criteria."
