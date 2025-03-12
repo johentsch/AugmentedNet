@@ -187,7 +187,7 @@ def create_data_overview(
                 ))
                 data.append(info_dict)
                 print(print_symbol, end="")
-    return pd.DataFrame.from_records(data).sort_values("filepath")
+    return pd.DataFrame.from_records(data).sort_values(["dataset", "subcorpus", "file", "filepath"])
 
 rawdata_path = os.path.join(REPO_PATH, "rawdata")
 df = create_data_overview(rawdata_path, path2name_and_split=path2name_and_split, augnet_version = augmentednet_version)
