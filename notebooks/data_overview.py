@@ -209,9 +209,45 @@ df = create_data_overview(rawdata_path, path2name_and_split=path2name_and_split,
 df.head()
 
 # %%
-previous_df = pd.read_csv("../augnet_rawdata_overview.tsv", sep="\t", dtype="string")
-print(f"before: {len(previous_df)}, after: {len(df)}")
-
-# %%
 attributed_filepaths = df[f"split_{augmentednet_version.replace('.', '')}"].notna().sum()
 assert attributed_filepaths == len(path2name_and_split), f"Not all of the {len(path2name_and_split)} used files have been attributed in the Dataframe, probably due to exclusion criteria."
+
+# %%
+COLUMN_ORDER = [
+    "dataset",
+    "subcorpus",
+    "file",
+    "fname",
+    "extension",
+    "id_v100",
+    "id_v191",
+    "split_v100",
+    "split_v191",
+    "last_modified_v100",
+    "last_modified_v191",
+    "same_file",
+    "file_change_commit_url_v100",
+    "file_change_commit_url_v191",
+    "repository",
+    "repo_version_v100",
+    "repo_version_v191",
+    "folder",
+    "folderpath",
+    "filepath",
+]
+
+previous_df = pd.read_csv("../augnet_rawdata_overview.tsv", sep="\t", dtype="string")
+print(f"before: {len(previous_df)}, after: {len(df)}")
+merged = pd.merge(
+    df,
+    previous_df.drop(columns=(
+        col
+        for col in previous_df.columns
+        if col in df.columns and col != "filepath"
+    )),
+    how="left",
+    on="filepath",
+    #indicator=True <- checked that no files were used in v1.0.0 only
+)
+merged["same_file"] = merged.last_modified_v100 == merged.last_modified_v191
+merged[COLUMN_ORDER].to_csv("../augnet_rawdata_v191.tsv", sep="\t", index=False)
