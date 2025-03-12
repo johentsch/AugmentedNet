@@ -202,7 +202,7 @@ def create_data_overview(
 
 rawdata_path = os.path.join(REPO_PATH, "rawdata")
 df = create_data_overview(rawdata_path, path2name_and_split=path2name_and_split, augnet_version = augmentednet_version)
-df.to_csv("../augnet_rawdata_overview.tsv", sep="\t", index=False)
+df.to_csv("../augnet_rawdata_v100.tsv", sep="\t", index=False)
 df.head()
 
 # %%
