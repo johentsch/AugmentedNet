@@ -39,39 +39,41 @@ augmentednet_repo = git.Repo(REPO_PATH)
 augmentednet_version = "v1.0.0" 
 print(REPO_PATH)
 
-# %%
-v100_ids = {}
 
-i = 0
-for split, files in DATASPLITS.items():
-    for nickname in files:
-        annotations_path, score_path = ANNOTATIONSCOREDUPLES[nickname]
-        file_info = (nickname, split)
-        # if annotations_path in v100_ids:
-        #     print(f"{nickname} | anno: {annotations_path} was already in for {v100_ids[annotations_path]}")
-        v100_ids[annotations_path] = file_info
-        if score_path in v100_ids:
-            existing_nn, existing_split = v100_ids[score_path]
-            file_info = ((existing_nn, nickname), (existing_split, split))
-            #print(f"{nickname} | score: {score_path} was already in for {v100_ids[score_path]}")
-        v100_ids[score_path] = file_info
-        i += 1
+# %%
+def assemble_ids_and_splits(datasplits, annotationscoreduples):
+    path2name_and_split = {}
     
-#assert len(v100_ids) == i * 2, f"dict length {len(v100_ids)} != {i * 2} ({i} * 2)"
+    i = 0
+    for split, files in datasplits.items():
+        for nickname in files:
+            annotations_path, score_path = annotationscoreduples[nickname]
+            file_info = (nickname, split)
+            path2name_and_split[annotations_path] = file_info
+            if score_path in path2name_and_split:
+                existing_nn, existing_split = path2name_and_split[score_path]
+                file_info = ((existing_nn, nickname), (existing_split, split))
+            path2name_and_split[score_path] = file_info
+            i += 1
+    return path2name_and_split
+
+path2name_and_split = assemble_ids_and_splits(DATASPLITS, ANNOTATIONSCOREDUPLES)
+    
+#assert len(path2name_and_split) == i * 2, f"dict length {len(path2name_and_split)} != {i * 2} ({i} * 2)"
 
 # %%
-submodule_repos: Dict[str, git.Repo] = {
+SUBMODULE_REPOS: Dict[str, git.Repo] = {
     sm.name: sm.module()
     for sm in augmentednet_repo.submodules
 }
-submodule_versions = {
+SUBMODULE_VERSIONS = {
     name: sm_repo.git.describe(tags=True, always=True)
-    for name, sm_repo in submodule_repos.items()
+    for name, sm_repo in SUBMODULE_REPOS.items()
 }
-submodule_versions
+SUBMODULE_VERSIONS
 
 # %%
-repo_urls = {
+REPO_URLS = {
  'AugmentedNet': 'https://github.com/napulen/AugmentedNet',
  'TAVERN': 'https://github.com/jcdevaney/TAVERN',
  'ABC': 'https://github.com/DCMLab/ABC',
@@ -92,85 +94,77 @@ def get_commit_where_file_last_changed(repo: git.Repo, paths=str):
     except StopIteration as e:
         raise StopIteration(f"{repo!r} does not have any commits for {paths}") from e
 
-data = []
-rawdata_path = os.path.join(REPO_PATH, "rawdata")
+    
+def create_data_overview(
+        rawdata_path, 
+        path2name_and_split,
+        augnet_version
+):
+    data = []
+    for data_dir in os.listdir(rawdata_path):
+        print(f"\n{data_dir}")
+        data_dir_path = os.path.join(rawdata_path, data_dir)
+        if data_dir in SUBMODULE_VERSIONS:
+            current_repo_name = data_dir
+            git_path_base = data_dir_path
+        else:
+            current_repo_name = "AugmentedNet"
+            git_path_base = REPO_PATH
+        current_repo = SUBMODULE_REPOS.get(data_dir, augmentednet_repo)
+        current_repo_version = SUBMODULE_VERSIONS.get(data_dir, augmentednet_version)
+        current_repo_url = REPO_URLS.get(current_repo_name).strip("/")
+        for path, subdirs, files in os.walk(data_dir_path):
+            rel_path = os.path.relpath(path, REPO_PATH)
+            if rel_path == os.path.join("rawdata", "When-in-Rome"):
+                subdirs[:] = ["Corpus"]
+                continue
+            for file in files:
+                fname, fext = os.path.splitext(file)
+                if not fext or fext in EXCLUDED_EXTENSIONS:
+                    print(".", end="")
+                    continue
+                fname_lower = fname.lower()
+                if any(comp in fname_lower for comp in EXCLUDED_NAME_COMPONENTS):
+                    print(".", end="")
+                    continue
+                filepath = os.path.join(rel_path, file)
+                folder_name = os.path.basename(rel_path)
+                git_filepath = os.path.relpath(os.path.join(path, file), git_path_base)
+                file_last_changed_commit = get_commit_where_file_last_changed(current_repo, paths=git_filepath)
+                file_last_changed_commit_sha = file_last_changed_commit.hexsha
+                file_last_changed_commit_version = current_repo.git.describe(file_last_changed_commit_sha, tags=True, always=True)
+                file_change_commit_url = f"{current_repo_url}/blob/{file_last_changed_commit_version}/{git_filepath}"
+                aug_ver = augnet_version.replace(".", "")
+                info_dict = dict( 
+                    dataset = data_dir,
+                    repository = current_repo_name,
+                    repo_version = current_repo_version,
+                    directory = rel_path,
+                    folder = folder_name,
+                    filepath=filepath,
+                    file=file,
+                    fname = fname,
+                    extension=fext[1:]
+                )
+                info_dict.update({
+                    f"last_modified_{aug_ver}": file_last_changed_commit_version,
+                    f"file_change_commit_url_{aug_ver}": file_change_commit_url
+                })
+                print_symbol = ":"
+                if filepath in path2name_and_split:
+                    nickname, split = path2name_and_split[filepath]
+                    info_dict[f"id_{aug_ver}"] = nickname
+                    info_dict[f"split_{aug_ver}"] = split
+                    which_set = split if isinstance(split, str) else split[0]
+                    print_symbol = PRINT_SYMBOLS.get(which_set)
+                data.append(info_dict)
+                print(print_symbol, end="")
+    return pd.DataFrame.from_records(data).sort_values("filepath")
 
-for data_dir in os.listdir(rawdata_path):
-    print(f"\n{data_dir}")
-    data_dir_path = os.path.join(rawdata_path, data_dir)
-    if data_dir in submodule_versions:
-        current_repo_name = data_dir
-        git_path_base = data_dir_path
-    else:
-        current_repo_name = "AugmentedNet"
-        git_path_base = REPO_PATH
-    current_repo = submodule_repos.get(data_dir, augmentednet_repo)
-    current_repo_version = submodule_versions.get(data_dir, augmentednet_version)
-    current_repo_url = repo_urls.get(current_repo_name).strip("/")
-    for path, subdirs, files in os.walk(data_dir_path):
-        rel_path = os.path.relpath(path, REPO_PATH)
-        if rel_path == os.path.join("rawdata", "When-in-Rome"):
-            subdirs[:] = ["Corpus"]
-            continue
-        for file in files:
-            fname, fext = os.path.splitext(file)
-            if not fext or fext in EXCLUDED_EXTENSIONS:
-                print(".", end="")
-                continue
-            fname_lower = fname.lower()
-            if any(comp in fname_lower for comp in EXCLUDED_NAME_COMPONENTS):
-                print(".", end="")
-                continue
-            filepath = os.path.join(rel_path, file)
-            folder_name = os.path.basename(rel_path)
-            git_filepath = os.path.relpath(os.path.join(path, file), git_path_base)
-            file_last_changed_commit = get_commit_where_file_last_changed(current_repo, paths=git_filepath)
-            file_last_changed_commit_sha = file_last_changed_commit.hexsha
-            file_last_changed_commit_version = current_repo.git.describe(file_last_changed_commit_sha, tags=True, always=True)
-            file_change_commit_url = f"{current_repo_url}/blob/{file_last_changed_commit_version}/{git_filepath}"
-            info_dict = dict( 
-                dataset = data_dir,
-                repository = current_repo_name,
-                repo_version = current_repo_version,
-                directory = rel_path,
-                folder = folder_name,
-                filepath=filepath,
-                file=file,
-                fname = fname,
-                extension=fext[1:],
-                last_modified=file_last_changed_commit_version,
-                file_change_commit_url=file_change_commit_url
-            )
-            print_symbol = ":"
-            if filepath in v100_ids:
-                nickname, split = v100_ids[filepath]
-                info_dict["v1.0.0_id"] = nickname
-                info_dict["v1.0.0_split"] = split
-                which_set = split if isinstance(split, str) else split[0]
-                print_symbol = PRINT_SYMBOLS.get(which_set)
-            data.append(info_dict)
-            print(print_symbol, end="")
-            
-df = pd.DataFrame.from_records(data).sort_values("filepath") 
+rawdata_path = os.path.join(REPO_PATH, "rawdata")
+df = create_data_overview(rawdata_path, path2name_and_split=path2name_and_split, augnet_version = augmentednet_version)
 df.to_csv("../augnet_rawdata_overview.tsv", sep="\t", index=False)
 df.head()
 
 # %%
-len(v100_ids)
-
-# %%
-path_df = df.set_index("filepath")
-for filepath, (nickname, split) in v100_ids.items():
-    path_df.loc[filepath]
-    # info_dict["v1.0.0_id"] = nickname
-    # info_dict["v1.0.0_split"] = split
-
-# %%
-summary = pd.read_csv(
-    os.path.join(REPO_PATH, DATASET, "dataset_summary.tsv"),
-    sep="\t",
-    index_col=0
-)
-summary
-
-# %%
+len(path2name_and_split)
