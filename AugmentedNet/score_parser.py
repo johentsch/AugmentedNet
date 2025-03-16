@@ -153,7 +153,6 @@ def get_measures_table(score: music21.stream.Score):
     return measures
 
 
-
 def extendedDataFrame(s, fmt=None):
     """Parses a score and produces a pandas dataframe.
 
@@ -185,11 +184,11 @@ def extendedDataFrame(s, fmt=None):
         relative_note_offset = note_offset - measure_offset
         mn_onset = Fraction(relative_note_offset) / 4 + measure_info.get("mc_offset")
         beat_float = onset2beat(mn_onset, timesig=timesig, beat_decimals=3)
-        continuous_beat = measure_info.get("continuous_beats") + beat_float - 1
+        continuous_beats = measure_info.get("continuous_beats") + beat_float - 1
         p = note.pitch
         note_record = dict(
             dfdict,
-            continuous_beat = continuous_beat,
+            continuous_beats = continuous_beats,
             s_note = p.nameWithOctave,
             s_midi = p.midi,
             s_isOnset = (not note.tie or note.tie.type == "start"),
@@ -236,6 +235,7 @@ def extendedDataFrame(s, fmt=None):
             warnings.warn(f"Encountered unexpected music21 object: {type(note_or_rest)!r}")
             continue
     df = pd.DataFrame.from_records(df_records)
+
     currentLastOffset = float(df.iloc[-1].s_offset) + float(
         df.iloc[-1].s_duration
     )

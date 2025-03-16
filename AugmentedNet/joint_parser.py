@@ -148,6 +148,27 @@ def extend_joint_df(jointdf: pd.DataFrame) -> pd.DataFrame:
         jointdf
     ], axis=1)
 
+INT_COLUMNS = [
+    "onset_div", "duration_div", "s_measure", "ts_beats", "ts_beat_type", "s_midi", "s_alter", "s_downbeat",
+    "a_measure", "a_annotationNumber", "a_inversion"
+]
+BOOL_COLUMNS = ["s_isOnset", "a_isOnset"]
+STRING_COLUMNS = [
+    "measureNumberWithSuffix", "s_note", "s_step", "s_part_id", "s_voice_id", "a_romanNumeral", "a_bass", "a_root",
+    "a_quality", "a_localKey", "a_tonicizedKey", "a_degree1", "a_degree2"
+                  ]
+OBJECT_COLUMNS = ["s_offset_frac", "s_duration_frac", "mn_onset", "a_pitchNames", "a_pcset"] # leave them as they are
+
+def convert_column_types(labels: pd.DataFrame) -> pd.DataFrame:
+    conversion_dict = {col: "Int64" for col in INT_COLUMNS if col in labels.columns}
+    conversion_dict.update(
+        {col: "boolean" for col in BOOL_COLUMNS if col in labels.columns}
+    )
+    conversion_dict.update(
+        {col: "string" for col in STRING_COLUMNS if col in labels.columns}
+    )
+    return labels.astype(conversion_dict)
+
 def parseAnnotationAndScoreEvents(
         a, s#, qualityAssessment=True
 ):
@@ -196,7 +217,12 @@ def parseAnnotationAndScoreEvents(
         a_offset = "quarterbeats",
         a_measure = "mn",
     ))
-    return extended_adf, sdf, jointdf, metadata
+    return (
+        convert_column_types(extended_adf),
+        convert_column_types(sdf),
+        convert_column_types(jointdf),
+        metadata
+    )
 
 
 def parseAnnotationAndAnnotation(
