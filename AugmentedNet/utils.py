@@ -1,20 +1,23 @@
 import itertools
+import json
 import os
 import warnings
 from fractions import Fraction
 from functools import cache
-from typing import Iterable, Dict, Optional, Tuple, overload, Literal
+from typing import Dict, Iterable, Literal, Optional, Tuple, overload
 
 import git
 import ms3
 import numpy as np
 import pandas as pd
+
 # from dimcat.data.resources.facets import extend_keys_feature, extend_harmony_feature, extend_cadence_feature
 from numpy._typing import NDArray
 
 # region DivMaker
 
-class DivMaker():
+
+class DivMaker:
     """This is a convenient object for turning sequences of fractions into commensurate divs.
     It is equivalent to concatenating all sequences, passing them to the function shown below, and splitting them again.
 
@@ -56,11 +59,10 @@ class DivMaker():
         div_maker.lcm # yields 3660, the common denominator for all values (least common multiple)
     """
 
-
     def __init__(
-            self,
-            *iterable_or_array: Iterable[Fraction] | NDArray[int],
-            **named_iterables_or_arrays: Iterable[Fraction] | NDArray[int]
+        self,
+        *iterable_or_array: Iterable[Fraction] | NDArray[int],
+        **named_iterables_or_arrays: Iterable[Fraction] | NDArray[int],
     ):
         """Pass one or several 2d-arrays (where one axis has shape 2) or one or several iterables of fractions.
         By passing keyword arguments you can assign names which you can use to retrieve the respective div sequences.
@@ -73,21 +75,20 @@ class DivMaker():
 
     @staticmethod
     def iterable_of_fractions_to_array(
-            iterable_of_fractions: Iterable[Fraction]
+        iterable_of_fractions: Iterable[Fraction],
     ) -> NDArray[int]:
         """Returns a numpy array of shape (2,n) for a given iterable of n :obj:`Fraction` objects."""
-        return np.array([
-            (frac.numerator, frac.denominator)
-            for frac in iterable_of_fractions
-        ]).T
+        return np.array(
+            [(frac.numerator, frac.denominator) for frac in iterable_of_fractions]
+        ).T
 
     def _get_next_consecutive_integer(self) -> int:
         return next(i for i in itertools.count() if i not in self.dict_of_frac_arrays)
 
     def add_iterable_of_fractions(
-            self,
-            iterable_of_fractions: Iterable[Fraction],
-            name: Optional[str | int] = None
+        self,
+        iterable_of_fractions: Iterable[Fraction],
+        name: Optional[str | int] = None,
     ) -> int | str:
         """Adds some iterable of :obj:`Fraction` objects that can then be retrieved as divs.
         If you assign a name you can retrieve it under that name, otherwise by the integer corresponding to the
@@ -99,20 +100,18 @@ class DivMaker():
         return self.add_frac_array(arr, name=name)
 
     @staticmethod
-    def _check_array(
-            arr: NDArray
-    ) -> NDArray:
+    def _check_array(arr: NDArray) -> NDArray:
         arr = np.asarray(arr)
         assert arr.ndim == 2, f"Expected a 2D numpy array, not {arr.ndim}D"
-        assert 2 in arr.shape, f"One of the 2 dimensions needs to have shape 2. Received shape: {arr.shape}"
+        assert (
+            2 in arr.shape
+        ), f"One of the 2 dimensions needs to have shape 2. Received shape: {arr.shape}"
         if arr.shape[0] == 2:
             return arr
         return arr.T
 
     def add_frac_array(
-            self,
-            arr: NDArray[int],
-            name: Optional[str | int] = None
+        self, arr: NDArray[int], name: Optional[str | int] = None
     ) -> int | str:
         """Adds a 2d-array where one axis has shape 2, representing numerators and denominators of
         a sequence of fractions.
@@ -124,26 +123,30 @@ class DivMaker():
         arr = self._check_array(arr)
         if name is None:
             name = self._get_next_consecutive_integer()
-        assert isinstance(name, (str, int)), f"Name is expected to be a string or int, not a {type(name)!r}"
+        assert isinstance(
+            name, (str, int)
+        ), f"Name is expected to be a string or int, not a {type(name)!r}"
         if name in self.dict_of_frac_arrays:
-            warnings.warn(f"A sequence for the name {name!r} had already been added. It was overwritten.")
+            warnings.warn(
+                f"A sequence for the name {name!r} had already been added. It was overwritten."
+            )
         self.dict_of_frac_arrays[name] = arr
         return name
 
     def add_iterable_or_array(
-            self,
-            iterable_or_array: Iterable[Fraction] | NDArray[int],
-            name: Optional[str | int] = None
+        self,
+        iterable_or_array: Iterable[Fraction] | NDArray[int],
+        name: Optional[str | int] = None,
     ):
-        """Convenience function for calling either .add_iterable_of_fractions() or .add_frac_array() based on the input.
+        """Convenience function for calling either .add_iterable_of_fractions() or .add_frac_array() based on the
+        input.
         """
         if isinstance(iterable_or_array, np.ndarray):
             return self.add_frac_array(iterable_or_array, name)
         return self.add_iterable_of_fractions(iterable_or_array, name)
 
     def concatenated_frac_arrays(
-            self,
-            names: Optional[str | int | Iterable[str | int]] = None
+        self, names: Optional[str | int | Iterable[str | int]] = None
     ) -> NDArray:
         """Concatenate the requested arrays in order to compute their LCM. All arrays have shape (2, n) and so does
         their concatenation ("horizontal stacking").
@@ -154,18 +157,15 @@ class DivMaker():
         else:
             if len(self.dict_of_frac_arrays) == 0:
                 raise ValueError(
-                    f"No data has been added to this object. "
-                    f"Use the method .add_iterable_or_array() first"
-                    )
+                    "No data has been added to this object. "
+                    "Use the method .add_iterable_or_array() first"
+                )
             arrays = tuple(self.dict_of_frac_arrays.values())
         if len(arrays) == 1:
             return arrays[0]
         return np.hstack(arrays)
 
-    def get_divs(
-            self,
-            name: str | int
-    ) -> NDArray[int]:
+    def get_divs(self, name: str | int) -> NDArray[int]:
         """Retrieve one of the previous inputs as divs, based on the LCM computed for all inputs together.
         Name can be a number for retrieving nameless inputs based on their input order.
         """
@@ -176,16 +176,12 @@ class DivMaker():
         return (numerators * lcm / denominators).astype(int)
 
     @cache
-    def _least_common_multiple(
-            self,
-            names: Tuple[str | int]
-    ) -> int:
+    def _least_common_multiple(self, names: Tuple[str | int]) -> int:
         _, denominators = self.concatenated_frac_arrays(names)
         return np.lcm.reduce(denominators)
 
     def least_common_multiple(
-            self,
-            names: Optional[str | int | Iterable[str | int]] = None
+        self, names: Optional[str | int | Iterable[str | int]] = None
     ) -> int:
         """By default, the LCM is computed based on all sequences of fractions that this object holds.
         When you retrieve divs, they are always commensurate between all sequences."""
@@ -198,8 +194,7 @@ class DivMaker():
         return self.least_common_multiple()
 
     def _names_to_tuple(
-            self,
-            names: Optional[str | int | Iterable[str | int]] = None
+        self, names: Optional[str | int | Iterable[str | int]] = None
     ) -> Tuple[str | int]:
         """Process input arguments."""
         if not names:
@@ -212,22 +207,13 @@ class DivMaker():
         return names
 
     @overload
-    def __getitem__(
-            self,
-            names: str | int
-    ) -> NDArray:
-        ...
+    def __getitem__(self, names: str | int) -> NDArray: ...
 
     @overload
-    def __getitem__(
-            self,
-            names: Iterable[str | int]
-    ) -> Tuple[NDArray]:
-        ...
+    def __getitem__(self, names: Iterable[str | int]) -> Tuple[NDArray]: ...
 
     def __getitem__(
-            self,
-            names: str | int | Iterable[str | int]
+        self, names: str | int | Iterable[str | int]
     ) -> NDArray | Tuple[NDArray]:
         if isinstance(names, (str, int)):
             return self.get_divs(names)
@@ -235,18 +221,22 @@ class DivMaker():
         return tuple(self.get_divs(name) for name in names)
 
     def __iter__(self):
-        existing_consecutive_integers = itertools.takewhile(lambda x: x in self.dict_of_frac_arrays, itertools.count())
+        existing_consecutive_integers = itertools.takewhile(
+            lambda x: x in self.dict_of_frac_arrays, itertools.count()
+        )
         for i in existing_consecutive_integers:
             yield self.get_divs(i)
 
+
 # endregion DivMaker
 # region prepare_measures
+
 
 def make_continuous_mc_beats_series(
     measures: pd.DataFrame,
     negative_anacrusis: Optional[Fraction] = None,
     beat_decimals: Optional[int] = None,
-    name: str = "continuous_beats"
+    name: str = "continuous_beats",
 ) -> pd.Series:
     """This is an adapted copy of ms3.utils.make_continuous_offset_series() which is originally used for getting the
     quarternote offset position ("quarterbeats") for the beginning of each measure (MC).
@@ -279,7 +269,7 @@ def make_continuous_mc_beats_series(
         onset2beat,
         ["act_dur", "timeSignature"],
         beat_decimals=beat_decimals,
-        first_beat=0
+        first_beat=0,
     )
     result = durations_in_beats.cumsum()
     # last_val = result.iloc[-1]
@@ -291,14 +281,15 @@ def make_continuous_mc_beats_series(
         result -= abs(negative_anacrusis)
     return result.rename(name)
 
+
 def make_continuous_mn_beats_series(
     measures: pd.DataFrame,
     negative_anacrusis: Optional[Fraction] = None,
     beat_decimals: Optional[int] = None,
     name: str = "continuous_beats",
-    mn_col_name: str = "mn_playthrough"
+    mn_col_name: str = "mn_playthrough",
 ) -> pd.Series:
-    """ Gets the continuous MC beats and drops the MC rows that duplicate MN values.
+    """Gets the continuous MC beats and drops the MC rows that duplicate MN values.
     This creates a mapping from measure numbers to continuous beat positions which can
     be used to create a continuous_beat columns for events by adding their beat_float but where
     beat 1 == beat_float 0.0.
@@ -314,13 +305,14 @@ def make_continuous_mn_beats_series(
 
     """
     continuous_mc_beats = make_continuous_mc_beats_series(
-        measures = measures,
+        measures=measures,
         negative_anacrusis=negative_anacrusis,
         beat_decimals=beat_decimals,
-        name=name
+        name=name,
     )
     continuous_mc_beats.index = measures[mn_col_name]
     return continuous_mc_beats[~continuous_mc_beats.index.duplicated()]
+
 
 def make_continuous_beats_column(
     mn_column: pd.Series,
@@ -328,7 +320,7 @@ def make_continuous_beats_column(
     mn_offsets: pd.Series | dict,
     name: str = "continuous_beats",
 ) -> pd.Series:
-    """ This is an adapted copy of ms3.utils.make_quarterbeats_column()
+    """This is an adapted copy of ms3.utils.make_quarterbeats_column()
 
     Turn each combination of mc and mc_onset into a quarterbeat value using the mn_offsets that maps mc to
     the measure's quarterbeat position (distance from the beginning of the piece).
@@ -349,8 +341,14 @@ def make_continuous_beats_column(
 
 
 def add_continuous_beat_column(merged, measures, beat_decimals):
-    beat = ms3.transform(merged, onset2beat, ["mn_onset", "timesig"], first_beat=0, beat_decimals=beat_decimals)
-    anacrusis_mask = (merged.mn_playthrough == "0a")
+    beat = ms3.transform(
+        merged,
+        onset2beat,
+        ["mn_onset", "timesig"],
+        first_beat=0,
+        beat_decimals=beat_decimals,
+    )
+    anacrusis_mask = merged.mn_playthrough == "0a"
     if anacrusis_mask.any():
         # beats of an anacrusis measure need to start from zero rather than their metrical value
         anacrusis_beats = beat[anacrusis_mask].copy()
@@ -359,19 +357,22 @@ def add_continuous_beat_column(merged, measures, beat_decimals):
         beat.loc[anacrusis_mask] = anacrusis_beats
     mn_offsets = make_continuous_mn_beats_series(measures, beat_decimals=beat_decimals)
     continuous_beats = make_continuous_beats_column(
-        mn_column=merged.mn_playthrough,
-        beat_float_column=beat,
-        mn_offsets=mn_offsets
+        mn_column=merged.mn_playthrough, beat_float_column=beat, mn_offsets=mn_offsets
     )
     merged = pd.concat([merged, continuous_beats], axis=1)
     return merged
 
 
 def make_section_start_column(
-        measures: pd.DataFrame,
+    measures: pd.DataFrame,
 ) -> pd.Series:
     """Returns a column of nullable "boolean" dtype."""
-    section_start = (measures.repeats == "firstMeasure").fillna(False).rename("section_start").astype("boolean")
+    section_start = (
+        (measures.repeats == "firstMeasure")
+        .fillna(False)
+        .rename("section_start")
+        .astype("boolean")
+    )
     section_start |= (measures.repeats == "start").fillna(False)
     section_start |= (measures.repeats.shift() == "end").fillna(False)
     section_start |= measures.breaks.shift().str.contains("section").fillna(False)
@@ -380,8 +381,8 @@ def make_section_start_column(
 
 
 def prepare_measures(
-        measures: pd.DataFrame,
-        beat_decimals: Optional[int] = None,
+    measures: pd.DataFrame,
+    beat_decimals: Optional[int] = None,
 ) -> pd.DataFrame:
     """
 
@@ -395,34 +396,60 @@ def prepare_measures(
 
     """
     section_start_column = make_section_start_column(measures)
-    continous_beats_column = make_continuous_mc_beats_series(measures, beat_decimals=beat_decimals)
-    measures = pd.concat([
-        measures.rename(columns=dict(quarterbeats="quarterbeats_playthrough")),
-        continous_beats_column,
-        section_start_column
-    ], axis=1)
+    continous_beats_column = make_continuous_mc_beats_series(
+        measures, beat_decimals=beat_decimals
+    )
+    measures = pd.concat(
+        [
+            measures.rename(columns=dict(quarterbeats="quarterbeats_playthrough")),
+            continous_beats_column,
+            section_start_column,
+        ],
+        axis=1,
+    )
     measures.keysig = measures.keysig.astype("Int64")
     return measures
 
 
 # endregion prepare_measures
 # region make_pitch_array
-KEEP_ORIGINAL_COLUMNS = ["mc", "mn", "mc_playthrough", "mn_playthrough", "quarterbeats_playthrough", "duration",
-                         "staff", "voice", "is_note_onset", "tpc"] # columns to keep from the original notes table
-RENAME_ORIGINAL_COLUMNS = dict( # columns to keep under a different name
-    midi="pitch",
-    keysig="ks_fifths"
+KEEP_ORIGINAL_COLUMNS = [
+    "mc",
+    "mn",
+    "mc_playthrough",
+    "mn_playthrough",
+    "quarterbeats_playthrough",
+    "duration",
+    "staff",
+    "voice",
+    "is_note_onset",
+    "tpc",
+]  # columns to keep from the original notes table
+RENAME_ORIGINAL_COLUMNS = dict(  # columns to keep under a different name
+    midi="pitch", keysig="ks_fifths"
 )
 COLUMN_ORDER = [
-    "onset_div", "duration_div", "continuous_beats", "pitch", "tpc", "step", "alter", "beat_float", "downbeat",
-    "ts_beats", "ts_beat_type", "staff", "voice"
+    "onset_div",
+    "duration_div",
+    "continuous_beats",
+    "pitch",
+    "tpc",
+    "step",
+    "alter",
+    "beat_float",
+    "downbeat",
+    "ts_beats",
+    "ts_beat_type",
+    "staff",
+    "voice",
 ]
-PITCH_ARRAY_DTYPES = dict(                  # dtype dict passed to pd.DataFrame.astype()
-    mn_playthrough = "string",
+PITCH_ARRAY_DTYPES = dict(  # dtype dict passed to pd.DataFrame.astype()
+    mn_playthrough="string",
 )
-MERGE_MEASURE_COLUMNS = ["keysig"]          # columns to merge into notes from measures table
-MERGE_LABEL_COLUMNS = ["section_start"]     # columns to merge additionally when label_notes = True
-
+MERGE_MEASURE_COLUMNS = ["keysig"]  # columns to merge into notes from measures table
+MERGE_LABEL_COLUMNS = [
+    "section_start"
+]  # columns to merge additionally when label_notes = True
 
 
 def _ts_beat_size(numerator: int, denominator: int) -> Fraction:
@@ -433,42 +460,34 @@ def _ts_beat_size(numerator: int, denominator: int) -> Fraction:
 
 @cache
 def ts_beat_size(ts: str) -> Fraction:
-    """ Pass a time signature to get the beat size which is based on the fraction's
-        denominator ('2/2' => 1/2, '4/4' => 1/4, '4/8' => 1/8). If the nominator is
-        a higher multiple of 3, the threefold beat size is returned
-        ('12/8' => 3/8, '6/4' => 3/4).
+    """Pass a time signature to get the beat size which is based on the fraction's
+    denominator ('2/2' => 1/2, '4/4' => 1/4, '4/8' => 1/8). If the nominator is
+    a higher multiple of 3, the threefold beat size is returned
+    ('12/8' => 3/8, '6/4' => 3/4).
     """
-    numerator, denominator = str(ts).split('/')
+    numerator, denominator = str(ts).split("/")
     result = _ts_beat_size(int(numerator), int(denominator))
     return result
 
 
 @overload
 def onset2beat(
-        onset: Fraction,
-        timesig: str,
-        beat_decimals: Literal[None]
-) -> Fraction:
-    ...
+    onset: Fraction, timesig: str, beat_decimals: Literal[None]
+) -> Fraction: ...
 
 
 @overload
-def onset2beat(
-        onset: Fraction,
-        timesig: str,
-        beat_decimals: int
-) -> float:
-    ...
+def onset2beat(onset: Fraction, timesig: str, beat_decimals: int) -> float: ...
 
 
 @cache
 def onset2beat(
-        onset: Fraction,
-        timesig: str,
-        beat_decimals: Optional[int] = None,
-        first_beat: float | int = 1.
+    onset: Fraction,
+    timesig: str,
+    beat_decimals: Optional[int] = None,
+    first_beat: float | int = 1.0,
 ) -> float | Fraction:
-    """ Turn an offset in whole notes into a beat based on the time signature.
+    """Turn an offset in whole notes into a beat based on the time signature.
         Uses: ts_beat_size()
 
     Args:
@@ -487,12 +506,12 @@ def onset2beat(
 
 
 def prepare_notes_with_measure_information(
-        notes: pd.DataFrame,
-        measures: pd.DataFrame,
-        label_notes: bool = False,
-        beat_decimals: Optional[int] = None
+    notes: pd.DataFrame,
+    measures: pd.DataFrame,
+    label_notes: bool = False,
+    beat_decimals: Optional[int] = None,
 ) -> pd.DataFrame:
-    """ Add key signature from measure table and, optionally, labels created from it.
+    """Add key signature from measure table and, optionally, labels created from it.
 
     Args:
         notes:
@@ -510,15 +529,14 @@ def prepare_notes_with_measure_information(
     if label_notes:
         potential_columns += MERGE_LABEL_COLUMNS
     merge_measure_columns = [
-        col for col
-        in potential_columns
-        if col in prepared_measures.columns]
+        col for col in potential_columns if col in prepared_measures.columns
+    ]
 
     merged = pd.merge(
-        left = notes,
-        right = prepared_measures[merge_measure_columns],
-        on = "quarterbeats_playthrough",
-        how = "left",
+        left=notes,
+        right=prepared_measures[merge_measure_columns],
+        on="quarterbeats_playthrough",
+        how="left",
     )
     merged.keysig = merged.keysig.ffill()
     if label_notes:
@@ -528,63 +546,65 @@ def prepare_notes_with_measure_information(
     merged = add_continuous_beat_column(merged, measures, beat_decimals)
     return merged
 
+
 def float_is_integer(f: float) -> bool:
     try:
         return f.is_integer()
-    except Exception as e:
+    except Exception:
         print(f"Unable to evaluate whether {f!r} is an integer.")
         return False
 
+
 def prepare_notes(
-        notes: pd.DataFrame,
-        beat_decimals: Optional[int] = None,
-        beat_float_name: str = "beat_float",
-        downbeat_name: str = "downbeat"
+    notes: pd.DataFrame,
+    beat_decimals: Optional[int] = None,
+    beat_float_name: str = "beat_float",
+    downbeat_name: str = "downbeat",
 ) -> pd.DataFrame:
     dtype_dict = dict(
-        staff = "Int64",
-        voice = "Int64",
-        mc = "Int64",
-        mc_playthrough = "Int64",
-        mn = "Int64",
+        staff="Int64",
+        voice="Int64",
+        mc="Int64",
+        mc_playthrough="Int64",
+        mn="Int64",
     )
     notes = notes.astype(dtype_dict)
-    beat_float = ms3.transform(notes, onset2beat, ["mn_onset", "timesig"], beat_decimals=beat_decimals)
+    beat_float = ms3.transform(
+        notes, onset2beat, ["mn_onset", "timesig"], beat_decimals=beat_decimals
+    )
     is_downbeat_mask = beat_float.map(float_is_integer)
     downbeat = beat_float.where(is_downbeat_mask, 0).astype("Int64")
-    beat_columns = pd.DataFrame({
-        beat_float_name: beat_float,
-        downbeat_name: downbeat
-    }, index=notes.index)
+    beat_columns = pd.DataFrame(
+        {beat_float_name: beat_float, downbeat_name: downbeat}, index=notes.index
+    )
     mn_onset_pos = notes.columns.get_loc("mn_onset") + 1
-    return pd.concat([
-        notes.iloc[:, :mn_onset_pos],
-        beat_columns,
-        notes.iloc[:, mn_onset_pos:]
-    ], axis=1)
+    return pd.concat(
+        [notes.iloc[:, :mn_onset_pos], beat_columns, notes.iloc[:, mn_onset_pos:]],
+        axis=1,
+    )
+
 
 class bcolors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKCYAN = "\033[96m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
 
-def colorprint(
-        txt,
-    color = bcolors.WARNING
-):
+
+def colorprint(txt, color=bcolors.WARNING):
     print(f"{color}{txt}{bcolors.ENDC}", end="")
 
+
 def make_pitch_array(
-        notes: pd.DataFrame,
-        measures: Optional[pd.DataFrame] = None,
-        beat_decimals: Optional[int] = 3,
-        label_notes: bool = False
+    notes: pd.DataFrame,
+    measures: Optional[pd.DataFrame] = None,
+    beat_decimals: Optional[int] = 3,
+    label_notes: bool = False,
 ) -> pd.DataFrame:
     """Transformation of a notes table to a pitch array that can be transformed into a graph.
 
@@ -606,14 +626,15 @@ def make_pitch_array(
             prepared_notes,
             measures,
             label_notes=label_notes,
-            beat_decimals=beat_decimals
+            beat_decimals=beat_decimals,
         )
     colorprint("N", bcolors.OKGREEN)
 
     colorprint("D")
     div_maker = DivMaker(
         onsets=prepared_notes.quarterbeats_playthrough,
-        durations=prepared_notes.duration * 4  # normally duration_qb but due to a bug these are currently floats
+        durations=prepared_notes.duration
+        * 4,  # normally duration_qb but due to a bug these are currently floats
     )
     onset_div, duration_div = div_maker[("onsets", "durations")]
     colorprint("D", bcolors.OKGREEN)
@@ -622,23 +643,33 @@ def make_pitch_array(
     potential_columns = list(set(KEEP_ORIGINAL_COLUMNS).union(set(COLUMN_ORDER)))
     if label_notes:
         potential_columns += MERGE_LABEL_COLUMNS
-    keep_original_columns = [col for col in potential_columns if col in prepared_notes.columns]
+    keep_original_columns = [
+        col for col in potential_columns if col in prepared_notes.columns
+    ]
 
     original_columns = prepared_notes[keep_original_columns]
 
-    rename_original_columns = {k: v for k, v in RENAME_ORIGINAL_COLUMNS.items() if k in prepared_notes.columns}
-    renamed_columns = prepared_notes[list(rename_original_columns.keys())].rename(columns=rename_original_columns)
+    rename_original_columns = {
+        k: v for k, v in RENAME_ORIGINAL_COLUMNS.items() if k in prepared_notes.columns
+    }
+    renamed_columns = prepared_notes[list(rename_original_columns.keys())].rename(
+        columns=rename_original_columns
+    )
 
     new_dataframes = []  # will be added as-is
     new_columns = dict()  # will be renamed based on the keys
 
-    new_columns["is_note_onset"] = (prepared_notes.tied.fillna(1) == 1)
+    new_columns["is_note_onset"] = prepared_notes.tied.fillna(1) == 1
 
     # specific pitch
-    specific_pitch = prepared_notes.name.str.extract(r"^(?P<step>[A-G])(?P<accidentals>b*|#*)(?P<octave>\d)$")
+    specific_pitch = prepared_notes.name.str.extract(
+        r"^(?P<step>[A-G])(?P<accidentals>b*|#*)(?P<octave>\d)$"
+    )
     new_columns["step"] = specific_pitch.step.astype("string")
     new_columns["octave"] = specific_pitch.octave.astype("Int64")
-    alter_col = specific_pitch.accidentals.str.count("#") - specific_pitch.accidentals.str.count("b")
+    alter_col = specific_pitch.accidentals.str.count(
+        "#"
+    ) - specific_pitch.accidentals.str.count("b")
     new_columns["alter"] = alter_col.astype("Int64")
 
     # time signatures & beats
@@ -646,37 +677,89 @@ def make_pitch_array(
         prepared_notes.timesig.str.extract(r"^(?P<ts_beats>\d+)/(?P<ts_beat_type>\d+)$")
     )
 
-
     result = pd.concat(
         [
             pd.DataFrame(
-                dict(
-                    onset_div=onset_div,
-                    duration_div=duration_div
-                ),
-                dtype="Int64"
+                dict(onset_div=onset_div, duration_div=duration_div), dtype="Int64"
             ),
             pd.concat(new_columns, axis=1),
             renamed_columns,
-            original_columns
-        ] + new_dataframes,
-        axis=1
+            original_columns,
+        ]
+        + new_dataframes,
+        axis=1,
     )
     colorprint("C", bcolors.OKGREEN)
     column_order = [col for col in COLUMN_ORDER if col in result.columns]
     column_order += sorted(col for col in result.columns if col not in column_order)
     return result[column_order].astype(PITCH_ARRAY_DTYPES)
 
+
 # endregion make_pitch_array
-#region make_labeled_pitch_array
+# region make_labeled_pitch_array
 # columns are converted based on the dtypes assigned in the following
-INT_COLUMNS = ['unfolded_harmony_index', 'root', 'bass_note', 'globalkey_tpc', 'localkey_tpc', 'tonicized_tpc', ]
-BOOL_COLUMNS = ['globalkey_is_minor', 'localkey_is_minor', 'is_harmony_onset', 'is_phrase_ending' ]
-STRING_COLUMNS = ['section_start', 'label', 'alt_label', 'globalkey', 'localkey', 'pedal', 'chord', 'special', 'numeral', 'form', 'figbass', 'changes', 'relativeroot', 'cadence', 'phraseend', 'chord_type', 'globalkey_mode', 'localkey_mode', 'localkey_resolved', 'localkey_and_mode', 'root_roman', 'relativeroot_resolved', 'effective_localkey', 'effective_localkey_resolved', 'effective_localkey_is_minor', 'chord_reduced', 'chord_reduced_and_mode', 'pedal_resolved', 'chord_and_mode', 'applied_to_numeral', 'numeral_or_applied_to_numeral', 'cadence_type', '_merge']
-OBJECT_COLUMNS = ['chord_tones', 'added_tones', ] # unused, leave them as they are
+INT_COLUMNS = [
+    "unfolded_harmony_index",
+    "root",
+    "bass_note",
+    "globalkey_tpc",
+    "localkey_tpc",
+    "tonicized_tpc",
+]
+BOOL_COLUMNS = [
+    "globalkey_is_minor",
+    "localkey_is_minor",
+    "is_harmony_onset",
+    "is_phrase_ending",
+]
+STRING_COLUMNS = [
+    "section_start",
+    "label",
+    "alt_label",
+    "globalkey",
+    "localkey",
+    "pedal",
+    "chord",
+    "special",
+    "numeral",
+    "form",
+    "figbass",
+    "changes",
+    "relativeroot",
+    "cadence",
+    "phraseend",
+    "chord_type",
+    "globalkey_mode",
+    "localkey_mode",
+    "localkey_resolved",
+    "localkey_and_mode",
+    "root_roman",
+    "relativeroot_resolved",
+    "effective_localkey",
+    "effective_localkey_resolved",
+    "effective_localkey_is_minor",
+    "chord_reduced",
+    "chord_reduced_and_mode",
+    "pedal_resolved",
+    "chord_and_mode",
+    "applied_to_numeral",
+    "numeral_or_applied_to_numeral",
+    "cadence_type",
+    "_merge",
+]
+OBJECT_COLUMNS = [
+    "chord_tones",
+    "added_tones",
+]  # unused, leave them as they are
 NON_FORWARD_FILLING_COLUMNS = [
-    "is_harmony_onset", "cadence", "cadence_type", "cadence_subtype", "phraseend", "section_start", "is_phrase_ending"
-] # these are not propagated over the whole duration of their harmony label and are therefore moved to the left
+    "is_harmony_onset",
+    "cadence",
+    "cadence_type",
+    "cadence_subtype",
+    "phraseend",
+    "section_start",
+    "is_phrase_ending",
+]  # these are not propagated over the whole duration of their harmony label and are therefore moved to the left
 
 
 def convert_roman_numerals_to_fifths(labels: pd.DataFrame) -> pd.DataFrame:
@@ -689,14 +772,17 @@ def convert_roman_numerals_to_fifths(labels: pd.DataFrame) -> pd.DataFrame:
             )
         ).rename("globalkey_tpc"),
         (
-                ms3.transform(
-                    labels[["localkey", "globalkey_is_minor"]], ms3.roman_numeral2fifths
-                ) + globalkey_tpc
+            ms3.transform(
+                labels[["localkey", "globalkey_is_minor"]], ms3.roman_numeral2fifths
+            )
+            + globalkey_tpc
         ).rename("localkey_tpc"),
         (
-                ms3.transform(
-                    labels[["effective_localkey_resolved", "globalkey_is_minor"]], ms3.roman_numeral2fifths
-                ) + globalkey_tpc
+            ms3.transform(
+                labels[["effective_localkey_resolved", "globalkey_is_minor"]],
+                ms3.roman_numeral2fifths,
+            )
+            + globalkey_tpc
         ).rename("tonicized_tpc"),
     ]
     labels = pd.concat(concatenate_this, axis=1)
@@ -716,7 +802,12 @@ def convert_column_types(labels: pd.DataFrame) -> pd.DataFrame:
 
 def add_boolean_phrase_ending_column(labels: pd.DataFrame) -> pd.DataFrame:
     phraseend_column = labels.phraseend.fillna("")
-    is_phrase_end = (phraseend_column == r"\\").fillna(False).astype("boolean").rename("is_phrase_ending")
+    is_phrase_end = (
+        (phraseend_column == r"\\")
+        .fillna(False)
+        .astype("boolean")
+        .rename("is_phrase_ending")
+    )
     is_phrase_end |= phraseend_column.str.contains("}")
     return pd.concat([labels, is_phrase_end], axis=1)
 
@@ -763,13 +854,11 @@ def add_boolean_label_columns(merged: pd.DataFrame) -> pd.DataFrame:
 
     concatenate_this = [
         merged,
-        ms3.transform(
-            merged,
-            is_in_chord_tones,
-            ["sic_with_local", "chord_tones"]
-        ).astype("boolean").rename("tpc_is_in_label"),
+        ms3.transform(merged, is_in_chord_tones, ["sic_with_local", "chord_tones"])
+        .astype("boolean")
+        .rename("tpc_is_in_label"),
         (merged.sic_with_local == merged.root).rename("tpc_is_root"),
-        (merged.sic_with_local == merged.bass_note).rename("tpc_is_bass")
+        (merged.sic_with_local == merged.bass_note).rename("tpc_is_bass"),
     ]
     return pd.concat(concatenate_this, axis=1)
 
@@ -807,8 +896,8 @@ def add_boolean_label_columns(merged: pd.DataFrame) -> pd.DataFrame:
 #     harmony_side = merged.iloc[:, harmony_index_col:]
 #
 #     harmony_grouper = (harmony_side.unfolded_harmony_index.
-#                        where(harmony_side.chord.notna()).   # takes only index positions for which a harmony is defined
-#                        ffill())                             # and forward-fills gaps with indices of the harmonies
+#                        where(harmony_side.chord.notna()).  # takes only index positions for which a harmony is defined
+#                        ffill())                            # and forward-fills gaps with indices of the harmonies
 #     merged = pd.concat([
 #         pitch_side,
 #         harmony_side.groupby(harmony_grouper).ffill()
@@ -820,27 +909,30 @@ def add_boolean_label_columns(merged: pd.DataFrame) -> pd.DataFrame:
 #     colorprint("C", bcolors.OKGREEN)
 #     return merged
 
-#endregion make_labeled_pitch_array
+
+# endregion make_labeled_pitch_array
 def filter_corpus(corpus):
-    corpus.view.include("facets", "scores")#, "expanded")
-    #corpus.disambiguate_facet("expanded")
+    corpus.view.include("facets", "scores")  # , "expanded")
+    # corpus.disambiguate_facet("expanded")
     corpus.disambiguate_facet("scores")
     corpus.view.pieces_with_incomplete_facets = False
 
 
 def get_ms3_corpus(corpus_path):
     corpus = ms3.Corpus(corpus_path)
-    #filter_corpus(corpus)
+    # filter_corpus(corpus)
     return corpus
 
 
 def get_facet_dict_from_piece(piece: ms3.Piece) -> dict:
-    fileinfo, facets = next(piece.iter_extracted_facets(
+    fileinfo, facets = next(
+        piece.iter_extracted_facets(
             ("measures", "notes", "expanded"),
             force=True,
             unfold=True,
-            interval_index=False
-    ))
+            interval_index=False,
+        )
+    )
     return facets
 
 
@@ -856,18 +948,10 @@ def get_facet_dict_from_piece(piece: ms3.Piece) -> dict:
 #     )
 
 
-def store_pitch_array(
-        pitch_array: pd.DataFrame,
-    output_dir: str,
-        tsv_name: str
-):
+def store_pitch_array(pitch_array: pd.DataFrame, output_dir: str, tsv_name: str):
     os.makedirs(output_dir, exist_ok=True)
     filepath = os.path.join(output_dir, tsv_name)
-    pitch_array.to_csv(
-        filepath,
-        sep="\t",
-        index=False
-    )
+    pitch_array.to_csv(filepath, sep="\t", index=False)
     print(filepath, end="")
     return filepath
 
@@ -883,17 +967,22 @@ def dataset_processing_stats(metadata_path, dataset) -> Optional[pd.Series]:
         return None
     return metadata[dataset].value_counts(dropna=False)
 
+
 def get_commit_where_file_last_changed(repo: git.Repo, paths: str) -> git.Commit:
     try:
         return next(repo.iter_commits(paths=paths))
     except StopIteration as e:
         raise StopIteration(f"{repo!r} does not have any commits for {paths}") from e
 
+
 def describe_commit_where_file_last_changed(repo: git.Repo, paths: str) -> str:
     file_last_changed_commit = get_commit_where_file_last_changed(repo, paths=paths)
     file_last_changed_commit_sha = file_last_changed_commit.hexsha
-    file_last_changed_commit_version = repo.git.describe(file_last_changed_commit_sha, tags=True, always=True)
+    file_last_changed_commit_version = repo.git.describe(
+        file_last_changed_commit_sha, tags=True, always=True
+    )
     return file_last_changed_commit_version
+
 
 # def store_pitch_arrays_for_corpus(
 #     corpus: ms3.Corpus,
@@ -1005,11 +1094,13 @@ def describe_commit_where_file_last_changed(repo: git.Repo, paths: str) -> str:
 #
 #     colorprint("EVERYTHING DONE", bcolors.OKGREEN)
 
+
 def safe_fraction(s: str) -> Fraction | str:
     try:
         return Fraction(s)
     except Exception:
         return s
+
 
 def str2inttuple(tuple_string: str, strict: bool = True) -> Tuple[int]:
     tuple_string = tuple_string.strip("[](),")
@@ -1034,11 +1125,9 @@ def str2inttuple(tuple_string: str, strict: bool = True) -> Tuple[int]:
                 res.append(s)
     return tuple(res)
 
+
 def load_labeled_pitch_array(
-        specs_csv: str,
-        pitch_array_tsv: str,
-        dropna: bool = True,
-        **replace_dtypes
+    specs_csv: str, pitch_array_tsv: str, dropna: bool = True, **replace_dtypes
 ) -> pd.DataFrame:
     """
 
@@ -1053,10 +1142,10 @@ def load_labeled_pitch_array(
     """
     loaded_specs = pd.read_csv(specs_csv, index_col=0)
     converters = dict(
-        chord_tones = str2inttuple,
-        added_tones = str2inttuple,
-        duration = safe_fraction,
-        quarterbeats_playthrough = safe_fraction,
+        chord_tones=str2inttuple,
+        added_tones=str2inttuple,
+        duration=safe_fraction,
+        quarterbeats_playthrough=safe_fraction,
     )
     dtype_dict = {
         col: dtype
@@ -1064,9 +1153,6 @@ def load_labeled_pitch_array(
         if col not in converters
     }
     result = pd.read_csv(
-        pitch_array_tsv,
-        sep="\t",
-        dtype=dtype_dict,
-        converters=converters
+        pitch_array_tsv, sep="\t", dtype=dtype_dict, converters=converters
     )
     return result.dropna(subset="tpc") if dropna else result
