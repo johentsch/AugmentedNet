@@ -32,27 +32,82 @@ print(DATASET_PATH)
 pitch_arrays = {}
 for split in os.listdir(DATASET_PATH):
     split_dir = os.path.join(DATASET_PATH, split)
-    if os.path.isfile(split_dir): continue
+    if os.path.isfile(split_dir):
+        continue
     for file in os.listdir(split_dir):
         suffix = "_joint.tsv"
-        if not file.endswith(suffix): continue
-        piece = file[:-len(suffix)]
+        if not file.endswith(suffix):
+            continue
+        piece = file[: -len(suffix)]
         print(".", end="")
-        pitch_arrays[piece] = pd.read_csv(os.path.join(split_dir, file), sep="\t", dtype="string")
+        pitch_arrays[piece] = pd.read_csv(
+            os.path.join(split_dir, file), sep="\t", dtype="string"
+        )
 concat = pd.concat(pitch_arrays)
 concat
 
 # %%
-concat["numeral"] = concat.a_romanNumeral.str.extract("^((?:#*|b*|-*)(?:Cad|Ger|It|Fr|N|VII|VI|V|IV|III|II|I|vii|vi|v|iv|iii|ii|i))")
-
-# roman_numeral2scale_degree() (when key_is_minor=True) determines chord quality purely based on the numeral's third,
-# as expressed by it being in lowercase (m3) or uppercase (M3). Therefore, the numerals of augmented chords written in 
-# lowercase need to be converted to upper case. A regEx is used to convert only the characters i and v. 
-upper_case_numeral = concat.numeral.str.replace("([iv])", lambda match: match.group(1).upper(), regex=True)
-concat.numeral = concat.numeral.where(concat.a_quality != "augmented triad", upper_case_numeral) 
-concat["tonicizedkey_is_minor"] = concat.a_tonicizedKey.str.islower()
-concat["degree1"] = ms3.transform(concat, utils.roman_numeral2scale_degree, ["numeral", "tonicizedkey_is_minor"], flat_character="-")
+concat.a_quality.value_counts().sort_index()
 
 # %%
-not_matching_mask = (concat.a_degree1 != concat.degree1.fillna("")) & (concat.a_degree2 != "None")
+DLC = ms3.load_tsv(
+    "/home/laser/Documents/Linz/DLC_version_comparison/distant_listening_corpus_v3.1/"
+    "distant_listening_corpus.expanded.tsv"
+)
+DLC.chord_type.value_counts(dropna=False)
+
+# %%
+DLC_CHORD_TYPE_MAPPING = {
+    "M": "major triad",
+    "m": "minor triad",
+    "o": "diminished triad",
+    "+": "augmented triad",
+    "+7": "augmented triad",  # actually "augmented seventh chord"
+    "+M7": "augmented triad",  # actually "augmented major tetrachord"
+    "mm7": "minor seventh chord",
+    "MM7": "major seventh chord",
+    "Mm7": "dominant seventh chord",
+    "incomplete dominant-seventh chord": "incomplete dominant-seventh chord",  # currently not available in DLC
+    "o7": "diminished seventh chord",
+    "%7": "half-diminished seventh chord",
+    "It": "Italian augmented sixth chord",
+    "Ger": "German augmented sixth chord",
+    "Fr": "French augmented sixth chord",
+    "mM7": "minor-augmented tetrachord",
+    pd.NA: "None",
+}
+DLC.chord_type.map(DLC_CHORD_TYPE_MAPPING).value_counts(dropna=False)
+
+# %%
+concat[concat.a_quality == "minor-augmented tetrachord"]
+
+# %% [markdown]
+# ### Making sure roman_numeral2scale_degree() computes music21-equivalent scale degrees for all numerals
+
+# %%
+concat["numeral"] = concat.a_romanNumeral.str.extract(
+    "^((?:#*|b*|-*)(?:Cad|Ger|It|Fr|N|VII|VI|V|IV|III|II|I|vii|vi|v|iv|iii|ii|i))"
+)
+
+# roman_numeral2scale_degree() (when key_is_minor=True) determines chord quality purely based on the numeral's third,
+# as expressed by it being in lowercase (m3) or uppercase (M3). Therefore, the numerals of augmented chords written in
+# lowercase need to be converted to upper case. A regEx is used to convert only the characters i and v.
+upper_case_numeral = concat.numeral.str.replace(
+    "([iv])", lambda match: match.group(1).upper(), regex=True
+)
+concat.numeral = concat.numeral.where(
+    concat.a_quality != "augmented triad", upper_case_numeral
+)
+concat["tonicizedkey_is_minor"] = concat.a_tonicizedKey.str.islower()
+concat["degree1"] = ms3.transform(
+    concat,
+    utils.roman_numeral2scale_degree,
+    ["numeral", "tonicizedkey_is_minor"],
+    flat_character="-",
+)
+
+# %%
+not_matching_mask = (concat.a_degree1 != concat.degree1.fillna("")) & (
+    concat.a_degree2 != "None"
+)
 concat[not_matching_mask]
