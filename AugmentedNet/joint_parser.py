@@ -177,7 +177,7 @@ def parseAnnotationAndScoreEvents(
     )
     # Sometimes, scores are longer than annotations (trailing empty measures)
     # In that case, ffill the annotation portion of the new dataframe
-    jointdf["a_isOnset"].fillna(False, inplace=True)
+    jointdf.a_isOnset = jointdf.a_isOnset.astype("boolean").fillna(False)
     j_offset = jointdf.s_offset.rename("j_offset")
     labels_not_coinciding_with_any_note_mask = jointdf.s_offset.isna()
     if labels_not_coinciding_with_any_note_mask.any():

@@ -200,8 +200,8 @@ def _reindexDataFrame(df, fixedOffset=FIXEDOFFSET):
     # are removed and just the fixed-timesteps are kept
     df = df.reindex(index=df.index.union(newIndex))
     # here onsets are easier, every "injected" index is not an onset
-    df.a_isOnset.fillna(value=False, inplace=True)
-    df.fillna(method="ffill", inplace=True)
+    df.a_isOnset = df.a_isOnset.fillna(value=False).astype("boolean")
+    df = df.ffill()
     df = df.reindex(index=newIndex)
     return df
 
