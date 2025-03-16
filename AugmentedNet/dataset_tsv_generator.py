@@ -2,23 +2,27 @@
 
 import os
 import shutil
+from pathlib import Path
+from typing import Optional
 
 import pandas as pd
-from pathlib import Path
 
 from . import cli
 from .common import (
     ANNOTATIONSCOREDUPLES,
-    DATASPLITS,
     DATASETSUMMARYFILE,
+    DATASPLITS,
 )
 from .joint_parser import (
+    parseAnnotationAndAnnotation,
     parseAnnotationAndScore,
-    parseAnnotationAndAnnotation, parseAnnotationAndScoreEvents,
+    parseAnnotationAndScoreEvents,
 )
 
 
-def generateDataset(synthesize=False, texturize=False, tsvDir="dataset", eventBased=False):
+def generateDataset(
+    synthesize=False, texturize=False, tsvDir="dataset", eventBased=False
+):
     statsdict = {
         "file": [],
         "annotation": [],
@@ -60,21 +64,25 @@ def generateDataset(synthesize=False, texturize=False, tsvDir="dataset", eventBa
             df.to_csv(os.path.join(datasetDir, DATASETSUMMARYFILE), sep="\t")
     return df
 
+
 def store_labeled_pitch_array_and_label_tsv(
-        nickname: str,
-        score_path: str,
-        annotation_path: str,
-        datasetDir: str,
-        split: str,
-        assembled_dir: str,
-        include_metadata: bool = True
+    nickname: str,
+    score_path: str,
+    annotation_path: str,
+    datasetDir: str,
+    split: str,
+    assembled_dir: Optional[str] = None,
+    include_metadata: bool = True,
 ):
-    extended_adf, sdf, jointdf, metadata = parseAnnotationAndScoreEvents(annotation_path, score_path)
+    extended_adf, sdf, jointdf, metadata = parseAnnotationAndScoreEvents(
+        annotation_path, score_path
+    )
     for df, suffix in [(jointdf, "joint")]:  # , (sdf, "slices")]:
         outpath = os.path.join(datasetDir, split, f"{nickname}_{suffix}.tsv")
         df.to_csv(outpath, sep="\t", index=False)
-    outpath = os.path.join(assembled_dir, "labels", f"{nickname}.tsv")
-    extended_adf.to_csv(outpath, sep="\t", index=False)
+    if assembled_dir:
+        outpath = os.path.join(assembled_dir, "labels", f"{nickname}.tsv")
+        extended_adf.to_csv(outpath, sep="\t", index=False)
     # copy and rename original score
     _, score_ext = os.path.splitext(score_path)
     new_score_path = os.path.join(datasetDir, split, f"{nickname}{score_ext}")
@@ -85,14 +93,16 @@ def store_labeled_pitch_array_and_label_tsv(
         annotation=annotation_path,
         score=score_path,
         collection=collection,
-        split=split
+        split=split,
     )
     if include_metadata:
         stats.update(metadata)
     return stats
 
 
-def generateEventsDataset(tsvDir="events", assembled_dir="assembled", include_metadata=True):
+def generateEventsDataset(
+    tsvDir="events", assembled_dir="assembled", include_metadata=True
+):
     statsrecords = []
     datasetDir = tsvDir
     Path(datasetDir).mkdir(exist_ok=True)
@@ -102,8 +112,14 @@ def generateEventsDataset(tsvDir="events", assembled_dir="assembled", include_me
             print(nickname)
             annotation, score = ANNOTATIONSCOREDUPLES[nickname]
             stats = store_labeled_pitch_array_and_label_tsv(
-                nickname, score, annotation, datasetDir, split, assembled_dir, include_metadata
-                )
+                nickname,
+                score,
+                annotation,
+                datasetDir,
+                split,
+                assembled_dir,
+                include_metadata,
+            )
             statsrecords.append(stats)
             # misalignment = jointdf.measureMisalignment.mean().round(2)
             # statsdict["misalignmentMean"].append(misalignment)
@@ -120,5 +136,5 @@ if __name__ == "__main__":
     parser = cli.tsv()
     args = parser.parse_args()
     kwargs = vars(args)
-    #generateDataset(**kwargs)
+    # generateDataset(**kwargs)
     generateEventsDataset()
