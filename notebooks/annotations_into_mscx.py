@@ -14,7 +14,10 @@
 # ---
 
 # %%
+import re
 import ms3
+import numpy as np
+
 
 def absolute_localkey_to_numeral(localkey_abs: str, globalkey: str):
     lc_is_minor = localkey_abs.islower()
@@ -33,10 +36,6 @@ dataset
 dataset.parse(parallel=False)
 
 # %%
-import re
-    
-    
-
 def replace_abc_dom9(label, localkey):
     
     def ninth_in_parentheses(match):
@@ -107,17 +106,17 @@ for piece_id, piece in dataset.iter_pieces():
         .str.replace("^bII4#3$", "biiM43", regex=True)
         .str.replace("^IV6b5$", "IV65", regex=True)
         .str.replace("/viio", "/vii", regex=False) 
-        .str.replace("^(V|I|v)4$", r"\1(4)", regex=True) 
+        .str.replace(r"^(V|I|v)4$", r"\1(4)", regex=True)
         .str.replace("^ivb$", "iv", regex=True)
-        .str.replace("^I6\+$", "I6", regex=True) # winterreise-d-911-16-letzte-hoffnung (should've been augmented)
+        .str.replace(r"^I6\+$", "I6", regex=True) # winterreise-d-911-16-letzte-hoffnung (should've been augmented)
         .str.replace("^(V|I|i)54$", r"\1(4)", regex=True)       # romantische-gesange-10-ida-aus-ariels-offenbarungen
         .str.replace("^i:$", "i", regex=True)
         .str.replace("^It53$", "#vo(b3)/V", regex=True)
-        .str.replace("^It53\[add4\]$", "#vo(+4b3)/V", regex=True)
+        .str.replace(r"^It53\[add4\]$", "#vo(+4b3)/V", regex=True)
         .str.replace("^viio/42$", "viio42", regex=True) # this is meant as viiø42 but misinterpreted as viio42
         .str.replace(r"^(VI|iv|i)b7$", r"\g<1>7", regex=True)      # wir-openscore-liedercorpus-chaminade-amoroso    
         .str.replace("-VI", "VI", regex=False)          # tavern-beethoven-woo-75-a, m. 461
-        .str.replace("\[\S+\]", "", regex=True)         # alternative labels in TAVERN
+        .str.replace(r"\[\S+\]", "", regex=True)         # alternative labels in TAVERN
         .str.replace("I7+6", "I+M65", regex=False)      # tavern-beethoven-woo-65-a, m. 122
         .str.replace("Vi", "V7", regex=False)           # bps-16-op031-no1-1, m. 84
         .str.replace("V7IV", "V7/IV", regex=False)      # bps-26-op081a-les-adieux-1, m. 66
@@ -163,16 +162,11 @@ print(len(fractions_list))
 fractions_list
 
 # %%
-import numpy as np
-
 lcm = np.lcm.reduce([fr.denominator for fr in fractions_list])
 
 vals = [int(fr.numerator * lcm / fr.denominator) for fr in fractions_list]
 #vals.append(lcm)
 vals
-
-# %%
-for 
 
 # %%
 score.attach_labels(
