@@ -1,10 +1,10 @@
 import itertools
-import json
 import os
 import warnings
+from ast import literal_eval
 from fractions import Fraction
 from functools import cache
-from typing import Dict, Iterable, Literal, Optional, Tuple, overload
+from typing import Dict, Iterable, List, Literal, Optional, Tuple, overload
 
 import git
 import ms3
@@ -1102,32 +1102,18 @@ def safe_fraction(s: str) -> Fraction | str:
         return s
 
 
-def str2inttuple(tuple_string: str, strict: bool = True) -> Tuple[int]:
-    tuple_string = tuple_string.strip("[](),")
-    if tuple_string == "":
-        return tuple()
-    res = []
-    for s in tuple_string.split(", "):
-        try:
-            res.append(int(s))
-        except ValueError:
-            if strict:
-                print(
-                    f"String value '{s}' could not be converted to an integer, "
-                    f"'{tuple_string}' not to an integer tuple."
-                )
-                raise
-            if s[0] == s[-1] and s[0] in ('"', "'"):
-                s = s[1:-1]
-            try:
-                res.append(int(s))
-            except ValueError:
-                res.append(s)
-    return tuple(res)
+def safe_literal_eval(s: str):
+    try:
+        return literal_eval(s)
+    except Exception:
+        return s
 
 
 def load_labeled_pitch_array(
-    specs_csv: str, pitch_array_tsv: str, dropna: bool = True, **replace_dtypes
+    specs_csv: str,
+    pitch_array_tsv: str,
+    dropna_subset: Optional[str | List[str]] = None,
+    **replace_dtypes,
 ) -> pd.DataFrame:
     """
 
@@ -1137,15 +1123,23 @@ def load_labeled_pitch_array(
             to be loaded and a column "dtype" containing the corresponding dtypes as output by
             pd.DataFrame.dtypes
         pitch_array_tsv:
-        dropna:
+        dropna_subset:
+            If you want to drop rows that contain missing values in certain, pass the name(s)
+            of these/this column(s). For AugmentedNet data you could use "s_note",
+            for DLC data "tpc", for example.
         **replace_dtypes: Keyword arguments can be used to overwrite the dtypes from the CSV.
     """
     loaded_specs = pd.read_csv(specs_csv, index_col=0)
     converters = dict(
-        chord_tones=str2inttuple,
-        added_tones=str2inttuple,
+        a_pcset=safe_literal_eval,
+        a_pitchNames=safe_literal_eval,
+        chord_tones=safe_literal_eval,
+        added_tones=safe_literal_eval,
         duration=safe_fraction,
+        mn_onset=safe_fraction,
         quarterbeats_playthrough=safe_fraction,
+        s_duration_frac=safe_fraction,
+        s_offset_frac=safe_fraction,
     )
     dtype_dict = {
         col: dtype
@@ -1155,4 +1149,4 @@ def load_labeled_pitch_array(
     result = pd.read_csv(
         pitch_array_tsv, sep="\t", dtype=dtype_dict, converters=converters
     )
-    return result.dropna(subset="tpc") if dropna else result
+    return result.dropna(subset=dropna_subset) if dropna_subset else result
