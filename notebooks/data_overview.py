@@ -17,6 +17,7 @@
 # DON'T EVEN TRY TO RUN THIS ON WINDOWS
 
 import os
+import re
 from typing import Dict
 
 import git
@@ -291,21 +292,21 @@ select_columns = [
     "filepath",
     f"file_change_commit_url_{aug_ver}",
 ]
-summary = pd.merge(
+augnet_summary = pd.merge(
     left=augnet.loc[~is_analysis, select_columns],
     right=augnet.loc[is_analysis, select_columns],
     on=["corpus", id_col, split_col],
     suffixes=("_score", "_annotation"),
-)
-summary
+).set_index(id_col)
+augnet_summary
 
 # %%
-summary.to_csv("../augnet_summary_v100.tsv", sep="\t", index=False)
+augnet_summary.to_csv("../augnet_summary_v100.tsv", sep="\t", index=True)
 
 # %% [markdown]
 # ## DLC part
 
-# %% is_executing=true
+# %%
 DLC_PATH = ms3.resolve_dir(
     "~/distant_listening_corpus"
 )  # needs to be checked out at the right path (currenty "pitch_arrays")
@@ -362,5 +363,55 @@ dlc_summary.iloc[:, 2:].sum()
 # %% [markdown]
 # **Check which piece comes without phrase annotations.**
 
-# %% is_executing=true
+# %%
 dlc_summary[~dlc_summary.has_phrase]
+
+# %% [markdown]
+# ## Joining them together
+
+# %%
+dlc_ids = dlc_summary.index.to_frame()
+abc_ids_dlc = dlc_ids.loc[["ABC"]]
+abc_naming_dlc = r"""
+n(?P<quartet>\d{2})
+op(?P<op>\d{2,3})
+(?:-(?P<no>\d))?
+_(?P<mvt>\d{2})
+"""
+abc_names_dlc = abc_ids_dlc.piece.str.extract(abc_naming_dlc, flags=re.VERBOSE).astype(
+    "Int64"
+)
+
+abc_naming_augnet = r"""
+abc-op(?P<op>\d+)
+(?:-no(?P<no>\d))?
+-(?P<mvt>\d)
+"""
+abc_ids_augnet = augnet_summary.loc[augnet_summary.corpus == "abc", id_col]
+abc_names_augnet = abc_ids_augnet.str.extract(
+    abc_naming_augnet, flags=re.VERBOSE
+).astype("Int64")
+
+merged_abc_ids = pd.merge(
+    left=abc_names_augnet.reset_index(),
+    right=abc_names_dlc.reset_index(),
+    on=["op", "no", "mvt"],
+    how="left",
+)
+dlc_index2augnet_ids = (
+    merged_abc_ids.set_index(["corpus", "piece"])[id_col]
+    .astype("string")
+    .reindex(dlc_summary.index)
+)
+dlc_index2augnet_ids
+
+# %%
+bps_ids_augnet = augnet_summary.loc[augnet_summary.corpus == "bps", id_col]
+bps_ids_augnet.str.split("-", expand=True).iloc[:, 1].astype("Int64")
+
+# %%
+
+# %%
+
+# %%
+augnet_summary
