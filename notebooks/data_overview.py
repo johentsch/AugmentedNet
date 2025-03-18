@@ -316,7 +316,7 @@ dlc_annotations = dlc.get_facet("expanded")
 dlc_annotations
 
 
-# %% is_executing=true
+# %%
 def column_is_present_and_not_empty(df: pd.DataFrame, col_name: str) -> bool:
     if col_name not in df.columns:
         return False
@@ -337,9 +337,10 @@ def detect_label_types(df: pd.DataFrame):
 
 
 label_types = dlc_annotations.groupby(["corpus", "piece"]).apply(detect_label_types)
+label_types.has_pedal = True
 label_types
 
-# %% is_executing=true
+# %%
 metadata_path = os.path.join(
     DLC_PATH, "processing", "distant_listening_corpus.metadata.tsv"
 )
@@ -350,12 +351,12 @@ modified = ms3.load_tsv(
 )
 modified
 
-# %% is_executing=true
+# %%
 dlc_summary = modified.join(label_types, how="right")
 dlc_summary.to_csv("../dlc_summary.tsv", sep="\t")
 dlc_summary
 
-# %% is_executing=true
+# %%
 dlc_summary.iloc[:, 2:].sum()
 
 # %% [markdown]
