@@ -20,6 +20,7 @@ import os
 from typing import Dict
 
 import git
+import ms3
 import pandas as pd
 
 from AugmentedNet import utils
@@ -38,8 +39,10 @@ def resolve_dir(d):
 
 REPO_PATH = resolve_dir("..")
 DATASET = "events"
-augmentednet_repo = git.Repo(REPO_PATH)
-augmentednet_version = "v1.0.0"
+AUGMENTEDNET_REPO = git.Repo(REPO_PATH)
+AUGMENTEDNET_VERSION = "v1.0.0"
+aug_ver = AUGMENTEDNET_VERSION.replace(".", "")
+id_col, split_col = f"id_{aug_ver}", f"split_{aug_ver}"
 REGENERATE = False
 print(REPO_PATH)
 
@@ -83,7 +86,7 @@ print(
 
 # %%
 SUBMODULE_REPOS: Dict[str, git.Repo] = {
-    sm.name: sm.module() for sm in augmentednet_repo.submodules
+    sm.name: sm.module() for sm in AUGMENTEDNET_REPO.submodules
 }
 SUBMODULE_VERSIONS = {
     name: sm_repo.git.describe(tags=True, always=True)
@@ -149,8 +152,8 @@ def create_data_overview(rawdata_path, path2name_and_split, augnet_version):
         else:
             current_repo_name = "AugmentedNet"
             git_path_base = REPO_PATH
-        current_repo = SUBMODULE_REPOS.get(data_dir, augmentednet_repo)
-        current_repo_version = SUBMODULE_VERSIONS.get(data_dir, augmentednet_version)
+        current_repo = SUBMODULE_REPOS.get(data_dir, AUGMENTEDNET_REPO)
+        current_repo_version = SUBMODULE_VERSIONS.get(data_dir, AUGMENTEDNET_VERSION)
         current_repo_url = REPO_URLS.get(current_repo_name).strip("/")
         subcorpus_position = SUBCORPUS_POSITION.get(current_repo_name)
         for path, subdirs, files in os.walk(data_dir_path):
@@ -226,32 +229,32 @@ if REGENERATE:
     df = create_data_overview(
         rawdata_path,
         path2name_and_split=path2name_and_split,
-        augnet_version=augmentednet_version,
+        augnet_version=AUGMENTEDNET_VERSION,
     )
     df.to_csv(tsv_path, sep="\t", index=False)
 else:
-    converters = dict(
-        id_v100=utils.safe_literal_eval, split_v100=utils.safe_literal_eval
-    )
-    df = pd.read_csv(tsv_path, sep="\t", converters=converters)
+    dtype = {id_col: object, split_col: object}
+    df = pd.read_csv(tsv_path, sep="\t", dtype=dtype)
+    tuple_mask = df[id_col].str.startswith("(").fillna(False)
+    df.loc[tuple_mask, [id_col, split_col]] = df.loc[
+        tuple_mask, [id_col, split_col]
+    ].applymap(utils.safe_literal_eval)
 df
 
 # %%
-attributed_filepaths = (
-    df[f"split_{augmentednet_version.replace('.', '')}"].notna().sum()
-)
+attributed_filepaths = df[split_col].notna().sum()
 assert attributed_filepaths == len(path2name_and_split), (
-    f"Not all of the {len(path2name_and_split)} used files have been attributed in the Dataframe, probably due to "
-    f"exclusion criteria."
+    f"Not all of the {len(path2name_and_split)} used files have been attributed in the Dataframe (containing "
+    f"{attributed_filepaths}), probably due to exclusion criteria."
 )
 
 # %% [markdown]
 # # Joint overview
+# ## AugmentedNet part
 
 # %%
-aug_ver = augmentednet_version.replace(".", "")
-id_col, split_col = f"id_{aug_ver}", f"split_{aug_ver}"
-augnet = df[df[split_col] != ""].copy()
+
+augnet = df[df[split_col].notna()].copy()
 value_type = augnet[id_col].map(type)
 tuple_mask = value_type == tuple
 exploded_tuples = augnet[tuple_mask].explode([id_col, split_col])
@@ -298,3 +301,65 @@ summary
 
 # %%
 summary.to_csv("../augnet_summary_v100.tsv", sep="\t", index=False)
+
+# %% [markdown]
+# ## DLC part
+
+# %% is_executing=true
+DLC_PATH = ms3.resolve_dir(
+    "~/distant_listening_corpus"
+)  # needs to be checked out at the right path (currenty "pitch_arrays")
+dlc = ms3.Parse(DLC_PATH)
+dlc.view.include("facet", "expanded")
+dlc.parse_tsv()
+dlc_annotations = dlc.get_facet("expanded")
+dlc_annotations
+
+
+# %% is_executing=true
+def column_is_present_and_not_empty(df: pd.DataFrame, col_name: str) -> bool:
+    if col_name not in df.columns:
+        return False
+    return df[col_name].notna().any()
+
+
+def detect_label_types(df: pd.DataFrame):
+    """Takes a harmony TSV and looks up which types of annotation labels are present."""
+    return pd.Series(
+        dict(
+            has_chords=column_is_present_and_not_empty(df, "chord"),
+            has_cadence=column_is_present_and_not_empty(df, "cadence"),
+            has_phrase=column_is_present_and_not_empty(df, "phraseend"),
+            has_pedal=column_is_present_and_not_empty(df, "pedal"),
+        ),
+        dtype="boolean",
+    )
+
+
+label_types = dlc_annotations.groupby(["corpus", "piece"]).apply(detect_label_types)
+label_types
+
+# %% is_executing=true
+metadata_path = os.path.join(
+    DLC_PATH, "processing", "distant_listening_corpus.metadata.tsv"
+)
+modified = ms3.load_tsv(
+    metadata_path,
+    index_col=["corpus", "piece"],
+    usecols=["corpus", "piece", "last_modified_url", "rel_path"],
+)
+modified
+
+# %% is_executing=true
+dlc_summary = modified.join(label_types, how="right")
+dlc_summary.to_csv("../dlc_summary.tsv", sep="\t")
+dlc_summary
+
+# %% is_executing=true
+dlc_summary.iloc[:, 2:].sum()
+
+# %% [markdown]
+# **Check which piece comes without phrase annotations.**
+
+# %% is_executing=true
+dlc_summary[~dlc_summary.has_phrase]
