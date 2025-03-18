@@ -14,14 +14,16 @@
 # ---
 
 # %%
-# DO NOT TRY TO RUN THIS ON WINDOWS
+# DON'T EVEN TRY TO RUN THIS ON WINDOWS
 
 import os
-
-import pandas as pd
-import git
 from typing import Dict
-from AugmentedNet.common import DATASPLITS, ANNOTATIONSCOREDUPLES
+
+import git
+import pandas as pd
+
+from AugmentedNet import utils
+from AugmentedNet.common import ANNOTATIONSCOREDUPLES, DATASPLITS
 
 
 def resolve_dir(d):
@@ -33,10 +35,12 @@ def resolve_dir(d):
         return os.path.expanduser(d)
     return os.path.abspath(d)
 
+
 REPO_PATH = resolve_dir("..")
 DATASET = "events"
 augmentednet_repo = git.Repo(REPO_PATH)
 augmentednet_version = "v1.0.0"
+REGENERATE = False
 print(REPO_PATH)
 
 
@@ -53,6 +57,7 @@ def add_safely(dictionary, key, pair):
     else:
         dictionary[key] = pair
 
+
 def assemble_ids_and_splits(datasplits, annotationscoreduples):
     path2name_and_split = {}
 
@@ -67,14 +72,18 @@ def assemble_ids_and_splits(datasplits, annotationscoreduples):
             n += 1
     return path2name_and_split, n
 
-path2name_and_split, n_files = assemble_ids_and_splits(DATASPLITS, ANNOTATIONSCOREDUPLES)
-print(f"{n_files} uses of {len(path2name_and_split)} files overall (some scores are used multiple times).")
-#assert len(path2name_and_split) == i * 2, f"dict length {len(path2name_and_split)} != {i * 2} ({i} * 2)"
+
+path2name_and_split, n_files = assemble_ids_and_splits(
+    DATASPLITS, ANNOTATIONSCOREDUPLES
+)
+print(
+    f"{n_files} uses of {len(path2name_and_split)} files overall (some scores are used multiple times)."
+)
+# assert len(path2name_and_split) == i * 2, f"dict length {len(path2name_and_split)} != {i * 2} ({i} * 2)"
 
 # %%
 SUBMODULE_REPOS: Dict[str, git.Repo] = {
-    sm.name: sm.module()
-    for sm in augmentednet_repo.submodules
+    sm.name: sm.module() for sm in augmentednet_repo.submodules
 }
 SUBMODULE_VERSIONS = {
     name: sm_repo.git.describe(tags=True, always=True)
@@ -84,18 +93,19 @@ SUBMODULE_VERSIONS
 
 # %%
 REPO_URLS = {
- 'AugmentedNet': 'https://github.com/napulen/AugmentedNet',
- 'TAVERN': 'https://github.com/jcdevaney/TAVERN',
- 'ABC': 'https://github.com/DCMLab/ABC',
- 'haydn_op20_harm': 'https://github.com/napulen/haydn_op20_harm',
- 'When-in-Rome': 'https://github.com/MarkGotham/When-in-Rome',
- 'music21_corpus': 'https://github.com/cuthbertLab/music21',
- 'functional-harmony-micchi': 'https://github.com/napulen/functional-harmony-micchi'
+    "AugmentedNet": "https://github.com/napulen/AugmentedNet",
+    "TAVERN": "https://github.com/jcdevaney/TAVERN",
+    "ABC": "https://github.com/DCMLab/ABC",
+    "haydn_op20_harm": "https://github.com/napulen/haydn_op20_harm",
+    "When-in-Rome": "https://github.com/MarkGotham/When-in-Rome",
+    "music21_corpus": "https://github.com/cuthbertLab/music21",
+    "functional-harmony-micchi": "https://github.com/napulen/functional-harmony-micchi",
 }
 
 # %%
 EXCLUDED_EXTENSIONS = (".h5", ".jl", "krn~", ".md", ".pdf", ".py", ".sh", ".swp")
-# (".cfg", ".css", ".csv", ".h5", ".html", ".in", ".ipynb", ".jl", ".js", ".md", ".pdf", ".png", ".py", ".rst", ".sh", ".tsv", ".yml")
+# (".cfg", ".css", ".csv", ".h5", ".html", ".in", ".ipynb", ".jl", ".js", ".md", ".pdf", ".png", ".py", ".rst", ".sh",
+# ".tsv", ".yml")
 EXCLUDED_NAME_COMPONENTS = ("feedback", "license", "slices", "template", "requirements")
 PRINT_SYMBOLS = dict(validation="/", training="|", test="\\")
 PATH_FILTERS = {
@@ -103,17 +113,21 @@ PATH_FILTERS = {
     os.path.join("rawdata", "When-in-Rome"): ["Corpus"],
     os.path.join("rawdata", "music21_corpus"): ["music21"],
     os.path.join("rawdata", "music21_corpus", "music21"): ["corpus"],
-    os.path.join("rawdata", "music21_corpus", "music21", "corpus"): ["bach", "monteverdi"],
+    os.path.join("rawdata", "music21_corpus", "music21", "corpus"): [
+        "bach",
+        "monteverdi",
+    ],
 }
 SUBCORPUS_POSITION = {
- 'AugmentedNet': 2, # rawdata/corrections/ABC
- 'TAVERN': 0, # TAVERN/Beethoven
- 'ABC': None,
- 'haydn_op20_harm': None,
- 'When-in-Rome': 1, # When-in-Rome/Corpus/Early_Choral
- 'music21_corpus': 2, # music21/corpus/bach
- 'functional-harmony-micchi': 1 # data/19th_Century_Songs
+    "AugmentedNet": 2,  # rawdata/corrections/ABC
+    "TAVERN": 0,  # TAVERN/Beethoven
+    "ABC": None,
+    "haydn_op20_harm": None,
+    "When-in-Rome": 1,  # When-in-Rome/Corpus/Early_Choral
+    "music21_corpus": 2,  # music21/corpus/bach
+    "functional-harmony-micchi": 1,  # data/19th_Century_Songs
 }
+
 
 def get_commit_where_file_last_changed(repo: git.Repo, paths=str):
     try:
@@ -122,14 +136,11 @@ def get_commit_where_file_last_changed(repo: git.Repo, paths=str):
         raise StopIteration(f"{repo!r} does not have any commits for {paths}") from e
 
 
-def create_data_overview(
-        rawdata_path,
-        path2name_and_split,
-        augnet_version
-):
+def create_data_overview(rawdata_path, path2name_and_split, augnet_version):
     data = []
     for data_dir in os.listdir(rawdata_path):
-        if data_dir == "TAVERN": continue # the original files are not actually used and there are many, many, many
+        if data_dir == "TAVERN":
+            continue  # the original files are not actually used and there are many, many, many
         print(f"\n{data_dir}")
         data_dir_path = os.path.join(rawdata_path, data_dir)
         if data_dir in SUBMODULE_VERSIONS:
@@ -166,16 +177,20 @@ def create_data_overview(
                         subcorpus = split_git_path[subcorpus_position]
                     except Exception:
                         pass
-                file_last_changed_commit = get_commit_where_file_last_changed(current_repo, paths=git_filepath)
+                file_last_changed_commit = get_commit_where_file_last_changed(
+                    current_repo, paths=git_filepath
+                )
                 file_last_changed_commit_sha = file_last_changed_commit.hexsha
-                file_last_changed_commit_version = current_repo.git.describe(file_last_changed_commit_sha, tags=True, always=True)
+                file_last_changed_commit_version = current_repo.git.describe(
+                    file_last_changed_commit_sha, tags=True, always=True
+                )
                 file_change_commit_url = f"{current_repo_url}/blob/{file_last_changed_commit_version}/{git_filepath}"
                 aug_ver = augnet_version.replace(".", "")
                 info_dict = dict(
-                    dataset = data_dir,
-                    subcorpus = subcorpus,
+                    dataset=data_dir,
+                    subcorpus=subcorpus,
                     file=file,
-                    fname = fname,
+                    fname=fname,
                     extension=fext[1:],
                 )
                 if filepath in path2name_and_split:
@@ -185,26 +200,101 @@ def create_data_overview(
                 else:
                     print_symbol = ":"
                     nickname, split = None, None
-                info_dict.update({
-                    f"id_{aug_ver}": nickname,
-                    f"split_{aug_ver}": split,
-                    f"last_modified_{aug_ver}": file_last_changed_commit_version,
-                    f"file_change_commit_url_{aug_ver}": file_change_commit_url,
-                    "repository": current_repo_name,
-                    f"repo_version_{aug_ver}": current_repo_version,
-                    "folder": folder_name,
-                    "folderpath": rel_path,
-                    "filepath": filepath
-                })
+                info_dict.update(
+                    {
+                        f"id_{aug_ver}": nickname,
+                        f"split_{aug_ver}": split,
+                        f"last_modified_{aug_ver}": file_last_changed_commit_version,
+                        f"file_change_commit_url_{aug_ver}": file_change_commit_url,
+                        "repository": current_repo_name,
+                        f"repo_version_{aug_ver}": current_repo_version,
+                        "folder": folder_name,
+                        "folderpath": rel_path,
+                        "filepath": filepath,
+                    }
+                )
                 data.append(info_dict)
                 print(print_symbol, end="")
-    return pd.DataFrame.from_records(data).sort_values(["dataset", "subcorpus", "file", "filepath"])
+    return pd.DataFrame.from_records(data).sort_values(
+        ["dataset", "subcorpus", "file", "filepath"]
+    )
+
 
 rawdata_path = os.path.join(REPO_PATH, "rawdata")
-df = create_data_overview(rawdata_path, path2name_and_split=path2name_and_split, augnet_version = augmentednet_version)
-df.to_csv("../augnet_rawdata_v100.tsv", sep="\t", index=False)
-df.head()
+tsv_path = "../augnet_rawdata_v100.tsv"
+if REGENERATE:
+    df = create_data_overview(
+        rawdata_path,
+        path2name_and_split=path2name_and_split,
+        augnet_version=augmentednet_version,
+    )
+    df.to_csv(tsv_path, sep="\t", index=False)
+else:
+    converters = dict(
+        id_v100=utils.safe_literal_eval, split_v100=utils.safe_literal_eval
+    )
+    df = pd.read_csv(tsv_path, sep="\t", converters=converters)
+df
 
 # %%
-attributed_filepaths = df[f"split_{augmentednet_version.replace('.', '')}"].notna().sum()
-assert attributed_filepaths == len(path2name_and_split), f"Not all of the {len(path2name_and_split)} used files have been attributed in the Dataframe, probably due to exclusion criteria."
+attributed_filepaths = (
+    df[f"split_{augmentednet_version.replace('.', '')}"].notna().sum()
+)
+assert attributed_filepaths == len(path2name_and_split), (
+    f"Not all of the {len(path2name_and_split)} used files have been attributed in the Dataframe, probably due to "
+    f"exclusion criteria."
+)
+
+# %% [markdown]
+# # Joint overview
+
+# %%
+aug_ver = augmentednet_version.replace(".", "")
+id_col, split_col = f"id_{aug_ver}", f"split_{aug_ver}"
+augnet = df[df[split_col] != ""].copy()
+value_type = augnet[id_col].map(type)
+tuple_mask = value_type == tuple
+exploded_tuples = augnet[tuple_mask].explode([id_col, split_col])
+augnet = pd.concat([augnet[~tuple_mask], exploded_tuples])
+# corpus_col = (augnet.subcorpus
+#               .fillna(augnet.dataset)
+#               .replace(
+#                     {
+#                         "Beethoven_4tets": "ABC",
+#                         "Early_Choral": "bach_chorales",
+#                         "Etudes_and_Preludes": "WTC",
+#                         "OpenScore-LiederCorpus": "lieder_corpus",
+#                         "Piano_Sonatas": "BPS",
+#                         "Variations_and_Grounds": "Tavern"
+#                     }
+#                 )
+#               .rename("corpus"))
+corpus_col = augnet[id_col].str.split("-", expand=True)[0].rename("corpus")
+augnet = pd.concat([corpus_col, augnet], axis=1)
+augnet = augnet.sort_values(
+    by=["corpus", split_col, id_col], ascending=True
+).reset_index(drop=True)
+augnet
+
+# %%
+augnet.extension.value_counts()
+
+# %%
+is_analysis = augnet.extension == "txt"
+select_columns = [
+    "corpus",
+    split_col,
+    id_col,
+    "filepath",
+    f"file_change_commit_url_{aug_ver}",
+]
+summary = pd.merge(
+    left=augnet.loc[~is_analysis, select_columns],
+    right=augnet.loc[is_analysis, select_columns],
+    on=["corpus", id_col, split_col],
+    suffixes=("_score", "_annotation"),
+)
+summary
+
+# %%
+summary.to_csv("../augnet_summary_v100.tsv", sep="\t", index=False)
