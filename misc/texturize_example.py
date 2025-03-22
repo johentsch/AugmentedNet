@@ -3,20 +3,14 @@ import random
 import music21
 
 from AugmentedNet.common import ANNOTATIONSCOREDUPLES
-from AugmentedNet.score_parser import (
-    _m21Parse,
-    _initialDataFrame,
-    _texturizeAnnotationScore,
-)
 from AugmentedNet.score_parser import parseAnnotationAsScore
-
 
 interesting = [
     "abc-op18-no1-1",
     "bps-22-op054-1",
     "bps-25-op079-sonatina-1",
-    "haydnsun-no2-3",
-    "haydnsun-no4-1",
+    "haydnop20-no2-3",
+    "haydnop20-no4-1",
     "tavern-beethoven-woo-69-b",
     "tavern-beethoven-woo-70-a",
     "tavern-beethoven-woo-70-b",
@@ -51,8 +45,7 @@ def _engraveScore(df, ts):
 def get_ts(score):
     s = music21.converter.parse(score)
     tss = {
-        ts.offset: ts.ratioString
-        for ts in s.flat.getElementsByClass("TimeSignature")
+        ts.offset: ts.ratioString for ts in s.flat.getElementsByClass("TimeSignature")
     }
     return tss
 

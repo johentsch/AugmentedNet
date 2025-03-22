@@ -3,7 +3,7 @@ A Roman Numeral Analysis Network with Synthetic Training Examples and Additional
 
 > The `main` branch is now an improved neural network. The source code of the published version (`v1.0.0`) can be found in the [v1](https://github.com/napulen/AugmentedNet/tree/v1) branch. The differences are indicated in any releases > `v1.0.0`. If you report against the published results, you are comparing against `v1.0.0`. If you want to compare against the latest network, train a model using this code.
 
-### ISMIR Paper 
+### ISMIR Paper
 
 N. Nápoles López, M. Gotham, and I. Fujinaga, "AugmentedNet: A Roman Numeral Analysis Network with Synthetic Training Examples and Additional Tonal Tasks." in *Proceedings of the 22nd International Society for Music Information Retrieval Conference*, 2021, pp. 404–411. https://doi.org/10.5281/zenodo.5624533
 
@@ -11,10 +11,10 @@ N. Nápoles López, M. Gotham, and I. Fujinaga, "AugmentedNet: A Roman Numeral A
 ```bibtex
 @inproceedings{napoleslopez21augmentednet,
   author       = {Nápoles López, Néstor and Gotham, Mark and Fujinaga, Ichiro},
-  title        = {{AugmentedNet: A Roman Numeral Analysis Network 
+  title        = {{AugmentedNet: A Roman Numeral Analysis Network
                    with Synthetic Training Examples and Additional
                    Tonal Tasks}},
-  booktitle    = {{Proceedings of the 22nd International Society for 
+  booktitle    = {{Proceedings of the 22nd International Society for
                    Music Information Retrieval Conference}},
   year         = 2021,
   pages        = {404-411},
@@ -32,12 +32,12 @@ N. Nápoles López, M. Gotham, and I. Fujinaga, "AugmentedNet: A Roman Numeral A
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/napulen/AugmentedNet/blob/main/notebooks/AugmentedNet.ipynb)
 
 
-Clone, create a virtual environment, and get the `python` dependencies. 
+Clone, create a virtual environment, and get the `python` dependencies.
 
 ```bash
 git clone https://github.com/napulen/AugmentedNet.git
 cd AugmentedNet
-python3 -m venv .env 
+python3 -m venv .env
 source .env/bin/activate
 
 (.env) pip install -r requirements.txt
@@ -65,7 +65,7 @@ Clone **recursively** (needed to collect the third-party datasets), create a vir
 ```bash
 git clone --recursive https://github.com/napulen/AugmentedNet.git
 cd AugmentedNet
-python3 -m venv .env 
+python3 -m venv .env
 source .env/bin/activate
 
 (.env) pip install -r requirements.txt
@@ -185,7 +185,7 @@ The module documentation is located [here](https://napulen.github.io/AugmentedNe
 
 All the experiments presented in the paper were monitored using `mlflow`.
 
-If you want to visualize the experiments with the [mlflow ui](https://www.mlflow.org/docs/latest/quickstart.html#viewing-the-tracking-ui): 
+If you want to visualize the experiments with the [mlflow ui](https://www.mlflow.org/docs/latest/quickstart.html#viewing-the-tracking-ui):
 
 1. `pip install mlflow`
 2. Download our [mlruns](https://github.com/napulen/AugmentedNet/releases/download/v1.0.0/mlruns.zip) with the AugmentedNet experiments
@@ -228,7 +228,7 @@ These are the results for the best AugmentedNet configuration (11+) against othe
 |-------------------------|--------------|--------------|--------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|-----------------------|--------------------------------|-----------------------|
 | Full test set           | Full dataset | AugN         | 82.9                           | 67.0                  | 79.7                  | 78.8                  | 83.0                  | 65.6                  | 46.4                           | 51.5                  |
 | WiR                     | Full dataset | AugN         | 81.8                           | 69.2                  | 85.9                  | 90.3                  | 90.3                  | 70.2                  | 56.4                           | 62.4                  |
-| HaydnSun                | Full dataset | AugN         | 81.2                           | 62.9                  | 80.2                  | 82.7                  | 86.5                  | 60.4                  | 48.6                           | 52.1                  |
+| haydnop20                | Full dataset | AugN         | 81.2                           | 62.9                  | 80.2                  | 82.7                  | 86.5                  | 60.4                  | 48.6                           | 52.1                  |
 | ABC                     | Full dataset | AugN         | 83.6                           | 65.6                  | 78.0                  | 76.9                  | 78.9                  | 62.6                  | 44.5                           | 48.4                  |
 | TAVERN                  | Full dataset | AugN         | 88.7                           | 60.0                  | 77.4                  | 78.8                  | 81.5                  | 66.3                  | 42.6                           | 52.9                  |
 | WTC                     | Full dataset | AugN         | 77.2                           | 69.7                  | 75.0                  | 74.4                  | 82.7                  | 61.7                  | **46.2**                       | 47.9                  |
