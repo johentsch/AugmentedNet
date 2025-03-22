@@ -14,6 +14,10 @@ import pandas as pd
 # from dimcat.data.resources.facets import extend_keys_feature, extend_harmony_feature, extend_cadence_feature
 from numpy._typing import NDArray
 
+ROOT_RN_REGEX = (
+    "^((?:#*|b*|-*)(?:Cad|Ger|It|Fr|N|VII|VI|V|IV|III|II|I|vii|vi|v|iv|iii|ii|i))"
+)
+
 # region DivMaker
 
 

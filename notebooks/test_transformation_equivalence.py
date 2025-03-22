@@ -29,25 +29,6 @@ DATASET_PATH = ms3.resolve_dir("../events")
 print(DATASET_PATH)
 
 # %%
-
-dlc_labels = ms3.load_tsv(
-    "/home/laser/Documents/Linz/DLC_version_comparison/distant_listening_corpus_v3.1/"
-    "distant_listening_corpus.expanded.tsv"
-)
-dlc_labels
-
-# %%
-
-dlc_labels[dlc_labels.chord.isna()]
-
-# %%
-dlc_measures = ms3.load_tsv(
-    "/home/laser/Documents/Linz/DLC_version_comparison/distant_listening_corpus_v3.1/"
-    "distant_listening_corpus.measures.tsv"
-)
-dlc_measures.keysig.value_counts(dropna=False)
-
-# %%
 pitch_arrays = {}
 for split in os.listdir(DATASET_PATH):
     split_dir = os.path.join(DATASET_PATH, split)
@@ -66,7 +47,76 @@ concat = pd.concat(pitch_arrays)
 concat
 
 # %%
-concat.a_romanNumeral.value_counts()
+augnet_numeral_counts = concat.a_romanNumeral.value_counts()
+augnet_numeral_counts.iloc[:100]
+
+# %%
+rn_simple_dirty = concat.a_romanNumeral.str.split("/", expand=True).iloc[:, 0]
+rn_simple_dirty = rn_simple_dirty.str.replace("-", "b")
+rn_simple_dirty = rn_simple_dirty.str.replace("ø", "%")
+rn_simple_dirty = rn_simple_dirty.str.replace("54", "")
+rn_simple_dirty = rn_simple_dirty.str.replace("NI", "N")
+rn_simple_dirty = rn_simple_dirty.replace("Vd", "V7")
+rn_simple_dirty = rn_simple_dirty.replace("viio3", "viio")
+rn_simple_counts = (
+    rn_simple_dirty.value_counts()
+    .to_frame("rn_simple")
+    .reset_index()
+    .rename(columns=dict(index="label"))
+)
+rn_simple_vocab = rn_simple_counts.index.tolist()
+rn_simple_counts
+
+# %%
+SIMPLE_RN_REGEX = (
+    r"^((?P<acc>#*|b*)"
+    r"(?P<root>Cad|Ger|It|Fr|N|VII|VI|V|IV|III|II|I|vii|vi|v|iv|iii|ii|i))"
+    r"(?P<quality>[+o%])?"
+    r"(?:maj|#|b|M)?(?P<seven>7)?(?:[#bM])?(?P<nine>9)?$"
+)
+matches = rn_simple_counts.label.str.match(SIMPLE_RN_REGEX)
+rn_simple_counts[~matches]
+rn_simple_components = rn_simple_dirty.str.extract(SIMPLE_RN_REGEX).fillna("")
+rn_simple_components
+
+# %%
+rn_simple_clean = rn_simple_components.loc[:, "acc":].sum(axis=1)
+rn_simple_clean = rn_simple_clean.where(rn_simple_clean != "", "none")
+rn_simple_clean_counts = rn_simple_clean.value_counts()
+rn_simple_clean_counts
+
+# %%
+print(
+    f"n_types={len(rn_simple_clean_counts)-1}, n_tokens={rn_simple_clean_counts.sum()} "
+    f"({rn_simple_clean_counts.loc['none']} of which 'none')"
+)
+
+# %%
+rn_simple_clean_counts.index.tolist()
+
+# %%
+top75 = augnet_numeral_counts.iloc[:80].index.tolist()
+for rn in top75:
+    print('"{0}",'.format(rn))
+
+# %%
+
+dlc_labels = ms3.load_tsv(
+    "/home/laser/Documents/Linz/DLC_version_comparison/distant_listening_corpus_v3.1/"
+    "distant_listening_corpus.expanded.tsv"
+)
+dlc_labels
+
+# %%
+
+dlc_labels[dlc_labels.chord.isna()]
+
+# %%
+dlc_measures = ms3.load_tsv(
+    "/home/laser/Documents/Linz/DLC_version_comparison/distant_listening_corpus_v3.1/"
+    "distant_listening_corpus.measures.tsv"
+)
+dlc_measures.keysig.value_counts(dropna=False)
 
 # %%
 arr = pitch_arrays["wirwtc-bach-wtc-i-14"]
@@ -111,9 +161,8 @@ concat[concat.a_quality == "minor-augmented tetrachord"]
 # ### Making sure roman_numeral2scale_degree() computes music21-equivalent scale degrees for all numerals
 
 # %%
-concat["numeral"] = concat.a_romanNumeral.str.extract(
-    "^((?:#*|b*|-*)(?:Cad|Ger|It|Fr|N|VII|VI|V|IV|III|II|I|vii|vi|v|iv|iii|ii|i))"
-)
+
+concat["numeral"] = concat.a_romanNumeral.str.extract(utils.ROOT_RN_REGEX)
 
 # roman_numeral2scale_degree() (when key_is_minor=True) determines chord quality purely based on the numeral's third,
 # as expressed by it being in lowercase (m3) or uppercase (M3). Therefore, the numerals of augmented chords written in
