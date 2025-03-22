@@ -1,4 +1,5 @@
 import itertools
+import json
 import os
 import warnings
 from ast import literal_eval
@@ -709,67 +710,42 @@ def make_pitch_array(
 # region make_labeled_pitch_array
 # columns are converted based on the dtypes assigned in the following
 INT_COLUMNS = [
-    "unfolded_harmony_index",
-    "root",
-    "bass_note",
-    "globalkey_tpc",
-    "localkey_tpc",
-    "tonicized_tpc",
+    "onset_div",
+    "duration_div",
+    "s_measure",
+    "ts_beats",
+    "ts_beat_type",
+    "s_midi",
+    "s_alter",
+    "s_downbeat",
+    "a_measure",
+    "a_annotationNumber",
+    "a_inversion",
 ]
-BOOL_COLUMNS = [
-    "globalkey_is_minor",
-    "localkey_is_minor",
-    "is_harmony_onset",
-    "is_phrase_ending",
-]
+BOOL_COLUMNS = ["s_isOnset", "a_isOnset"]
 STRING_COLUMNS = [
-    "section_start",
-    "label",
-    "alt_label",
-    "globalkey",
-    "localkey",
-    "pedal",
-    "chord",
-    "special",
-    "numeral",
-    "form",
-    "figbass",
-    "changes",
-    "relativeroot",
-    "cadence",
-    "phraseend",
-    "chord_type",
-    "globalkey_mode",
-    "localkey_mode",
-    "localkey_resolved",
-    "localkey_and_mode",
-    "root_roman",
-    "relativeroot_resolved",
-    "effective_localkey",
-    "effective_localkey_resolved",
-    "effective_localkey_is_minor",
-    "chord_reduced",
-    "chord_reduced_and_mode",
-    "pedal_resolved",
-    "chord_and_mode",
-    "applied_to_numeral",
-    "numeral_or_applied_to_numeral",
-    "cadence_type",
-    "_merge",
+    "measureNumberWithSuffix",
+    "s_note",
+    "s_step",
+    "s_part_id",
+    "s_voice_id",
+    "a_romanNumeral",
+    "a_bass",
+    "a_root",
+    "a_quality",
+    "a_localKey",
+    "a_tonicizedKey",
+    "a_degree1",
+    "a_degree2",
+    "a_simpleNumeral",
 ]
 OBJECT_COLUMNS = [
-    "chord_tones",
-    "added_tones",
-]  # unused, leave them as they are
-NON_FORWARD_FILLING_COLUMNS = [
-    "is_harmony_onset",
-    "cadence",
-    "cadence_type",
-    "cadence_subtype",
-    "phraseend",
-    "section_start",
-    "is_phrase_ending",
-]  # these are not propagated over the whole duration of their harmony label and are therefore moved to the left
+    "s_offset_frac",
+    "s_duration_frac",
+    "mn_onset",
+    "a_pitchNames",
+    "a_pcset",
+]  # leave them as they are
 
 
 def convert_roman_numerals_to_fifths(labels: pd.DataFrame) -> pd.DataFrame:
@@ -1186,3 +1162,69 @@ def load_labeled_pitch_array(
         pitch_array_tsv, sep="\t", dtype=dtype_dict, converters=converters
     )
     return result.dropna(subset=dropna_subset) if dropna_subset else result
+
+
+def load_json_file(path: str) -> dict:
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def create_specs(
+    lpa: pd.DataFrame, specs_specs: Optional[Dict[str, dict] | str] = None
+) -> pd.DataFrame:
+    """
+
+    Args:
+        lpa: Labelled pitch array from which the dtypes are derived.
+        specs_specs:
+            {column_name -> dict} where at least one of all dicts needs to contain the key
+            "description" and at least one the key "used_for". All used keys become a column
+            in the specs.
+
+    Returns:
+
+    """
+    dtypes = lpa.dtypes.rename("dtype")
+    if not specs_specs:
+        return dtypes.to_frame()
+    if isinstance(specs_specs, str):
+        specs_specs = load_json_file(specs_specs)
+    specs_df = pd.DataFrame.from_dict(specs_specs, orient="index")
+    specs_df = pd.concat([dtypes, specs_df], axis=1)
+    column_order = ["dtype", "used_for", "description"]
+    return specs_df[
+        column_order + [col for col in specs_df.columns if col not in column_order]
+    ]
+
+
+def create_and_store_specs(
+    lpa: pd.DataFrame,
+    specs_csv_path: str,
+    specs_specs: Optional[Dict[str, dict] | str] = None,
+    specs_specs_json_path: Optional[str] = None,
+):
+    """
+
+    Args:
+        lpa: Labelled pitch array from which the dtypes are derived.
+        specs_csv_path: Path where to store the complete column specs as a CSV file.
+        specs_specs:
+            {column_name -> dict} where at least one of all dicts needs to contain the key
+            "description" and at least one the key "used_for". All used keys become a column
+            in the specs.
+        specs_specs_json_path:
+            If you also want to store the specs_specs as a JSON file, specify its path.
+            This can be useful to easily edit it at a later point while still having the
+            dtype column updated automatically.
+
+    Returns:
+
+    """
+    specs_df = create_specs(lpa=lpa, specs_specs=specs_specs)
+    specs_df.to_csv(specs_csv_path, index=True)
+    if not specs_specs_json_path:
+        return
+    if isinstance(specs_specs, str):
+        specs_specs = load_json_file(specs_specs)
+    with open(specs_specs_json_path, "w", encoding="utf-8") as f:
+        json.dump(specs_specs, f, indent=2)

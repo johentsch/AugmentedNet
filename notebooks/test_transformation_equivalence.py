@@ -47,6 +47,9 @@ concat = pd.concat(pitch_arrays)
 concat
 
 # %%
+concat[concat.a_simpleNumeral.isna()].index.get_level_values(0).unique()
+
+# %%
 augnet_numeral_counts = concat.a_romanNumeral.value_counts()
 augnet_numeral_counts.iloc[:100]
 
@@ -69,8 +72,8 @@ simpleNumeral_counts
 
 # %%
 
-matches = simpleNumeral_counts.label.str.match(utils.SIMPLE_RN_REGEX)
-simpleNumeral_counts[~matches]
+# matches = simpleNumeral_counts.label.str.match(utils.SIMPLE_RN_REGEX)
+# simpleNumeral_counts[~matches]
 simpleNumeral_components = simpleNumeral_dirty.str.extract(
     utils.SIMPLE_RN_REGEX
 ).fillna("")
@@ -89,7 +92,7 @@ utils.print_rn_stats(simpleNumeral_clean)
 simpleNumeral_clean_counts.index.tolist()
 
 # %%
-top75 = augnet_numeral_counts.iloc[:80].index.tolist()
+top75 = augnet_numeral_counts.iloc[:75].index.tolist()
 for rn in top75:
     print('"{0}",'.format(rn))
 

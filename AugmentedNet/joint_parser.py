@@ -1,16 +1,11 @@
 """Turns a (score, annotation) pair into a joint pandas DataFrame."""
-import itertools
+
 import re
-import warnings
-from fractions import Fraction
-from functools import lru_cache
-from typing import Iterable, Optional, Union, Tuple
 
 import numpy as np
 import pandas as pd
 
-from . import annotation_parser
-from . import score_parser
+from . import annotation_parser, score_parser, utils
 from .common import FIXEDOFFSET
 from .utils import DivMaker
 
@@ -52,14 +47,10 @@ def _qualityMetric(df):
         annotationNotes = rows.iloc[0].a_pitchNames
         missingChordTones = set(annotationNotes) - set(scoreNotes)
         nonChordTones = [n for n in scoreNotes if n not in annotationNotes]
-        missingChordTonesScore = len(missingChordTones) / len(
-            set(annotationNotes)
-        )
+        missingChordTonesScore = len(missingChordTones) / len(set(annotationNotes))
         nonChordTonesScore = len(nonChordTones) / len(scoreNotes)
         squaredSumScore = (missingChordTonesScore + nonChordTonesScore) ** 2
-        df.loc[df.a_annotationNumber == n, "qualityScoreNotes"] = str(
-            scoreNotes
-        )
+        df.loc[df.a_annotationNumber == n, "qualityScoreNotes"] = str(scoreNotes)
         df.loc[df.a_annotationNumber == n, "qualityNonChordTones"] = round(
             nonChordTonesScore, 2
         )
@@ -109,7 +100,9 @@ def parseAnnotationAndScore(
     Create the dataframes of both. Generate a new, joint, one.
     """
     # Parse each file
-    adf = annotation_parser.parseAnnotation(a, fixedOffset=fixedOffset, eventBased=eventBased)
+    adf = annotation_parser.parseAnnotation(
+        a, fixedOffset=fixedOffset, eventBased=eventBased
+    )
     sdf = score_parser.parseScore(s, fixedOffset=fixedOffset, eventBased=eventBased)
     # Create the joint dataframe
     jointdf = pd.concat([sdf, adf], axis=1)
@@ -124,54 +117,28 @@ def parseAnnotationAndScore(
         jointdf = _inversionMetric(jointdf)
     return jointdf
 
+
 def m21_metadata2dict(metadata, key_prefix=None):
     if not key_prefix:
         return dict(metadata.all())
     return {f"{key_prefix}{k}": v for k, v in metadata.all()}
 
+
 def extend_joint_df(jointdf: pd.DataFrame) -> pd.DataFrame:
     df_without_missing = jointdf[jointdf.s_offset_frac.notna()]
     div_maker = DivMaker(
         onsets=df_without_missing.s_offset_frac,
-        durations=df_without_missing.s_duration_frac
+        durations=df_without_missing.s_duration_frac,
     )
     onset_div, duration_div = div_maker[("onsets", "durations")]
     div_columns = pd.DataFrame(
-        dict(
-            onset_div=onset_div,
-            duration_div=duration_div
-        ),
-        index=df_without_missing.index
+        dict(onset_div=onset_div, duration_div=duration_div),
+        index=df_without_missing.index,
     )
-    return pd.concat([
-        div_columns.reindex(jointdf.index),
-        jointdf
-    ], axis=1)
+    return pd.concat([div_columns.reindex(jointdf.index), jointdf], axis=1)
 
-INT_COLUMNS = [
-    "onset_div", "duration_div", "s_measure", "ts_beats", "ts_beat_type", "s_midi", "s_alter", "s_downbeat",
-    "a_measure", "a_annotationNumber", "a_inversion"
-]
-BOOL_COLUMNS = ["s_isOnset", "a_isOnset"]
-STRING_COLUMNS = [
-    "measureNumberWithSuffix", "s_note", "s_step", "s_part_id", "s_voice_id", "a_romanNumeral", "a_bass", "a_root",
-    "a_quality", "a_localKey", "a_tonicizedKey", "a_degree1", "a_degree2"
-                  ]
-OBJECT_COLUMNS = ["s_offset_frac", "s_duration_frac", "mn_onset", "a_pitchNames", "a_pcset"] # leave them as they are
 
-def convert_column_types(labels: pd.DataFrame) -> pd.DataFrame:
-    conversion_dict = {col: "Int64" for col in INT_COLUMNS if col in labels.columns}
-    conversion_dict.update(
-        {col: "boolean" for col in BOOL_COLUMNS if col in labels.columns}
-    )
-    conversion_dict.update(
-        {col: "string" for col in STRING_COLUMNS if col in labels.columns}
-    )
-    return labels.astype(conversion_dict)
-
-def parseAnnotationAndScoreEvents(
-        a, s#, qualityAssessment=True
-):
+def parseAnnotationAndScoreEvents(a, s):  # , qualityAssessment=True
     """Process a RomanText and score files simultaneously.
 
     a is a RomanText file
@@ -184,17 +151,13 @@ def parseAnnotationAndScoreEvents(
     sdf = score_parser.parseScoreEvents(s)
     metadata = dict(
         m21_metadata2dict(extended_adf.metadata, "a_"),
-        **m21_metadata2dict(sdf.metadata, "s_")
+        **m21_metadata2dict(sdf.metadata, "s_"),
     )
     # Create the joint dataframe
     original_columns = [col for col in extended_adf.columns if col[:2] in ("a_", "s_")]
     adf = extended_adf[original_columns].copy()
     jointdf = pd.merge(
-        left = sdf,
-        right = adf,
-        left_on = "s_offset",
-        right_on = "a_offset",
-        how = "outer"
+        left=sdf, right=adf, left_on="s_offset", right_on="a_offset", how="outer"
     )
     # Sometimes, scores are longer than annotations (trailing empty measures)
     # In that case, ffill the annotation portion of the new dataframe
@@ -205,23 +168,29 @@ def parseAnnotationAndScoreEvents(
         # these are typically labels coinciding only with rests
         # there is, however, a residue risk that they are symptom of a score-annotation misalignment
         j_offset = j_offset.fillna(jointdf.a_offset)
-        print(f"Score has {labels_not_coinciding_with_any_note_mask.sum()} labels not coinciding with any note.")
-    jointdf.index = j_offset # the index will be reset later but index-sorting is better here than value-sorting
-    jointdf = jointdf.sort_index().reset_index() # anyway, j_offset is not suitable as index because it's non-unique
+        print(
+            f"Score has {labels_not_coinciding_with_any_note_mask.sum()} labels not coinciding with any note."
+        )
+    jointdf.index = j_offset  # the index will be reset later but index-sorting is better here than value-sorting
+    jointdf = (
+        jointdf.sort_index().reset_index()
+    )  # anyway, j_offset is not suitable as index because it's non-unique
     # forward-fill annotation label features only, do not fill note features for label onsets
     jointdf.loc[:, adf.columns] = jointdf.loc[:, adf.columns].ffill()
     jointdf = jointdf.drop(columns=["s_offset", "a_offset"])
     jointdf = extend_joint_df(jointdf)
 
-    extended_adf = extended_adf.rename(columns=dict(
-        a_offset = "quarterbeats",
-        a_measure = "mn",
-    ))
+    extended_adf = extended_adf.rename(
+        columns=dict(
+            a_offset="quarterbeats",
+            a_measure="mn",
+        )
+    )
     return (
-        convert_column_types(extended_adf),
-        convert_column_types(sdf),
-        convert_column_types(jointdf),
-        metadata
+        utils.convert_column_types(extended_adf),
+        utils.convert_column_types(sdf),
+        utils.convert_column_types(jointdf),
+        metadata,
     )
 
 

@@ -118,6 +118,10 @@
     "description": "String representation of the annotation label, standardized to not indicate inversions. It may,however include slash notation, chord alterations (e.g. 'viiob37'), and special chord types such as Cad, N, Ger, Fr, or It.",
     "used_for": "computing fields"
   },
+  "a_simpleNumeral": {
+    "description": "This is a version of a_romanNumeral that has reduced information on the chord type and no secondary (applied) degree.",
+    "used_for": "training harmony inference task"
+  },
   "a_isOnset": {
     "description": "True for notes coinciding with a change in harmony.",
     "used_for": "training harmony inference task",
