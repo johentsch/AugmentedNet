@@ -51,48 +51,42 @@ augnet_numeral_counts = concat.a_romanNumeral.value_counts()
 augnet_numeral_counts.iloc[:100]
 
 # %%
-rn_simple_dirty = concat.a_romanNumeral.str.split("/", expand=True).iloc[:, 0]
-rn_simple_dirty = rn_simple_dirty.str.replace("-", "b")
-rn_simple_dirty = rn_simple_dirty.str.replace("ø", "%")
-rn_simple_dirty = rn_simple_dirty.str.replace("54", "")
-rn_simple_dirty = rn_simple_dirty.str.replace("NI", "N")
-rn_simple_dirty = rn_simple_dirty.replace("Vd", "V7")
-rn_simple_dirty = rn_simple_dirty.replace("viio3", "viio")
-rn_simple_counts = (
-    rn_simple_dirty.value_counts()
-    .to_frame("rn_simple")
+simpleNumeral_dirty = concat.a_romanNumeral.str.split("/", expand=True).iloc[:, 0]
+simpleNumeral_dirty = simpleNumeral_dirty.str.replace("-", "b")
+simpleNumeral_dirty = simpleNumeral_dirty.str.replace("ø", "%")
+simpleNumeral_dirty = simpleNumeral_dirty.str.replace("54", "")
+simpleNumeral_dirty = simpleNumeral_dirty.str.replace("NI", "N")
+simpleNumeral_dirty = simpleNumeral_dirty.replace("Vd", "V7")
+simpleNumeral_dirty = simpleNumeral_dirty.replace("viio3", "viio")
+simpleNumeral_counts = (
+    simpleNumeral_dirty.value_counts()
+    .to_frame("simpleNumeral")
     .reset_index()
     .rename(columns=dict(index="label"))
 )
-rn_simple_vocab = rn_simple_counts.index.tolist()
-rn_simple_counts
+simpleNumeral_vocab = simpleNumeral_counts.index.tolist()
+simpleNumeral_counts
 
 # %%
-SIMPLE_RN_REGEX = (
-    r"^((?P<acc>#*|b*)"
-    r"(?P<root>Cad|Ger|It|Fr|N|VII|VI|V|IV|III|II|I|vii|vi|v|iv|iii|ii|i))"
-    r"(?P<quality>[+o%])?"
-    r"(?:maj|#|b|M)?(?P<seven>7)?(?:[#bM])?(?P<nine>9)?$"
-)
-matches = rn_simple_counts.label.str.match(SIMPLE_RN_REGEX)
-rn_simple_counts[~matches]
-rn_simple_components = rn_simple_dirty.str.extract(SIMPLE_RN_REGEX).fillna("")
-rn_simple_components
+
+matches = simpleNumeral_counts.label.str.match(utils.SIMPLE_RN_REGEX)
+simpleNumeral_counts[~matches]
+simpleNumeral_components = simpleNumeral_dirty.str.extract(
+    utils.SIMPLE_RN_REGEX
+).fillna("")
+simpleNumeral_components
 
 # %%
-rn_simple_clean = rn_simple_components.loc[:, "acc":].sum(axis=1)
-rn_simple_clean = rn_simple_clean.where(rn_simple_clean != "", "none")
-rn_simple_clean_counts = rn_simple_clean.value_counts()
-rn_simple_clean_counts
+simpleNumeral_clean = simpleNumeral_components.loc[:, "acc":].sum(axis=1)
+simpleNumeral_clean = simpleNumeral_clean.where(simpleNumeral_clean != "", "none")
+simpleNumeral_clean_counts = simpleNumeral_clean.value_counts()
+simpleNumeral_clean_counts
 
 # %%
-print(
-    f"n_types={len(rn_simple_clean_counts)-1}, n_tokens={rn_simple_clean_counts.sum()} "
-    f"({rn_simple_clean_counts.loc['none']} of which 'none')"
-)
+utils.print_rn_stats(simpleNumeral_clean)
 
 # %%
-rn_simple_clean_counts.index.tolist()
+simpleNumeral_clean_counts.index.tolist()
 
 # %%
 top75 = augnet_numeral_counts.iloc[:80].index.tolist()

@@ -1,13 +1,14 @@
 """Turns a RomanText file into a pandas DataFrame."""
+
+import re
 from fractions import Fraction
 
 import music21
 import numpy as np
 import pandas as pd
-import re
 
+from . import utils
 from .common import FIXEDOFFSET, FLOATSCALE
-
 
 A_COLUMNS = [
     "a_offset",
@@ -51,7 +52,7 @@ def _fixRnSynonyms(figure):
 
 
 def _simplifyRomanNumeral(figure):
-    missingAdd = re.compile("(\[.*\])")
+    missingAdd = re.compile(r"(\[.*\])")
     return missingAdd.sub("", figure)
 
 
@@ -119,6 +120,7 @@ def _initialDataFrame(s):
     df.set_index("a_offset", inplace=True)
     return df
 
+
 def extendedDataFrame(s):
     """Parses an annotation RomanText file and produces a pandas dataframe.
 
@@ -134,10 +136,10 @@ def extendedDataFrame(s):
         dfdict = dict(
             a_offset=round(float(rn.offset), FLOATSCALE),
             a_measure=rn.measureNumber,
-            mn_onset = Fraction((rn.beat - 1) * rn.beatDuration.quarterLength / 4),
+            mn_onset=Fraction((rn.beat - 1) * rn.beatDuration.quarterLength / 4),
             a_duration=round(float(rn.quarterLength), FLOATSCALE),
             a_annotationNumber=idx,
-            label = rn.figure,
+            label=rn.figure,
             a_romanNumeral=_preprocessRomanNumeral(rn.figure),
             a_isOnset=True,
             a_pitchNames=tuple(rn.pitchNames),
@@ -145,7 +147,7 @@ def extendedDataFrame(s):
             a_root=rn.root().name,
             a_inversion=rn.inversion(),
             a_quality=rn.commonName,
-            a_pcset=tuple(sorted(set(rn.pitchClasses)))
+            a_pcset=tuple(sorted(set(rn.pitchClasses))),
         )
         localKey = rn.key.tonicPitchNameWithCase
         dfdict["a_localKey"] = localKey
@@ -223,6 +225,7 @@ def parseAnnotation(f, fixedOffset=FIXEDOFFSET, eventBased=False):
     df.metadata = s.metadata
     return df
 
+
 def parseAnnotationEvents(f):
     """Generates the DataFrame from a RomanText file.
 
@@ -233,5 +236,6 @@ def parseAnnotationEvents(f):
     # Step 0: Use music21 to parse the score
     s = _m21Parse(f)
     df = extendedDataFrame(s)
+    df = utils.convert_romanNumeral_to_simpleNumeral(df)
     df.metadata = s.metadata
     return df

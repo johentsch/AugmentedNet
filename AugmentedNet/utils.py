@@ -17,6 +17,12 @@ from numpy._typing import NDArray
 ROOT_RN_REGEX = (
     "^((?:#*|b*|-*)(?:Cad|Ger|It|Fr|N|VII|VI|V|IV|III|II|I|vii|vi|v|iv|iii|ii|i))"
 )
+SIMPLE_RN_REGEX = (
+    r"^((?P<acc>#*|b*)"
+    r"(?P<root>Cad|Ger|It|Fr|N|VII|VI|V|IV|III|II|I|vii|vi|v|iv|iii|ii|i))"
+    r"(?P<quality>[+o%])?"
+    r"(?:maj|#|b|M)?(?P<seven>7)?(?:[#bM])?(?P<nine>9)?$"
+)
 
 # region DivMaker
 
@@ -938,6 +944,32 @@ def get_facet_dict_from_piece(piece: ms3.Piece) -> dict:
         )
     )
     return facets
+
+
+def print_rn_stats(label_column: pd.Series) -> None:
+    value_counts = label_column.value_counts()
+    print(
+        f"n_types={len(value_counts) - 1}, n_tokens={value_counts.sum()} "
+        f"({value_counts.loc['none']} of which 'none')"
+    )
+
+
+def convert_romanNumeral_to_simpleNumeral(annotations: pd.DataFrame) -> pd.DataFrame:
+    romanNumeral_split = annotations.a_romanNumeral.str.split("/", expand=True)
+    simpleNumeral_dirty = romanNumeral_split.iloc[:, 0]
+    simpleNumeral_dirty = simpleNumeral_dirty.str.replace("-", "b")
+    simpleNumeral_dirty = simpleNumeral_dirty.str.replace("ø", "%")
+    simpleNumeral_dirty = simpleNumeral_dirty.str.replace("54", "")
+    simpleNumeral_dirty = simpleNumeral_dirty.str.replace("NI", "N")
+    simpleNumeral_dirty = simpleNumeral_dirty.replace({"Vd": "V7", "viio3": "viio"})
+    simpleNumeral_components = simpleNumeral_dirty.str.extract(SIMPLE_RN_REGEX).fillna(
+        ""
+    )
+    simpleNumeral_clean = (
+        simpleNumeral_components.loc[:, "acc":].sum(axis=1).rename("a_simpleNumeral")
+    )
+    simpleNumeral_clean = simpleNumeral_clean.where(simpleNumeral_clean != "", "none")
+    return pd.concat([annotations, simpleNumeral_clean], axis=1)
 
 
 # def get_pitch_array_from_piece(
