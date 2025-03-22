@@ -1,22 +1,22 @@
 annotation_score_duples = {
     "abc-op18-no1-1": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No1/1/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No1/1/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no1_mov1.mxl",
     ),
     "abc-op18-no1-2": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No1/2/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No1/2/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no1_mov2.mxl",
     ),
     "abc-op18-no1-3": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No1/3/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No1/3/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no1_mov3.mxl",
     ),
     "abc-op18-no1-4": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No1/4/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No1/4/analysis.txt",
         "rawdata/corrections/ABC/op18_no1_mov4.mxl",
     ),
     "abc-op18-no2-1": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No2/1/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No2/1/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no2_mov1.mxl",
     ),
     "abc-op18-no2-2": (
@@ -28,15 +28,15 @@ annotation_score_duples = {
         "rawdata/corrections/ABC/op18_no2_mov3.mxl",
     ),
     "abc-op18-no2-4": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No2/4/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No2/4/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no2_mov4.mxl",
     ),
     "abc-op18-no3-1": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No3/1/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No3/1/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no3_mov1.mxl",
     ),
     "abc-op18-no3-2": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No3/2/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No3/2/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no3_mov2.mxl",
     ),
     "abc-op18-no3-3": (
@@ -52,7 +52,7 @@ annotation_score_duples = {
         "rawdata/corrections/ABC/op18_no4_mov1.mxl",
     ),
     "abc-op18-no4-2": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No4/2/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No4/2/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no4_mov2.mxl",
     ),
     "abc-op18-no4-3": (
@@ -64,7 +64,7 @@ annotation_score_duples = {
         "rawdata/corrections/ABC/op18_no4_mov4.mxl",
     ),
     "abc-op18-no5-1": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No5/1/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No5/1/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no5_mov1.mxl",
     ),
     "abc-op18-no5-2": (
@@ -80,11 +80,11 @@ annotation_score_duples = {
         "rawdata/corrections/ABC/op18_no5_mov4.mxl",
     ),
     "abc-op18-no6-1": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No6/1/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No6/1/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no6_mov1.mxl",
     ),
     "abc-op18-no6-2": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No6/2/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op018_No6/2/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no6_mov2.mxl",
     ),
     "abc-op18-no6-3": (
@@ -96,27 +96,27 @@ annotation_score_duples = {
         "rawdata/corrections/ABC/op18_no6_mov4.mxl",
     ),
     "abc-op59-no1-1": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op59_No1/1/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op059_No1/1/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op59_no7_mov1.mxl",
     ),
     "abc-op59-no1-2": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op59_No1/2/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op059_No1/2/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op59_no7_mov2.mxl",
     ),
     "abc-op59-no1-3": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op59_No1/3/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op059_No1/3/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op59_no7_mov3.mxl",
     ),
     "abc-op59-no1-4": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op59_No1/4/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op059_No1/4/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op59_no7_mov4.mxl",
     ),
     "abc-op59-no2-1": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op59_No2/1/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op059_No2/1/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op59_no8_mov1.mxl",
     ),
     "abc-op59-no2-2": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op59_No2/2/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op059_No2/2/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op59_no8_mov2.mxl",
     ),
     "abc-op59-no2-3": (
@@ -124,7 +124,7 @@ annotation_score_duples = {
         "rawdata/corrections/ABC/op59_no8_mov3.mxl",
     ),
     "abc-op59-no2-4": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op59_No2/4/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op059_No2/4/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op59_no8_mov4.mxl",
     ),
     "abc-op59-no3-1": (
@@ -132,23 +132,23 @@ annotation_score_duples = {
         "rawdata/corrections/ABC/op59_no9_mov1.mxl",
     ),
     "abc-op59-no3-2": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op59_No3/2/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op059_No3/2/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op59_no9_mov2.mxl",
     ),
     "abc-op59-no3-3": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op59_No3/3/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op059_No3/3/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op59_no9_mov3.mxl",
     ),
     "abc-op59-no3-4": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op59_No3/4/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op059_No3/4/analysis.txt",
         "rawdata/corrections/ABC/op59_no9_mov4.mxl",
     ),
     "abc-op74-1": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op74/1/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op074/1/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op74_no10_mov1.mxl",
     ),
     "abc-op74-2": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op74/2/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op074/2/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op74_no10_mov2.mxl",
     ),
     "abc-op74-3": (
@@ -160,19 +160,19 @@ annotation_score_duples = {
         "rawdata/corrections/ABC/op74_no10_mov4.mxl",
     ),
     "abc-op95-1": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op95/1/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op095/1/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op95_no11_mov1.mxl",
     ),
     "abc-op95-2": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op95/2/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op095/2/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op95_no11_mov2.mxl",
     ),
     "abc-op95-3": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op95/3/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op095/3/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op95_no11_mov3.mxl",
     ),
     "abc-op95-4": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op95/4/analysis.txt",
+        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op095/4/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op95_no11_mov4.mxl",
     ),
     "abc-op127-1": (
