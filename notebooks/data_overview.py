@@ -98,15 +98,15 @@ SUBMODULE_VERSIONS
 
 # %%
 REPO_URLS = {
- 'ABC': 'https://github.com/DCMLab/ABC',
- 'AugmentedNet': 'https://github.com/napulen/AugmentedNet',
- 'functional-harmony-micchi': 'https://github.com/napulen/functional-harmony-micchi',
- 'haydn_op20_harm': 'https://github.com/napulen/haydn_op20_harm',
- 'key_modulation_dataset': 'https://github.com/napulen/key_modulation_dataset',
- 'mozart_piano_sonatas': 'https://github.com/napulen/mozart_piano_sonatas',
- 'music21_corpus': 'https://github.com/cuthbertLab/music21',
- 'TAVERN': 'https://github.com/jcdevaney/TAVERN',
- 'When-in-Rome': 'https://github.com/MarkGotham/When-in-Rome',
+    "ABC": "https://github.com/DCMLab/ABC",
+    "AugmentedNet": "https://github.com/napulen/AugmentedNet",
+    "functional-harmony-micchi": "https://github.com/napulen/functional-harmony-micchi",
+    "haydn_op20_harm": "https://github.com/napulen/haydn_op20_harm",
+    "key_modulation_dataset": "https://github.com/napulen/key_modulation_dataset",
+    "mozart_piano_sonatas": "https://github.com/napulen/mozart_piano_sonatas",
+    "music21_corpus": "https://github.com/cuthbertLab/music21",
+    "TAVERN": "https://github.com/jcdevaney/TAVERN",
+    "When-in-Rome": "https://github.com/MarkGotham/When-in-Rome",
 }
 
 # %%
@@ -276,21 +276,23 @@ COLUMN_ORDER = [
     "filepath",
 ]
 
-previous_df = pd.read_csv("../augnet_rawdata_overview.tsv", sep="\t", dtype="string")
+previous_df = pd.read_csv("../augnet_rawdata_v100.tsv", sep="\t", dtype="string")
 print(f"before: {len(previous_df)}, after: {len(df)}")
 merged = pd.merge(
     df,
-    previous_df.drop(columns=(
-        col
-        for col in previous_df.columns
-        if col in df.columns and col != "filepath"
-    )),
+    previous_df.drop(
+        columns=(
+            col
+            for col in previous_df.columns
+            if col in df.columns and col != "filepath"
+        )
+    ),
     how="left",
     on="filepath",
-    #indicator=True <- checked that no files were used in v1.0.0 only
+    # indicator=True <- checked that no files were used in v1.0.0 only
 )
 merged["same_file"] = merged.last_modified_v100 == merged.last_modified_v191
-merged[COLUMN_ORDER].to_csv("../augnet_rawdata_v191.tsv", sep="\t", index=False)
+merged[COLUMN_ORDER].to_csv(f"../augnet_rawdata_{aug_ver}.tsv", sep="\t", index=False)
 
 
 # %% [markdown]
@@ -328,7 +330,7 @@ augnet
 augnet.extension.value_counts()
 
 # %%
-is_analysis = augnet.extension == "txt"
+is_analysis = augnet.extension.isin(("txt", "rntxt"))
 select_columns = [
     "corpus",
     split_col,
@@ -336,16 +338,24 @@ select_columns = [
     "filepath",
     f"file_change_commit_url_{aug_ver}",
 ]
-augnet_summary = pd.merge(
-    left=augnet.loc[~is_analysis, select_columns],
-    right=augnet.loc[is_analysis, select_columns],
-    on=["corpus", id_col, split_col],
-    suffixes=("_score", "_annotation"),
-).set_index(id_col, drop=False).astype("string")
+augnet_summary = (
+    pd.merge(
+        left=augnet.loc[~is_analysis, select_columns],
+        right=augnet.loc[is_analysis, select_columns],
+        on=["corpus", id_col, split_col],
+        suffixes=("_score", "_annotation"),
+    )
+    .set_index(id_col, drop=False)
+    .astype("string")
+)
 augnet_summary
 
 # %%
-augnet_summary[split_col].value_counts()
+augnet_vc = augnet_summary[split_col].value_counts()
+augnet_vc
+
+# %%
+assert augnet_vc.sum() == augnet_summary[id_col].nunique()
 
 # %%
 augnet_summary.to_csv(f"../augnet_summary_{aug_ver}.tsv", sep="\t", index=False)
@@ -399,14 +409,16 @@ last_modified_url = ms3.load_tsv(
 last_modified_url
 
 # %%
-dlc_summary = last_modified_url.join(label_types, how="right").astype({
- "last_modified_url": "string",
- 'rel_path': "string",
- 'has_chords': "boolean",
- 'has_cadence': "boolean",
- 'has_phrase': "boolean",
- 'has_pedal': "boolean",
-})
+dlc_summary = last_modified_url.join(label_types, how="right").astype(
+    {
+        "last_modified_url": "string",
+        "rel_path": "string",
+        "has_chords": "boolean",
+        "has_cadence": "boolean",
+        "has_phrase": "boolean",
+        "has_pedal": "boolean",
+    }
+)
 dlc_summary.to_csv("../dlc_summary.tsv", sep="\t")
 dlc_summary
 
@@ -464,7 +476,9 @@ dlc_index2augnet_ids
 
 # %%
 bps_ids_augnet = augnet_summary.loc[augnet_summary.corpus == "bps", id_col]
-bps_number_augnet = bps_ids_augnet.str.split("-", expand=True).iloc[:, 1].rename("piece") + "-1"
+bps_number_augnet = (
+    bps_ids_augnet.str.split("-", expand=True).iloc[:, 1].rename("piece") + "-1"
+)
 for augnet_idx, piece in bps_number_augnet.items():
     if (dlc_idx := ("beethoven_piano_sonatas", piece)) in dlc_index2augnet_ids.index:
         dlc_index2augnet_ids.loc[dlc_idx] = augnet_idx
@@ -475,14 +489,16 @@ dlc_index2augnet_ids
 
 # %%
 # keys from: dlc_ids.loc[["monteverdi_madrigals"]].index.to_list()
-# values from: augnet_summary.loc[augnet_summary[id_col].str.startswith("wir-monteverdi-madrigals"), id_col].sort_values().tolist()
+# values from: augnet_summary.loc[augnet_summary[id_col].str.startswith("wir-monteverdi-madrigals"), id_col]
+# .sort_values().tolist()
 schumann_mapping = {
- ('monteverdi_madrigals', '3-09'): 'wir-monteverdi-madrigals-book-3-11',
- # ('monteverdi_madrigals', '4-19'): actually matches 'wir-monteverdi-madrigals-book-4-20', which is not included in AugmentedNet
- ('monteverdi_madrigals', '5-04a'): 'wir-monteverdi-madrigals-book-5-4',
- # ('monteverdi_madrigals', '5-04b') missing in the DLC, would match 'wir-monteverdi-madrigals-book-5-5'
- ('monteverdi_madrigals', '5-04d'): 'wir-monteverdi-madrigals-book-5-7',
- ('monteverdi_madrigals', '5-04e'): 'wir-monteverdi-madrigals-book-5-8',
+    ("monteverdi_madrigals", "3-09"): "wir-monteverdi-madrigals-book-3-11",
+    # ('monteverdi_madrigals', '4-19'): actually matches 'wir-monteverdi-madrigals-book-4-20', which is not
+    # included in AugmentedNet
+    ("monteverdi_madrigals", "5-04a"): "wir-monteverdi-madrigals-book-5-4",
+    # ('monteverdi_madrigals', '5-04b') missing in the DLC, would match 'wir-monteverdi-madrigals-book-5-5'
+    ("monteverdi_madrigals", "5-04d"): "wir-monteverdi-madrigals-book-5-7",
+    ("monteverdi_madrigals", "5-04e"): "wir-monteverdi-madrigals-book-5-8",
 }
 for dlc_idx, augnet_idx in schumann_mapping.items():
     dlc_index2augnet_ids.loc[dlc_idx] = augnet_idx
@@ -491,8 +507,12 @@ for dlc_idx, augnet_idx in schumann_mapping.items():
 # ### Schubert Winterreise
 
 # %%
-winterreise_indexer = augnet_summary[id_col].str.startswith("wir-openscore-liedercorpus-schubert-winterreise")
-for i, augnet_idx in enumerate(augnet_summary.loc[winterreise_indexer, id_col].sort_index(), 1):
+winterreise_indexer = augnet_summary[id_col].str.startswith(
+    "wir-openscore-liedercorpus-schubert-winterreise"
+)
+for i, augnet_idx in enumerate(
+    augnet_summary.loc[winterreise_indexer, id_col].sort_index(), 1
+):
     dlc_idx = ("schubert_winterreise", f"{i:02}")
     dlc_index2augnet_ids.loc[dlc_idx] = augnet_idx
 
@@ -501,12 +521,25 @@ for i, augnet_idx in enumerate(augnet_summary.loc[winterreise_indexer, id_col].s
 
 # %%
 # keys from: dlc_ids.loc[["c_schumann_lieder"]].index.to_list()
-# values from: augnet_summary.loc[augnet_summary[id_col].str.startswith("wir-openscore-liedercorpus-schumann-6-lieder-op-13"), id_col].tolist()
+# values from: augnet_summary.loc[augnet_summary[id_col].str
+# .startswith("wir-openscore-liedercorpus-schumann-6-lieder-op-13"), id_col].tolist()
 schumann_mapping = {
-    ('c_schumann_lieder', 'op13no1 Ich stand in dunklen Traumen'): 'wir-openscore-liedercorpus-schumann-6-lieder-op-13-1-ich-stand-in-dunklen-traumen',
-    ('c_schumann_lieder', 'op13no2 Sie liebten sich beide'): 'wir-openscore-liedercorpus-schumann-6-lieder-op-13-2-sie-liebten-sich-beide',
-    ('c_schumann_lieder', 'op13no3 Liebeszauber'): 'wir-openscore-liedercorpus-schumann-6-lieder-op-13-3-liebeszauber',
-    ('c_schumann_lieder', 'op13no6 Die stille Lotosblume'): 'wir-openscore-liedercorpus-schumann-6-lieder-op-13-6-die-stille-lotosblume',
+    (
+        "c_schumann_lieder",
+        "op13no1 Ich stand in dunklen Traumen",
+    ): "wir-openscore-liedercorpus-schumann-6-lieder-op-13-1-ich-stand-in-dunklen-traumen",
+    (
+        "c_schumann_lieder",
+        "op13no2 Sie liebten sich beide",
+    ): "wir-openscore-liedercorpus-schumann-6-lieder-op-13-2-sie-liebten-sich-beide",
+    (
+        "c_schumann_lieder",
+        "op13no3 Liebeszauber",
+    ): "wir-openscore-liedercorpus-schumann-6-lieder-op-13-3-liebeszauber",
+    (
+        "c_schumann_lieder",
+        "op13no6 Die stille Lotosblume",
+    ): "wir-openscore-liedercorpus-schumann-6-lieder-op-13-6-die-stille-lotosblume",
 }
 for dlc_idx, augnet_idx in schumann_mapping.items():
     dlc_index2augnet_ids.loc[dlc_idx] = augnet_idx
@@ -521,35 +554,53 @@ merged = pd.merge(
     augnet_summary.reset_index(drop=True),
     on=id_col,
     how="outer",
-    suffixes=("_dlc", "_augnet")
+    suffixes=("_dlc", "_augnet"),
 )
 augnet_only = merged.corpus_dlc.isna()
-merged = pd.concat([
-    merged[augnet_only].sort_values(["corpus_augnet", split_col, id_col]),
-    merged[~augnet_only].sort_values(["corpus_dlc", "piece"])
-])
+merged = pd.concat(
+    [
+        merged[augnet_only].sort_values(["corpus_augnet", split_col, id_col]),
+        merged[~augnet_only].sort_values(["corpus_dlc", "piece"]),
+    ]
+)
 merged.to_csv("../merged_summary.tsv", sep="\t", index=False)
 merged
 
 # %%
 augnet_only = merged.corpus_dlc.isna()
-merged_sorted = pd.concat([
-    merged[augnet_only].sort_values(["corpus_augnet", split_col, id_col]),
-    merged[~augnet_only].sort_values(["corpus_dlc", "piece"])
-]).reset_index(drop=True)
+merged_sorted = pd.concat(
+    [
+        merged[augnet_only].sort_values(["corpus_augnet", split_col, id_col]),
+        merged[~augnet_only].sort_values(["corpus_dlc", "piece"]),
+    ]
+).reset_index(drop=True)
 
 # %%
 merged_sorted.has_chords = merged_sorted.has_chords.fillna(True)
-merged_sorted.loc[:, ["has_cadence", "has_phrase", "has_pedal"]] = merged_sorted.loc[:, ["has_cadence", "has_phrase", "has_pedal"]].fillna(False)
-char_cols = pd.DataFrame({
-    col: pd.Series(col, index=merged_sorted.index).where(merged_sorted[mask], "")
-    for col, mask in zip(("H", "C", "P"), ("has_chords", "has_cadence", "has_phrase"))})
+merged_sorted.loc[:, ["has_cadence", "has_phrase", "has_pedal"]] = merged_sorted.loc[
+    :, ["has_cadence", "has_phrase", "has_pedal"]
+].fillna(False)
+char_cols = pd.DataFrame(
+    {
+        col: pd.Series(col, index=merged_sorted.index).where(merged_sorted[mask], "")
+        for col, mask in zip(
+            ("H", "C", "P"), ("has_chords", "has_cadence", "has_phrase")
+        )
+    }
+)
 merged_sorted["label_combination"] = char_cols.sum(axis=1)
 merged_sorted.to_csv("../merged_summary.tsv", sep="\t", index=False)
 merged_sorted
 
 # %%
-label_combination = pd.Series(list(merged_sorted[["has_chords", "has_cadence", "has_phrase"]].itertuples(index=False, name=None)), index=merged_sorted.index)
+label_combination = pd.Series(
+    list(
+        merged_sorted[["has_chords", "has_cadence", "has_phrase"]].itertuples(
+            index=False, name=None
+        )
+    ),
+    index=merged_sorted.index,
+)
 label_combination.value_counts()
 
 # %% [markdown]
