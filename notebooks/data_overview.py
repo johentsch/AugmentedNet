@@ -519,9 +519,43 @@ merged_sorted = pd.concat(
         merged[augnet_only].sort_values(["corpus_augnet", split_col, id_col]),
         merged[~augnet_only].sort_values(["corpus_dlc", "piece"]),
     ]
+).reset_index(drop=True)
+
+# %%
+merged_sorted.has_chords = merged_sorted.has_chords.fillna(True)
+merged_sorted.loc[:, ["has_cadence", "has_phrase", "has_pedal"]] = merged_sorted.loc[
+    :, ["has_cadence", "has_phrase", "has_pedal"]
+].fillna(False)
+char_cols = pd.DataFrame(
+    {
+        col: pd.Series(col, index=merged_sorted.index).where(merged_sorted[mask], "")
+        for col, mask in zip(
+            ("H", "C", "P"), ("has_chords", "has_cadence", "has_phrase")
+        )
+    }
 )
+merged_sorted["label_combination"] = char_cols.sum(axis=1)
 merged_sorted.to_csv("../merged_summary.tsv", sep="\t", index=False)
 merged_sorted
 
 # %%
-merged.dtypes
+label_combination = pd.Series(
+    list(
+        merged_sorted[["has_chords", "has_cadence", "has_phrase"]].itertuples(
+            index=False, name=None
+        )
+    ),
+    index=merged_sorted.index,
+)
+label_combination.value_counts()
+
+# %% [markdown]
+# ## Exclude DLC that is part of Augnet test set
+
+# %%
+excluded_mask = merged_sorted.corpus_dlc.notna() & (merged_sorted[split_col] == "test")
+excluded_dlc = merged_sorted[excluded_mask]
+excluded_ids = excluded_dlc.corpus_dlc + "_" + excluded_dlc.piece
+excluded_ids.tolist()
+
+# %%
