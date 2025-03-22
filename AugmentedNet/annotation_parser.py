@@ -1,10 +1,13 @@
 """Turns a RomanText file into a pandas DataFrame."""
 
+import re
+from fractions import Fraction
+
 import music21
 import numpy as np
 import pandas as pd
-import re
 
+from . import utils
 from .cache import forceTonicization, getTonicizationScaleDegree
 from .common import FIXEDOFFSET, FLOATSCALE
 from .chord_vocabulary import frompcset, closestPcSet
@@ -281,6 +284,66 @@ def _harmonicRhythmPostprocessing(a_harmonicRhythm):
     return hr
 
 
+
+def extendedDataFrame(s):
+    """Parses an annotation RomanText file and produces a pandas dataframe.
+
+    Unpacking a roman numeral is slightly more complicated here than in
+    previous approaches/papers, the reason is that I include more features
+    than usual (e.g., inversion). It may be easier to predict which features
+    lead to a better Roman numeral reconstruction this way.
+    """
+    df_records = []
+    first_key = next(s.flat.getElementsByClass("RomanNumeral")).key
+    globalkey = first_key.tonicPitchNameWithCase.replace("-", "b")
+    for idx, rn in enumerate(s.flat.getElementsByClass("RomanNumeral")):
+        dfdict = dict(
+            a_offset=round(float(rn.offset), FLOATSCALE),
+            a_measure=rn.measureNumber,
+            mn_onset=Fraction((rn.beat - 1) * rn.beatDuration.quarterLength / 4),
+            a_duration=round(float(rn.quarterLength), FLOATSCALE),
+            a_annotationNumber=idx,
+            label=rn.figure,
+            a_romanNumeral=_preprocessRomanNumeral(rn.figure),
+            a_isOnset=True,
+            a_pitchNames=tuple(rn.pitchNames),
+            a_bass=rn.pitchNames[0],
+            a_root=rn.root().name,
+            a_inversion=rn.inversion(),
+            a_quality=rn.commonName,
+            a_pcset=tuple(sorted(set(rn.pitchClasses))),
+        )
+        localKey = rn.key.tonicPitchNameWithCase
+        dfdict["a_localKey"] = localKey
+        dfdict["localkey_abs"] = localKey.replace("-", "b")
+        dfdict["globalkey"] = globalkey
+        secondaryKey = rn.secondaryRomanNumeralKey
+        if secondaryKey:
+            tonicizedKey = secondaryKey.tonicPitchNameWithCase
+            dfdict["a_tonicizedKey"] = tonicizedKey
+        else:
+            # if there is no tonicization, encode the local key
+            dfdict["a_tonicizedKey"] = localKey
+        scaleDegree, alteration = rn.scaleDegreeWithAlteration
+        if alteration:
+            scaleDegree = f"{alteration.modifier}{scaleDegree}"
+        else:
+            scaleDegree = f"{scaleDegree}"
+        dfdict["a_degree1"] = str(scaleDegree)
+        secondaryDegree = rn.secondaryRomanNumeral
+        if secondaryDegree:
+            scaleDegree, alteration = secondaryDegree.scaleDegreeWithAlteration
+            if alteration:
+                scaleDegree = f"{alteration.modifier}{scaleDegree}"
+            else:
+                scaleDegree = f"{scaleDegree}"
+            dfdict["a_degree2"] = scaleDegree
+        else:
+            dfdict["a_degree2"] = "None"
+        df_records.append(dfdict)
+    df = pd.DataFrame.from_records(df_records)
+    return df
+
 def _reindexDataFrame(df, fixedOffset=FIXEDOFFSET):
     """Reindexes a dataframe according to a fixed note-value.
 
@@ -301,10 +364,12 @@ def _reindexDataFrame(df, fixedOffset=FIXEDOFFSET):
     # plus original onsets. Later, original onsets (e.g., triplets)
     # are removed and just the fixed-timesteps are kept
     df = df.reindex(index=df.index.union(newIndex))
+    # here onsets are easier, every "injected" index is not an onset
+    df.a_isOnset = df.a_isOnset.fillna(value=False).astype("boolean")
     # the harmonic rhythm is postprocessed to reduce class imbalance
     harmRhythm = _harmonicRhythmPostprocessing(df.a_harmonicRhythm)
     df["a_harmonicRhythm"] = harmRhythm
-    df.fillna(method="ffill", inplace=True)
+    df = df.ffill()
     df = df.reindex(index=newIndex)
     return df
 
@@ -323,4 +388,20 @@ def parseAnnotation(f, fixedOffset=FIXEDOFFSET, eventBased=False):
     # Step 2: Turn salami-slice into fixed-duration steps
     if not eventBased:
         df = _reindexDataFrame(df, fixedOffset=fixedOffset)
+    df.metadata = s.metadata
+    return df
+
+
+def parseAnnotationEvents(f):
+    """Generates the DataFrame from a RomanText file.
+
+    Parses the file using music21. Creates an initial DataFrame
+    with every onset event of the music21 stream. Finally,
+    does the sampling at symbolically regular durations fixedOffset.
+    """
+    # Step 0: Use music21 to parse the score
+    s = _m21Parse(f)
+    df = extendedDataFrame(s)
+    df = utils.convert_romanNumeral_to_simpleNumeral(df)
+    df.metadata = s.metadata
     return df

@@ -1,0 +1,177 @@
+{
+  "onset_div": {
+    "description": "Proportional integer position",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "onset_div"
+  },
+  "duration_div": {
+    "description": "Proportional integer duration",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "duration_div"
+  },
+  "j_offset": {
+    "description": "Distance from the piece's beginning in quarter notes. j stands for joint, that is, this value is always defined, even when a note has no harmony label or the other way around.",
+    "used_for": "computing fields"
+  },
+  "s_offset_frac": {
+    "description": "A note's distance from the piece's beginning in quarter notes, but consistently expressed as Fraction. Not defined when row has no note.",
+    "used_for": "computing fields",
+    "dlc_equivalent": "quarterbeats"
+  },
+  "s_duration": {
+    "description": "Note duration in quarter notes.",
+    "used_for": "computing fields"
+  },
+  "s_duration_frac": {
+    "description": "Note duration in quarter notes, but consistently expressed as Fraction.",
+    "used_for": "computing fields",
+    "dlc_equivalent": "duration * 4"
+  },
+  "s_measure": {
+    "description": "Measure number as output by music21, automatically corrected for anacrusis = 0 where necessary.",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "mn"
+  },
+  "ts_beats": {
+    "description": "Numerator of the time signature",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "ts_beats"
+  },
+  "ts_beat_type": {
+    "description": "Denominator of the time signature",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "ts_beat_type"
+  },
+  "measureNumberWithSuffix": {
+    "description": "A measure attribute output by music21 to disambiguate measure-like objects having the same number. E.g., the second part of a split bar might have the suffix 'X1', a second ending 'X2' or 'b'.",
+    "used_for": "computing fields"
+  },
+  "continuous_beats": {
+    "description": "A continuous offset value measured in metrical beats whose durations depend on the denominators of the respective time signatures (and a measure's actual duration).",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "continuous_beats"
+  },
+  "s_note": {
+    "description": "Note name including its octave with 4 = middle octave. Flats are expressed as '-', e.g. A4 flat = 'A-4' as per the music21 convention.",
+    "used_for": "computing fields"
+  },
+  "s_midi": {
+    "description": "MIDI value",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "pitch"
+  },
+  "s_isOnset": {
+    "description": "False when a note is tied to a previous one",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "is_note_onset"
+  },
+  "s_step": {
+    "description": "Note name without accidental (A-G)",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "step"
+  },
+  "s_alter": {
+    "description": "Note accidental: [-3, 3]",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "alter"
+  },
+  "mn_onset": {
+    "description": "Offset from the beginning of the (complete, even if split) measure as fraction of a whole note.",
+    "used_for": "computing fields",
+    "dlc_equivalent": "mn_onset"
+  },
+  "s_beat_float": {
+    "description": "The decimal beat position of any event within the current measure. A measure in n/m meter is considered to consist of n beats that have duration of 1/m of a whole note; except if n is a multiple of 3 (6, 9, 12, but not 3), in which case a measure is considered to have n/3 beats of length 3/m whole notes. All positions that fall in between downbeats are scaled linearly. For example, the first for eigths in a 9/8 meter have beat floats 1, 1.333, 1.667, 2. Values are rounded to three decimals.",
+    "used_for": "computing fields",
+    "dlc_equivalent": "beat_float"
+  },
+  "s_downbeat": {
+    "description": "Adopts the integer values from beat_float and the value 0 for the rest.",
+    "used_for": "training beat inference task",
+    "dlc_equivalent": "downbeat"
+  },
+  "s_part_id": {
+    "description": "ID/name of the staff containing the note.",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "staff (but there it's an integer)"
+  },
+  "s_voice_id": {
+    "description": "ID/name of the notational layer containing the note.",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "voice (but there it's an integer)"
+  },
+  "a_measure": {
+    "description": "Equivalent to s_measure but indicating in what measure the current annotation label began.",
+    "used_for": "computing fields",
+    "dlc_equivalent": "mn"
+  },
+  "a_duration": {
+    "description": "Overall duration of the current annotation label in quarter notes.",
+    "used_for": "computing fields"
+  },
+  "a_annotationNumber": {
+    "description": "Running count/index of labels in the original annotation RNTXT file parsed as a dataframe.",
+    "used_for": "computing fields",
+    "dlc_equivalent": "unfolded_harmony_index (but there, repeated sections are repeated)"
+  },
+  "a_romanNumeral": {
+    "description": "String representation of the annotation label, standardized to not indicate inversions. It may,however include slash notation, chord alterations (e.g. 'viiob37'), and special chord types such as Cad, N, Ger, Fr, or It.",
+    "used_for": "computing fields"
+  },
+  "a_simpleNumeral": {
+    "description": "This is a version of a_romanNumeral that has reduced information on the chord type and no secondary (applied) degree.",
+    "used_for": "training harmony inference task"
+  },
+  "a_isOnset": {
+    "description": "True for notes coinciding with a change in harmony.",
+    "used_for": "training harmony inference task",
+    "dlc_equivalent": "is_harmony_onset"
+  },
+  "a_pitchNames": {
+    "description": "Specific pitch classes expressed by the harmony label expressed as a tuple of note names.",
+    "used_for": "computing fields",
+    "dlc_equivalent": "chord_tones (but there expressed relatively, as interval over the local tonic)"
+  },
+  "a_bass": {
+    "description": "Name of the specific pitch class that the harmony label indicates as being the chordal bass.",
+    "used_for": "training harmony inference task",
+    "dlc_equivalent": "bass_note (but there expressed relatively, as interval over the local tonic)"
+  },
+  "a_root": {
+    "description": "Name of the specific pitch class that the harmony label indicates as being the chordal root.",
+    "used_for": "training harmony inference task",
+    "dlc_equivalent": "root (but there expressed relatively, as interval over the local tonic)"
+  },
+  "a_inversion": {
+    "description": "Value between [0, 4] where 0 is root position and 4 the 4th inversion of a ninth chord.",
+    "used_for": "training harmony inference task",
+    "dlc_equivalent": "figbass (but there it's the numbers indicated after the Roman numeral)"
+  },
+  "a_quality": {
+    "description": "Common name of the chord type as determined by music21.",
+    "used_for": "training harmony inference task",
+    "dlc_equivalent": "a_quality"
+  },
+  "a_pcset": {
+    "description": "Expresses the specific pitch classes from a_pitchNames as chromatic pitch classes.",
+    "used_for": "computing fields"
+  },
+  "a_localKey": {
+    "description": "Localkey expressed as a note name (following the music21 convention with '-' standing for flat) where lowercase stands for a minor key, mixed and upper case for major.",
+    "used_for": "training harmony inference task",
+    "dlc_equivalent": "localkey (but there it's expressed as a Roman numeral, relative to the global key)"
+  },
+  "a_tonicizedKey": {
+    "description": "The key that an applied chord applies to, in all other cases equal to a_localKey.",
+    "used_for": "training harmony inference task",
+    "dlc_equivalent": "relativeroot_resolved (but there it's expressed as a Roman numeral, relative to the global key)"
+  },
+  "a_degree1": {
+    "description": "Chordal root expressed as scale degree, preceeded by '#' for sharps and '-' for flats,as music21 would output them. For applied chords, such as #vii/vi, the scale degree represents the numeral before the slash; the second part will be represented in a_degree2.",
+    "used_for": "training harmony inference task"
+  },
+  "a_degree2": {
+    "description": "Only defined for applied chords where this value expresses the tonicized key as a scale degree of the localkey in vigour. The format is the same as for a_degree1.",
+    "used_for": "training harmony inference task"
+  }
+}

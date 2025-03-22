@@ -1,0 +1,38 @@
+,dtype,used_for,description,dlc_equivalent
+onset_div,Int64,input graph creation,Proportional integer position,onset_div
+duration_div,Int64,input graph creation,Proportional integer duration,duration_div
+j_offset,float64,computing fields,"Distance from the piece's beginning in quarter notes. j stands for joint, that is, this value is always defined, even when a note has no harmony label or the other way around.",
+s_offset_frac,object,computing fields,"A note's distance from the piece's beginning in quarter notes, but consistently expressed as Fraction. Not defined when row has no note.",quarterbeats
+s_duration,float64,computing fields,Note duration in quarter notes.,
+s_duration_frac,object,computing fields,"Note duration in quarter notes, but consistently expressed as Fraction.",duration * 4
+s_measure,Int64,input graph creation,"Measure number as output by music21, automatically corrected for anacrusis = 0 where necessary.",mn
+ts_beats,Int64,input graph creation,Numerator of the time signature,ts_beats
+ts_beat_type,Int64,input graph creation,Denominator of the time signature,ts_beat_type
+measureNumberWithSuffix,string,computing fields,"A measure attribute output by music21 to disambiguate measure-like objects having the same number. E.g., the second part of a split bar might have the suffix 'X1', a second ending 'X2' or 'b'.",
+continuous_beats,float64,input graph creation,A continuous offset value measured in metrical beats whose durations depend on the denominators of the respective time signatures (and a measure's actual duration).,continuous_beats
+s_note,string,computing fields,"Note name including its octave with 4 = middle octave. Flats are expressed as '-', e.g. A4 flat = 'A-4' as per the music21 convention.",
+s_midi,Int64,input graph creation,MIDI value,pitch
+s_isOnset,boolean,input graph creation,False when a note is tied to a previous one,is_note_onset
+s_step,string,input graph creation,Note name without accidental (A-G),step
+s_alter,Int64,input graph creation,"Note accidental: [-3, 3]",alter
+mn_onset,object,computing fields,"Offset from the beginning of the (complete, even if split) measure as fraction of a whole note.",mn_onset
+s_beat_float,float64,computing fields,"The decimal beat position of any event within the current measure. A measure in n/m meter is considered to consist of n beats that have duration of 1/m of a whole note; except if n is a multiple of 3 (6, 9, 12, but not 3), in which case a measure is considered to have n/3 beats of length 3/m whole notes. All positions that fall in between downbeats are scaled linearly. For example, the first for eigths in a 9/8 meter have beat floats 1, 1.333, 1.667, 2. Values are rounded to three decimals.",beat_float
+s_downbeat,Int64,training beat inference task,Adopts the integer values from beat_float and the value 0 for the rest.,downbeat
+s_part_id,string,input graph creation,ID/name of the staff containing the note.,staff (but there it's an integer)
+s_voice_id,string,input graph creation,ID/name of the notational layer containing the note.,voice (but there it's an integer)
+a_measure,Int64,computing fields,Equivalent to s_measure but indicating in what measure the current annotation label began.,mn
+a_duration,float64,computing fields,Overall duration of the current annotation label in quarter notes.,
+a_annotationNumber,Int64,computing fields,Running count/index of labels in the original annotation RNTXT file parsed as a dataframe.,"unfolded_harmony_index (but there, repeated sections are repeated)"
+a_romanNumeral,string,computing fields,"String representation of the annotation label, standardized to not indicate inversions. It may,however include slash notation, chord alterations (e.g. 'viiob37'), and special chord types such as Cad, N, Ger, Fr, or It.",
+a_isOnset,boolean,training harmony inference task,True for notes coinciding with a change in harmony.,is_harmony_onset
+a_pitchNames,object,computing fields,Specific pitch classes expressed by the harmony label expressed as a tuple of note names.,"chord_tones (but there expressed relatively, as interval over the local tonic)"
+a_bass,string,training harmony inference task,Name of the specific pitch class that the harmony label indicates as being the chordal bass.,"bass_note (but there expressed relatively, as interval over the local tonic)"
+a_root,string,training harmony inference task,Name of the specific pitch class that the harmony label indicates as being the chordal root.,"root (but there expressed relatively, as interval over the local tonic)"
+a_inversion,Int64,training harmony inference task,"Value between [0, 4] where 0 is root position and 4 the 4th inversion of a ninth chord.",figbass (but there it's the numbers indicated after the Roman numeral)
+a_quality,string,training harmony inference task,Common name of the chord type as determined by music21.,a_quality
+a_pcset,object,computing fields,Expresses the specific pitch classes from a_pitchNames as chromatic pitch classes.,
+a_localKey,string,training harmony inference task,"Localkey expressed as a note name (following the music21 convention with '-' standing for flat) where lowercase stands for a minor key, mixed and upper case for major.","localkey (but there it's expressed as a Roman numeral, relative to the global key)"
+a_tonicizedKey,string,training harmony inference task,"The key that an applied chord applies to, in all other cases equal to a_localKey.","relativeroot_resolved (but there it's expressed as a Roman numeral, relative to the global key)"
+a_degree1,string,training harmony inference task,"Chordal root expressed as scale degree, preceeded by '#' for sharps and '-' for flats,as music21 would output them. For applied chords, such as #vii/vi, the scale degree represents the numeral before the slash; the second part will be represented in a_degree2.",
+a_degree2,string,training harmony inference task,Only defined for applied chords where this value expresses the tonicized key as a scale degree of the localkey in vigour. The format is the same as for a_degree1.,
+a_simpleNumeral,string,training harmony inference task,This is a version of a_romanNumeral that has reduced information on the chord type and no secondary (applied) degree.,
