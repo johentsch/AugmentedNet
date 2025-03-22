@@ -171,21 +171,26 @@ COMMON_ROMAN_NUMERALS = [
     "bVII",
     "bVI",
     "V+",
-    "viio/vi",
+    "viio/vi",  # only among the top 80, not top 75
     "III+",
     "V/iii",
     "ii/V",
-    "I/-VI",
+    "I/-VI",    # should be spelled as "I/bVI" for consistency
     "viio7/IV",
     "V7/v",
     "i7",
-    "iii7",
+    "iii7",     # only among the top 80, not top 75
     "Fr7",
     "V/IV",
-    "vii",
+    "vii",      # only among the top 85, not top 75
     "V/v",
-    "II",
+    "II",       # only among the top 85, not top 75
     "None",
+    ### These 4 should be in the list instead of those above with comments
+    # "Cad",    # clearly one of the most frequent chords: not clear why it's missing!
+    # "i/ii",
+    # "V7/II",
+    # "V7/VII",
 ]
 
 PCSETS = [
