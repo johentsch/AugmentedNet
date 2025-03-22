@@ -494,7 +494,7 @@ dlc_index2augnet_ids
 schumann_mapping = {
     ("monteverdi_madrigals", "3-09"): "wir-monteverdi-madrigals-book-3-11",
     # ('monteverdi_madrigals', '4-19'): actually matches 'wir-monteverdi-madrigals-book-4-20', which is not
-    # included in AugmentedNet
+    #  included in AugmentedNet
     ("monteverdi_madrigals", "5-04a"): "wir-monteverdi-madrigals-book-5-4",
     # ('monteverdi_madrigals', '5-04b') missing in the DLC, would match 'wir-monteverdi-madrigals-book-5-5'
     ("monteverdi_madrigals", "5-04d"): "wir-monteverdi-madrigals-book-5-7",
