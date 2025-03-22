@@ -41,10 +41,10 @@ def resolve_dir(d):
 REPO_PATH = resolve_dir("..")
 DATASET = "events"
 AUGMENTEDNET_REPO = git.Repo(REPO_PATH)
-AUGMENTEDNET_VERSION = "v1.9.1"
+AUGMENTEDNET_VERSION = "v2.0.0"
 aug_ver = AUGMENTEDNET_VERSION.replace(".", "")
 id_col, split_col = f"id_{aug_ver}", f"split_{aug_ver}"
-REGENERATE = False
+REGENERATE = True
 print(REPO_PATH)
 
 
@@ -230,26 +230,39 @@ def create_data_overview(rawdata_path, path2name_and_split, augnet_version):
     )
 
 
-rawdata_path = os.path.join(REPO_PATH, "rawdata")
-tsv_path = f"../augnet_rawdata_{aug_ver}.tsv"
-if REGENERATE:
-    df = create_data_overview(
-        rawdata_path,
-        path2name_and_split=path2name_and_split,
-        augnet_version=AUGMENTEDNET_VERSION,
-    )
-    df.to_csv(tsv_path, sep="\t", index=False)
-else:
-    dtype = {id_col: object, split_col: object}
+# %%
+def load_augnet_rawdata_tsv(tsv_path: str, **dtype):
     df = pd.read_csv(tsv_path, sep="\t", dtype=dtype)
     tuple_mask = df[id_col].str.startswith("(").fillna(False)
     df.loc[tuple_mask, [id_col, split_col]] = df.loc[
         tuple_mask, [id_col, split_col]
     ].applymap(utils.safe_literal_eval)
-df
+    return df
+
+
+def get_augnet_rawdata_df(rawdata_path, tsv_path, regenerate: bool = False):
+    if regenerate:
+        df = create_data_overview(
+            rawdata_path,
+            path2name_and_split=path2name_and_split,
+            augnet_version=AUGMENTEDNET_VERSION,
+        )
+        df.to_csv(tsv_path, sep="\t", index=False)
+    else:
+        dtype = {id_col: object, split_col: object}
+        df = load_augnet_rawdata_tsv(tsv_path, **dtype)
+    return df
+
 
 # %%
-attributed_filepaths = df[split_col].notna().sum()
+df = get_augnet_rawdata_df(
+    rawdata_path=os.path.join(REPO_PATH, "rawdata"),
+    tsv_path=f"../augnet_rawdata_{aug_ver}.tsv",
+    regenerate=REGENERATE,
+)
+
+# %%
+attributed_filepaths = df[id_col].notna().sum()
 assert attributed_filepaths == len(path2name_and_split), (
     f"Not all of the {len(path2name_and_split)} used files have been attributed in the Dataframe (containing "
     f"{attributed_filepaths}), probably due to exclusion criteria."
@@ -264,22 +277,27 @@ COLUMN_ORDER = [
     "extension",
     "id_v100",
     "id_v191",
+    "id_v200",
     "split_v100",
     "split_v191",
+    "split_v200",
     "last_modified_v100",
     "last_modified_v191",
+    "last_modified_v200",
     "same_file",
     "file_change_commit_url_v100",
     "file_change_commit_url_v191",
+    "file_change_commit_url_v200",
     "repository",
     "repo_version_v100",
     "repo_version_v191",
+    "repo_version_v200",
     "folder",
     "folderpath",
     "filepath",
 ]
 
-previous_df = pd.read_csv("../augnet_rawdata_v100.tsv", sep="\t", dtype="string")
+previous_df = pd.read_csv("../augnet_rawdata_v191.tsv", sep="\t", dtype="string")
 print(f"before: {len(previous_df)}, after: {len(df)}")
 merged = pd.merge(
     df,
@@ -294,7 +312,7 @@ merged = pd.merge(
     on="filepath",
     # indicator=True <- checked that no files were used in v1.0.0 only
 )
-merged["same_file"] = merged.last_modified_v100 == merged.last_modified_v191
+merged["same_file"] = merged.last_modified_v191 == merged.last_modified_v200
 merged[COLUMN_ORDER].to_csv(f"../augnet_rawdata_{aug_ver}.tsv", sep="\t", index=False)
 
 
