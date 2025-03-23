@@ -46,10 +46,10 @@
     "description": "A measure attribute output by music21 to disambiguate measure-like objects having the same number. E.g., the second part of a split bar might have the suffix 'X1', a second ending 'X2' or 'b'.",
     "used_for": "computing fields"
   },
-  "continuous_beats": {
+  "onset_beat": {
     "description": "A continuous offset value measured in metrical beats whose durations depend on the denominators of the respective time signatures (and a measure's actual duration).",
     "used_for": "input graph creation",
-    "dlc_equivalent": "continuous_beats"
+    "dlc_equivalent": "onset_beat"
   },
   "s_note": {
     "description": "Note name including its octave with 4 = middle octave. Flats are expressed as '-', e.g. A4 flat = 'A-4' as per the music21 convention.",

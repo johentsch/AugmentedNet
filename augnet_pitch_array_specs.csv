@@ -9,7 +9,7 @@ s_measure,Int64,input graph creation,"Measure number as output by music21, autom
 ts_beats,Int64,input graph creation,Numerator of the time signature,ts_beats
 ts_beat_type,Int64,input graph creation,Denominator of the time signature,ts_beat_type
 measureNumberWithSuffix,string,computing fields,"A measure attribute output by music21 to disambiguate measure-like objects having the same number. E.g., the second part of a split bar might have the suffix 'X1', a second ending 'X2' or 'b'.",
-continuous_beats,float64,input graph creation,A continuous offset value measured in metrical beats whose durations depend on the denominators of the respective time signatures (and a measure's actual duration).,continuous_beats
+onset_beat,float64,input graph creation,A continuous offset value measured in metrical beats whose durations depend on the denominators of the respective time signatures (and a measure's actual duration).,onset_beat
 s_note,string,computing fields,"Note name including its octave with 4 = middle octave. Flats are expressed as '-', e.g. A4 flat = 'A-4' as per the music21 convention.",
 s_midi,Int64,input graph creation,MIDI value,pitch
 s_isOnset,boolean,input graph creation,False when a note is tied to a previous one,is_note_onset

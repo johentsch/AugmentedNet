@@ -199,11 +199,11 @@ def extendedDataFrame(s, fmt=None):
         relative_note_offset = note_offset - measure_offset
         mn_onset = Fraction(relative_note_offset) / 4 + measure_info.get("mc_offset")
         beat_float = onset2beat(mn_onset, timesig=timesig, beat_decimals=3)
-        continuous_beats = measure_info.get("continuous_beats") + beat_float - 1
+        onset_beat = measure_info.get("onset_beat") + beat_float - 1
         p = note.pitch
         note_record = dict(
             dfdict,
-            continuous_beats=continuous_beats,
+            onset_beat=onset_beat,
             s_note=p.nameWithOctave,
             s_midi=p.midi,
             s_isOnset=(not note.tie or note.tie.type == "start"),
