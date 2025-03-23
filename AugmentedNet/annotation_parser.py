@@ -346,6 +346,65 @@ def make_record_from_rn_v100(globalkey, idx, rn):
     return dfdict
 
 
+def make_record_from_rn(globalkey, idx, rn):
+    dfdict = dict(
+        a_offset=round(float(rn.offset), FLOATSCALE),
+        a_measure=rn.measureNumber,
+        mn_onset=Fraction((rn.beat - 1) * rn.beatDuration.quarterLength / 4),
+        a_duration=round(float(rn.quarterLength), FLOATSCALE),
+        a_annotationNumber=idx,
+    )
+    # Get basic information from Roman numeral object, then hack it
+    rn, rncorr = _extractRomanNumeralInformation(rn)
+    rncorr = _correctRomanNumeral(rncorr)
+    localKey = rncorr["localKey"]
+    dfdict.update(
+        dict(
+            label=rn.figure,
+            a_romanNumeral=_removeInversion(rncorr["rn"]),
+            a_harmonicRhythm=0,
+            a_isOnset=True,
+            a_pitchNames=tuple(rncorr["pitchNames"]),
+            a_bass=rncorr["pitchNames"][0],
+            a_tenor=rncorr["pitchNames"][1],
+            a_alto=rncorr["pitchNames"][2],
+        )
+    )
+    if len(rncorr["pitchNames"]) == 4:
+        dfdict["a_soprano"] = rncorr["pitchNames"][3]
+    else:
+        dfdict["a_soprano"] = rncorr["root"]
+    dfdict.update(
+        dict(
+            a_root=rncorr["root"],
+            a_inversion=rncorr["inversion"],
+            a_quality=rncorr["quality"],
+            a_pcset=rncorr["pcset"],
+            a_localKey=localKey,
+            localkey_abs=localKey.replace("-", "b"),
+            globalkey=globalkey,
+            a_tonicizedKey=rncorr["tonicizedKey"],
+        )
+    )
+    scaleDegree, alteration = rn.scaleDegreeWithAlteration
+    if alteration:
+        scaleDegree = f"{alteration.modifier}{scaleDegree}"
+    else:
+        scaleDegree = f"{scaleDegree}"
+    dfdict["a_degree1"] = str(scaleDegree)
+    secondaryDegree = rn.secondaryRomanNumeral
+    if secondaryDegree:
+        scaleDegree, alteration = secondaryDegree.scaleDegreeWithAlteration
+        if alteration:
+            scaleDegree = f"{alteration.modifier}{scaleDegree}"
+        else:
+            scaleDegree = f"{scaleDegree}"
+        dfdict["a_degree2"] = scaleDegree
+    else:
+        dfdict["a_degree2"] = "None"
+    return dfdict
+
+
 def extendedDataFrame(s, v100_processing=False):
     """Parses an annotation RomanText file and produces a pandas dataframe.
 
@@ -358,7 +417,10 @@ def extendedDataFrame(s, v100_processing=False):
     first_key = next(s.flat.getElementsByClass("RomanNumeral")).key
     globalkey = first_key.tonicPitchNameWithCase.replace("-", "b")
     for idx, rn in enumerate(s.flat.getElementsByClass("RomanNumeral")):
-        dfdict = make_record_from_rn_v100(globalkey, idx, rn)
+        if v100_processing:
+            dfdict = make_record_from_rn_v100(globalkey, idx, rn)
+        else:
+            dfdict = make_record_from_rn(globalkey, idx, rn)
         df_records.append(dfdict)
     df = pd.DataFrame.from_records(df_records)
     return df
