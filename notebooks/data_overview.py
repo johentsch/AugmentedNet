@@ -101,6 +101,7 @@ SUBMODULE_VERSIONS
 REPO_URLS = {
     "ABC": "https://github.com/DCMLab/ABC",
     "AugmentedNet": "https://github.com/napulen/AugmentedNet",
+    "Chorale-Corpus": "https://github.com/MarkGotham/Chorale-Corpus/",
     "functional-harmony-micchi": "https://github.com/napulen/functional-harmony-micchi",
     "haydn_op20_harm": "https://github.com/napulen/haydn_op20_harm",
     "key_modulation_dataset": "https://github.com/napulen/key_modulation_dataset",
@@ -129,12 +130,13 @@ PATH_FILTERS = {
 SUBCORPUS_POSITION = {
     "ABC": None,
     "AugmentedNet": 2,  # rawdata/corrections/ABC
+    "Chorale-Corpus": 0,  # Bach,_Johann_Sebastian/Chorales/001/
     "functional-harmony-micchi": 1,  # data/19th_Century_Songs
     "haydn_op20_harm": None,
     "key_modulation_dataset": 0,  # aldwell/ex27-2a.krn
     "mozart_piano_sonatas": None,
     "music21_corpus": 2,  # music21/corpus/bach
-    "TAVERN": 0,  # TAVERN/Beethoven
+    "TAVERN": 0,  # Beethoven/
     "When-in-Rome": 1,  # When-in-Rome/Corpus/Early_Choral
 }
 
@@ -169,6 +171,8 @@ def create_data_overview(rawdata_path, path2name_and_split, augnet_version):
                 subdirs[:] = PATH_FILTERS[rel_path]
                 continue
             for file in files:
+                if file.startswith("."):
+                    continue
                 fname, fext = os.path.splitext(file)
                 if not fext or fext in EXCLUDED_EXTENSIONS:
                     print(".", end="")
