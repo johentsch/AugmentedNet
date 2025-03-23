@@ -713,6 +713,7 @@ INT_COLUMNS = [
     "onset_div",
     "duration_div",
     "s_measure",
+    "ks_fifths",
     "ts_beats",
     "ts_beat_type",
     "s_midi",
@@ -944,7 +945,9 @@ def convert_romanNumeral_to_simpleNumeral(annotations: pd.DataFrame) -> pd.DataF
     simpleNumeral_clean = (
         simpleNumeral_components.loc[:, "acc":].sum(axis=1).rename("a_simpleNumeral")
     )
-    valid_chord_label = (simpleNumeral_clean != "").astype("boolean").rename("valid_chord_label")
+    valid_chord_label = (
+        (simpleNumeral_clean != "").astype("boolean").rename("valid_chord_label")
+    )
     simpleNumeral_clean = simpleNumeral_clean.where(valid_chord_label, "none")
     return pd.concat([annotations, simpleNumeral_clean, valid_chord_label], axis=1)
 

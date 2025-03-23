@@ -2,19 +2,18 @@
 
 import io
 import warnings
-from itertools import combinations
 from fractions import Fraction
-from typing import Optional, List
+from itertools import combinations
+from typing import Optional
 
 import music21
-from music21 import stream
-from music21.stream import Part, Voice
-from music21.interval import Interval
-from music21.pitch import Pitch
-from music21.chord import Chord
-from music21.note import Rest, Note
 import numpy as np
 import pandas as pd
+from music21.chord import Chord
+from music21.interval import Interval
+from music21.note import Note, Rest
+from music21.pitch import Pitch
+from music21.stream import Part, Voice
 
 from .common import FIXEDOFFSET, FLOATSCALE
 from .texturizers import (
@@ -22,7 +21,7 @@ from .texturizers import (
     available_durations,
     available_number_of_notes,
 )
-from .utils import onset2beat, make_continuous_mc_beats_series
+from .utils import make_continuous_mc_beats_series, onset2beat
 
 S_COLUMNS = [
     "s_offset",
@@ -88,22 +87,12 @@ def _initialDataFrame(s, fmt=None):
         onsets = [(not n.tie or n.tie.type == "start") for n in c]
         dfdict["s_isOnset"].append(onsets)
     df = pd.DataFrame(dfdict)
-    currentLastOffset = float(df.tail(1).s_offset) + float(
-        df.tail(1).s_duration
-    )
+    currentLastOffset = float(df.tail(1).s_offset) + float(df.tail(1).s_duration)
     deltaDuration = _lastOffset(s) - currentLastOffset
     df.loc[len(df) - 1, "s_duration"] += deltaDuration
     df.set_index("s_offset", inplace=True)
     df = df[~df.index.duplicated()]
     return df
-
-
-
-def get_measure_with_timesig(measure_list: List[stream.Measure]):
-    try:
-        return next(m for m in measure_list if m.timeSignature)
-    except StopIteration:
-        return measure_list[0]
 
 
 def make_interval_index(measures: pd.DataFrame) -> pd.IntervalIndex:
@@ -113,10 +102,12 @@ def make_interval_index(measures: pd.DataFrame) -> pd.IntervalIndex:
     breaks.append(end_of_piece)
     return pd.IntervalIndex.from_breaks(breaks, closed="left")
 
+
 def shift_cumsum(durations: pd.Series):
     cumsum = np.cumsum(durations.div(4).to_list())
     shifted_cumsum = [Fraction(0)] + list(cumsum)[:-1]
     return shifted_cumsum
+
 
 def make_mc_offset_column(measures):
     result = []
@@ -127,29 +118,54 @@ def make_mc_offset_column(measures):
             result.extend(shift_cumsum(grouped_durations))
     return pd.Series(result, index=measures.index, name="mc_offset")
 
+
+def make_measureOffsetMap_with_ks_and_ts(score: music21.stream.Score) -> dict:
+    measureOffsetMap = {}
+    for offset, measure_list in score.measureOffsetMap().items():
+        first_measure, *other_measures = measure_list
+        for m in other_measures:
+            if first_measure.keySignature and first_measure.timeSignature:
+                break
+            if not first_measure.keySignature and m.keySignature:
+                first_measure.keySignature = m.keySignature
+            if not first_measure.timeSignature and m.timeSignature:
+                first_measure.timeSignature = m.timeSignature
+        measureOffsetMap[offset] = first_measure
+    return measureOffsetMap
+
+
 def get_measures_table(score: music21.stream.Score):
-    offset2measure_object = {offset: get_measure_with_timesig(measure_list) for offset, measure_list in score.measureOffsetMap().items()}
+    offset2measure_object = make_measureOffsetMap_with_ks_and_ts(score)
     offset2measure_features = {
         offset: dict(
             mc=mc,
-            offset = m.offset,
-            quarterbeats = Fraction(m.offset),
-            measureNumber = m.measureNumber,
-            measureNumberWithSuffix = m.measureNumberWithSuffix(),
-            barDuration = Fraction(m.barDuration.quarterLength),
-            duration = Fraction(m.duration.quarterLength),
-            timeSignature = m.timeSignature.ratioString if m.timeSignature else pd.NA,
-        ) for mc, (offset, m) in enumerate(offset2measure_object.items(), 1)}
+            offset=m.offset,
+            quarterbeats=Fraction(m.offset),
+            measureNumber=m.measureNumber,
+            measureNumberWithSuffix=m.measureNumberWithSuffix(),
+            barDuration=Fraction(m.barDuration.quarterLength),
+            duration=Fraction(m.duration.quarterLength),
+            ks_fifths=m.keySignature.sharps if m.keySignature else pd.NA,
+            timeSignature=m.timeSignature.ratioString if m.timeSignature else pd.NA,
+        )
+        for mc, (offset, m) in enumerate(offset2measure_object.items(), 1)
+    }
     measures = pd.DataFrame.from_dict(offset2measure_features, orient="index")
+    measures.ks_fifths = measures.ks_fifths.astype("Int64").ffill()
     measures.timeSignature = measures.timeSignature.ffill()
     measures.index = make_interval_index(measures)
     measures["act_dur"] = measures.duration / 4
-    measures = pd.concat([
-        measures,
-        make_continuous_mc_beats_series(measures, beat_decimals=3),
-        measures.timeSignature.str.extract(r"^(?P<ts_beats>\d+)/(?P<ts_beat_type>\d+)$"),
-        make_mc_offset_column(measures),
-    ], axis=1)
+    measures = pd.concat(
+        [
+            measures,
+            make_continuous_mc_beats_series(measures, beat_decimals=3),
+            measures.timeSignature.str.extract(
+                r"^(?P<ts_beats>\d+)/(?P<ts_beat_type>\d+)$"
+            ),
+            make_mc_offset_column(measures),
+        ],
+        axis=1,
+    )
     return measures
 
 
@@ -166,9 +182,7 @@ def extendedDataFrame(s, fmt=None):
     measures = get_measures_table(s)
 
     def add_note(
-            note,
-            part_id: Optional[str] = None,
-            voice_id: Optional[str] = None
+        note, part_id: Optional[str] = None, voice_id: Optional[str] = None
     ) -> None:
         """Updates the row's dfdict with the note information and adds it to the records."""
         nonlocal dfdict, measure_info
@@ -178,6 +192,7 @@ def extendedDataFrame(s, fmt=None):
             voice_id = voice.id
         else:
             voice_id = "1"
+
         timesig = measure_info.get("timeSignature")
         measure_offset = measure_info.get("quarterbeats")
         note_offset = dfdict.get("s_offset_frac")
@@ -188,30 +203,30 @@ def extendedDataFrame(s, fmt=None):
         p = note.pitch
         note_record = dict(
             dfdict,
-            continuous_beats = continuous_beats,
-            s_note = p.nameWithOctave,
-            s_midi = p.midi,
-            s_isOnset = (not note.tie or note.tie.type == "start"),
-            s_step = p.step,
-            s_alter = int(p.alter),
-            mn_onset = mn_onset,
-            s_beat_float = beat_float,
-            s_downbeat = int(beat_float) if beat_float.is_integer() else 0,
-            s_part_id = part_id,
-            s_voice_id = voice_id,
+            continuous_beats=continuous_beats,
+            s_note=p.nameWithOctave,
+            s_midi=p.midi,
+            s_isOnset=(not note.tie or note.tie.type == "start"),
+            s_step=p.step,
+            s_alter=int(p.alter),
+            mn_onset=mn_onset,
+            s_beat_float=beat_float,
+            s_downbeat=int(beat_float) if beat_float.is_integer() else 0,
+            s_part_id=part_id,
+            s_voice_id=voice_id,
         )
         df_records.append(note_record)
 
     for note_or_rest in s.semiFlat.notesAndRests:
         measure_info = measures.loc[note_or_rest.offset].to_dict()
         dfdict = dict(
-            s_offset = round(float(note_or_rest.offset), FLOATSCALE),
-            s_offset_frac = Fraction(note_or_rest.offset),
-            s_duration = round(float(note_or_rest.quarterLength), FLOATSCALE),
-            s_duration_frac = Fraction(note_or_rest.quarterLength),
-            s_measure = note_or_rest.measureNumber + measureNumberShift,
+            s_offset=round(float(note_or_rest.offset), FLOATSCALE),
+            s_offset_frac=Fraction(note_or_rest.offset),
+            s_duration=round(float(note_or_rest.quarterLength), FLOATSCALE),
+            s_duration_frac=Fraction(note_or_rest.quarterLength),
+            s_measure=note_or_rest.measureNumber + measureNumberShift,
         )
-        for key in ("ts_beats", "ts_beat_type", "measureNumberWithSuffix"):
+        for key in ("ks_fifths", "ts_beats", "ts_beat_type", "measureNumberWithSuffix"):
             dfdict[key] = measure_info[key]
         if isinstance(note_or_rest, Rest):
             # Different from AugmentedNet, we don't need dummy entries for rests at the beginning of a measure
@@ -227,18 +242,22 @@ def extendedDataFrame(s, fmt=None):
         if isinstance(note_or_rest, Note):
             add_note(note_or_rest)
         elif isinstance(note_or_rest, Chord):
-            part_id = part.id if (part := note_or_rest.getContextByClass(Part)) else None
-            voice_id = voice.id if (voice := note_or_rest.getContextByClass(Voice)) else None
+            part_id = (
+                part.id if (part := note_or_rest.getContextByClass(Part)) else None
+            )
+            voice_id = (
+                voice.id if (voice := note_or_rest.getContextByClass(Voice)) else None
+            )
             for note in note_or_rest:
                 add_note(note, part_id=part_id, voice_id=voice_id)
         else:
-            warnings.warn(f"Encountered unexpected music21 object: {type(note_or_rest)!r}")
+            warnings.warn(
+                f"Encountered unexpected music21 object: {type(note_or_rest)!r}"
+            )
             continue
     df = pd.DataFrame.from_records(df_records)
 
-    currentLastOffset = float(df.iloc[-1].s_offset) + float(
-        df.iloc[-1].s_duration
-    )
+    currentLastOffset = float(df.iloc[-1].s_offset) + float(df.iloc[-1].s_duration)
     last_offset = measures.index.values[-1].right
     deltaDuration = last_offset - currentLastOffset
     df.loc[len(df) - 1, "s_duration"] += deltaDuration
@@ -294,16 +313,14 @@ def _engraveScore(df):
 
 def _texturizeAnnotationScore(df, duration, numberOfNotes):
     # Preemptively, remove any notion of held notes in an annotation file
-    df["s_isOnset"] = df.s_isOnset.apply(lambda l: [True for _ in l])
+    df["s_isOnset"] = df.s_isOnset.apply(lambda lst: [True for _ in lst])
     outputdf = df.copy()
     # A copy because we don't want these two temporary columns in the output
     df["notesNumber"] = df.s_notes.apply(len)
     df["allOnsets"] = df.s_isOnset.apply(all)
     # Which block chords can we replace with a more complex texture
     replaceable = df[
-        (df.s_duration == duration)
-        & (df.notesNumber == numberOfNotes)
-        & (df.allOnsets)
+        (df.s_duration == duration) & (df.notesNumber == numberOfNotes) & (df.allOnsets)
     ]
     for row in replaceable.itertuples():
         offset = row.Index
@@ -337,6 +354,7 @@ def parseScore(f, fmt=None, fixedOffset=FIXEDOFFSET, eventBased=False):
         df = _reindexDataFrame(df, fixedOffset=fixedOffset)
     df.metadata = s.metadata
     return df
+
 
 def parseScoreEvents(f, fmt=None):
     # Step 0: Use music21 to parse the score
