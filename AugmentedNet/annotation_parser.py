@@ -303,7 +303,7 @@ def make_record_from_rn_v100(globalkey, idx, rn):
     dfdict = dict(
         a_offset=round(float(rn.offset), FLOATSCALE),
         a_measure=rn.measureNumber,
-        mn_onset=Fraction((rn.beat - 1) * rn.beatDuration.quarterLength / 4),
+        mn_onset=make_mn_onset(rn),
         a_duration=round(float(rn.quarterLength), FLOATSCALE),
         a_annotationNumber=idx,
         label=rn.figure,
@@ -346,11 +346,19 @@ def make_record_from_rn_v100(globalkey, idx, rn):
     return dfdict
 
 
+def make_mn_onset(rn):
+    try:
+        return Fraction((rn.beat - 1) * rn.beatDuration.quarterLength / 4)
+    except Exception:
+        print(f"{rn.beat=}; {rn.beatDuration.quarterLength=}")
+        raise
+
+
 def make_record_from_rn(globalkey, idx, rn):
     dfdict = dict(
         a_offset=round(float(rn.offset), FLOATSCALE),
         a_measure=rn.measureNumber,
-        mn_onset=Fraction((rn.beat - 1) * rn.beatDuration.quarterLength / 4),
+        mn_onset=make_mn_onset(rn),
         a_duration=round(float(rn.quarterLength), FLOATSCALE),
         a_annotationNumber=idx,
     )
@@ -474,7 +482,7 @@ def parseAnnotation(f, fixedOffset=FIXEDOFFSET, eventBased=False):
     return df
 
 
-def parseAnnotationEvents(f):
+def parseAnnotationEvents(f, v100_processing=False):
     """Generates the DataFrame from a RomanText file.
 
     Parses the file using music21. Creates an initial DataFrame
@@ -483,7 +491,7 @@ def parseAnnotationEvents(f):
     """
     # Step 0: Use music21 to parse the score
     s = _m21Parse(f)
-    df = extendedDataFrame(s)
+    df = extendedDataFrame(s, v100_processing=v100_processing)
     df = utils.convert_romanNumeral_to_simpleNumeral(df)
     df.metadata = s.metadata
     return df

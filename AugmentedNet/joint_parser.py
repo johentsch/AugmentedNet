@@ -74,9 +74,7 @@ def _qualityMetric(df):
 
 def _inversionMetric(df):
     df["incongruentBass"] = np.nan
-    annotationIndexes = df[
-        df.a_harmonicRhythm == 0
-    ].a_pitchNames.index.to_list()
+    annotationIndexes = df[df.a_harmonicRhythm == 0].a_pitchNames.index.to_list()
     annotationBasses = df[df.a_harmonicRhythm == 0].a_bass.to_list()
     annotationIndexes.append("end")
     annotationRanges = [
@@ -149,7 +147,9 @@ def extend_joint_df(jointdf: pd.DataFrame) -> pd.DataFrame:
     return pd.concat([div_columns.reindex(jointdf.index), jointdf], axis=1)
 
 
-def parseAnnotationAndScoreEvents(a, s):  # , qualityAssessment=True
+def parseAnnotationAndScoreEvents(
+    a, s, v100_processing=False
+):  # , qualityAssessment=True
     """Process a RomanText and score files simultaneously.
 
     a is a RomanText file
@@ -158,7 +158,9 @@ def parseAnnotationAndScoreEvents(a, s):  # , qualityAssessment=True
     Create the dataframes of both. Generate a new, joint, one.
     """
     # Parse each file
-    extended_adf = annotation_parser.parseAnnotationEvents(a)
+    extended_adf = annotation_parser.parseAnnotationEvents(
+        a, v100_processing=v100_processing
+    )
     sdf = score_parser.parseScoreEvents(s)
     metadata = dict(
         m21_metadata2dict(extended_adf.metadata, "a_"),

@@ -43,9 +43,7 @@ def generateDataset(
             if not synthesize:
                 df = parseAnnotationAndScore(annotation, score, eventBased=eventBased)
             else:
-                df = parseAnnotationAndAnnotation(
-                    annotation, texturize=texturize
-                )
+                df = parseAnnotationAndAnnotation(annotation, texturize=texturize)
             outpath = os.path.join(datasetDir, split, nickname + ".tsv")
             df.to_csv(outpath, sep="\t")
             collection = nickname.split("-")[0]
@@ -74,8 +72,9 @@ def store_labeled_pitch_array_and_label_tsv(
     assembled_dir: Optional[str] = None,
     include_metadata: bool = True,
 ):
+    v100_processing = split == "test"
     extended_adf, sdf, jointdf, metadata = parseAnnotationAndScoreEvents(
-        annotation_path, score_path
+        annotation_path, score_path, v100_processing=v100_processing
     )
     for df, suffix in [(jointdf, "joint")]:  # , (sdf, "slices")]:
         outpath = os.path.join(datasetDir, split, f"{nickname}_{suffix}.tsv")
