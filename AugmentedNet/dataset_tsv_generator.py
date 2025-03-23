@@ -72,7 +72,8 @@ def store_labeled_pitch_array_and_label_tsv(
     assembled_dir: Optional[str] = None,
     include_metadata: bool = True,
 ):
-    v100_processing = split == "test"
+    # v100_processing = split == "test" # we can do this when we have time to update the graph-building code
+    v100_processing = True
     extended_adf, sdf, jointdf, metadata = parseAnnotationAndScoreEvents(
         annotation_path, score_path, v100_processing=v100_processing
     )
