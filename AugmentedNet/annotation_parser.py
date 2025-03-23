@@ -9,8 +9,8 @@ import pandas as pd
 
 from . import utils
 from .cache import forceTonicization, getTonicizationScaleDegree
+from .chord_vocabulary import closestPcSet, frompcset
 from .common import FIXEDOFFSET, FLOATSCALE
-from .chord_vocabulary import frompcset, closestPcSet
 
 A_COLUMNS = [
     "a_offset",
@@ -121,6 +121,16 @@ def _hackRomanNumerals(figure, localKey):
     return figure
 
 
+def _fixRnSynonyms_v100(figure):
+    ret = figure.replace("6/4", "64")
+    ret = ret.replace("6/5", "65")
+    ret = ret.replace("4/3", "43")
+    ret = ret.replace("4/2", "42")
+    ret = ret.replace("42", "2")
+    ret = ret.replace("bII", "N")
+    return ret
+
+
 def _fixRnSynonyms(figure):
     ret = figure.replace("6/4", "64")
     ret = ret.replace("6/5", "65")
@@ -131,8 +141,13 @@ def _fixRnSynonyms(figure):
     return ret
 
 
+def _simplifyRomanNumeral_v100(figure):
+    missingAdd = re.compile(r"(\[.*\])")
+    return missingAdd.sub("", figure)
+
+
 def _simplifyRomanNumeral(figure):
-    missingAdd = re.compile("(\[(add\d)*\]|\[(no\d*)*\])")
+    missingAdd = re.compile(r"(\[(add\d)*\]|\[(no\d*)*\])")
     return missingAdd.sub("", figure)
 
 
@@ -145,10 +160,12 @@ def _removeInversion(figure):
     return ret
 
 
+def _preprocessRomanNumeral_v100(figure):
+    return _removeInversion(_simplifyRomanNumeral_v100(_fixRnSynonyms_v100(figure)))
+
+
 def _preprocessRomanNumeral(figure, localKey):
-    return _fixRnSynonyms(
-        _simplifyRomanNumeral(_hackRomanNumerals(figure, localKey))
-    )
+    return _fixRnSynonyms(_simplifyRomanNumeral(_hackRomanNumerals(figure, localKey)))
 
 
 def _extractRomanNumeralInformation(rn):
@@ -175,9 +192,7 @@ def _extractRomanNumeralInformation(rn):
     pitchNames = rn.pitchNames
     root = rn.root().name
     if len(pitchNames) < 3:
-        print(
-            f"{originalFigure} -> {hackedFigure}, {originalpcset} -> {newpcset}"
-        )
+        print(f"{originalFigure} -> {hackedFigure}, {originalpcset} -> {newpcset}")
         pitchNames += [root] * 2
     inversion = rn.inversion()
     # This is a workaround before I commit to writing a mapping between
@@ -213,7 +228,7 @@ def _correctRomanNumeral(rndata):
     localKey = rndata["localKey"]
     tonicizedKey = rndata["tonicizedKey"]
     # CHORD (PCSET)
-    if not pcset in frompcset:
+    if pcset not in frompcset:
         # We get a valid pcset yes or yes
         pcset = closestPcSet(pcset)
     # TONICIZATION
@@ -292,7 +307,7 @@ def make_record_from_rn_v100(globalkey, idx, rn):
         a_duration=round(float(rn.quarterLength), FLOATSCALE),
         a_annotationNumber=idx,
         label=rn.figure,
-        a_romanNumeral=_preprocessRomanNumeral(rn.figure),
+        a_romanNumeral=_preprocessRomanNumeral_v100(rn.figure),
         a_isOnset=True,
         a_pitchNames=tuple(rn.pitchNames),
         a_bass=rn.pitchNames[0],
@@ -347,6 +362,7 @@ def extendedDataFrame(s, v100_processing=False):
         df_records.append(dfdict)
     df = pd.DataFrame.from_records(df_records)
     return df
+
 
 def _reindexDataFrame(df, fixedOffset=FIXEDOFFSET):
     """Reindexes a dataframe according to a fixed note-value.
