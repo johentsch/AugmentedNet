@@ -944,8 +944,9 @@ def convert_romanNumeral_to_simpleNumeral(annotations: pd.DataFrame) -> pd.DataF
     simpleNumeral_clean = (
         simpleNumeral_components.loc[:, "acc":].sum(axis=1).rename("a_simpleNumeral")
     )
-    simpleNumeral_clean = simpleNumeral_clean.where(simpleNumeral_clean != "", "none")
-    return pd.concat([annotations, simpleNumeral_clean], axis=1)
+    valid_chord_label = (simpleNumeral_clean != "").astype("boolean").rename("valid_chord_label")
+    simpleNumeral_clean = simpleNumeral_clean.where(valid_chord_label, "none")
+    return pd.concat([annotations, simpleNumeral_clean, valid_chord_label], axis=1)
 
 
 # def get_pitch_array_from_piece(

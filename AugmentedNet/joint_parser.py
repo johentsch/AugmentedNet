@@ -154,7 +154,7 @@ def parseAnnotationAndScoreEvents(a, s):  # , qualityAssessment=True
         **m21_metadata2dict(sdf.metadata, "s_"),
     )
     # Create the joint dataframe
-    original_columns = [col for col in extended_adf.columns if col[:2] in ("a_", "s_")]
+    original_columns = [col for col in extended_adf.columns if col[:2] in ("a_", "s_")] + ["valid_chord_label"]
     adf = extended_adf[original_columns].copy()
     jointdf = pd.merge(
         left=sdf, right=adf, left_on="s_offset", right_on="a_offset", how="outer"
