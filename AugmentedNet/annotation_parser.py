@@ -284,8 +284,54 @@ def _harmonicRhythmPostprocessing(a_harmonicRhythm):
     return hr
 
 
+def make_record_from_rn_v100(globalkey, idx, rn):
+    dfdict = dict(
+        a_offset=round(float(rn.offset), FLOATSCALE),
+        a_measure=rn.measureNumber,
+        mn_onset=Fraction((rn.beat - 1) * rn.beatDuration.quarterLength / 4),
+        a_duration=round(float(rn.quarterLength), FLOATSCALE),
+        a_annotationNumber=idx,
+        label=rn.figure,
+        a_romanNumeral=_preprocessRomanNumeral(rn.figure),
+        a_isOnset=True,
+        a_pitchNames=tuple(rn.pitchNames),
+        a_bass=rn.pitchNames[0],
+        a_root=rn.root().name,
+        a_inversion=rn.inversion(),
+        a_quality=rn.commonName,
+        a_pcset=tuple(sorted(set(rn.pitchClasses))),
+    )
+    localKey = rn.key.tonicPitchNameWithCase
+    dfdict["a_localKey"] = localKey
+    dfdict["localkey_abs"] = localKey.replace("-", "b")
+    dfdict["globalkey"] = globalkey
+    secondaryKey = rn.secondaryRomanNumeralKey
+    if secondaryKey:
+        tonicizedKey = secondaryKey.tonicPitchNameWithCase
+        dfdict["a_tonicizedKey"] = tonicizedKey
+    else:
+        # if there is no tonicization, encode the local key
+        dfdict["a_tonicizedKey"] = localKey
+    scaleDegree, alteration = rn.scaleDegreeWithAlteration
+    if alteration:
+        scaleDegree = f"{alteration.modifier}{scaleDegree}"
+    else:
+        scaleDegree = f"{scaleDegree}"
+    dfdict["a_degree1"] = str(scaleDegree)
+    secondaryDegree = rn.secondaryRomanNumeral
+    if secondaryDegree:
+        scaleDegree, alteration = secondaryDegree.scaleDegreeWithAlteration
+        if alteration:
+            scaleDegree = f"{alteration.modifier}{scaleDegree}"
+        else:
+            scaleDegree = f"{scaleDegree}"
+        dfdict["a_degree2"] = scaleDegree
+    else:
+        dfdict["a_degree2"] = "None"
+    return dfdict
 
-def extendedDataFrame(s):
+
+def extendedDataFrame(s, v100_processing=False):
     """Parses an annotation RomanText file and produces a pandas dataframe.
 
     Unpacking a roman numeral is slightly more complicated here than in
@@ -297,49 +343,7 @@ def extendedDataFrame(s):
     first_key = next(s.flat.getElementsByClass("RomanNumeral")).key
     globalkey = first_key.tonicPitchNameWithCase.replace("-", "b")
     for idx, rn in enumerate(s.flat.getElementsByClass("RomanNumeral")):
-        dfdict = dict(
-            a_offset=round(float(rn.offset), FLOATSCALE),
-            a_measure=rn.measureNumber,
-            mn_onset=Fraction((rn.beat - 1) * rn.beatDuration.quarterLength / 4),
-            a_duration=round(float(rn.quarterLength), FLOATSCALE),
-            a_annotationNumber=idx,
-            label=rn.figure,
-            a_romanNumeral=_preprocessRomanNumeral(rn.figure),
-            a_isOnset=True,
-            a_pitchNames=tuple(rn.pitchNames),
-            a_bass=rn.pitchNames[0],
-            a_root=rn.root().name,
-            a_inversion=rn.inversion(),
-            a_quality=rn.commonName,
-            a_pcset=tuple(sorted(set(rn.pitchClasses))),
-        )
-        localKey = rn.key.tonicPitchNameWithCase
-        dfdict["a_localKey"] = localKey
-        dfdict["localkey_abs"] = localKey.replace("-", "b")
-        dfdict["globalkey"] = globalkey
-        secondaryKey = rn.secondaryRomanNumeralKey
-        if secondaryKey:
-            tonicizedKey = secondaryKey.tonicPitchNameWithCase
-            dfdict["a_tonicizedKey"] = tonicizedKey
-        else:
-            # if there is no tonicization, encode the local key
-            dfdict["a_tonicizedKey"] = localKey
-        scaleDegree, alteration = rn.scaleDegreeWithAlteration
-        if alteration:
-            scaleDegree = f"{alteration.modifier}{scaleDegree}"
-        else:
-            scaleDegree = f"{scaleDegree}"
-        dfdict["a_degree1"] = str(scaleDegree)
-        secondaryDegree = rn.secondaryRomanNumeral
-        if secondaryDegree:
-            scaleDegree, alteration = secondaryDegree.scaleDegreeWithAlteration
-            if alteration:
-                scaleDegree = f"{alteration.modifier}{scaleDegree}"
-            else:
-                scaleDegree = f"{scaleDegree}"
-            dfdict["a_degree2"] = scaleDegree
-        else:
-            dfdict["a_degree2"] = "None"
+        dfdict = make_record_from_rn_v100(globalkey, idx, rn)
         df_records.append(dfdict)
     df = pd.DataFrame.from_records(df_records)
     return df
