@@ -6,6 +6,7 @@ s_offset_frac,object,computing fields,"A note's distance from the piece's beginn
 s_duration,float64,computing fields,Note duration in quarter notes.,
 s_duration_frac,object,computing fields,"Note duration in quarter notes, but consistently expressed as Fraction.",duration * 4
 s_measure,Int64,input graph creation,"Measure number as output by music21, automatically corrected for anacrusis = 0 where necessary.",mn
+ks_fifths,Int64,input graph creation,"Key signature: [-7, 7]",ks_fifths
 ts_beats,Int64,input graph creation,Numerator of the time signature,ts_beats
 ts_beat_type,Int64,input graph creation,Denominator of the time signature,ts_beat_type
 measureNumberWithSuffix,string,computing fields,"A measure attribute output by music21 to disambiguate measure-like objects having the same number. E.g., the second part of a split bar might have the suffix 'X1', a second ending 'X2' or 'b'.",
@@ -36,3 +37,4 @@ a_tonicizedKey,string,training harmony inference task,"The key that an applied c
 a_degree1,string,training harmony inference task,"Chordal root expressed as scale degree, preceeded by '#' for sharps and '-' for flats,as music21 would output them. For applied chords, such as #vii/vi, the scale degree represents the numeral before the slash; the second part will be represented in a_degree2.",
 a_degree2,string,training harmony inference task,Only defined for applied chords where this value expresses the tonicized key as a scale degree of the localkey in vigour. The format is the same as for a_degree1.,
 a_simpleNumeral,string,training harmony inference task,This is a version of a_romanNumeral that has reduced information on the chord type and no secondary (applied) degree.,
+valid_chord_label,boolean,filtering notes based on the available annotations,True when a valid chord label is available for a note.,valid_chord_label

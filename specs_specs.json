@@ -32,6 +32,11 @@
     "used_for": "input graph creation",
     "dlc_equivalent": "mn"
   },
+  "ks_fifths": {
+    "description": "Key signature: [-7, 7]",
+    "used_for": "input graph creation",
+    "dlc_equivalent": "ks_fifths"
+  },
   "ts_beats": {
     "description": "Numerator of the time signature",
     "used_for": "input graph creation",
@@ -173,5 +178,10 @@
   "a_degree2": {
     "description": "Only defined for applied chords where this value expresses the tonicized key as a scale degree of the localkey in vigour. The format is the same as for a_degree1.",
     "used_for": "training harmony inference task"
+  },
+  "valid_chord_label": {
+    "description": "True when a valid chord label is available for a note.",
+    "used_for": "filtering notes based on the available annotations",
+    "dlc_equivalent": "valid_chord_label"
   }
 }
