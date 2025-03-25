@@ -718,12 +718,12 @@ INT_COLUMNS = [
     "ts_beat_type",
     "s_midi",
     "s_alter",
-    "s_downbeat",
+    "downbeat",
     "a_measure",
     "a_annotationNumber",
     "a_inversion",
 ]
-BOOL_COLUMNS = ["s_isOnset", "a_isOnset"]
+BOOL_COLUMNS = ["s_isOnset", "a_isOnset", "is_downbeat"]
 STRING_COLUMNS = [
     "measureNumberWithSuffix",
     "s_note",

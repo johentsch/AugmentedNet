@@ -18,7 +18,8 @@ s_step,string,input graph creation,Note name without accidental (A-G),step
 s_alter,Int64,input graph creation,"Note accidental: [-3, 3]",alter
 mn_onset,object,computing fields,"Offset from the beginning of the (complete, even if split) measure as fraction of a whole note.",mn_onset
 s_beat_float,float64,computing fields,"The decimal beat position of any event within the current measure. A measure in n/m meter is considered to consist of n beats that have duration of 1/m of a whole note; except if n is a multiple of 3 (6, 9, 12, but not 3), in which case a measure is considered to have n/3 beats of length 3/m whole notes. All positions that fall in between downbeats are scaled linearly. For example, the first for eigths in a 9/8 meter have beat floats 1, 1.333, 1.667, 2. Values are rounded to three decimals.",beat_float
-s_downbeat,Int64,training beat inference task,Adopts the integer values from beat_float and the value 0 for the rest.,downbeat
+is_downbeat,boolean,training beat inference task,"Indicates whether an event falls on a downbeat or not. Is False when downbeat == 0, True otherwise.",is_downbeat
+downbeat,Int64,training beat inference task,Adopts the integer values from beat_float and the value 0 for the rest.,downbeat
 s_part_id,string,input graph creation,ID/name of the staff containing the note.,staff (but there it's an integer)
 s_voice_id,string,input graph creation,ID/name of the notational layer containing the note.,voice (but there it's an integer)
 a_measure,Int64,computing fields,Equivalent to s_measure but indicating in what measure the current annotation label began.,mn
@@ -38,4 +39,4 @@ a_degree1,string,training harmony inference task,"Chordal root expressed as scal
 a_degree2,string,training harmony inference task,Only defined for applied chords where this value expresses the tonicized key as a scale degree of the localkey in vigour. The format is the same as for a_degree1.,
 a_simpleNumeral,string,training harmony inference task,This is a version of a_romanNumeral that has reduced information on the chord type and no secondary (applied) degree.,
 valid_chord_label,boolean,filtering notes based on the available annotations,True when a valid chord label is available for a note.,valid_chord_label
-note_degree,string,training note_degree inference task,"A string expressing a note's position relative to the scale of the localkey. E.g., for a passage in the local key of F minor, F: '1', Ab: '3', A: '#3', C: '5', Ab: '6', A: '#6', Bb: '7', B: '#'. etc.",valid_chord_label
+note_degree,string,training note_degree inference task,"A string expressing a note's position relative to the scale of the localkey. E.g., for a passage in the local key of F minor, F: '1', Ab: '3', A: '#3', C: '5', Ab: '6', A: '#6', Bb: '7', B: '#'. etc.",note_degree

@@ -211,7 +211,8 @@ def extendedDataFrame(s, fmt=None):
             s_alter=int(p.alter),
             mn_onset=mn_onset,
             s_beat_float=beat_float,
-            s_downbeat=int(beat_float) if beat_float.is_integer() else 0,
+            is_downbeat=(is_downbeat := beat_float.is_integer()),
+            downbeat=int(beat_float) if is_downbeat else 0,
             s_part_id=part_id,
             s_voice_id=voice_id,
         )

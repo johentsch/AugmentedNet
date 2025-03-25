@@ -90,7 +90,12 @@
     "used_for": "computing fields",
     "dlc_equivalent": "beat_float"
   },
-  "s_downbeat": {
+  "is_downbeat": {
+    "description": "Indicates whether an event falls on a downbeat or not. Is False when downbeat == 0, True otherwise.",
+    "used_for": "training beat inference task",
+    "dlc_equivalent": "is_downbeat"
+  },
+  "downbeat": {
     "description": "Adopts the integer values from beat_float and the value 0 for the rest.",
     "used_for": "training beat inference task",
     "dlc_equivalent": "downbeat"
@@ -187,6 +192,6 @@
   "note_degree": {
     "description": "A string expressing a note's position relative to the scale of the localkey. E.g., for a passage in the local key of F minor, F: '1', Ab: '3', A: '#3', C: '5', Ab: '6', A: '#6', Bb: '7', B: '#'. etc.",
     "used_for": "training note_degree inference task",
-    "dlc_equivalent": "valid_chord_label"
+    "dlc_equivalent": "note_degree"
   }
 }
