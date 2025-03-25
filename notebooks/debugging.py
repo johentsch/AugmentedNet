@@ -18,11 +18,53 @@ import os
 
 import ms3
 import pandas as pd
+from music21.roman import RomanNumeral
 
 # %%
 # %load_ext autoreload
 # %autoreload 2
 from AugmentedNet import utils
+from AugmentedNet.annotation_parser import parseAnnotationEvents
+from AugmentedNet.common import ANNOTATIONSCOREDUPLES
+from AugmentedNet.joint_parser import parseAnnotationAndScoreEvents
+
+os.chdir("..")
+
+# %%
+rn = RomanNumeral("Cad64")
+rn.pitches
+rn.inversion()
+
+# %%
+
+rn.commonName
+
+# %%
+rn.scaleDegreeWithAlteration
+
+
+# %%
+
+
+def get_individual_pitch_array(nickname):
+    annotation_path, score_path = ANNOTATIONSCOREDUPLES[nickname]
+    _, _, jointdf, _ = parseAnnotationAndScoreEvents(annotation_path, score_path)
+    return jointdf
+
+
+def get_individual_annotations_df(nickname):
+    annotation_path, _ = ANNOTATIONSCOREDUPLES[nickname]
+    extended_adf = parseAnnotationEvents(annotation_path)
+    return extended_adf
+
+
+# extended_adf = get_individual_annotations_df("bps-01-op002-no1-1")
+# extended_adf
+lpa = get_individual_pitch_array("bps-01-op002-no1-1")
+lpa
+
+# %%
+utils.create_and_store_specs(lpa, "augnet_pitch_array_specs.csv", "specs_specs.json")
 
 # %%
 DATASET_PATH = ms3.resolve_dir("../events")

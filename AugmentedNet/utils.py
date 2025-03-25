@@ -739,6 +739,7 @@ STRING_COLUMNS = [
     "a_degree1",
     "a_degree2",
     "a_simpleNumeral",
+    "note_degree",
 ]
 OBJECT_COLUMNS = [
     "s_offset_frac",

@@ -2,6 +2,7 @@
 
 import re
 
+import ms3
 import numpy as np
 import pandas as pd
 
@@ -124,6 +125,27 @@ def m21_metadata2dict(metadata, key_prefix=None):
     return {f"{key_prefix}{k}": v for k, v in metadata.all()}
 
 
+def note_name2fifths(column: pd.Series):
+    """Replaces '-' with 'b' in all note names and converts them to TPC (0=C, 1=G, -2 = Bb, etc.)."""
+    return ms3.transform(column.str.replace("-", "b"), ms3.name2fifths)
+
+
+def fifths2scale_degree(fifths, minor=False):
+    try:
+        return ms3.fifths2sd(fifths=fifths, minor=minor)
+    except Exception:
+        return pd.NA
+
+
+def make_note_degree_column(lda: pd.DataFrame) -> pd.Series:
+    localkey_tpc = note_name2fifths(lda.a_localKey)
+    note_tpc = note_name2fifths(lda.s_note.str.replace(r"\d", "", regex=True))
+    note_degree_info = pd.DataFrame(
+        dict(fifths=note_tpc - localkey_tpc, minor_key=lda.a_localKey.str.islower())
+    )
+    return ms3.transform(note_degree_info, fifths2scale_degree).rename("note_degree")
+
+
 def extend_joint_df(jointdf: pd.DataFrame) -> pd.DataFrame:
     df_without_missing = jointdf[jointdf.s_offset_frac.notna()]
     div_maker = DivMaker(
@@ -135,7 +157,8 @@ def extend_joint_df(jointdf: pd.DataFrame) -> pd.DataFrame:
         dict(onset_div=onset_div, duration_div=duration_div),
         index=df_without_missing.index,
     )
-    return pd.concat([div_columns.reindex(jointdf.index), jointdf], axis=1)
+    note_degree = make_note_degree_column(jointdf)
+    return pd.concat([div_columns.reindex(jointdf.index), jointdf, note_degree], axis=1)
 
 
 def parseAnnotationAndScoreEvents(a, s):  # , qualityAssessment=True
@@ -154,7 +177,9 @@ def parseAnnotationAndScoreEvents(a, s):  # , qualityAssessment=True
         **m21_metadata2dict(sdf.metadata, "s_"),
     )
     # Create the joint dataframe
-    original_columns = [col for col in extended_adf.columns if col[:2] in ("a_", "s_")] + ["valid_chord_label"]
+    original_columns = [
+        col for col in extended_adf.columns if col[:2] in ("a_", "s_")
+    ] + ["valid_chord_label"]
     adf = extended_adf[original_columns].copy()
     jointdf = pd.merge(
         left=sdf, right=adf, left_on="s_offset", right_on="a_offset", how="outer"
