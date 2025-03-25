@@ -141,9 +141,15 @@ def make_note_degree_column(lda: pd.DataFrame) -> pd.Series:
     localkey_tpc = note_name2fifths(lda.a_localKey)
     note_tpc = note_name2fifths(lda.s_note.str.replace(r"\d", "", regex=True))
     note_degree_info = pd.DataFrame(
-        dict(fifths=note_tpc - localkey_tpc, minor_key=lda.a_localKey.str.islower())
+        dict(
+            fifths=(note_tpc - localkey_tpc).astype("Int64"),
+            minor_key=lda.a_localKey.str.islower(),
+        )
     )
-    return ms3.transform(note_degree_info, fifths2scale_degree).rename("note_degree")
+    note_degree = ms3.transform(note_degree_info, fifths2scale_degree).rename(
+        "note_degree"
+    )
+    return note_degree
 
 
 def extend_joint_df(jointdf: pd.DataFrame) -> pd.DataFrame:

@@ -18,7 +18,6 @@ import os
 
 import ms3
 import pandas as pd
-from music21.roman import RomanNumeral
 
 # %%
 # %load_ext autoreload
@@ -29,19 +28,6 @@ from AugmentedNet.common import ANNOTATIONSCOREDUPLES
 from AugmentedNet.joint_parser import parseAnnotationAndScoreEvents
 
 os.chdir("..")
-
-# %%
-rn = RomanNumeral("Cad64")
-rn.pitches
-rn.inversion()
-
-# %%
-
-rn.commonName
-
-# %%
-rn.scaleDegreeWithAlteration
-
 
 # %%
 
@@ -60,7 +46,7 @@ def get_individual_annotations_df(nickname):
 
 # extended_adf = get_individual_annotations_df("bps-01-op002-no1-1")
 # extended_adf
-lpa = get_individual_pitch_array("bps-01-op002-no1-1")
+lpa = get_individual_pitch_array("tavern-beethoven-woo-76-a")
 lpa
 
 # %%
