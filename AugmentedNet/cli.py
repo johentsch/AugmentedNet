@@ -85,6 +85,11 @@ def tsv():
         action="store_true",
         help="If synthesizing a score, apply texturization to it.",
     )
+    parser.add_argument(
+        "-c",
+        action="store_true",
+        help="Continue where the last run stopped (based on the dataset_summary.tsv).",
+    )
     parser.set_defaults(**DefaultArguments.tsv)
     return parser
 

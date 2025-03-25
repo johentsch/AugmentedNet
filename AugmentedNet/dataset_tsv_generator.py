@@ -101,14 +101,21 @@ def store_labeled_pitch_array_and_label_tsv(
 
 
 def generateEventsDataset(
-    tsvDir="events", assembled_dir="assembled", include_metadata=True
+    tsvDir="events", assembled_dir="assembled", include_metadata=True, reset=True
 ):
-    statsrecords = []
     datasetDir = tsvDir
+    dataset_summary_path = os.path.join(datasetDir, DATASETSUMMARYFILE)
+    if reset:
+        statsrecords = []
+    else:
+        statsrecords = pd.read_csv(dataset_summary_path, sep="\t").to_dict(orient="records")
     Path(datasetDir).mkdir(exist_ok=True)
     for split, files in DATASPLITS.items():
         Path(os.path.join(datasetDir, split)).mkdir(exist_ok=True)
         for nickname in files:
+            if nickname in {rec["file"] for rec in statsrecords}:
+                print(f"{nickname} SKIPPED")
+                continue
             print(nickname)
             annotation, score = ANNOTATIONSCOREDUPLES[nickname]
             stats = store_labeled_pitch_array_and_label_tsv(
@@ -128,7 +135,7 @@ def generateEventsDataset(
             # incongruentBass = jointdf.incongruentBass.mean().round(2)
             # statsdict["incongruentBassMean"].append(incongruentBass)
             jointdf = pd.DataFrame.from_records(statsrecords)
-            jointdf.to_csv(os.path.join(datasetDir, DATASETSUMMARYFILE), sep="\t")
+            jointdf.to_csv(dataset_summary_path, sep="\t", index=False)
     return jointdf
 
 
@@ -137,4 +144,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
     kwargs = vars(args)
     # generateDataset(**kwargs)
-    generateEventsDataset()
+    generateEventsDataset(reset=not args.c)
