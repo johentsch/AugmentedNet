@@ -2,6 +2,7 @@
 
 import re
 from fractions import Fraction
+from typing import List
 
 import music21
 import numpy as np
@@ -226,6 +227,56 @@ def parseAnnotation(f, fixedOffset=FIXEDOFFSET, eventBased=False):
     return df
 
 
+def get_cad64_index(group_df: pd.DataFrame) -> List[int]:
+    """Takes a group of rows of an inversed annotations DataFrame whose last label / first row
+    represents a sonority on scale degree 5: returns the indices of all rows that immediately
+    follow that sonority and represent a 2nd-inversion tonic in the same key.
+    """
+    if len(group_df) == 1:
+        return []
+    cad64_idx = []
+    for i, current_row in enumerate(group_df.itertuples()):
+        if i == 0:
+            previous_row = current_row
+            continue
+        if (
+            current_row.a_degree1 != "1" or current_row.a_inversion != 2
+        ):  # ToDo: to integer
+            break
+        if current_row.a_localKey != previous_row.a_localKey:
+            break
+        if current_row.a_degree2 != previous_row.a_degree2:
+            break
+        cad64_idx.append(current_row.Index)
+        previous_row = current_row
+    return cad64_idx
+
+
+def replace_cadential_64(df, verbose=True):
+    """Replaces all 2nd-inversion tonics directly preceding a sonority on scale degree 5 with
+    dominant triads. This function mutates the original DataFrame.
+    """
+    df_reversed = df.iloc[::-1]
+    root5_mask = df_reversed.a_degree1 == "5"
+    root5_groups = root5_mask.cumsum()
+    cad64_selector = sorted(
+        df_reversed.groupby(root5_groups).apply(get_cad64_index).sum()
+    )
+    df.loc[cad64_selector, "a_romanNumeral"] = "V"
+    df.loc[cad64_selector, "a_simpleNumeral"] = "V"
+    df.loc[cad64_selector, "a_root"] = df.loc[cad64_selector, "a_bass"]
+    df.loc[cad64_selector, "a_inversion"] = 0
+    df.loc[cad64_selector, "a_quality"] = "major triad"
+    df.loc[cad64_selector, "a_degree1"] = "5"
+    if verbose:
+        tonic_2nd_inv_mask = (df.a_degree1 == "1") & (df.a_inversion == 2)
+        print(
+            f"{len(cad64_selector)} 2nd-inversion tonics interpreted as V(64), "
+            f"{tonic_2nd_inv_mask.sum()} left untouched."
+        )
+    return df
+
+
 def parseAnnotationEvents(f):
     """Generates the DataFrame from a RomanText file.
 
@@ -237,5 +288,6 @@ def parseAnnotationEvents(f):
     s = _m21Parse(f)
     df = extendedDataFrame(s)
     df = utils.convert_romanNumeral_to_simpleNumeral(df)
+    replace_cadential_64(df)
     df.metadata = s.metadata
     return df
