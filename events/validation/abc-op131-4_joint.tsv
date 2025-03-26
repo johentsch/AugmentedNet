@@ -1,12 +1,12 @@
 onset_div	duration_div	j_offset	s_offset_frac	s_duration	s_duration_frac	s_measure	ks_fifths	ts_beats	ts_beat_type	measureNumberWithSuffix	onset_beat	s_note	s_midi	s_isOnset	s_step	s_alter	mn_onset	s_beat_float	is_downbeat	downbeat	s_part_id	s_voice_id	a_measure	a_duration	a_annotationNumber	a_romanNumeral	a_isOnset	a_pitchNames	a_bass	a_root	a_inversion	a_quality	a_pcset	a_localKey	a_tonicizedKey	a_degree1	a_degree2	a_simpleNumeral	valid_chord_label	note_degree
-24	48	0.5	1/2	1.0	1	0	3	2	4	0	0.5	A4	69	True	A	0	1/8	1.5	False	0	Cello	1					False
-24	72	0.5	1/2	1.5	3/2	0	3	2	4	0	0.5	C#4	61	True	C	1	1/8	1.5	False	0	Cello	1					False
-24	72	0.5	1/2	1.5	3/2	0	3	2	4	0	0.5	E3	52	True	E	0	1/8	1.5	False	0	Cello	1					False
-24	24	0.5	1/2	0.5	1/2	0	3	2	4	0	0.5	A2	45	True	A	0	1/8	1.5	False	0	Cello	1					False
-48	24	1.0	1	0.5	1/2	0	3	2	4	0	1.0	A2	45	True	A	0	1/4	2.0	True	2	Cello	1					False
-72	12	1.5	3/2	0.25	1/4	0	3	2	4	0	1.5	B4	71	True	B	0	3/8	2.5	False	0	Cello	1					False
-72	24	1.5	3/2	0.5	1/2	0	3	2	4	0	1.5	A2	45	True	A	0	3/8	2.5	False	0	Cello	1					False
-84	12	1.75	7/4	0.25	1/4	0	3	2	4	0	1.75	A4	69	True	A	0	7/16	2.75	False	0	Cello	1					False
+24	48	0.5	1/2	1.0	1	0	3	2	4	0	0.5	A4	69	True	A	0	1/8	1.5	False	0	Cello	1	1	2.0	1	V7	False	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	False	1
+24	72	0.5	1/2	1.5	3/2	0	3	2	4	0	0.5	C#4	61	True	C	1	1/8	1.5	False	0	Cello	1	1	2.0	1	V7	False	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	False	3
+24	72	0.5	1/2	1.5	3/2	0	3	2	4	0	0.5	E3	52	True	E	0	1/8	1.5	False	0	Cello	1	1	2.0	1	V7	False	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	False	5
+24	24	0.5	1/2	0.5	1/2	0	3	2	4	0	0.5	A2	45	True	A	0	1/8	1.5	False	0	Cello	1	1	2.0	1	V7	False	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	False	1
+48	24	1.0	1	0.5	1/2	0	3	2	4	0	1.0	A2	45	True	A	0	1/4	2.0	True	2	Cello	1	1	2.0	1	V7	False	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	False	1
+72	12	1.5	3/2	0.25	1/4	0	3	2	4	0	1.5	B4	71	True	B	0	3/8	2.5	False	0	Cello	1	1	2.0	1	V7	False	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	False	2
+72	24	1.5	3/2	0.5	1/2	0	3	2	4	0	1.5	A2	45	True	A	0	3/8	2.5	False	0	Cello	1	1	2.0	1	V7	False	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	False	1
+84	12	1.75	7/4	0.25	1/4	0	3	2	4	0	1.75	A4	69	True	A	0	7/16	2.75	False	0	Cello	1	1	2.0	1	V7	False	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	False	1
 96	24	2.0	2	0.5	1/2	1	3	2	4	1	2.0	G#4	68	True	G	1	0	1.0	True	1	Cello	1	1	2.0	1	V7	True	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	True	7
 96	24	2.0	2	0.5	1/2	1	3	2	4	1	2.0	D4	62	True	D	0	0	1.0	True	1	Cello	1	1	2.0	1	V7	True	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	True	4
 96	96	2.0	2	2.0	2	1	3	2	4	1	2.0	E3	52	False	E	0	0	1.0	True	1	Cello	1	1	2.0	1	V7	True	('B', 'D', 'E', 'G#')	B	E	2	dominant seventh chord	(2, 4, 8, 11)	A	A	5	None	V7	True	5

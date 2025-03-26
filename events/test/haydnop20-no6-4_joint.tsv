@@ -1,10 +1,10 @@
 onset_div	duration_div	j_offset	s_offset_frac	s_duration	s_duration_frac	s_measure	ks_fifths	ts_beats	ts_beat_type	measureNumberWithSuffix	onset_beat	s_note	s_midi	s_isOnset	s_step	s_alter	mn_onset	s_beat_float	is_downbeat	downbeat	s_part_id	s_voice_id	a_measure	a_duration	a_annotationNumber	a_romanNumeral	a_isOnset	a_pitchNames	a_bass	a_root	a_inversion	a_quality	a_pcset	a_localKey	a_tonicizedKey	a_degree1	a_degree2	a_simpleNumeral	valid_chord_label	note_degree
-4	4	0.5	1/2	0.5	1/2	1	3	4	4	1	0.5	E5	76	True	E	0	1/8	1.5	False	0	spine_0	1					False
-8	4	1.0	1	0.5	1/2	1	3	4	4	1	1.0	E5	76	True	E	0	1/4	2.0	True	2	spine_0	1					False
-12	4	1.5	3/2	0.5	1/2	1	3	4	4	1	1.5	E5	76	True	E	0	3/8	2.5	False	0	spine_0	1					False
-16	4	2.0	2	0.5	1/2	1	3	4	4	1	2.0	C#5	73	True	C	1	1/2	3.0	True	3	spine_0	1					False
-20	2	2.5	5/2	0.25	1/4	1	3	4	4	1	2.5	B4	71	True	B	0	5/8	3.5	False	0	spine_0	1					False
-22	2	2.75	11/4	0.25	1/4	1	3	4	4	1	2.75	C#5	73	True	C	1	11/16	3.75	False	0	spine_0	1					False
+4	4	0.5	1/2	0.5	1/2	1	3	4	4	1	0.5	E5	76	True	E	0	1/8	1.5	False	0	spine_0	1	1	1.0	1	I	False	('A', 'C#', 'E')	A	A	0	major triad	(1, 4, 9)	A	A	1	None	I	False	5
+8	4	1.0	1	0.5	1/2	1	3	4	4	1	1.0	E5	76	True	E	0	1/4	2.0	True	2	spine_0	1	1	1.0	1	I	False	('A', 'C#', 'E')	A	A	0	major triad	(1, 4, 9)	A	A	1	None	I	False	5
+12	4	1.5	3/2	0.5	1/2	1	3	4	4	1	1.5	E5	76	True	E	0	3/8	2.5	False	0	spine_0	1	1	1.0	1	I	False	('A', 'C#', 'E')	A	A	0	major triad	(1, 4, 9)	A	A	1	None	I	False	5
+16	4	2.0	2	0.5	1/2	1	3	4	4	1	2.0	C#5	73	True	C	1	1/2	3.0	True	3	spine_0	1	1	1.0	1	I	False	('A', 'C#', 'E')	A	A	0	major triad	(1, 4, 9)	A	A	1	None	I	False	3
+20	2	2.5	5/2	0.25	1/4	1	3	4	4	1	2.5	B4	71	True	B	0	5/8	3.5	False	0	spine_0	1	1	1.0	1	I	False	('A', 'C#', 'E')	A	A	0	major triad	(1, 4, 9)	A	A	1	None	I	False	2
+22	2	2.75	11/4	0.25	1/4	1	3	4	4	1	2.75	C#5	73	True	C	1	11/16	3.75	False	0	spine_0	1	1	1.0	1	I	False	('A', 'C#', 'E')	A	A	0	major triad	(1, 4, 9)	A	A	1	None	I	False	3
 24	4	3.0	3	0.5	1/2	1	3	4	4	1	3.0	A4	69	True	A	0	3/4	4.0	True	4	spine_0	1	1	1.0	1	I	True	('A', 'C#', 'E')	A	A	0	major triad	(1, 4, 9)	A	A	1	None	I	True	1
 24	8	3.0	3	1.0	1	1	3	4	4	1	3.0	A4	69	True	A	0	3/4	4.0	True	4	spine_0	1	1	1.0	1	I	True	('A', 'C#', 'E')	A	A	0	major triad	(1, 4, 9)	A	A	1	None	I	True	1
 28	4	3.5	7/2	0.5	1/2	1	3	4	4	1	3.5	C#5	73	True	C	1	7/8	4.5	False	0	spine_0	1	1	1.0	1	I	False	('A', 'C#', 'E')	A	A	0	major triad	(1, 4, 9)	A	A	1	None	I	True	3

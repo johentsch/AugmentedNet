@@ -1,7 +1,7 @@
 onset_div	duration_div	j_offset	s_offset_frac	s_duration	s_duration_frac	s_measure	ks_fifths	ts_beats	ts_beat_type	measureNumberWithSuffix	onset_beat	s_note	s_midi	s_isOnset	s_step	s_alter	mn_onset	s_beat_float	is_downbeat	downbeat	s_part_id	s_voice_id	a_measure	a_duration	a_annotationNumber	a_romanNumeral	a_isOnset	a_pitchNames	a_bass	a_root	a_inversion	a_quality	a_pcset	a_localKey	a_tonicizedKey	a_degree1	a_degree2	a_simpleNumeral	valid_chord_label	note_degree
-6	6	0.25	1/4	0.25	1/4	0	1	2	4	0	0.25	D4	62	True	D	0	1/16	1.25	False	0	P1-Staff2	1					False
-12	6	0.5	1/2	0.25	1/4	0	1	2	4	0	0.5	D5	74	True	D	0	1/8	1.5	False	0	P1-Staff2	1					False
-18	6	0.75	3/4	0.25	1/4	0	1	2	4	0	0.75	A#4	70	True	A	1	3/16	1.75	False	0	P1-Staff2	1					False
+6	6	0.25	1/4	0.25	1/4	0	1	2	4	0	0.25	D4	62	True	D	0	1/16	1.25	False	0	P1-Staff2	1	1	2.0	1	I	False	('G', 'B', 'D')	G	G	0	major triad	(2, 7, 11)	G	G	1	None	I	False	5
+12	6	0.5	1/2	0.25	1/4	0	1	2	4	0	0.5	D5	74	True	D	0	1/8	1.5	False	0	P1-Staff2	1	1	2.0	1	I	False	('G', 'B', 'D')	G	G	0	major triad	(2, 7, 11)	G	G	1	None	I	False	5
+18	6	0.75	3/4	0.25	1/4	0	1	2	4	0	0.75	A#4	70	True	A	1	3/16	1.75	False	0	P1-Staff2	1	1	2.0	1	I	False	('G', 'B', 'D')	G	G	0	major triad	(2, 7, 11)	G	G	1	None	I	False	#2
 24	6	1.0	1	0.25	1/4	1	1	2	4	1	1.0	B4	71	True	B	0	0	1.0	True	1	P1-Staff2	8	1	2.0	1	I	True	('G', 'B', 'D')	G	G	0	major triad	(2, 7, 11)	G	G	1	None	I	True	3
 30	6	1.25	5/4	0.25	1/4	1	1	2	4	1	1.25	F#4	66	True	F	1	1/16	1.25	False	0	P1-Staff2	8	1	2.0	1	I	False	('G', 'B', 'D')	G	G	0	major triad	(2, 7, 11)	G	G	1	None	I	True	7
 36	18	1.5	3/2	0.75	3/4	1	1	2	4	1	1.5	G4	67	True	G	0	1/8	1.5	False	0	P1-Staff2	8	1	2.0	1	I	False	('G', 'B', 'D')	G	G	0	major triad	(2, 7, 11)	G	G	1	None	I	True	1
