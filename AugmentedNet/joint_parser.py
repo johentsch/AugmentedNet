@@ -195,7 +195,8 @@ def parseAnnotationAndScoreEvents(a, s):  # , qualityAssessment=True
     jointdf.a_isOnset = jointdf.a_isOnset.astype("boolean").fillna(False)
     j_offset = jointdf.s_offset.rename("j_offset")
     labels_not_coinciding_with_any_note_mask = jointdf.s_offset.isna()
-    if labels_not_coinciding_with_any_note_mask.any():
+    drop_noteless_rows = labels_not_coinciding_with_any_note_mask.any()
+    if drop_noteless_rows:
         # these are typically labels coinciding only with rests
         # there is, however, a residue risk that they are symptom of a score-annotation misalignment
         j_offset = j_offset.fillna(jointdf.a_offset)
@@ -203,6 +204,8 @@ def parseAnnotationAndScoreEvents(a, s):  # , qualityAssessment=True
             f"Score has {labels_not_coinciding_with_any_note_mask.sum()} labels not coinciding with any note."
         )
     jointdf.index = j_offset  # the index will be reset later but index-sorting is better here than value-sorting
+    if drop_noteless_rows:
+        jointdf = jointdf.dropna(subset="s_offset")
     jointdf = (
         jointdf.sort_index().reset_index()
     )  # anyway, j_offset is not suitable as index because it's non-unique
