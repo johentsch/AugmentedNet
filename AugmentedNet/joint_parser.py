@@ -199,19 +199,34 @@ def parseAnnotationAndScoreEvents(a, s):  # , qualityAssessment=True
     if drop_noteless_rows:
         # these are typically labels coinciding only with rests
         # there is, however, a residue risk that they are symptom of a score-annotation misalignment
-        j_offset = j_offset.fillna(jointdf.a_offset)
+        j_offset = j_offset.fillna(jointdf.a_offset).rename("j_offset")
         print(
             f"Score has {labels_not_coinciding_with_any_note_mask.sum()} labels not coinciding with any note."
         )
-    jointdf.index = j_offset  # the index will be reset later but index-sorting is better here than value-sorting
+    jointdf = pd.concat(
+        [j_offset, jointdf.drop(columns=["s_offset", "a_offset"])], axis=1
+    )
     if drop_noteless_rows:
-        jointdf = jointdf.dropna(subset="s_offset")
-    jointdf = (
-        jointdf.sort_index().reset_index()
-    )  # anyway, j_offset is not suitable as index because it's non-unique
-    # forward-fill annotation label features only, do not fill note features for label onsets
-    jointdf.loc[:, adf.columns] = jointdf.loc[:, adf.columns].ffill()
-    jointdf = jointdf.drop(columns=["s_offset", "a_offset"])
+        jointdf = jointdf.dropna(subset="s_note")
+    horizontal_split = "a_measure"
+    filled_harmony_side = jointdf.loc[
+        :, horizontal_split:
+    ].ffill()  # treating the right side=annotations individually
+    bfill = filled_harmony_side.valid_chord_label.isna().any()
+    if bfill:
+        # this extends the info of the first label back to the notes occurring before it
+        # This probably contradicts the annotator's intention but is better than having no
+        # key information etc. filled
+        columns_exept_valid = [
+            c for c in filled_harmony_side.columns if c != "valid_chord_label"
+        ]
+        filled_harmony_side.loc[:, columns_exept_valid] = filled_harmony_side.loc[
+            :, columns_exept_valid
+        ].bfill()
+        filled_harmony_side.valid_chord_label = (
+            filled_harmony_side.valid_chord_label.fillna(False)
+        )
+    jointdf.loc[:, horizontal_split:] = filled_harmony_side
     jointdf = extend_joint_df(jointdf)
 
     extended_adf = extended_adf.rename(
