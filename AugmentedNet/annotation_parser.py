@@ -79,7 +79,7 @@ def _initialDataFrame(s):
     lead to a better Roman numeral reconstruction this way.
     """
     dfdict = {col: [] for col in A_COLUMNS}
-    for idx, rn in enumerate(s.flat.getElementsByClass("RomanNumeral")):
+    for idx, rn in enumerate(s.flatten().getElementsByClass("RomanNumeral")):
         dfdict["a_offset"].append(round(float(rn.offset), FLOATSCALE))
         dfdict["a_measure"].append(rn.measureNumber)
         dfdict["a_duration"].append(round(float(rn.quarterLength), FLOATSCALE))
@@ -131,9 +131,9 @@ def extendedDataFrame(s):
     lead to a better Roman numeral reconstruction this way.
     """
     df_records = []
-    first_key = next(s.flat.getElementsByClass("RomanNumeral")).key
+    first_key = next(s.flatten().getElementsByClass("RomanNumeral")).key
     globalkey = first_key.tonicPitchNameWithCase.replace("-", "b")
-    for idx, rn in enumerate(s.flat.getElementsByClass("RomanNumeral")):
+    for idx, rn in enumerate(s.flatten().getElementsByClass("RomanNumeral")):
         dfdict = dict(
             a_offset=round(float(rn.offset), FLOATSCALE),
             a_measure=rn.measureNumber,

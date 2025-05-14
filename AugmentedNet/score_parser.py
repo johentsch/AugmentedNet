@@ -71,7 +71,7 @@ def _initialDataFrame(s, fmt=None):
     """
     dfdict = {col: [] for col in S_COLUMNS}
     measureNumberShift = _measureNumberShift(s)
-    for c in s.chordify().flat.notesAndRests:
+    for c in s.chordify().flatten().notesAndRests:
         dfdict["s_offset"].append(round(float(c.offset), FLOATSCALE))
         dfdict["s_duration"].append(round(float(c.quarterLength), FLOATSCALE))
         dfdict["s_measure"].append(c.measureNumber + measureNumberShift)
@@ -218,7 +218,7 @@ def extendedDataFrame(s, fmt=None):
         )
         df_records.append(note_record)
 
-    for note_or_rest in s.semiFlat.notesAndRests:
+    for note_or_rest in s.flatten(retainContainers=True).notesAndRests:
         measure_info = measures.loc[note_or_rest.offset].to_dict()
         dfdict = dict(
             s_offset=round(float(note_or_rest.offset), FLOATSCALE),

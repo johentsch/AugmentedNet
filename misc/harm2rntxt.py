@@ -6,7 +6,7 @@ from common import ANNOTATIONSCOREMAP
 def _measureDict(m21Score):
     tss = {}
     ms = {}
-    for rn in m21Score.flat.getElementsByClass("RomanNumeral"):
+    for rn in m21Score.flatten().getElementsByClass("RomanNumeral"):
         m = rn.measureNumber
         b = round(float(rn.beat), 2)
         b = int(b) if b.is_integer() else b
@@ -16,7 +16,7 @@ def _measureDict(m21Score):
         figure = rn.figure
         if (b, key, figure) not in ms[m]:
             ms[m].append((b, key, figure))
-    for ts in m21Score.flat.getElementsByClass("TimeSignature"):
+    for ts in m21Score.flatten().getElementsByClass("TimeSignature"):
         m = ts.measureNumber
         tss[m] = ts.ratioString
     return tss, ms

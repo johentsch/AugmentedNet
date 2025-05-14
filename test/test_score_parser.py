@@ -449,7 +449,7 @@ class TestScoreParser(unittest.TestCase):
         s = AugmentedNet.score_parser._engraveScore(df)
         s = s.makeNotation()
         gt = music21.converter.parse(texturizedHaydnOp20No4i, fmt="humdrum")
-        for c1, c2 in zip(s.chordify().flat.notes, gt.chordify().flat.notes):
+        for c1, c2 in zip(s.chordify().flatten().notes, gt.chordify().flatten().notes):
             with self.subTest(c1=c1, c2=c2):
                 self.assertEqual(c1.pitchNames, c2.pitchNames)
 

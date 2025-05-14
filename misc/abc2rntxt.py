@@ -85,7 +85,7 @@ def _measureDict(m21Score):
     tss = {}
     ms = {}
     globalKey = None
-    for harm in m21Score.flat.getElementsByClass("Harmony"):
+    for harm in m21Score.flatten().getElementsByClass("Harmony"):
         m = harm.measureNumber
         b = round(float(harm.beat), 2)
         b = int(b) if b.is_integer() else b
@@ -106,7 +106,7 @@ def _measureDict(m21Score):
         #     print(f"{annotation} -> {key}:{figure}")
         # else:
         #     print(f"{annotation} -> {figure}")
-    for ts in m21Score.flat.getElementsByClass("TimeSignature"):
+    for ts in m21Score.flatten().getElementsByClass("TimeSignature"):
         m = ts.measureNumber
         tss[m] = ts.ratioString
     return tss, ms
