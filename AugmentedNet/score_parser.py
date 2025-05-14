@@ -96,7 +96,7 @@ def _initialDataFrame(s, fmt=None):
 
 
 def make_interval_index(measures: pd.DataFrame) -> pd.IntervalIndex:
-    breaks = measures.offset.tolist()
+    breaks = measures.offset.astype(float).tolist()
     last_measure = measures.iloc[-1]
     end_of_piece = breaks[-1] + last_measure.duration
     breaks.append(end_of_piece)

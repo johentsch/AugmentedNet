@@ -227,7 +227,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schumann,_Clara/_/Die_gute_Nacht/score.mxl",
     ),
     "wir-openscore-liedercorpus-coleridge-taylor-oh-the-summer": (
-        "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Coleridge-Taylor,_Samuel/_/Oh,_the_Summer/analysis.txt",
+        "rawdata/corrections/WiR/Corpus/OpenScore-LiederCorpus/Coleridge-Taylor,_Samuel/_/Oh,_the_Summer/analysis.txt",
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Coleridge-Taylor,_Samuel/_/Oh,_the_Summer/score.mxl",
     ),
     "wir-openscore-liedercorpus-franz-6-gesange-op-14-5-liebesfruhling": (
@@ -279,7 +279,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Mahler,_Gustav/Kindertotenlieder/2_Nun_seh’_ich_wohl,_warum_so_dunkle_Flammen/score.mxl",
     ),
     "wir-openscore-liedercorpus-schumann-frauenliebe-und-leben-op-42-3-ich-kanns-nicht-fassen": (
-        "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schumann,_Robert/Frauenliebe_und_Leben,_Op.42/3_Ich_kann’s_nicht_fassen/analysis.txt",
+        "rawdata/corrections/WiR/Corpus/OpenScore-LiederCorpus/Schumann,_Robert/Frauenliebe_und_Leben,_Op.42/3_Ich_kann’s_nicht_fassen/analysis.txt",
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schumann,_Robert/Frauenliebe_und_Leben,_Op.42/3_Ich_kann’s_nicht_fassen/score.mxl",
     ),
     "wir-openscore-liedercorpus-schumann-frauenliebe-und-leben-op-42-1-seit-ich-ihn-gesehen": (
@@ -315,7 +315,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schumann,_Robert/Dichterliebe,_Op.48/02_Aus_meinen_Tränen_sprießen/score.mxl",
     ),
     "wir-openscore-liedercorpus-schumann-dichterliebe-op-48-09-das-ist-ein-floten-und-geigen": (
-        "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schumann,_Robert/Dichterliebe,_Op.48/09_Das_ist_ein_Flöten_und_Geigen/analysis.txt",
+        "rawdata/corrections/WiR/Corpus/OpenScore-LiederCorpus/Schumann,_Robert/Dichterliebe,_Op.48/09_Das_ist_ein_Flöten_und_Geigen/analysis.txt",
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schumann,_Robert/Dichterliebe,_Op.48/09_Das_ist_ein_Flöten_und_Geigen/score.mxl",
     ),
     "wir-openscore-liedercorpus-schumann-dichterliebe-op-48-01-im-wunderschonen-monat-mai": (
@@ -363,7 +363,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Holmès,_Augusta_Mary_Anne/Les_Heures/4_L’Heure_d’Azur/score.mxl",
     ),
     "wir-openscore-liedercorpus-reichardt-zwolf-gesange-op-3-04-wachtelwacht": (
-        "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Reichardt,_Louise/Zwölf_Gesänge,_Op.3/04_Wachtelwacht/analysis.txt",
+        "rawdata/corrections/WiR/Corpus/OpenScore-LiederCorpus/Reichardt,_Louise/Zwölf_Gesänge,_Op.3/04_Wachtelwacht/analysis.txt",
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Reichardt,_Louise/Zwölf_Gesänge,_Op.3/04_Wachtelwacht/score.mxl",
     ),
     "wir-openscore-liedercorpus-reichardt-zwolf-gesange-op-3-03-die-blume-der-blumen": (
@@ -395,7 +395,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Reichardt,_Louise/Zwölf_Gesänge,_Op.3/01_Frühlingsblumen/score.mxl",
     ),
     "wir-openscore-liedercorpus-reichardt-zwolf-deutsche-und-italianische-romantische-gesange-10-ida-aus-ariels-offenbarungen": (
-        "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Reichardt,_Louise/Zwölf_Deutsche_und_Italiänische_Romantische_Gesänge/10_Ida_(aus_Ariels_Offenbarungen)/analysis.txt",
+        "rawdata/corrections/WiR/Corpus/OpenScore-LiederCorpus/Reichardt,_Louise/Zwölf_Deutsche_und_Italiänische_Romantische_Gesänge/10_Ida_(aus_Ariels_Offenbarungen)/analysis.txt",
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Reichardt,_Louise/Zwölf_Deutsche_und_Italiänische_Romantische_Gesänge/10_Ida_(aus_Ariels_Offenbarungen)/score.mxl",
     ),
     "wir-openscore-liedercorpus-reichardt-sechs-lieder-von-novalis-op-4-5-noch-ein-bergmannslied": (
@@ -431,7 +431,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schubert,_Franz/Winterreise,_D.911/06_Wasserfluth/score.mxl",
     ),
     "wir-openscore-liedercorpus-schubert-winterreise-d-911-09-irrlicht": (
-        "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schubert,_Franz/Winterreise,_D.911/09_Irrlicht/analysis.txt",
+        "rawdata/corrections/WiR/Corpus/OpenScore-LiederCorpus/Schubert,_Franz/Winterreise,_D.911/09_Irrlicht/analysis.txt",
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schubert,_Franz/Winterreise,_D.911/09_Irrlicht/score.mxl",
     ),
     "wir-openscore-liedercorpus-schubert-winterreise-d-911-04-erstarrung": (
@@ -511,7 +511,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schubert,_Franz/Winterreise,_D.911/19_Täuschung/score.mxl",
     ),
     "wir-openscore-liedercorpus-schubert-op-59-3-du-bist-die-ruh": (
-        "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schubert,_Franz/Op.59/3_Du_bist_die_Ruh/analysis.txt",
+        "rawdata/corrections/WiR/Corpus/OpenScore-LiederCorpus/Schubert,_Franz/Op.59/3_Du_bist_die_Ruh/analysis.txt",
         "rawdata/When-in-Rome/Corpus/OpenScore-LiederCorpus/Schubert,_Franz/Op.59/3_Du_bist_die_Ruh/score.mxl",
     ),
     "wir-openscore-liedercorpus-schubert-die-schone-mullerin-d-795-12-pause": (
@@ -579,7 +579,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/When-in-Rome/Corpus/Etudes_and_Preludes/Bach,_Johann_Sebastian/The_Well-Tempered_Clavier_I/8/score.mxl",
     ),
     "wirwtc-bach-wtc-i-3": (
-        "rawdata/When-in-Rome/Corpus/Etudes_and_Preludes/Bach,_Johann_Sebastian/The_Well-Tempered_Clavier_I/3/analysis.txt",
+        "rawdata/corrections/WiR/Corpus/Etudes_and_Preludes/Bach,_Johann_Sebastian/The_Well-Tempered_Clavier_I/3/analysis.txt",
         "rawdata/When-in-Rome/Corpus/Etudes_and_Preludes/Bach,_Johann_Sebastian/The_Well-Tempered_Clavier_I/3/score.mxl",
     ),
     "wirwtc-bach-wtc-i-7": (
@@ -839,7 +839,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/functional-harmony-micchi/data/Tavern/Beethoven/scores/B063.mxl",
     ),
     "tavern-beethoven-woo-63-b": (
-        "rawdata/When-in-Rome/Corpus/Variations_and_Grounds/Beethoven,_Ludwig_van/_/WoO_63/analysis_B.txt",
+        "rawdata/corrections/WiR/Corpus/Variations_and_Grounds/Beethoven,_Ludwig_van/_/WoO_63/analysis_B.txt",
         "rawdata/functional-harmony-micchi/data/Tavern/Beethoven/scores/B063.mxl",
     ),
     "tavern-beethoven-woo-64-a": (
@@ -1095,7 +1095,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/corrections/ABC/op18_no4_mov1.mxl",
     ),
     "abc-op18-no4-2": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No4/2/analysis.txt",
+        "rawdata/corrections/WiR/Corpus/Quartets/Beethoven,_Ludwig_van/Op18_No4/2/analysis.txt",
         "rawdata/functional-harmony-micchi/data/Beethoven_4tets/scores/op18_no4_mov2.mxl",
     ),
     "abc-op18-no4-3": (
@@ -1331,7 +1331,7 @@ ANNOTATIONSCOREDUPLES = {
         "rawdata/haydn_op20_harm/op20/1/ii/op20n1-02.krn",
     ),
     "haydnop20-no1-3": (
-        "rawdata/When-in-Rome/Corpus/Quartets/Haydn,_Franz_Joseph/Op20_No1/3/analysis.txt",
+        "rawdata/corrections/WiR/Corpus/Quartets/Haydn,_Franz_Joseph/Op20_No1/3/analysis.txt",
         "rawdata/haydn_op20_harm/op20/1/iii/op20n1-03.krn",
     ),
     "haydnop20-no1-4": (
